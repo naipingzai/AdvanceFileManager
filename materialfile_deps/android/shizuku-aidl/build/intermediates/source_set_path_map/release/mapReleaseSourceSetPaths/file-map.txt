@@ -1,0 +1,7 @@
+moe.shizuku.server-pngs-0 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-aidl\build\generated\res\pngs\release
+moe.shizuku.server-resValues-1 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-aidl\build\generated\res\resValues\release
+moe.shizuku.server-mergeReleaseResources-2 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-aidl\build\intermediates\incremental\release\mergeReleaseResources\merged.dir
+moe.shizuku.server-mergeReleaseResources-3 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-aidl\build\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+moe.shizuku.server-release-4 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-aidl\build\intermediates\merged_res\release\mergeReleaseResources
+moe.shizuku.server-main-5 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-aidl\src\main\res
+moe.shizuku.server-release-6 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-aidl\src\release\res

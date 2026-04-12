@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "de.psdev.licensesdialog-release-23:/layout-watch-v20/abc_alert_dialog_title_material.xml",
+        "source": "de.psdev.licensesdialog-appcompat-1.7.1-12:/layout-watch-v20/abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "de.psdev.licensesdialog-release-23:/layout-watch-v20/abc_alert_dialog_button_bar_material.xml",
+        "source": "de.psdev.licensesdialog-appcompat-1.7.1-12:/layout-watch-v20/abc_alert_dialog_button_bar_material.xml"
+    }
+]

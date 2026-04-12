@@ -1,0 +1,1789 @@
+Determining if files sys/types.h;acl/libacl.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_81af0 && [1/2] Building C object CMakeFiles/cmTC_81af0.dir/HAVE_ACL_LIBACL_H.c.o
+FAILED: CMakeFiles/cmTC_81af0.dir/HAVE_ACL_LIBACL_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_81af0.dir/HAVE_ACL_LIBACL_H.c.o -MF CMakeFiles\cmTC_81af0.dir\HAVE_ACL_LIBACL_H.c.o.d -o CMakeFiles/cmTC_81af0.dir/HAVE_ACL_LIBACL_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_ACL_LIBACL_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_ACL_LIBACL_H.c:3:10: fatal error: 'acl/libacl.h' file not found
+    3 | #include <acl/libacl.h>
+      |          ^~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <acl/libacl.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;attr/xattr.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_a2576 && [1/2] Building C object CMakeFiles/cmTC_a2576.dir/HAVE_ATTR_XATTR_H.c.o
+FAILED: CMakeFiles/cmTC_a2576.dir/HAVE_ATTR_XATTR_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_a2576.dir/HAVE_ATTR_XATTR_H.c.o -MF CMakeFiles\cmTC_a2576.dir\HAVE_ATTR_XATTR_H.c.o.d -o CMakeFiles/cmTC_a2576.dir/HAVE_ATTR_XATTR_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_ATTR_XATTR_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_ATTR_XATTR_H.c:3:10: fatal error: 'attr/xattr.h' file not found
+    3 | #include <attr/xattr.h>
+      |          ^~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <attr/xattr.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;copyfile.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_6e030 && [1/2] Building C object CMakeFiles/cmTC_6e030.dir/HAVE_COPYFILE_H.c.o
+FAILED: CMakeFiles/cmTC_6e030.dir/HAVE_COPYFILE_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_6e030.dir/HAVE_COPYFILE_H.c.o -MF CMakeFiles\cmTC_6e030.dir\HAVE_COPYFILE_H.c.o.d -o CMakeFiles/cmTC_6e030.dir/HAVE_COPYFILE_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_COPYFILE_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_COPYFILE_H.c:4:10: fatal error: 'copyfile.h' file not found
+    4 | #include <copyfile.h>
+      |          ^~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <copyfile.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;direct.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_3fc8d && [1/2] Building C object CMakeFiles/cmTC_3fc8d.dir/HAVE_DIRECT_H.c.o
+FAILED: CMakeFiles/cmTC_3fc8d.dir/HAVE_DIRECT_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_3fc8d.dir/HAVE_DIRECT_H.c.o -MF CMakeFiles\cmTC_3fc8d.dir\HAVE_DIRECT_H.c.o.d -o CMakeFiles/cmTC_3fc8d.dir/HAVE_DIRECT_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_DIRECT_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_DIRECT_H.c:4:10: fatal error: 'direct.h' file not found
+    4 | #include <direct.h>
+      |          ^~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <direct.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;ext2fs/ext2_fs.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_8f732 && [1/2] Building C object CMakeFiles/cmTC_8f732.dir/HAVE_EXT2FS_EXT2_FS_H.c.o
+FAILED: CMakeFiles/cmTC_8f732.dir/HAVE_EXT2FS_EXT2_FS_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_8f732.dir/HAVE_EXT2FS_EXT2_FS_H.c.o -MF CMakeFiles\cmTC_8f732.dir\HAVE_EXT2FS_EXT2_FS_H.c.o.d -o CMakeFiles/cmTC_8f732.dir/HAVE_EXT2FS_EXT2_FS_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_EXT2FS_EXT2_FS_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_EXT2FS_EXT2_FS_H.c:6:10: fatal error: 'ext2fs/ext2_fs.h' file not found
+    6 | #include <ext2fs/ext2_fs.h>
+      |          ^~~~~~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <ext2fs/ext2_fs.h>
+
+
+int main(void){return 0;}
+
+Performing C SOURCE FILE Test HAVE_WORKING_EXT2_IOC_GETFLAGS failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_dd943 && [1/2] Building C object CMakeFiles/cmTC_dd943.dir/src.c.o
+FAILED: CMakeFiles/cmTC_dd943.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DHAVE_WORKING_EXT2_IOC_GETFLAGS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_dd943.dir/src.c.o -MF CMakeFiles\cmTC_dd943.dir\src.c.o.d -o CMakeFiles/cmTC_dd943.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:2:10: fatal error: 'ext2fs/ext2_fs.h' file not found
+    2 | #include <ext2fs/ext2_fs.h>
+      |          ^~~~~~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <sys/ioctl.h>
+#include <ext2fs/ext2_fs.h>
+int main(void) { return EXT2_IOC_GETFLAGS; }
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;fnmatch.h;grp.h;inttypes.h;io.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_c1a8f && [1/2] Building C object CMakeFiles/cmTC_c1a8f.dir/HAVE_IO_H.c.o
+FAILED: CMakeFiles/cmTC_c1a8f.dir/HAVE_IO_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_c1a8f.dir/HAVE_IO_H.c.o -MF CMakeFiles\cmTC_c1a8f.dir\HAVE_IO_H.c.o.d -o CMakeFiles/cmTC_c1a8f.dir/HAVE_IO_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_IO_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_IO_H.c:10:10: fatal error: 'io.h' file not found
+   10 | #include <io.h>
+      |          ^~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <fnmatch.h>
+#include <grp.h>
+#include <inttypes.h>
+#include <io.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;fnmatch.h;grp.h;inttypes.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;membership.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_b0727 && [1/2] Building C object CMakeFiles/cmTC_b0727.dir/HAVE_MEMBERSHIP_H.c.o
+FAILED: CMakeFiles/cmTC_b0727.dir/HAVE_MEMBERSHIP_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_b0727.dir/HAVE_MEMBERSHIP_H.c.o -MF CMakeFiles\cmTC_b0727.dir\HAVE_MEMBERSHIP_H.c.o.d -o CMakeFiles/cmTC_b0727.dir/HAVE_MEMBERSHIP_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_MEMBERSHIP_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_MEMBERSHIP_H.c:17:10: fatal error: 'membership.h' file not found
+   17 | #include <membership.h>
+      |          ^~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <fnmatch.h>
+#include <grp.h>
+#include <inttypes.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <membership.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;fnmatch.h;grp.h;inttypes.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;process.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_72999 && [1/2] Building C object CMakeFiles/cmTC_72999.dir/HAVE_PROCESS_H.c.o
+FAILED: CMakeFiles/cmTC_72999.dir/HAVE_PROCESS_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_72999.dir/HAVE_PROCESS_H.c.o -MF CMakeFiles\cmTC_72999.dir\HAVE_PROCESS_H.c.o.d -o CMakeFiles/cmTC_72999.dir/HAVE_PROCESS_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_PROCESS_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_PROCESS_H.c:20:10: fatal error: 'process.h' file not found
+   20 | #include <process.h>
+      |          ^~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <fnmatch.h>
+#include <grp.h>
+#include <inttypes.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <process.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;fnmatch.h;grp.h;inttypes.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;readpassphrase.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_2e6fc && [1/2] Building C object CMakeFiles/cmTC_2e6fc.dir/HAVE_READPASSPHRASE_H.c.o
+FAILED: CMakeFiles/cmTC_2e6fc.dir/HAVE_READPASSPHRASE_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_2e6fc.dir/HAVE_READPASSPHRASE_H.c.o -MF CMakeFiles\cmTC_2e6fc.dir\HAVE_READPASSPHRASE_H.c.o.d -o CMakeFiles/cmTC_2e6fc.dir/HAVE_READPASSPHRASE_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_READPASSPHRASE_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_READPASSPHRASE_H.c:22:10: fatal error: 'readpassphrase.h' file not found
+   22 | #include <readpassphrase.h>
+      |          ^~~~~~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <fnmatch.h>
+#include <grp.h>
+#include <inttypes.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <readpassphrase.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;fnmatch.h;grp.h;inttypes.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdint.h;stdlib.h;string.h;strings.h;sys/acl.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_30b57 && [1/2] Building C object CMakeFiles/cmTC_30b57.dir/HAVE_SYS_ACL_H.c.o
+FAILED: CMakeFiles/cmTC_30b57.dir/HAVE_SYS_ACL_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_30b57.dir/HAVE_SYS_ACL_H.c.o -MF CMakeFiles\cmTC_30b57.dir\HAVE_SYS_ACL_H.c.o.d -o CMakeFiles/cmTC_30b57.dir/HAVE_SYS_ACL_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_SYS_ACL_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_SYS_ACL_H.c:30:10: fatal error: 'sys/acl.h' file not found
+   30 | #include <sys/acl.h>
+      |          ^~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <fnmatch.h>
+#include <grp.h>
+#include <inttypes.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/acl.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;fnmatch.h;grp.h;inttypes.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdint.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/extattr.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_30196 && [1/2] Building C object CMakeFiles/cmTC_30196.dir/HAVE_SYS_EXTATTR_H.c.o
+FAILED: CMakeFiles/cmTC_30196.dir/HAVE_SYS_EXTATTR_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_30196.dir/HAVE_SYS_EXTATTR_H.c.o -MF CMakeFiles\cmTC_30196.dir\HAVE_SYS_EXTATTR_H.c.o.d -o CMakeFiles/cmTC_30196.dir/HAVE_SYS_EXTATTR_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_SYS_EXTATTR_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_SYS_EXTATTR_H.c:31:10: fatal error: 'sys/extattr.h' file not found
+   31 | #include <sys/extattr.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <fnmatch.h>
+#include <grp.h>
+#include <inttypes.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/extattr.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;fnmatch.h;grp.h;inttypes.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdint.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mkdev.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_2ca95 && [1/2] Building C object CMakeFiles/cmTC_2ca95.dir/HAVE_SYS_MKDEV_H.c.o
+FAILED: CMakeFiles/cmTC_2ca95.dir/HAVE_SYS_MKDEV_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_2ca95.dir/HAVE_SYS_MKDEV_H.c.o -MF CMakeFiles\cmTC_2ca95.dir\HAVE_SYS_MKDEV_H.c.o.d -o CMakeFiles/cmTC_2ca95.dir/HAVE_SYS_MKDEV_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MKDEV_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_SYS_MKDEV_H.c:32:10: fatal error: 'sys/mkdev.h' file not found
+   32 | #include <sys/mkdev.h>
+      |          ^~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <fnmatch.h>
+#include <grp.h>
+#include <inttypes.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mkdev.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;fnmatch.h;grp.h;inttypes.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdint.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mount.h;sys/param.h;sys/poll.h;sys/richacl.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_a2814 && [1/2] Building C object CMakeFiles/cmTC_a2814.dir/HAVE_SYS_RICHACL_H.c.o
+FAILED: CMakeFiles/cmTC_a2814.dir/HAVE_SYS_RICHACL_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_a2814.dir/HAVE_SYS_RICHACL_H.c.o -MF CMakeFiles\cmTC_a2814.dir\HAVE_SYS_RICHACL_H.c.o.d -o CMakeFiles/cmTC_a2814.dir/HAVE_SYS_RICHACL_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_SYS_RICHACL_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_SYS_RICHACL_H.c:35:10: fatal error: 'sys/richacl.h' file not found
+   35 | #include <sys/richacl.h>
+      |          ^~~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <fnmatch.h>
+#include <grp.h>
+#include <inttypes.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mount.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/richacl.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;fnmatch.h;grp.h;inttypes.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdint.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mount.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utime.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_84b83 && [1/2] Building C object CMakeFiles/cmTC_84b83.dir/HAVE_SYS_UTIME_H.c.o
+FAILED: CMakeFiles/cmTC_84b83.dir/HAVE_SYS_UTIME_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_84b83.dir/HAVE_SYS_UTIME_H.c.o -MF CMakeFiles\cmTC_84b83.dir\HAVE_SYS_UTIME_H.c.o.d -o CMakeFiles/cmTC_84b83.dir/HAVE_SYS_UTIME_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UTIME_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_SYS_UTIME_H.c:41:10: fatal error: 'sys/utime.h' file not found
+   41 | #include <sys/utime.h>
+      |          ^~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <fnmatch.h>
+#include <grp.h>
+#include <inttypes.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mount.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utime.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;fnmatch.h;grp.h;inttypes.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdint.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mount.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;windows.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_8f3a4 && [1/2] Building C object CMakeFiles/cmTC_8f3a4.dir/HAVE_WINDOWS_H.c.o
+FAILED: CMakeFiles/cmTC_8f3a4.dir/HAVE_WINDOWS_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_8f3a4.dir/HAVE_WINDOWS_H.c.o -MF CMakeFiles\cmTC_8f3a4.dir\HAVE_WINDOWS_H.c.o.d -o CMakeFiles/cmTC_8f3a4.dir/HAVE_WINDOWS_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_WINDOWS_H.c:50:10: fatal error: 'windows.h' file not found
+   50 | #include <windows.h>
+      |          ^~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <fnmatch.h>
+#include <grp.h>
+#include <inttypes.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mount.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <windows.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;fnmatch.h;grp.h;inttypes.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdint.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mount.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;bcrypt.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_80261 && [1/2] Building C object CMakeFiles/cmTC_80261.dir/HAVE_BCRYPT_H.c.o
+FAILED: CMakeFiles/cmTC_80261.dir/HAVE_BCRYPT_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_80261.dir/HAVE_BCRYPT_H.c.o -MF CMakeFiles\cmTC_80261.dir\HAVE_BCRYPT_H.c.o.d -o CMakeFiles/cmTC_80261.dir/HAVE_BCRYPT_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_BCRYPT_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_BCRYPT_H.c:50:10: fatal error: 'bcrypt.h' file not found
+   50 | #include <bcrypt.h>
+      |          ^~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <fnmatch.h>
+#include <grp.h>
+#include <inttypes.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mount.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <bcrypt.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;fnmatch.h;grp.h;inttypes.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdint.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mount.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;wincrypt.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_5c0e3 && [1/2] Building C object CMakeFiles/cmTC_5c0e3.dir/HAVE_WINCRYPT_H.c.o
+FAILED: CMakeFiles/cmTC_5c0e3.dir/HAVE_WINCRYPT_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_5c0e3.dir/HAVE_WINCRYPT_H.c.o -MF CMakeFiles\cmTC_5c0e3.dir\HAVE_WINCRYPT_H.c.o.d -o CMakeFiles/cmTC_5c0e3.dir/HAVE_WINCRYPT_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_WINCRYPT_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_WINCRYPT_H.c:50:10: fatal error: 'wincrypt.h' file not found
+   50 | #include <wincrypt.h>
+      |          ^~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <fnmatch.h>
+#include <grp.h>
+#include <inttypes.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mount.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <wincrypt.h>
+
+
+int main(void){return 0;}
+
+Determining if files sys/types.h;ctype.h;dlfcn.h;errno.h;fcntl.h;fnmatch.h;grp.h;inttypes.h;langinfo.h;limits.h;linux/types.h;linux/fiemap.h;linux/fs.h;linux/magic.h;locale.h;memory.h;paths.h;poll.h;pthread.h;pwd.h;regex.h;signal.h;spawn.h;stdarg.h;stdint.h;stdlib.h;string.h;strings.h;sys/cdefs.h;sys/ioctl.h;sys/mount.h;sys/param.h;sys/poll.h;sys/select.h;sys/stat.h;sys/statfs.h;sys/statvfs.h;sys/sysmacros.h;sys/time.h;sys/utsname.h;sys/vfs.h;sys/wait.h;sys/xattr.h;time.h;unistd.h;utime.h;wchar.h;wctype.h;winioctl.h exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_a2c9f && [1/2] Building C object CMakeFiles/cmTC_a2c9f.dir/HAVE_WINIOCTL_H.c.o
+FAILED: CMakeFiles/cmTC_a2c9f.dir/HAVE_WINIOCTL_H.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_a2c9f.dir/HAVE_WINIOCTL_H.c.o -MF CMakeFiles\cmTC_a2c9f.dir\HAVE_WINIOCTL_H.c.o.d -o CMakeFiles/cmTC_a2c9f.dir/HAVE_WINIOCTL_H.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_WINIOCTL_H.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckIncludeFiles/HAVE_WINIOCTL_H.c:50:10: fatal error: 'winioctl.h' file not found
+   50 | #include <winioctl.h>
+      |          ^~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source:
+/* */
+#include <sys/types.h>
+#include <ctype.h>
+#include <dlfcn.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <fnmatch.h>
+#include <grp.h>
+#include <inttypes.h>
+#include <langinfo.h>
+#include <limits.h>
+#include <linux/types.h>
+#include <linux/fiemap.h>
+#include <linux/fs.h>
+#include <linux/magic.h>
+#include <locale.h>
+#include <memory.h>
+#include <paths.h>
+#include <poll.h>
+#include <pthread.h>
+#include <pwd.h>
+#include <regex.h>
+#include <signal.h>
+#include <spawn.h>
+#include <stdarg.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/cdefs.h>
+#include <sys/ioctl.h>
+#include <sys/mount.h>
+#include <sys/param.h>
+#include <sys/poll.h>
+#include <sys/select.h>
+#include <sys/stat.h>
+#include <sys/statfs.h>
+#include <sys/statvfs.h>
+#include <sys/sysmacros.h>
+#include <sys/time.h>
+#include <sys/utsname.h>
+#include <sys/vfs.h>
+#include <sys/wait.h>
+#include <sys/xattr.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+#include <wchar.h>
+#include <wctype.h>
+#include <winioctl.h>
+
+
+int main(void){return 0;}
+
+Determining if the function MD5Init exists in the md failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_ef3dc && [1/2] Building C object CMakeFiles/cmTC_ef3dc.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_ef3dc
+FAILED: cmTC_ef3dc 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=MD5Init -Wall -Wformat -Wformat-security -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_ef3dc.dir/CheckFunctionExists.c.o -o cmTC_ef3dc  -lmd  -latomic -lm && cd ."
+ld.lld: error: unable to find library -lmd
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the _CrtSetReportMode exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_73c9f && [1/2] Building C object CMakeFiles/cmTC_73c9f.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_73c9f.dir/CheckSymbolExists.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fno-builtin -fPIE -MD -MT CMakeFiles/cmTC_73c9f.dir/CheckSymbolExists.c.o -MF CMakeFiles\cmTC_73c9f.dir\CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_73c9f.dir/CheckSymbolExists.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: 'crtdbg.h' file not found
+    2 | #include <crtdbg.h>
+      |          ^~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <crtdbg.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _CrtSetReportMode
+  return ((int*)(&_CrtSetReportMode))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function chflags exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_ee702 && [1/2] Building C object CMakeFiles/cmTC_ee702.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_ee702
+FAILED: cmTC_ee702 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=chflags -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_ee702.dir/CheckFunctionExists.c.o -o cmTC_ee702  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: chflags
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_ee702.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function fchflags exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_c876a && [1/2] Building C object CMakeFiles/cmTC_c876a.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_c876a
+FAILED: cmTC_c876a 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=fchflags -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_c876a.dir/CheckFunctionExists.c.o -o cmTC_c876a  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: fchflags
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_c876a.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function futimes exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_4c1f0 && [1/2] Building C object CMakeFiles/cmTC_4c1f0.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_4c1f0
+FAILED: cmTC_4c1f0 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=futimes -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_4c1f0.dir/CheckFunctionExists.c.o -o cmTC_4c1f0  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: futimes
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_4c1f0.dir/CheckFunctionExists.c.o:(main)
+>>> did you mean: utimes
+>>> defined in: D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/21/libc.so
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function futimesat exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_11045 && [1/2] Building C object CMakeFiles/cmTC_11045.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_11045
+FAILED: cmTC_11045 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=futimesat -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_11045.dir/CheckFunctionExists.c.o -o cmTC_11045  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: futimesat
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_11045.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function getgrgid_r exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_63b5f && [1/2] Building C object CMakeFiles/cmTC_63b5f.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_63b5f
+FAILED: cmTC_63b5f 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=getgrgid_r -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_63b5f.dir/CheckFunctionExists.c.o -o cmTC_63b5f  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: getgrgid_r
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_63b5f.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function getgrnam_r exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_b3f50 && [1/2] Building C object CMakeFiles/cmTC_b3f50.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_b3f50
+FAILED: cmTC_b3f50 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=getgrnam_r -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_b3f50.dir/CheckFunctionExists.c.o -o cmTC_b3f50  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: getgrnam_r
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_b3f50.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function getvfsbyname exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_b909a && [1/2] Building C object CMakeFiles/cmTC_b909a.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_b909a
+FAILED: cmTC_b909a 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=getvfsbyname -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_b909a.dir/CheckFunctionExists.c.o -o cmTC_b909a  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: getvfsbyname
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_b909a.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function lchflags exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_2a4d4 && [1/2] Building C object CMakeFiles/cmTC_2a4d4.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_2a4d4
+FAILED: cmTC_2a4d4 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=lchflags -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_2a4d4.dir/CheckFunctionExists.c.o -o cmTC_2a4d4  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: lchflags
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_2a4d4.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function lchmod exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_68634 && [1/2] Building C object CMakeFiles/cmTC_68634.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_68634
+FAILED: cmTC_68634 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=lchmod -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_68634.dir/CheckFunctionExists.c.o -o cmTC_68634  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: lchmod
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_68634.dir/CheckFunctionExists.c.o:(main)
+>>> did you mean: fchmod
+>>> defined in: D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/21/libc.so
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function lutimes exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_ac9aa && [1/2] Building C object CMakeFiles/cmTC_ac9aa.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_ac9aa
+FAILED: cmTC_ac9aa 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=lutimes -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_ac9aa.dir/CheckFunctionExists.c.o -o cmTC_ac9aa  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: lutimes
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_ac9aa.dir/CheckFunctionExists.c.o:(main)
+>>> did you mean: utimes
+>>> defined in: D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/21/libc.so
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function nl_langinfo exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_f6cab && [1/2] Building C object CMakeFiles/cmTC_f6cab.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_f6cab
+FAILED: cmTC_f6cab 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=nl_langinfo -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_f6cab.dir/CheckFunctionExists.c.o -o cmTC_f6cab  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: nl_langinfo
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_f6cab.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function posix_spawnp exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_657c3 && [1/2] Building C object CMakeFiles/cmTC_657c3.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_657c3
+FAILED: cmTC_657c3 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=posix_spawnp -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_657c3.dir/CheckFunctionExists.c.o -o cmTC_657c3  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: posix_spawnp
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_657c3.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function readpassphrase exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_39173 && [1/2] Building C object CMakeFiles/cmTC_39173.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_39173
+FAILED: cmTC_39173 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=readpassphrase -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_39173.dir/CheckFunctionExists.c.o -o cmTC_39173  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: readpassphrase
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_39173.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function strncpy_s exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_d6207 && [1/2] Building C object CMakeFiles/cmTC_d6207.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_d6207
+FAILED: cmTC_d6207 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=strncpy_s -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_d6207.dir/CheckFunctionExists.c.o -o cmTC_d6207  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: strncpy_s
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_d6207.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function _fseeki64 exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_1eab9 && [1/2] Building C object CMakeFiles/cmTC_1eab9.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_1eab9
+FAILED: cmTC_1eab9 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=_fseeki64 -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_1eab9.dir/CheckFunctionExists.c.o -o cmTC_1eab9  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: _fseeki64
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_1eab9.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the function _get_timezone exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_b7641 && [1/2] Building C object CMakeFiles/cmTC_b7641.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_b7641
+FAILED: cmTC_b7641 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=_get_timezone -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_b7641.dir/CheckFunctionExists.c.o -o cmTC_b7641  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: _get_timezone
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_b7641.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the ctime_s exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_ddeef && [1/2] Building C object CMakeFiles/cmTC_ddeef.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_ddeef.dir/CheckSymbolExists.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fno-builtin -fPIE -MD -MT CMakeFiles/cmTC_ddeef.dir/CheckSymbolExists.c.o -MF CMakeFiles\cmTC_ddeef.dir\CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_ddeef.dir/CheckSymbolExists.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'ctime_s'; did you mean 'ctime_r'?
+    8 |   return ((int*)(&ctime_s))[argc];
+      |                   ^~~~~~~
+      |                   ctime_r
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/time.h:291:17: note: 'ctime_r' declared here
+  291 | char* _Nullable ctime_r(const time_t* _Nonnull __t, char* _Nonnull __buf);
+      |                 ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef ctime_s
+  return ((int*)(&ctime_s))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the gmtime_s exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_055ff && [1/2] Building C object CMakeFiles/cmTC_055ff.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_055ff.dir/CheckSymbolExists.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fno-builtin -fPIE -MD -MT CMakeFiles/cmTC_055ff.dir/CheckSymbolExists.c.o -MF CMakeFiles\cmTC_055ff.dir\CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_055ff.dir/CheckSymbolExists.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'gmtime_s'; did you mean 'gmtime_r'?
+    8 |   return ((int*)(&gmtime_s))[argc];
+      |                   ^~~~~~~~
+      |                   gmtime_r
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/time.h:238:22: note: 'gmtime_r' declared here
+  238 | struct tm* _Nullable gmtime_r(const time_t* _Nonnull __t, struct tm* _Nonnull __tm);
+      |                      ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef gmtime_s
+  return ((int*)(&gmtime_s))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the localtime_s exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_9a169 && [1/2] Building C object CMakeFiles/cmTC_9a169.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_9a169.dir/CheckSymbolExists.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fno-builtin -fPIE -MD -MT CMakeFiles/cmTC_9a169.dir/CheckSymbolExists.c.o -MF CMakeFiles\cmTC_9a169.dir\CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_9a169.dir/CheckSymbolExists.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'localtime_s'; did you mean 'localtime_r'?
+    8 |   return ((int*)(&localtime_s))[argc];
+      |                   ^~~~~~~~~~~
+      |                   localtime_r
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/time.h:196:22: note: 'localtime_r' declared here
+  196 | struct tm* _Nullable localtime_r(const time_t* _Nonnull __t, struct tm* _Nonnull __tm);
+      |                      ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef localtime_s
+  return ((int*)(&localtime_s))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the _mkgmtime exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_188a6 && [1/2] Building C object CMakeFiles/cmTC_188a6.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_188a6.dir/CheckSymbolExists.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fno-builtin -fPIE -MD -MT CMakeFiles/cmTC_188a6.dir/CheckSymbolExists.c.o -MF CMakeFiles\cmTC_188a6.dir\CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_188a6.dir/CheckSymbolExists.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: use of undeclared identifier '_mkgmtime'
+    8 |   return ((int*)(&_mkgmtime))[argc];
+      |                   ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef _mkgmtime
+  return ((int*)(&_mkgmtime))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the function cygwin_conv_path exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_e9fa0 && [1/2] Building C object CMakeFiles/cmTC_e9fa0.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_e9fa0
+FAILED: cmTC_e9fa0 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -DCHECK_FUNCTION_EXISTS=cygwin_conv_path -Wall -Wformat -Wformat-security -fno-builtin -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments CMakeFiles/cmTC_e9fa0.dir/CheckFunctionExists.c.o -o cmTC_e9fa0  -latomic -lm && cd ."
+ld.lld: error: undefined symbol: cygwin_conv_path
+>>> referenced by CheckFunctionExists.c:17 (D:/AndroidApp/MaterialFile/tools/android-sdk/cmake/3.22.1/share/cmake-3.22/Modules/CheckFunctionExists.c:17)
+>>>               CMakeFiles/cmTC_e9fa0.dir/CheckFunctionExists.c.o:(main)
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+
+Performing C SOURCE FILE Test HAVE_STRUCT_VFSCONF failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_edb51 && [1/2] Building C object CMakeFiles/cmTC_edb51.dir/src.c.o
+FAILED: CMakeFiles/cmTC_edb51.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DHAVE_STRUCT_VFSCONF -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_edb51.dir/src.c.o -MF CMakeFiles\cmTC_edb51.dir\src.c.o.d -o CMakeFiles/cmTC_edb51.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:3:33: error: variable has incomplete type 'struct vfsconf'
+    3 | int main(void) { struct vfsconf v; return sizeof(v);}
+      |                                 ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:3:25: note: forward declaration of 'struct vfsconf'
+    3 | int main(void) { struct vfsconf v; return sizeof(v);}
+      |                         ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct vfsconf v; return sizeof(v);}
+Performing C SOURCE FILE Test HAVE_STRUCT_XVFSCONF failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_c4b69 && [1/2] Building C object CMakeFiles/cmTC_c4b69.dir/src.c.o
+FAILED: CMakeFiles/cmTC_c4b69.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DHAVE_STRUCT_XVFSCONF -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_c4b69.dir/src.c.o -MF CMakeFiles\cmTC_c4b69.dir\src.c.o.d -o CMakeFiles/cmTC_c4b69.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:3:34: error: variable has incomplete type 'struct xvfsconf'
+    3 | int main(void) { struct xvfsconf v; return sizeof(v);}
+      |                                  ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:3:25: note: forward declaration of 'struct xvfsconf'
+    3 | int main(void) { struct xvfsconf v; return sizeof(v);}
+      |                         ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct xvfsconf v; return sizeof(v);}
+Performing C SOURCE FILE Test HAVE_STRUCT_STATFS failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_2f2a1 && [1/2] Building C object CMakeFiles/cmTC_2f2a1.dir/src.c.o
+FAILED: CMakeFiles/cmTC_2f2a1.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DHAVE_STRUCT_STATFS -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_2f2a1.dir/src.c.o -MF CMakeFiles\cmTC_2f2a1.dir\src.c.o.d -o CMakeFiles/cmTC_2f2a1.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:3:32: error: variable has incomplete type 'struct statfs'
+    3 | int main(void) { struct statfs s; return sizeof(s);}
+      |                                ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:3:25: note: forward declaration of 'struct statfs'
+    3 | int main(void) { struct statfs s; return sizeof(s);}
+      |                         ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <sys/types.h>
+#include <sys/mount.h>
+int main(void) { struct statfs s; return sizeof(s);}
+Performing C SOURCE FILE Test MAJOR_IN_MKDEV failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_91222 && [1/2] Building C object CMakeFiles/cmTC_91222.dir/src.c.o
+FAILED: CMakeFiles/cmTC_91222.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DMAJOR_IN_MKDEV -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_91222.dir/src.c.o -MF CMakeFiles\cmTC_91222.dir\src.c.o.d -o CMakeFiles/cmTC_91222.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:1:10: fatal error: 'sys/mkdev.h' file not found
+    1 | #include <sys/mkdev.h>
+      |          ^~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <sys/mkdev.h>
+int main() { return major(256); }
+Determining if the EFTYPE exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_0ce78 && [1/2] Building C object CMakeFiles/cmTC_0ce78.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_0ce78.dir/CheckSymbolExists.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_0ce78.dir/CheckSymbolExists.c.o -MF CMakeFiles\cmTC_0ce78.dir\CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_0ce78.dir/CheckSymbolExists.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'EFTYPE'
+    8 |   return ((int*)(&EFTYPE))[argc];
+      |                   ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <errno.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef EFTYPE
+  return ((int*)(&EFTYPE))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the D_MD_ORDER exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_01867 && [1/2] Building C object CMakeFiles/cmTC_01867.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_01867.dir/CheckSymbolExists.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_01867.dir/CheckSymbolExists.c.o -MF CMakeFiles\cmTC_01867.dir\CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_01867.dir/CheckSymbolExists.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'D_MD_ORDER'
+    8 |   return ((int*)(&D_MD_ORDER))[argc];
+      |                   ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <langinfo.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef D_MD_ORDER
+  return ((int*)(&D_MD_ORDER))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test HAVE_STRUCT_TM___TM_GMTOFF failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_90d87 && [1/2] Building C object CMakeFiles/cmTC_90d87.dir/src.c.o
+FAILED: CMakeFiles/cmTC_90d87.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DHAVE_STRUCT_TM___TM_GMTOFF -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_90d87.dir/src.c.o -MF CMakeFiles\cmTC_90d87.dir\src.c.o.d -o CMakeFiles/cmTC_90d87.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:6:34: error: no member named '__tm_gmtoff' in 'struct tm'; did you mean 'tm_gmtoff'?
+    6 |   (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+      |                                  ^~~~~~~~~~~
+      |                                  tm_gmtoff
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/time.h:94:12: note: 'tm_gmtoff' declared here
+   94 |   long int tm_gmtoff;
+      |            ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+#include <time.h>
+
+int main()
+{
+  (void)sizeof(((struct tm *)0)->__tm_gmtoff);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_BIRTHTIME failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_90ef8 && [1/2] Building C object CMakeFiles/cmTC_90ef8.dir/src.c.o
+FAILED: CMakeFiles/cmTC_90ef8.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DHAVE_STRUCT_STAT_ST_BIRTHTIME -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_90ef8.dir/src.c.o -MF CMakeFiles\cmTC_90ef8.dir\src.c.o.d -o CMakeFiles/cmTC_90ef8.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:7:36: error: no member named 'st_birthtime' in 'struct stat'
+    7 |   (void)sizeof(((struct stat *)0)->st_birthtime);
+      |                ~~~~~~~~~~~~~~~~~~  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_birthtime);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_62a97 && [1/2] Building C object CMakeFiles/cmTC_62a97.dir/src.c.o
+FAILED: CMakeFiles/cmTC_62a97.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DHAVE_STRUCT_STAT_ST_BIRTHTIMESPEC_TV_NSEC -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_62a97.dir/src.c.o -MF CMakeFiles\cmTC_62a97.dir\src.c.o.d -o CMakeFiles/cmTC_62a97.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:7:36: error: no member named 'st_birthtimespec' in 'struct stat'
+    7 |   (void)sizeof(((struct stat *)0)->st_birthtimespec.tv_nsec);
+      |                ~~~~~~~~~~~~~~~~~~  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_birthtimespec.tv_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_c86f6 && [1/2] Building C object CMakeFiles/cmTC_c86f6.dir/src.c.o
+FAILED: CMakeFiles/cmTC_c86f6.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DHAVE_STRUCT_STAT_ST_MTIMESPEC_TV_NSEC -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_c86f6.dir/src.c.o -MF CMakeFiles\cmTC_c86f6.dir\src.c.o.d -o CMakeFiles/cmTC_c86f6.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:7:36: error: no member named 'st_mtimespec' in 'struct stat'
+    7 |   (void)sizeof(((struct stat *)0)->st_mtimespec.tv_nsec);
+      |                ~~~~~~~~~~~~~~~~~~  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtimespec.tv_nsec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIME_N failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_5513f && [1/2] Building C object CMakeFiles/cmTC_5513f.dir/src.c.o
+FAILED: CMakeFiles/cmTC_5513f.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DHAVE_STRUCT_STAT_ST_MTIME_N -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_5513f.dir/src.c.o -MF CMakeFiles\cmTC_5513f.dir\src.c.o.d -o CMakeFiles/cmTC_5513f.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:7:36: error: no member named 'st_mtime_n' in 'struct stat'; did you mean 'st_mtim'?
+    7 |   (void)sizeof(((struct stat *)0)->st_mtime_n);
+      |                                    ^~~~~~~~~~
+      |                                    st_mtim
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/sys/stat.h:104:15: note: 'st_mtim' declared here
+  104 | struct stat { __STAT64_BODY };
+      |               ^
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/sys/stat.h:59:19: note: expanded from macro '__STAT64_BODY'
+   59 |   struct timespec st_mtim; \
+      |                   ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_n);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_UMTIME failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_6b682 && [1/2] Building C object CMakeFiles/cmTC_6b682.dir/src.c.o
+FAILED: CMakeFiles/cmTC_6b682.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DHAVE_STRUCT_STAT_ST_UMTIME -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_6b682.dir/src.c.o -MF CMakeFiles\cmTC_6b682.dir\src.c.o.d -o CMakeFiles/cmTC_6b682.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:7:36: error: no member named 'st_umtime' in 'struct stat'; did you mean 'st_mtim'?
+    7 |   (void)sizeof(((struct stat *)0)->st_umtime);
+      |                                    ^~~~~~~~~
+      |                                    st_mtim
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/sys/stat.h:104:15: note: 'st_mtim' declared here
+  104 | struct stat { __STAT64_BODY };
+      |               ^
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/sys/stat.h:59:19: note: expanded from macro '__STAT64_BODY'
+   59 |   struct timespec st_mtim; \
+      |                   ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_umtime);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIME_USEC failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_b8b04 && [1/2] Building C object CMakeFiles/cmTC_b8b04.dir/src.c.o
+FAILED: CMakeFiles/cmTC_b8b04.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DHAVE_STRUCT_STAT_ST_MTIME_USEC -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_b8b04.dir/src.c.o -MF CMakeFiles\cmTC_b8b04.dir\src.c.o.d -o CMakeFiles/cmTC_b8b04.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:7:36: error: no member named 'st_mtime_usec' in 'struct stat'
+    7 |   (void)sizeof(((struct stat *)0)->st_mtime_usec);
+      |                ~~~~~~~~~~~~~~~~~~  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_usec);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_FLAGS failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_e42c8 && [1/2] Building C object CMakeFiles/cmTC_e42c8.dir/src.c.o
+FAILED: CMakeFiles/cmTC_e42c8.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DHAVE_STRUCT_STAT_ST_FLAGS -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_e42c8.dir/src.c.o -MF CMakeFiles\cmTC_e42c8.dir\src.c.o.d -o CMakeFiles/cmTC_e42c8.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:7:36: error: no member named 'st_flags' in 'struct stat'
+    7 |   (void)sizeof(((struct stat *)0)->st_flags);
+      |                ~~~~~~~~~~~~~~~~~~  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_flags);
+  return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STATVFS_F_IOSIZE failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_3eae2 && [1/2] Building C object CMakeFiles/cmTC_3eae2.dir/src.c.o
+FAILED: CMakeFiles/cmTC_3eae2.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DHAVE_STRUCT_STATVFS_F_IOSIZE -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_3eae2.dir/src.c.o -MF CMakeFiles\cmTC_3eae2.dir\src.c.o.d -o CMakeFiles/cmTC_3eae2.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:7:39: error: no member named 'f_iosize' in 'struct statvfs'
+    7 |   (void)sizeof(((struct statvfs *)0)->f_iosize);
+      |                ~~~~~~~~~~~~~~~~~~~~~  ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/statvfs.h>
+
+int main()
+{
+  (void)sizeof(((struct statvfs *)0)->f_iosize);
+  return 0;
+}
+
+Determining size of __int64 failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_b790d && [1/2] Building C object CMakeFiles/cmTC_b790d.dir/__INT64.c.o
+FAILED: CMakeFiles/cmTC_b790d.dir/__INT64.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_b790d.dir/__INT64.c.o -MF CMakeFiles\cmTC_b790d.dir\__INT64.c.o.d -o CMakeFiles/cmTC_b790d.dir/__INT64.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/__INT64.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/__INT64.c:29:12: error: use of undeclared identifier '__int64'
+   29 |   ('0' + ((SIZE / 10000)%10)),
+      |            ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/__INT64.c:27:22: note: expanded from macro 'SIZE'
+   27 | #define SIZE (sizeof(__int64))
+      |                      ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/__INT64.c:30:12: error: use of undeclared identifier '__int64'
+   30 |   ('0' + ((SIZE / 1000)%10)),
+      |            ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/__INT64.c:27:22: note: expanded from macro 'SIZE'
+   27 | #define SIZE (sizeof(__int64))
+      |                      ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/__INT64.c:31:12: error: use of undeclared identifier '__int64'
+   31 |   ('0' + ((SIZE / 100)%10)),
+      |            ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/__INT64.c:27:22: note: expanded from macro 'SIZE'
+   27 | #define SIZE (sizeof(__int64))
+      |                      ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/__INT64.c:32:12: error: use of undeclared identifier '__int64'
+   32 |   ('0' + ((SIZE / 10)%10)),
+      |            ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/__INT64.c:27:22: note: expanded from macro 'SIZE'
+   27 | #define SIZE (sizeof(__int64))
+      |                      ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/__INT64.c:33:12: error: use of undeclared identifier '__int64'
+   33 |   ('0' +  (SIZE    % 10)),
+      |            ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/__INT64.c:27:22: note: expanded from macro 'SIZE'
+   27 | #define SIZE (sizeof(__int64))
+      |                      ^
+5 errors generated.
+ninja: build stopped: subcommand failed.
+
+
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/__INT64.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(__int64))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining size of unsigned __int64 failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_5b7f9 && [1/2] Building C object CMakeFiles/cmTC_5b7f9.dir/UNSIGNED___INT64.c.o
+FAILED: CMakeFiles/cmTC_5b7f9.dir/UNSIGNED___INT64.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -ID:/AndroidApp/MaterialFile/prebuild/native/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wformat -Wformat-security -ffunction-sections -fdata-sections -Wall -Wformat -Wformat-security -fPIE -MD -MT CMakeFiles/cmTC_5b7f9.dir/UNSIGNED___INT64.c.o -MF CMakeFiles\cmTC_5b7f9.dir\UNSIGNED___INT64.c.o.d -o CMakeFiles/cmTC_5b7f9.dir/UNSIGNED___INT64.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:29:12: error: expected ')'
+   29 |   ('0' + ((SIZE / 10000)%10)),
+      |            ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:27:31: note: expanded from macro 'SIZE'
+   27 | #define SIZE (sizeof(unsigned __int64))
+      |                               ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:29:12: note: to match this '('
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:27:21: note: expanded from macro 'SIZE'
+   27 | #define SIZE (sizeof(unsigned __int64))
+      |                     ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:30:12: error: expected ')'
+   30 |   ('0' + ((SIZE / 1000)%10)),
+      |            ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:27:31: note: expanded from macro 'SIZE'
+   27 | #define SIZE (sizeof(unsigned __int64))
+      |                               ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:30:12: note: to match this '('
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:27:21: note: expanded from macro 'SIZE'
+   27 | #define SIZE (sizeof(unsigned __int64))
+      |                     ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:31:12: error: expected ')'
+   31 |   ('0' + ((SIZE / 100)%10)),
+      |            ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:27:31: note: expanded from macro 'SIZE'
+   27 | #define SIZE (sizeof(unsigned __int64))
+      |                               ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:31:12: note: to match this '('
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:27:21: note: expanded from macro 'SIZE'
+   27 | #define SIZE (sizeof(unsigned __int64))
+      |                     ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:32:12: error: expected ')'
+   32 |   ('0' + ((SIZE / 10)%10)),
+      |            ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:27:31: note: expanded from macro 'SIZE'
+   27 | #define SIZE (sizeof(unsigned __int64))
+      |                               ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:32:12: note: to match this '('
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:27:21: note: expanded from macro 'SIZE'
+   27 | #define SIZE (sizeof(unsigned __int64))
+      |                     ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:33:12: error: expected ')'
+   33 |   ('0' +  (SIZE    % 10)),
+      |            ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:27:31: note: expanded from macro 'SIZE'
+   27 | #define SIZE (sizeof(unsigned __int64))
+      |                               ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:33:12: note: to match this '('
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:27:21: note: expanded from macro 'SIZE'
+   27 | #define SIZE (sizeof(unsigned __int64))
+      |                     ^
+5 errors generated.
+ninja: build stopped: subcommand failed.
+
+
+D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/CMakeFiles/CheckTypeSize/UNSIGNED___INT64.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__PPC64__)
+# define KEY '_','_','P','P','C','6','4','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#elif defined(__PPC__)
+# define KEY '_','_','P','P','C','_','_'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__aarch64__)
+# define KEY '_','_','a','a','r','c','h','6','4','_','_'
+#elif defined(__ARM_ARCH_7A__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','A','_','_'
+#elif defined(__ARM_ARCH_7S__)
+# define KEY '_','_','A','R','M','_','A','R','C','H','_','7','S','_','_'
+#endif
+
+#define SIZE (sizeof(unsigned __int64))
+static char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+

@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/drawable-anydpi-v21/ic_call_answer_video_low.xml",
+        "source": "rikka.preference.simplemenu-core-1.13.0-27:/drawable-anydpi-v21/ic_call_answer_video_low.xml"
+    },
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/drawable-anydpi-v21/ic_call_answer_video.xml",
+        "source": "rikka.preference.simplemenu-core-1.13.0-27:/drawable-anydpi-v21/ic_call_answer_video.xml"
+    },
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/drawable-anydpi-v21/ic_call_decline_low.xml",
+        "source": "rikka.preference.simplemenu-core-1.13.0-27:/drawable-anydpi-v21/ic_call_decline_low.xml"
+    },
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/drawable-anydpi-v21/ic_call_answer_low.xml",
+        "source": "rikka.preference.simplemenu-core-1.13.0-27:/drawable-anydpi-v21/ic_call_answer_low.xml"
+    },
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/drawable-anydpi-v21/ic_call_answer.xml",
+        "source": "rikka.preference.simplemenu-core-1.13.0-27:/drawable-anydpi-v21/ic_call_answer.xml"
+    },
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/drawable-anydpi-v21/ic_call_decline.xml",
+        "source": "rikka.preference.simplemenu-core-1.13.0-27:/drawable-anydpi-v21/ic_call_decline.xml"
+    }
+]

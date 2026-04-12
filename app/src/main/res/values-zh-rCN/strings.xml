@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ All Rights Reserved.
+  -->
+
+<resources>
+
+    <string name="app_name">质感文件</string>
+
+    <!-- 通用 -->
+    <string name="open_file_error">无法打开此文件</string>
+
+    <string name="close">关闭</string>
+    <string name="action_add">添加</string>
+    <string name="copy">复制</string>
+    <string name="cut">剪切</string>
+    <string name="default_">默认</string>
+    <string name="delete">删除</string>
+    <string name="discard">舍弃</string>
+    <string name="edit">编辑</string>
+    <string name="empty">空</string>
+    <string name="empty_placeholder">（空）</string>
+    <string name="error">错误</string>
+    <string name="hide">隐藏</string>
+    <string name="install">安装</string>
+    <string name="keep_editing">继续编辑</string>
+    <string name="loading">正在加载…</string>
+    <string name="maybe_later">以后再说</string>
+    <string name="merge">合并</string>
+    <string name="none">无</string>
+    <string name="open_navigation_drawer">打开抽屉式导航栏</string>
+    <string name="paste">粘贴</string>
+    <string name="refresh">刷新</string>
+    <string name="reload">重新加载</string>
+    <string name="remove">移除</string>
+    <string name="rename">重命名</string>
+    <string name="replace">替换</string>
+    <string name="reset">重置</string>
+    <string name="retry">重试</string>
+    <string name="save">保存</string>
+    <string name="search">搜索</string>
+    <string name="select">选择</string>
+    <string name="select_all">全选</string>
+    <string name="share">分享</string>
+    <string name="show">显示</string>
+    <string name="skip">跳过</string>
+    <string name="stop">停止</string>
+    <string name="system_default">系统默认</string>
+    <string name="unknown">未知</string>
+    <string name="view">查看</string>
+
+    <!-- android.R.string.app_not_found -->
+    <string name="activity_not_found">未找到可处理此操作的应用</string>
+    <string name="open_settings">打开设置</string>
+    <string name="shortcut_created">已创建快捷方式</string>
+
+    <plurals name="size_in_bytes_format">
+        <item quantity="other">%1$,d 字节</item>
+    </plurals>
+
+    <string name="all_files_access_rationale_message">应用需要管理所有文件的权限。请在接下来的系统设置中授予权限。</string>
+    <string name="storage_permission_rationale_message">应用需要访问文件的权限。请在接下来的系统对话框中点击“允许”。</string>
+    <string name="storage_permission_permanently_denied_message">应用需要访问文件的权限。请在系统设置中授予“存储空间”权限。</string>
+    <string name="notification_permission_rationale_message">应用需要发布文件操作相关通知的权限。请在接下来的系统对话框中点击“允许”。</string>
+    <string name="notification_permission_permanently_denied_message">应用需要发布文件操作相关通知的权限。请在系统设置中授予“通知”权限。</string>
+
+    <string name="notification_channel_background_activity_start_name">后台期间动作</string>
+    <string name="notification_channel_background_activity_start_description">在应用处于后台期间采取动作</string>
+    <string name="notification_channel_file_job_name">文件操作</string>
+    <string name="notification_channel_file_job_description">显示和控制文件操作</string>
+
+    <string name="file_action_archive_password_title">需要密码</string>
+    <string name="file_action_archive_password_message_format">“%1$s”受密码保护。</string>
+    <string name="file_action_archive_password_error_empty">密码不能为空</string>
+
+    <plurals name="file_job_archive_scan_notification_title_format">
+        <item quantity="other">正在准备压缩 %1$,d 个文件（%2$s）</item>
+    </plurals>
+    <string name="file_job_archive_notification_title_one_format">正在将“%1$s”压缩进“%2$s”</string>
+    <plurals name="file_job_archive_notification_title_multiple_format">
+        <item quantity="other">正在将 %1$,d 个文件压缩进“%2$s”</item>
+    </plurals>
+    <plurals name="file_job_copy_scan_notification_title_format">
+        <item quantity="other">正在准备复制 %1$,d 个文件（%2$s）</item>
+    </plurals>
+    <string name="file_job_copy_notification_title_one_format">正在将“%1$s”复制到“%2$s”</string>
+    <plurals name="file_job_copy_notification_title_multiple_format">
+        <item quantity="other">正在将 %1$,d 个文件复制到“%2$s”</item>
+    </plurals>
+    <plurals name="file_job_extract_scan_notification_title_format">
+        <item quantity="other">正在准备提取 %1$,d 个文件（%2$s）</item>
+    </plurals>
+    <string name="file_job_extract_notification_title_one_format">正在将“%1$s”提取到“%2$s”</string>
+    <plurals name="file_job_extract_notification_title_multiple_format">
+        <item quantity="other">正在将 %1$,d 个文件提取到“%2$s”</item>
+    </plurals>
+    <plurals name="file_job_move_scan_notification_title_format">
+        <item quantity="other">正在准备移动 %1$,d 个文件（%2$s）</item>
+    </plurals>
+    <string name="file_job_move_notification_title_one_format">正在将“%1$s”移动到“%2$s”</string>
+    <plurals name="file_job_move_notification_title_multiple_format">
+        <item quantity="other">正在将 %1$,d 个文件移动到“%2$s”</item>
+    </plurals>
+    <string name="file_job_transfer_size_notification_text_one_format">%1$s / %2$s</string>
+    <string name="file_job_transfer_size_notification_text_multiple_format">%1$,d / %2$,d</string>
+    <plurals name="file_job_delete_scan_notification_title_format">
+        <item quantity="other">正在准备删除 %1$,d 个文件</item>
+    </plurals>
+    <string name="file_job_delete_notification_title_one_format">正在删除“%1$s”</string>
+    <plurals name="file_job_delete_notification_title_multiple_format">
+        <item quantity="other">正在删除 %1$,d 个文件</item>
+    </plurals>
+    <plurals name="file_job_set_owner_scan_notification_title_format">
+        <item quantity="other">正在准备更改 %1$,d 个文件的所有者</item>
+    </plurals>
+    <string name="file_job_set_owner_notification_title_one_format">正在更改“%1$s”的所有者</string>
+    <plurals name="file_job_set_owner_notification_title_multiple_format">
+        <item quantity="other">正在更改 %1$,d 个文件的所有者</item>
+    </plurals>
+    <plurals name="file_job_set_group_scan_notification_title_format">
+        <item quantity="other">正在准备更改 %1$,d 个文件的组</item>
+    </plurals>
+    <string name="file_job_set_group_notification_title_one_format">正在更改“%1$s”的组</string>
+    <plurals name="file_job_set_group_notification_title_multiple_format">
+        <item quantity="other">正在更改 %1$,d 个文件的组</item>
+    </plurals>
+    <plurals name="file_job_set_mode_scan_notification_title_format">
+        <item quantity="other">正在准备更改 %1$,d 个文件的模式</item>
+    </plurals>
+    <string name="file_job_set_mode_notification_title_one_format">正在更改“%1$s”的模式</string>
+    <plurals name="file_job_set_mode_notification_title_multiple_format">
+        <item quantity="other">正在更改 %1$,d 个文件的模式</item>
+    </plurals>
+    <plurals name="file_job_set_selinux_context_scan_notification_title_format">
+        <item quantity="other">正在准备更改 %1$,d 个文件的 SELinux 上下文</item>
+    </plurals>
+    <string name="file_job_set_selinux_context_notification_title_one_format">正在更改“%1$s”的 SELinux 上下文</string>
+    <plurals name="file_job_set_selinux_context_notification_title_multiple_format">
+        <item quantity="other">正在更改 %1$,d 个文件的 SELinux 上下文</item>
+    </plurals>
+    <plurals name="file_job_restore_selinux_context_scan_notification_title_format">
+        <item quantity="other">正在准备还原 %1$,d 个文件的 SELinux 上下文</item>
+    </plurals>
+    <string name="file_job_restore_selinux_context_notification_title_one_format">正在还原“%1$s”的 SELinux 上下文</string>
+    <plurals name="file_job_restore_selinux_context_notification_title_multiple_format">
+        <item quantity="other">正在还原 %1$,d 个文件的 SELinux 上下文</item>
+    </plurals>
+    <string name="file_job_transfer_count_notification_text_multiple_format">%1$,d / %2$,d</string>
+    <string name="file_job_write_notification_title_format">正在写入“%1$s”</string>
+    <string name="file_job_create_error_title">创建时发生错误</string>
+    <string name="file_job_create_error_message_format">在创建“%1$s”时发生错误。\n%2$s</string>
+    <string name="file_job_cannot_copy_into_itself_title">无法将文件夹复制到自身</string>
+    <string name="file_job_cannot_extract_into_itself_title">无法将文件夹提取到自身</string>
+    <string name="file_job_cannot_move_into_itself_title">无法将文件夹移动到自身</string>
+    <string name="file_job_cannot_copy_move_into_itself_message">目标文件夹位于来源文件夹内。</string>
+    <string name="file_job_cannot_copy_over_itself_title">无法将文件复制到自身</string>
+    <string name="file_job_cannot_extract_over_itself_title">无法将文件提取到自身</string>
+    <string name="file_job_cannot_move_over_itself_title">无法将文件移动到自身</string>
+    <string name="file_job_cannot_copy_move_over_itself_message">来源文件将被目标覆盖。</string>
+    <string name="file_job_replace_title_format">替换文件“%1$s”？</string>
+    <string name="file_job_replace_message_format">在“%1$s”中存在相同名称的另一个文件。\n替换将覆盖它的内容。</string>
+    <string name="file_job_replace_target_name">原始文件</string>
+    <string name="file_job_replace_source_name">替换为</string>
+    <string name="file_job_merge_title_format">合并文件夹“%1$s”？</string>
+    <string name="file_job_merge_copy_message_format">文件中有文件与正在被复制的文件冲突时，合并将在替换前请求确认。</string>
+    <string name="file_job_merge_extract_message_format">文件中有文件与正在被提取的文件冲突时，合并将在替换前请求确认。</string>
+    <string name="file_job_merge_move_message_format">文件中有文件与正在被移动的文件冲突时，合并将在替换前请求确认。</string>
+    <string name="file_job_merge_target_name">原始文件夹</string>
+    <string name="file_job_merge_source_name">合并</string>
+    <string name="file_job_conflict_show_name">为目标选择新的名称</string>
+    <string name="file_job_conflict_name_hint">新名称</string>
+    <string name="file_job_archive_error_title_format">压缩“%1$s”时发生错误</string>
+    <string name="file_job_archive_error_message_format">将文件压缩进“%1$s”时发生错误。\n%2$s</string>
+    <string name="file_job_copy_error_title_format">复制“%1$s”时发生错误</string>
+    <string name="file_job_copy_error_message_format">将文件复制到“%1$s”时发生错误。\n%2$s</string>
+    <string name="file_job_extract_error_title_format">提取“%1$s”时发生错误</string>
+    <string name="file_job_extract_error_message_format">将文件提取到“%1$s”时发生错误。\n%2$s</string>
+    <string name="file_job_move_error_title_format">移动“%1$s”时发生错误</string>
+    <string name="file_job_move_error_message_format">将文件移动到“%1$s”时发生错误。\n%2$s</string>
+    <string name="file_job_delete_error_title">删除时发生错误</string>
+    <string name="file_job_delete_error_message_format">在删除“%1$s”时发生错误。\n%2$s</string>
+    <string name="file_job_rename_error_title_format">重命名“%1$s”时发生错误</string>
+    <string name="file_job_rename_error_message_format">将文件重命名为“%1$s”时发生错误。\n%2$s</string>
+    <string name="file_job_set_owner_error_title_format">更改“%1$s”的所有者时发生错误</string>
+    <string name="file_job_set_owner_error_message_format">将所有者更改为“%1$s”时发生错误。\n%2$s</string>
+    <string name="file_job_set_group_error_title_format">更改“%1$s”的组时发生错误</string>
+    <string name="file_job_set_group_error_message_format">将组更改为“%1$s”时发生错误。\n%2$s</string>
+    <string name="file_job_set_mode_error_title_format">更改“%1$s”的模式时发生错误</string>
+    <string name="file_job_set_mode_error_message_format">将模式更改为“%1$s”时发生错误。\n%2$s</string>
+    <string name="file_job_set_selinux_context_error_title_format">更改“%1$s”的 SELinux 上下文时发生错误</string>
+    <string name="file_job_set_selinux_context_error_message_format">将 SELinux 上下文更改为“%1$s”时发生错误。\n%2$s</string>
+    <string name="file_job_restore_selinux_context_error_title">还原 SELinux 上下文时发生错误</string>
+    <string name="file_job_restore_selinux_context_error_message_format">在还原“%1$s”的 SELinux 上下文时发生错误。\n%2$s</string>
+    <string name="file_job_write_error_title">写入时发生错误</string>
+    <string name="file_job_write_error_message_format">在写入“%1$s”时发生错误。\n%2$s</string>
+    <string name="file_job_get_information_error_message_format">在获取“%1$s”的信息时发生错误。</string>
+    <string name="file_job_remount_format">重新挂载“%1$s”为读写模式</string>
+    <string name="file_job_remount_loading_format">正在重新挂载“%1$s”为读写模式…</string>
+    <string name="file_job_remount_success_format">“%1$s”已被重新挂载为读写模式</string>
+    <string name="file_job_action_all">应用此操作到所有文件</string>
+
+    <string name="file_open_apk_message">这个文件是一个 Android 安装包。您想要安装它，还是查看它的内容？</string>
+    <string name="file_open_as_title">打开为…</string>
+    <string name="file_open_as_title_format">将“%1$s”打开为</string>
+    <string name="file_open_as_type_text">文本</string>
+    <string name="file_open_as_type_image">图片</string>
+    <string name="file_open_as_type_audio">音频</string>
+    <string name="file_open_as_type_video">视频</string>
+    <string name="file_open_as_type_directory">文件夹</string>
+    <string name="file_open_as_type_any">其他</string>
+    <string name="file_install_apk_from_background_title_format">“%1$s”已可安装</string>
+    <string name="file_install_apk_from_background_text">点按即可安装</string>
+    <string name="file_open_from_background_title_format">“%1$s”已可打开</string>
+    <string name="file_open_from_background_text">点按即可打开</string>
+    <string name="file_name_error_empty">文件名不能为空</string>
+    <string name="file_name_error_invalid">无效文件名</string>
+    <string name="file_name_error_already_exists">已存在同名的文件</string>
+    <string name="file_replace_message_format">替换“%1$s”？</string>
+    <string name="file_delete_message_file_format">删除“%1$s”？</string>
+    <string name="file_delete_message_directory_format">删除文件夹“%1$s”和它的内容？</string>
+    <plurals name="file_delete_message_multiple_files_format">
+        <item quantity="other">删除 %1$,d 个文件？</item>
+    </plurals>
+    <plurals name="file_delete_message_multiple_directories_format">
+        <item quantity="other">删除 %1$,d 个文件夹和它们的内容？</item>
+    </plurals>
+    <plurals name="file_delete_message_multiple_mixed_format">
+        <item quantity="other">删除 %1$,d 个文件和文件夹？</item>
+    </plurals>
+    <string name="file_create_archive_title">创建压缩文件</string>
+    <string name="file_create_archive_type_zip">.zip</string>
+    <string name="file_create_archive_type_tar_xz">.tar.xz</string>
+    <string name="file_create_archive_type_7z">.7z</string>
+    <string name="file_create_archive_password">密码（可选）</string>
+    <string name="file_add_bookmark_success">已添加书签</string>
+    <string name="file_create_file_title">新建文件</string>
+    <string name="file_create_directory_title">新建文件夹</string>
+
+    <string name="batch_rename">批量重命名</string>
+    <string name="batch_rename_name_hint">基础名称</string>
+    <string name="batch_rename_default_name">文件</string>
+    <string name="batch_rename_preview">预览</string>
+
+    <string name="file_list_title">文件</string>
+    <plurals name="file_list_title_open_file">
+        <item quantity="other">选择文件</item>
+    </plurals>
+    <string name="file_list_title_create_file">保存文件</string>
+    <plurals name="file_list_title_open_directory">
+        <item quantity="other">选择文件夹</item>
+    </plurals>
+    <plurals name="file_list_subtitle_directory_count_format">
+        <item quantity="other">%1$,d 个文件夹</item>
+    </plurals>
+    <plurals name="file_list_subtitle_file_count_format">
+        <item quantity="other">%1$,d 个文件</item>
+    </plurals>
+    <string name="file_list_subtitle_separator">，</string>
+    <string name="file_list_path_error_empty">路径不能为空</string>
+    <string name="file_list_path_error_invalid">无效路径</string>
+    <string name="file_list_action_view_sort">视图和排序</string>
+    <string name="file_list_action_view_list">列表</string>
+    <string name="file_list_action_view_grid">网格</string>
+    <string name="file_list_action_sort_by_name">名称</string>
+    <string name="file_list_action_sort_by_type">类型</string>
+    <string name="file_list_action_sort_by_size">大小</string>
+    <string name="file_list_action_sort_by_last_modified">最后修改</string>
+    <string name="file_list_action_sort_order_ascending">升序</string>
+    <string name="file_list_action_sort_directories_first">文件夹优先</string>
+    <string name="file_list_action_view_sort_path_specific">仅用于此文件夹</string>
+    <string name="file_list_action_new_task">新建窗口</string>
+    <string name="file_list_action_navigate_to">转到</string>
+    <string name="file_list_action_show_hidden_files">显示隐藏文件</string>
+    <string name="file_list_action_copy_path">复制路径</string>
+    <string name="file_list_action_add_bookmark">添加书签</string>
+    <string name="file_list_action_file_tools">文件工具</string>
+    <string name="file_list_action_media_tools">媒体工具</string>
+    <string name="unified_search_tab_file_search">搜索</string>
+    <string name="unified_search_tab_duplicates">重复</string>
+    <string name="unified_search_tab_empty">空文件</string>
+    <string name="unified_search_tab_recent">最近</string>
+    <string name="unified_search_tab_compare">对比</string>
+    <string name="file_item_action_media_tools">媒体工具</string>
+    <string name="file_list_select_action_media_tools">媒体工具</string>
+    <string name="media_tool_preselected_files">已选中 %d 个文件</string>
+    <string name="file_list_action_file_search">文件搜索</string>
+    <string name="file_list_action_duplicate_finder">重复文件检测</string>
+    <string name="file_list_action_empty_search">空文件搜索</string>
+    <string name="file_list_action_recent_files">最近文件</string>
+    <string name="file_list_breadcrumb_action_open_in_new_task">在新窗口中打开</string>
+    <string name="file_list_select_title_format">%1$,d</string>
+    <string name="file_list_create_file_name_hint">文件名</string>
+    <string name="file_list_open_current_directory_format">选择“%1$s”</string>
+    <string name="file_list_paste_move_title_format">移动 %1$,d</string>
+    <string name="file_list_paste_copy_title_format">复制 %1$,d</string>
+    <string name="file_list_paste_extract_title_format">提取 %1$,d</string>
+    <string name="file_list_paste_action_extract_here">提取到此处</string>
+    <string name="file_list_empty">无文件</string>
+    <string name="file_list_action_create_file">文件</string>
+    <string name="file_list_action_create_directory">文件夹</string>
+
+    <string name="file_item_description_separator">"    "</string>
+    <string name="file_item_action_open_with">打开方式</string>
+    <string name="file_item_action_extract">提取</string>
+    <string name="file_item_action_archive">压缩</string>
+    <string name="file_item_action_open_hex">十六进制查看</string>
+    <string name="file_item_action_properties">属性</string>
+    <string name="file_item_action_encrypt">加密</string>
+    <string name="file_item_action_decrypt">解密</string>
+
+    <string name="file_properties_title_format">“%1$s”属性</string>
+    <string name="file_properties_basic">基本</string>
+    <string name="file_properties_basic_name">名称</string>
+    <string name="file_properties_basic_type">类型</string>
+    <string name="file_properties_basic_type_format">%1$s（%2$s）</string>
+    <string name="file_properties_basic_type_symbolic_link_format">到 %1$s 的链接（%2$s）</string>
+    <string name="file_properties_basic_symbolic_link_target">链接目标</string>
+    <string name="file_properties_basic_size">大小</string>
+    <string name="file_properties_basic_size_with_human_readable_format">%1$s（%2$s）</string>
+    <string name="file_properties_basic_contents">内容</string>
+    <plurals name="file_properties_basic_contents_format">
+        <item quantity="other">%1$,d 项，共 %2$s</item>
+    </plurals>
+    <string name="file_properties_basic_last_modification_time">最后修改</string>
+    <string name="file_properties_basic_parent_directory">父文件夹</string>
+    <string name="file_properties_basic_archive_file">归档文件</string>
+    <string name="file_properties_basic_archive_entry">归档条目</string>
+    <string name="file_properties_basic_free_space">可用空间</string>
+    <string name="file_properties_permission">权限</string>
+    <string name="file_properties_permission_owner">所有者</string>
+    <string name="file_properties_permission_group">组</string>
+    <string name="file_properties_permission_principal_format">%1$s（%2$d）</string>
+    <string name="file_properties_permission_set_owner_title">更改所有者</string>
+    <string name="file_properties_permission_set_group_title">更改组</string>
+    <string name="file_properties_permission_set_principal_filter_hint">输入名称或 ID</string>
+    <string name="file_properties_permission_set_principal_system">系统</string>
+    <string name="file_properties_permission_mode">模式</string>
+    <string name="file_properties_permission_mode_format">%1$s（%2$04o）</string>
+    <string name="file_properties_permission_set_mode_title">更改模式</string>
+    <string name="file_properties_permission_set_mode_others">其他</string>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_file">
+        <item>读取</item>
+        <item>写入</item>
+        <item>执行</item>
+    </string-array>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_directory">
+        <item>读取</item>
+        <item>写入</item>
+        <item>搜索</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_special">特殊</string>
+    <string-array name="file_properties_permission_set_mode_special_mode_bits">
+        <item>设置 UID</item>
+        <item>设置 GID</item>
+        <item>粘滞位</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_uppercase_x">不要为包含的文件添加“执行”</string>
+    <string name="file_properties_permission_selinux_context">SELinux 上下文</string>
+    <string name="file_properties_permission_set_selinux_context_title">更改 SELinux 上下文</string>
+    <string name="file_properties_permission_set_selinux_context_restore">还原</string>
+    <string name="file_properties_permission_recursive">应用到包含的文件</string>
+    <string name="file_properties_image">图片</string>
+    <string name="file_properties_media_dimensions">尺寸</string>
+    <string name="file_properties_media_dimensions_format">%1$d \u00d7 %2$d</string>
+    <string name="file_properties_media_date_time">拍摄时间</string>
+    <string name="file_properties_media_coordinates">坐标</string>
+    <string name="file_properties_media_coordinates_format">%1$.3f，%2$.3f</string>
+    <string name="file_properties_media_address">位置</string>
+    <string name="file_properties_image_gps_altitude">海拔</string>
+    <string name="file_properties_image_gps_altitude_format">%1$,.3f 米</string>
+    <string name="file_properties_image_equipment">相机</string>
+    <string name="file_properties_image_equipment_format">%1$s %2$s</string>
+    <string name="file_properties_image_f_number">光圈</string>
+    <string name="file_properties_image_shutter_speed">快门速度</string>
+    <string name="file_properties_image_focal_length">焦距</string>
+    <string name="file_properties_image_focal_length_format">%1$.2f 毫米</string>
+    <string name="file_properties_image_photographic_sensitivity">ISO 等效感光度</string>
+    <string name="file_properties_image_photographic_sensitivity_format">ISO %1$d</string>
+    <string name="file_properties_image_software">软件</string>
+    <string name="file_properties_image_description">描述</string>
+    <string name="file_properties_image_artist">创建者</string>
+    <string name="file_properties_image_copyright">版权</string>
+    <string name="file_properties_audio">音频</string>
+    <string name="file_properties_media_title">标题</string>
+    <string name="file_properties_audio_artist">艺术家</string>
+    <string name="file_properties_audio_album">专辑</string>
+    <string name="file_properties_audio_album_artist">专辑艺术家</string>
+    <string name="file_properties_audio_composer">作曲家</string>
+    <string name="file_properties_audio_disc_number">光盘编号</string>
+    <string name="file_properties_audio_track_number">曲目编号</string>
+    <string name="file_properties_audio_year">年份</string>
+    <string name="file_properties_audio_genre">流派</string>
+    <string name="file_properties_media_duration">时长</string>
+    <string name="file_properties_media_bit_rate">比特率</string>
+    <string name="file_properties_media_bit_rate_format">%1$d kbps</string>
+    <string name="file_properties_audio_sample_rate">采样率</string>
+    <string name="file_properties_audio_sample_rate_format">%1$d Hz</string>
+    <string name="file_properties_video">视频</string>
+    <string name="file_properties_apk">安装包</string>
+    <string name="file_properties_apk_label">名称</string>
+    <string name="file_properties_apk_package_name">软件包名称</string>
+    <string name="file_properties_apk_version">版本</string>
+    <string name="file_properties_apk_version_format">%1$s（%2$d）</string>
+    <string name="file_properties_apk_min_sdk_version">最低系统版本</string>
+    <string name="file_properties_apk_target_sdk_version">目标系统版本</string>
+    <string name="file_properties_apk_sdk_version_format">%1$s（%2$s，%3$d）</string>
+    <string name="file_properties_apk_requested_permissions">权限</string>
+    <string name="file_properties_apk_requested_permissions_zero">未请求任何权限</string>
+    <plurals name="file_properties_apk_requested_permissions_positive_format">
+        <item quantity="other">已请求 %1$,d 项权限</item>
+    </plurals>
+    <string name="file_properties_apk_signature_digests">签名</string>
+    <string name="file_properties_apk_signature_digests_empty">无有效签名</string>
+    <string name="file_properties_apk_past_signature_digests">旧签名</string>
+    <string name="file_properties_checksum">校验和</string>
+    <string name="file_properties_checksum_compare">比较</string>
+    <string name="file_properties_checksum_compare_placeholder">任意校验和</string>
+    <string name="file_properties_checksum_compare_match_format">与 %1$s 校验和匹配</string>
+    <string name="file_properties_checksum_compare_prefix_match_format">与 %1$s 校验和的前缀匹配</string>
+    <string name="file_properties_checksum_compare_no_match">未找到匹配的校验和</string>
+
+    <string name="storage_file_system_root_title">根目录</string>
+    <string name="storage_list_title">存储空间</string>
+    <string name="storage_list_empty">无存储空间</string>
+    <string name="storage_add_storage_title">添加存储空间</string>
+    <string name="storage_add_storage_document_tree">外部存储空间</string>
+    <string name="storage_edit_device_storage_title">编辑设备存储空间</string>
+    <string name="storage_edit_device_storage_name">名称</string>
+    <string name="storage_edit_device_storage_path">路径</string>
+    <string name="storage_add_external_storage_shortcut_title">添加外部存储空间快捷方式</string>
+    <string name="storage_edit_external_storage_shortcut_title">编辑外部存储空间快捷方式</string>
+    <string name="storage_edit_external_storage_shortcut_root_id">存储卷</string>
+    <string name="storage_edit_external_storage_shortcut_root_id_error_empty">输入存储卷</string>
+    <string name="storage_edit_external_storage_shortcut_path">路径</string>
+    <string name="storage_add_document_tree_title">添加外部存储空间</string>
+    <string name="storage_edit_document_tree_title">编辑外部存储空间</string>
+    <string name="storage_edit_document_tree_name">名称</string>
+    <string name="storage_edit_document_tree_uri">URI</string>
+    <string name="storage_edit_document_tree_path">路径</string>
+
+    <string name="navigation_storage_subtitle_format">共 %2$s，剩余 %1$s</string>
+    <string name="navigation_add_storage">添加存储空间…</string>
+    <string name="navigation_standard_directory_alarms">闹钟</string>
+    <string name="navigation_standard_directory_dcim">相片</string>
+    <string name="navigation_standard_directory_documents">文档</string>
+    <string name="navigation_standard_directory_downloads">下载</string>
+    <string name="navigation_standard_directory_movies">电影</string>
+    <string name="navigation_standard_directory_music">音乐</string>
+    <string name="navigation_standard_directory_notifications">通知</string>
+    <string name="navigation_standard_directory_pictures">图片</string>
+    <string name="navigation_standard_directory_podcasts">播客</string>
+    <string name="navigation_standard_directory_ringtones">铃声</string>
+    <string name="navigation_standard_directory_qq">QQ</string>
+    <string name="navigation_standard_directory_tim">TIM</string>
+    <string name="navigation_standard_directory_wechat">微信</string>
+    <string name="navigation_edit_bookmark_directory_title">书签文件夹</string>
+    <string name="navigation_edit_bookmark_directory_name">名称</string>
+    <string name="navigation_edit_bookmark_directory_path">路径</string>
+
+    <string name="archive_viewer_title">归档文件查看器</string>
+    <string name="image_viewer_title">图片查看器</string>
+    <string name="video_viewer_title">视频播放器</string>
+    <string name="image_viewer_subtitle_format">%1$,d/%2$,d</string>
+    <string name="save_as_title">另存为</string>
+    <string name="save_as_error">保存时发生错误</string>
+    <string name="save_as_success_format">已将“%1$s”保存到“%2$s”</string>
+    <string name="text_editor_title">文本编辑器</string>
+    <string name="text_editor_title_format">%1$s</string>
+    <string name="text_editor_title_changed_format">*%1$s</string>
+    <string name="text_editor_save_success">已保存</string>
+    <string name="text_editor_reload_message">您确定要重新加载吗？对此文档未保存的变更将丢失。</string>
+    <string name="text_editor_encoding">编码</string>
+    <string name="text_editor_close_message">您确定要舍弃对此文档未保存的变更吗？</string>
+
+    <string name="large_text_viewer_info_loaded">%1$d 行 | %2$s (已全部加载)</string>
+    <string name="large_text_viewer_info_partial">%1$d 行 | 已加载 %2$d%% (%3$s / %4$s)</string>
+    <string name="large_text_viewer_go_to_line">跳转到行</string>
+
+    <string name="pdf_viewer_title">PDF 阅读器</string>
+    <string name="pdf_viewer_page_format">%1$d / %2$d</string>
+    <string name="pdf_viewer_loading_progress">加载中 %1$d%% (%2$s / %3$s)</string>
+
+    <string name="audio_player_title">音频播放器</string>
+    <string name="audio_player_unknown_artist">未知艺术家</string>
+    <string name="audio_player_play_pause">播放 / 暂停</string>
+    <string name="audio_player_skip_previous">从头播放</string>
+    <string name="audio_player_skip_next">快进</string>
+    <string name="audio_player_rewind">后退 10 秒</string>
+    <string name="audio_player_forward">快进 30 秒</string>
+
+    <string name="hex_viewer_title">十六进制查看器</string>
+    <string name="hex_viewer_file_size">文件大小：%1$s</string>
+    <string name="hex_viewer_load_more">加载剩余部分（%1$s）</string>
+    <string name="hex_viewer_load_more_retry">重试加载</string>
+    <string name="hex_viewer_loading">加载中…</string>
+    <string name="hex_viewer_go_to_offset">跳转到偏移</string>
+    <string name="hex_viewer_header_offset">偏移</string>
+    <string name="hex_viewer_header_hex">十六进制</string>
+    <string name="hex_viewer_header_ascii">ASCII</string>
+
+    <string name="ebook_viewer_title">电子书阅读器</string>
+    <string name="ebook_viewer_error">打开电子书失败：%1$s</string>
+
+    <string name="file_open_as_type_hex">十六进制</string>
+
+    <string name="settings_title">设置</string>
+    <string name="settings_interface_title">界面</string>
+    <string name="settings_locale_title">语言</string>
+    <string name="settings_theme_color_title">主题色</string>
+    <string name="settings_theme_color_summary">应用中最常见的颜色</string>
+    <string name="settings_material_design_3_title">质感设计 3</string>
+    <string name="settings_file_list_animation_title">文件列表动画</string>
+    <string name="settings_file_name_ellipsize_title">显示长文件名</string>
+    <string-array name="settings_file_name_ellipsize_entries">
+        <item>省略开头</item>
+        <item>省略中间</item>
+        <item>省略结尾</item>
+        <item>滚动</item>
+    </string-array>
+    <string name="settings_behavior_title">行为</string>
+    <string name="settings_default_directory_title">默认文件夹</string>
+    <string name="settings_standard_directories_title">标准文件夹</string>
+    <string name="settings_standard_directories_summary_empty">未启用标准文件夹</string>
+    <string name="settings_bookmark_directory_screenshots">屏幕截图</string>
+    <string name="settings_bookmark_directories_title">书签文件夹</string>
+    <string name="settings_bookmark_directories_summary_empty">无书签文件夹</string>
+    <string name="settings_root_strategy_title">Root 访问模式</string>
+    <string-array name="settings_root_strategy_entries">
+        <item>仅普通访问</item>
+        <item>自动</item>
+        <item>仅 root 访问</item>
+    </string-array>
+    <plurals name="settings_root_strategy_message_format">
+        <item quantity="other">您有 %1$,d 个正在运行的文件操作，因此现在更改 root 访问模式可能会导致意外错误。您确定要现在更改它吗？</item>
+    </plurals>
+    <string name="settings_archive_file_name_encoding_title">归档文件名编码</string>
+    <string name="settings_open_apk_default_action_title">打开 Android 安装包</string>
+    <string-array name="settings_open_apk_default_action_entries">
+        <item>安装</item>
+        <item>查看内容</item>
+        <item>询问操作</item>
+    </string-array>
+    <string name="settings_show_pdf_thumbnail_pre_28_title">显示 PDF 文档缩略图</string>
+    <string name="settings_show_pdf_thumbnail_pre_28_summary">可能导致应用在旧版 Android 上不稳定</string>
+    <string name="settings_read_remote_files_for_thumbnail_title">读取远程文件以显示缩略图</string>
+
+    <string name="about_title">关于</string>
+    <string name="about_version_title">版本</string>
+    <string name="about_github_title">在 GitHub 上查看</string>
+    <string name="about_licenses_title">许可证</string>
+    <string name="about_privacy_policy_title">隐私权政策</string>
+    <string name="about_author_title">作者</string>
+    <string name="about_author_name_title">奶瓶仔</string>
+    <string name="about_author_github_title">在 GitHub 上关注</string>
+    <string name="about_ffmpeg_title">FFmpeg</string>
+    <string name="about_ffmpeg_version_title">FFmpeg 版本</string>
+    <string name="about_ffmpeg_capabilities_title">支持功能</string>
+    <string name="about_ffmpeg_capabilities">格式转换、提取音频、裁剪、视频压缩、视频截图、GIF制作、视频增强、图片压缩、图片增强、文件合并</string>
+
+    <!-- 导航工具 -->
+    <string name="navigation_tools">工具</string>
+    <string name="navigation_file_tools">文件工具</string>
+    <string name="navigation_storage_tools">存储管理</string>
+    <string name="navigation_system_tools">系统工具</string>
+    <string name="navigation_trash">回收站</string>
+    <string name="navigation_empty_search">空文件搜索</string>
+    <string name="navigation_file_search">文件搜索</string>
+    <string name="navigation_duplicate_finder">重复文件检测</string>
+    <string name="navigation_recent_files">最近文件</string>
+    <string name="navigation_encryption">文件加密</string>
+    <string name="navigation_file_compare">文件对比</string>
+
+    <!-- 工具分组标题 -->
+    <string name="file_tools_title">文件工具</string>
+    <string name="storage_tools_title">存储管理</string>
+    <string name="system_tools_title">系统工具</string>
+
+    <!-- 工具描述 -->
+    <string name="tool_desc_file_search">按名称、类型、大小等条件搜索文件</string>
+    <string name="tool_desc_duplicate_finder">查找和清理重复的文件</string>
+    <string name="tool_desc_empty_search">查找空文件和空文件夹</string>
+    <string name="tool_desc_file_compare">比较两个文件的内容差异</string>
+    <string name="tool_desc_trash">查看和恢复已删除的文件</string>
+    <string name="tool_desc_recent_files">查看最近访问的文件</string>
+    <string name="tool_desc_encryption">加密和解密文件</string>
+    <string name="tool_desc_media_tools">格式转换、压缩、提取音频等媒体工具</string>
+
+    <!-- 回收站 -->
+    <string name="trash_title">回收站</string>
+    <string name="trash_empty">回收站为空</string>
+    <string name="trash_empty_action">清空回收站</string>
+    <string name="trash_empty_confirm">确定要永久删除回收站中的所有项目吗？</string>
+    <string name="trash_emptied">回收站已清空</string>
+    <string name="trash_none_selected">未选择任何项目</string>
+    <string name="trash_restored_count">已恢复 %d 个项目</string>
+    <string name="trash_delete_selected">删除所选项</string>
+    <string name="trash_delete_confirm">永久删除 %d 个选中的项目？</string>
+    <string name="trash_unknown_origin">未知原始位置</string>
+    <string name="trash_type_folder">文件夹</string>
+    <string name="trash_type_file">文件</string>
+    <string name="trash_item_info">%1$s · %2$s · 删除时间：%3$s</string>
+    <string name="trash_select_all">全选</string>
+    <string name="trash_deselect_all">取消全选</string>
+    <string name="trash_restore_selected">恢复所选项</string>
+    <string name="trash_deleted_count">已永久删除 %d 个项目</string>
+    <string name="trash_open_error">无法打开此文件</string>
+    <string name="trash_open_directory_hint">无法预览文件夹</string>
+
+    <!-- 空文件/文件夹搜索 -->
+    <string name="tool_browse">浏览</string>
+    <string name="tool_add_path">添加路径</string>
+    <string name="tool_select_directory">选择目录</string>
+    <string name="empty_search_title">空文件搜索</string>
+    <string name="empty_search_path">搜索路径</string>
+    <string name="empty_search_include_files">包含空文件</string>
+    <string name="empty_search_include_folders">包含空文件夹</string>
+    <string name="empty_search_action">开始搜索</string>
+    <string name="empty_search_searching">搜索中…</string>
+    <string name="empty_search_result_count">找到 %d 个项目</string>
+    <string name="empty_search_error">搜索失败：%s</string>
+    <string name="empty_search_select_type">请至少选择一种搜索类型</string>
+    <string name="empty_search_invalid_path">无效路径</string>
+    <string name="empty_search_none_selected">未选择任何项目</string>
+    <string name="empty_search_delete_selected">删除所选项</string>
+    <string name="empty_search_delete_title">删除</string>
+    <string name="empty_search_delete_message">永久删除 %d 个选中的项目？</string>
+    <string name="empty_search_deleted_count">已删除 %d 个项目</string>
+    <string name="empty_search_type_folder">空文件夹</string>
+    <string name="empty_search_type_file">空文件（0 字节）</string>
+    <string name="empty_search_action_copy_path">复制路径</string>
+    <string name="empty_search_action_delete">删除</string>
+    <string name="empty_search_path_copied">路径已复制</string>
+    <string name="empty_search_filter_options">筛选选项</string>
+    <string name="empty_search_search_type">搜索类型</string>
+    <string name="empty_search_include_hidden_dirs">包含隐藏目录</string>
+    <string name="empty_search_include_hidden_files">包含隐藏文件</string>
+    <string name="empty_search_follow_symlinks">跟随符号链接</string>
+    <string name="empty_search_scanning_progress">扫描中…已找到 %d 个项目</string>
+
+    <!-- 文件搜索 -->
+    <string name="file_search_title">文件搜索</string>
+    <string name="file_search_path">搜索路径</string>
+    <string name="file_search_name">文件名（包含）</string>
+    <string name="file_search_extension">扩展名（逗号分隔，如 jpg,png）</string>
+    <string name="file_search_min_size">最小大小（KB）</string>
+    <string name="file_search_max_size">最大大小（KB）</string>
+    <string name="file_search_action">搜索</string>
+    <string name="file_search_searching">搜索中…</string>
+    <string name="file_search_result_count">找到 %d 个文件</string>
+    <string name="file_search_invalid_path">无效路径</string>
+    <string name="file_search_back">返回</string>
+    <string name="file_search_criteria">搜索条件</string>
+    <string name="file_search_filter_options">筛选选项</string>
+    <string name="file_search_file_type">文件类型</string>
+    <string name="file_search_type_all">全部</string>
+    <string name="file_search_type_image">图片</string>
+    <string name="file_search_type_video">视频</string>
+    <string name="file_search_type_audio">音频</string>
+    <string name="file_search_type_document">文档</string>
+    <string name="file_search_include_hidden_dirs">包含隐藏目录</string>
+    <string name="file_search_include_hidden_files">包含隐藏文件</string>
+    <string name="file_search_follow_symlinks">跟随符号链接</string>
+    <string name="file_search_delete_selected">删除所选项</string>
+    <string name="file_search_delete_title">删除</string>
+    <string name="file_search_delete_message">删除 %1$d 个选中的文件（%2$s）？</string>
+    <string name="file_search_deleted_count">已删除 %d 个文件</string>
+    <string name="file_search_none_selected">未选择任何文件</string>
+    <string name="file_search_result_summary">找到 %1$d 个文件，共 %2$s</string>
+    <string name="file_search_scanning_progress">扫描中…已找到 %d 个文件</string>
+    <string name="file_search_error">搜索失败：%s</string>
+
+    <!-- 重复文件检测 -->
+    <string name="duplicate_finder_title">重复文件检测</string>
+    <string name="duplicate_search_path">搜索路径</string>
+    <string name="duplicate_filter_options">筛选选项</string>
+    <string name="duplicate_file_type">文件类型</string>
+    <string name="duplicate_type_all">全部</string>
+    <string name="duplicate_type_image">图片</string>
+    <string name="duplicate_type_video">视频</string>
+    <string name="duplicate_type_audio">音频</string>
+    <string name="duplicate_type_document">文档</string>
+    <string name="duplicate_min_size">最小大小（字节）</string>
+    <string name="duplicate_max_size">最大大小（字节）</string>
+    <string name="duplicate_include_hidden_dirs">包含隐藏文件夹</string>
+    <string name="duplicate_include_hidden_files">包含隐藏文件</string>
+    <string name="duplicate_follow_symlinks">跟随符号链接</string>
+    <string name="duplicate_algorithm">哈希算法</string>
+    <string name="duplicate_algorithm_hint">可选择多个算法同时检测（多算法 = 更高准确率）</string>
+    <string name="duplicate_byte_compare">逐字节对比</string>
+    <string name="duplicate_scan_action">扫描重复文件</string>
+    <string name="duplicate_scanning">扫描中…</string>
+    <string name="duplicate_scan_progress">已扫描 %1$d / %2$d 个文件</string>
+    <string name="duplicate_scan_phase_collecting">正在收集文件…</string>
+    <string name="duplicate_scan_phase_size">正在按大小分组…</string>
+    <string name="duplicate_scan_phase_hash">正在计算哈希… %1$d / %2$d</string>
+    <string name="duplicate_scan_phase_verify">正在验证… %1$d / %2$d</string>
+    <string name="duplicate_invalid_path">无效路径</string>
+    <string name="duplicate_no_algorithm">请至少选择一个算法</string>
+    <string name="duplicate_result_summary">%1$d 组，%2$d 个重复文件，浪费 %3$s</string>
+    <string name="duplicate_keep_rule">保留规则</string>
+    <string name="duplicate_keep_rule_title">选择要保留的文件</string>
+    <string name="duplicate_sort_path_longest">保留路径最长的</string>
+    <string name="duplicate_sort_path_shortest">保留路径最短的</string>
+    <string name="duplicate_sort_date_newest">保留最新的</string>
+    <string name="duplicate_sort_date_oldest">保留最旧的</string>
+    <string name="duplicate_none_selected">未选择任何文件</string>
+    <string name="duplicate_delete_title">删除重复文件</string>
+    <string name="duplicate_delete_message">永久删除 %1$d 个文件（%2$s）？</string>
+    <string name="duplicate_deleted_count">已删除 %d 个文件</string>
+    <string name="duplicate_group_header">第 %1$d 组（%2$d 个文件）</string>
+    <string name="duplicate_group_size">大小：每个 %s</string>
+    <string name="duplicate_group_hash">哈希值：%s…</string>
+    <string name="duplicate_scan_error">扫描失败：%s</string>
+
+    <!-- 最近文件 -->
+    <string name="recent_files_title">最近文件</string>
+    <string name="recent_files_path">搜索路径</string>
+    <string name="recent_files_time_range">时间范围</string>
+    <string name="recent_files_1hour">1 小时</string>
+    <string name="recent_files_24hours">24 小时</string>
+    <string name="recent_files_7days">7 天</string>
+    <string name="recent_files_30days">30 天</string>
+    <string name="recent_files_include_hidden">包含隐藏文件</string>
+    <string name="recent_files_action">搜索</string>
+    <string name="recent_files_scanning">扫描中…</string>
+    <string name="recent_files_result_count">找到 %d 个文件</string>
+    <string name="recent_files_invalid_path">无效路径</string>
+    <string name="recent_files_open_error">无法打开此文件</string>
+    <string name="recent_files_item_info">%1$s · %2$s</string>
+    <string name="recent_files_error">扫描失败：%s</string>
+
+    <!-- 文件加密 -->
+    <string name="encryption_title">文件加密</string>
+    <string name="encryption_password_hint">密码</string>
+    <string name="encryption_delete_original">处理后删除原文件</string>
+    <string name="encryption_add_file">添加文件</string>
+    <string name="encryption_encrypt">加密</string>
+    <string name="encryption_decrypt">解密</string>
+    <string name="encryption_file_count">%d 个文件</string>
+    <string name="encryption_no_files">未添加任何文件</string>
+    <string name="encryption_no_password">请输入密码</string>
+    <string name="encryption_password_too_short">密码至少需要 4 个字符</string>
+    <string name="encryption_confirm_encrypt">加密 %d 个文件？</string>
+    <string name="encryption_confirm_decrypt">解密 %d 个文件？</string>
+    <string name="encryption_status_success">成功</string>
+    <string name="encryption_status_failed">失败</string>
+    <string name="encryption_result">成功：%1$d，失败：%2$d</string>
+
+    <!-- 操作日志 -->
+    <string name="operation_log_title">操作日志</string>
+    <string name="operation_log_cancel">取消</string>
+    <string name="operation_log_close">关闭</string>
+    <string name="operation_log_completed">已完成</string>
+    <string name="operation_log_failed">失败</string>
+    <string name="operation_log_normalizing">格式统一</string>
+    <string name="operation_log_merging">合并中</string>
+    <string name="operation_log_encrypting">加密中</string>
+    <string name="operation_log_decrypting">解密中</string>
+    <string name="operation_log_file_skip">%1$s — 已兼容，跳过</string>
+    <string name="operation_log_file_start">%1$s — 处理中…</string>
+    <string name="operation_log_file_encrypting">%1$s — 加密中…</string>
+    <string name="operation_log_file_decrypting">%1$s — 解密中…</string>
+    <string name="operation_log_file_done">%1$s — 完成 (%2$s)</string>
+    <string name="operation_log_file_fail">%1$s — 失败：%2$s</string>
+    <string name="operation_log_merge_start">开始合并（%d 个文件）…</string>
+    <string name="operation_log_merge_done">合并完成 → %s</string>
+    <string name="operation_log_progress">%1$d / %2$d</string>
+    <string name="file_compare_title">文件对比</string>
+    <string name="file_compare_file1">文件 1</string>
+    <string name="file_compare_file2">文件 2</string>
+    <string name="file_compare_not_selected">未选择</string>
+    <string name="file_compare_select">选择文件</string>
+    <string name="file_compare_action">对比</string>
+    <string name="file_compare_select_both">请选择两个文件</string>
+    <string name="file_compare_file_not_found">文件未找到</string>
+    <string name="file_compare_info_header">文件信息</string>
+    <string name="file_compare_file1_info">文件 1：%1$s（%2$s）</string>
+    <string name="file_compare_file2_info">文件 2：%1$s（%2$s）</string>
+    <string name="file_compare_size_diff">文件大小不同</string>
+    <string name="file_compare_size_same">文件大小相同</string>
+    <string name="file_compare_identical">文件完全相同</string>
+    <string name="file_compare_different">文件不同</string>
+    <string name="file_compare_text_diff">文本差异</string>
+    <string name="file_compare_binary_files">文件似乎是二进制文件</string>
+    <string name="file_compare_files_too_large">文件过大，无法进行文本对比</string>
+    <string name="file_compare_no_text_diff">未发现文本差异</string>
+    <string name="file_compare_diff_count">发现 %d 处差异</string>
+    <string name="file_compare_truncated">仅显示前 %d 行</string>
+
+    <!-- 图片压缩 -->
+    <string name="image_compress_title">图片压缩</string>
+    <string name="image_compress_quality">质量</string>
+    <string name="image_compress_max_dimension">最大尺寸</string>
+    <string name="image_compress_format">输出格式</string>
+    <string name="image_compress_add_file">添加图片</string>
+    <string name="image_compress_add_folder">添加文件夹</string>
+    <string name="image_compress_action">压缩</string>
+    <string name="image_compress_count">%d 张图片</string>
+    <string name="image_compress_no_images">未添加任何图片</string>
+    <string name="image_compress_not_image">不是图片文件</string>
+    <string name="image_compress_scanned">已添加 %d 张图片</string>
+    <string name="image_compress_confirm_title">压缩图片</string>
+    <string name="image_compress_confirm_message">以 %2$d%% 质量压缩 %1$d 张图片？</string>
+    <string name="image_compress_saved">节省 %s</string>
+    <string name="image_compress_failed">失败</string>
+    <string name="image_compress_result">已压缩 %1$d 张图片，共节省 %2$s</string>
+    <string name="image_compress_error">压缩失败：%s</string>
+
+    <!-- Format Convert -->
+    <string name="format_convert_title">格式转换（FFmpeg）</string>
+    <string name="format_convert_output_format">输出格式</string>
+    <string name="format_convert_add_file">添加文件</string>
+    <string name="format_convert_action">转换</string>
+    <string name="format_convert_count">%d 个文件</string>
+    <string name="format_convert_no_files">未添加任何文件</string>
+    <string name="format_convert_unsupported_files">跳过了 %d 个不支持的文件</string>
+    <string name="format_convert_empty_hint">点击“添加文件”选择图片、视频或音频文件进行转换</string>
+    <string name="format_convert_summary_image">图片: %d</string>
+    <string name="format_convert_summary_video">视频: %d</string>
+    <string name="format_convert_summary_audio">音频: %d</string>
+    <string name="format_convert_edit_info">源格式: %1$s (%2$s) · %3$s</string>
+    <string name="format_convert_confirm_title">转换文件</string>
+    <string name="format_convert_confirm_message">转换 %1$d 个文件？</string>
+    <string name="format_convert_converting">转换中…</string>
+    <string name="format_convert_exit_confirm">转换正在进行中，确定要退出吗？</string>
+    <string name="format_convert_success">成功</string>
+    <string name="format_convert_failed">失败</string>
+    <string name="format_convert_result">成功：%1$d，失败：%2$d</string>
+    <string name="format_convert_error">转换失败：%s</string>
+    <string name="format_convert_selected_count">已选 %d 个</string>
+    <string name="format_convert_select_all">全选</string>
+    <string name="format_convert_deselect_all">取消全选</string>
+    <string name="format_convert_batch_format">批量设置格式</string>
+    <string name="format_convert_remove_selected">移除所选</string>
+    <string name="format_convert_batch_title">设置输出格式（%d 个文件）</string>
+    <string name="format_convert_batch_info">类型：%1$s（%2$d 个文件）</string>
+    <string name="format_convert_image_output_format">图片输出格式</string>
+    <string name="format_convert_video_output_format">视频输出格式</string>
+    <string name="format_convert_audio_output_format">音频输出格式</string>
+    <string name="format_convert_error_title">格式错误</string>
+    <string name="format_convert_format_mismatch">以下文件的输出格式不兼容：\n%1$s</string>
+
+    <!-- FFmpeg Tools -->
+    <string name="navigation_media_tools">FFmpeg 工具</string>
+    <string name="media_tools_title">FFmpeg 工具</string>
+    <string name="media_tool_format_convert">格式转换</string>
+    <string name="media_tool_format_convert_desc">通过 FFmpeg 转换媒体文件格式</string>
+    <string name="media_tool_extract_audio">提取音频</string>
+    <string name="media_tool_extract_audio_desc">通过 FFmpeg 从视频中提取音频轨道</string>
+    <string name="media_tool_media_trim">媒体裁剪</string>
+    <string name="media_tool_media_trim_desc">通过 FFmpeg 裁剪指定时间范围的媒体</string>
+    <string name="media_tool_video_compress">视频压缩</string>
+    <string name="media_tool_video_compress_desc">通过 FFmpeg 以较低码率压缩视频</string>
+    <string name="media_tool_video_snapshot">视频截图</string>
+    <string name="media_tool_video_snapshot_desc">通过 FFmpeg 截取指定时间的视频帧</string>
+    <string name="media_tool_gif_maker">GIF 制作</string>
+    <string name="media_tool_gif_maker_desc">通过 FFmpeg 从视频片段创建 GIF</string>
+    <string name="media_tool_media_merge">媒体合并</string>
+    <string name="media_tool_media_merge_desc">通过 FFmpeg 合并多个媒体文件</string>
+    <string name="media_tool_operation_running">有其他操作正在进行中</string>
+    <string name="media_tool_exit_confirm">操作正在进行中，确定要退出吗？</string>
+    <string name="media_tool_image_compress">图片压缩</string>
+    <string name="media_tool_image_compress_desc">通过 FFmpeg 压缩图片文件</string>
+    <string name="media_tool_image_enhance">图片增强</string>
+    <string name="media_tool_image_enhance_desc">通过 FFmpeg 锐化增强图片清晰度</string>
+    <string name="media_tool_video_enhance">视频增强</string>
+    <string name="media_tool_video_enhance_desc">通过 FFmpeg 锐化增强视频清晰度</string>
+    <string name="media_tool_enhance_result">增强完成：%1$d 成功，%2$d 失败</string>
+    <string name="media_tool_media_info">媒体信息</string>
+    <string name="media_tool_media_info_desc">通过 FFmpeg 查看详细媒体信息</string>
+    <string name="media_tool_ffmpeg_unavailable">FFmpeg 不可用</string>
+    <string name="media_tool_ffmpeg_status_desc">FFmpeg 库状态</string>
+    <string name="media_tool_start">开始</string>
+    <string name="media_tool_extract_audio_result">提取完成：%1$d 成功，%2$d 失败</string>
+    <string name="media_tool_trim_start_sec">开始时间（秒）</string>
+    <string name="media_tool_trim_end_sec">结束时间（秒）</string>
+    <string name="media_tool_trim_success">已裁剪至：%s</string>
+    <string name="media_tool_trim_failed">裁剪失败</string>
+    <string name="media_tool_compress_result">压缩完成：%1$d 成功，%2$d 失败</string>
+    <string name="media_tool_snapshot_time_sec">时间戳（秒）</string>
+    <string name="media_tool_snapshot_success">截图已保存至：%s</string>
+    <string name="media_tool_snapshot_failed">截图失败</string>
+    <string name="media_tool_gif_success">GIF 已保存至：%s</string>
+    <string name="media_tool_gif_failed">GIF 创建失败</string>
+    <string name="media_tool_merge_need_multiple">请选择至少 2 个文件</string>
+    <string name="media_tool_merge_success">已合并至：%s</string>
+    <string name="media_tool_merge_failed">合并失败</string>
+    <string name="media_tool_info_failed">获取媒体信息失败</string>
+    <string name="media_tool_info_file">文件</string>
+    <string name="media_tool_info_size">大小</string>
+    <string name="media_tool_info_format">格式</string>
+    <string name="media_tool_info_duration">时长</string>
+    <string name="media_tool_info_video">视频</string>
+    <string name="media_tool_info_audio">音频</string>
+    <string name="media_tool_info_codec">编码器</string>
+    <string name="media_tool_info_resolution">分辨率</string>
+    <string name="media_tool_info_bitrate">码率</string>
+    <string name="media_tool_info_sample_rate">采样率</string>
+    <string name="media_tool_info_channels">声道数</string>
+    <string name="media_tool_invalid_time_range">结束时间必须大于开始时间</string>
+    <string name="media_tool_ffmpeg_required_title">需要 FFmpeg</string>
+    <string name="media_tool_ffmpeg_required_message">此功能需要 FFmpeg 支持。当前 FFmpeg 库不可用，请确保应用已正确安装。</string>
+    <string name="media_tool_no_audio_track">所选文件不包含音频轨道，无法执行此操作。</string>
+    <string name="media_tool_no_video_track">所选文件不包含视频轨道，无法执行此操作。</string>
+    <string name="media_tool_prerequisite_title">前提条件不满足</string>
+    <string name="media_tool_extract_audio_requires">提取音频需要所选视频文件包含音频轨道。</string>
+    <string name="media_tool_video_requires">此功能仅支持包含视频轨道的文件。</string>
+    <string name="media_tool_merge_requires">合并要求：\n• 至少选择 2 个文件\n• 所有文件应使用相同的编解码器和分辨率\n• 不同格式的文件可能导致合并失败或播放异常</string>
+    <string name="media_tool_merge_codec_mismatch">所选文件的编解码器或分辨率不一致，直接合并可能产生播放问题。</string>
+    <string name="media_tool_merge_confirm_title">确认合并</string>
+    <string name="media_tool_merge_incompatible_hint">不同编解码器或分辨率的文件无法直接合并，请确保所有文件格式一致后再进行合并。</string>
+    <string name="media_tool_merge_analysis_title">文件分析结果</string>
+    <string name="media_tool_merge_normalize_failed">格式转换失败：%s</string>
+    <string name="media_tool_merge_structure_mismatch">部分文件包含视频而其他文件仅有音频，无法直接合并。</string>
+    <string name="media_tool_merge_no_av_stream">未找到音频或视频流</string>
+    <string name="media_tool_format_incompatible_title">格式不兼容</string>
+    <string name="media_tool_format_incompatible_desc">文件「%1$s」无法直接用于%2$s：\n%3$s\n\n是否自动转换为兼容格式后继续？中间文件会自动清理。</string>
+    <string name="media_tool_auto_convert_and_continue">自动转换并继续</string>
+    <string name="media_tool_format_converting">正在转换格式，请稍候…</string>
+    <string name="media_tool_format_converting_file">正在转换：%1$s（%2$d/%3$d）…</string>
+    <string name="media_tool_format_convert_failed">格式转换失败</string>
+    <string name="media_tool_format_video_issue">视频编码：%1$s（非常用格式）</string>
+    <string name="media_tool_format_audio_mp4_issue">音频编码：%1$s（与MP4容器不兼容）</string>
+    <string name="media_tool_format_audio_issue">音频编码：%1$s（不支持的格式）</string>
+    <string name="media_tool_format_multi_incompatible">%2$d 个文件中有 %1$d 个需要转换格式：</string>
+    <string name="media_tool_format_auto_convert_hint">是否自动转换为 H.264+AAC MP4 格式？中间文件会自动清理。</string>
+    <string name="media_tool_probing_file">正在分析文件…</string>
+    <string name="media_tool_probe_failed">无法读取文件信息，文件可能已损坏或格式不支持。</string>
+    <string name="media_tool_error_unknown">未知错误</string>
+    <string name="media_tool_error_cancelled">操作已取消</string>
+    <string name="media_tool_merge_normalize_detail">文件「%1$s」格式转换失败：\n%2$s</string>
+    <string name="media_tool_copy_error">复制错误信息</string>
+    <string name="media_tool_error_copied">错误详情已复制</string>
+    <string name="file_item_action_format_convert">格式转换</string>
+    <string name="file_item_action_media_info">媒体信息</string>
+    <string name="file_item_action_extract_audio">提取音频</string>
+    <string name="file_item_action_trim">裁剪</string>
+    <string name="file_item_action_video_compress">视频压缩</string>
+    <string name="file_item_action_video_snapshot">视频截图</string>
+    <string name="file_item_action_gif_maker">制作 GIF</string>
+    <string name="file_item_action_image_compress">图片压缩</string>
+    <string name="file_item_action_image_enhance">图片增强</string>
+    <string name="file_item_action_video_enhance">视频增强</string>
+    <string name="file_list_select_action_format_convert">格式转换</string>
+    <string name="file_type_image">图片</string>
+    <string name="file_type_video">视频</string>
+    <string name="file_type_audio">音频</string>
+    <string name="file_type_unknown">未知</string>
+
+    <!-- Video compress dialog -->
+    <string name="compress_option_bitrate">码率</string>
+    <string name="compress_bitrate_low">低 (500 kbps)</string>
+    <string name="compress_bitrate_medium">中 (1500 kbps)</string>
+    <string name="compress_bitrate_high">高 (3000 kbps)</string>
+    <string name="compress_option_resolution">分辨率</string>
+    <string name="compress_res_original">原始</string>
+    <string name="compress_res_720p">720p</string>
+    <string name="compress_res_480p">480p</string>
+    <string name="compress_res_360p">360p</string>
+    <string name="compress_option_framerate">帧率</string>
+    <string name="compress_fps_original">原始</string>
+    <string name="compress_fps_30">30 fps</string>
+    <string name="compress_fps_24">24 fps</string>
+    <string name="compress_fps_15">15 fps</string>
+    <!-- Video enhance dialog -->
+    <string name="enhance_option_strength">锐化强度</string>
+    <string name="enhance_strength_light">轻度</string>
+    <string name="enhance_strength_medium">中度</string>
+    <string name="enhance_strength_strong">强力</string>
+    <!-- CSV viewer -->
+    <string name="csv_viewer_title">CSV 查看器</string>
+    <string name="csv_viewer_error">无法加载 CSV 文件</string>
+
+
+    <string name="file_job_started_copy">复制任务已开始…</string>
+    <string name="file_job_started_move">移动任务已开始…</string>
+    <string name="file_job_started_delete">删除任务已开始…</string>
+    <string name="file_job_started_archive">压缩任务已开始…</string>
+    <string name="file_job_started_extract">解压任务已开始…</string>
+    <string name="file_job_started_rename">重命名任务已开始…</string>
+    <string name="file_job_started_batch_rename">批量重命名任务已开始…</string>
+    <string name="file_job_has_running">有任务正在处理中，请稍候…</string>
+</resources>

@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.github.chrisbanes.photoview-release-22:/drawable-ldpi-v4/ic_call_answer_low.png",
+        "source": "com.github.chrisbanes.photoview-core-1.13.0-17:/drawable-ldpi-v4/ic_call_answer_low.png"
+    },
+    {
+        "merged": "com.github.chrisbanes.photoview-release-22:/drawable-ldpi-v4/ic_call_answer_video.png",
+        "source": "com.github.chrisbanes.photoview-core-1.13.0-17:/drawable-ldpi-v4/ic_call_answer_video.png"
+    },
+    {
+        "merged": "com.github.chrisbanes.photoview-release-22:/drawable-ldpi-v4/ic_call_decline.png",
+        "source": "com.github.chrisbanes.photoview-core-1.13.0-17:/drawable-ldpi-v4/ic_call_decline.png"
+    },
+    {
+        "merged": "com.github.chrisbanes.photoview-release-22:/drawable-ldpi-v4/ic_call_answer.png",
+        "source": "com.github.chrisbanes.photoview-core-1.13.0-17:/drawable-ldpi-v4/ic_call_answer.png"
+    },
+    {
+        "merged": "com.github.chrisbanes.photoview-release-22:/drawable-ldpi-v4/ic_call_decline_low.png",
+        "source": "com.github.chrisbanes.photoview-core-1.13.0-17:/drawable-ldpi-v4/ic_call_decline_low.png"
+    },
+    {
+        "merged": "com.github.chrisbanes.photoview-release-22:/drawable-ldpi-v4/ic_call_answer_video_low.png",
+        "source": "com.github.chrisbanes.photoview-core-1.13.0-17:/drawable-ldpi-v4/ic_call_answer_video_low.png"
+    }
+]

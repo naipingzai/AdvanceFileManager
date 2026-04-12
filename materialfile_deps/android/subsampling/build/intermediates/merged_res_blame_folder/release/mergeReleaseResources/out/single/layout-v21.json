@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.davemorrissey.labs.subscaleview-release-23:/layout-v21/notification_template_icon_group.xml",
+        "source": "com.davemorrissey.labs.subscaleview-core-1.13.0-18:/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "com.davemorrissey.labs.subscaleview-release-23:/layout-v21/notification_action.xml",
+        "source": "com.davemorrissey.labs.subscaleview-core-1.13.0-18:/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "com.davemorrissey.labs.subscaleview-release-23:/layout-v21/notification_template_custom_big.xml",
+        "source": "com.davemorrissey.labs.subscaleview-core-1.13.0-18:/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "com.davemorrissey.labs.subscaleview-release-23:/layout-v21/notification_action_tombstone.xml",
+        "source": "com.davemorrissey.labs.subscaleview-core-1.13.0-18:/layout-v21/notification_action_tombstone.xml"
+    }
+]

@@ -1,0 +1,1129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ All Rights Reserved.
+  -->
+
+<resources>
+
+    <string name="app_name">Material Files</string>
+
+    <!-- Common -->
+    <string name="open_file_error">Cannot open this file</string>
+
+    <string name="close">Close</string>
+    <string name="action_add">Add</string>
+    <string name="copy">Copy</string>
+    <string name="cut">Cut</string>
+    <string name="default_">Default</string>
+    <string name="delete">Delete</string>
+    <string name="discard">Discard</string>
+    <string name="edit">Edit</string>
+    <string name="empty">Empty</string>
+    <string name="empty_placeholder">(Empty)</string>
+    <string name="error">Error</string>
+    <string name="hide">Hide</string>
+    <string name="install">Install</string>
+    <string name="keep_editing">Keep editing</string>
+    <string name="loading">Loading…</string>
+    <string name="maybe_later">Maybe later</string>
+    <string name="merge">Merge</string>
+    <string name="none">None</string>
+    <string name="open_navigation_drawer">Open navigation drawer</string>
+    <string name="paste">Paste</string>
+    <string name="refresh">Refresh</string>
+    <string name="reload">Reload</string>
+    <string name="remove">Remove</string>
+    <string name="rename">Rename</string>
+    <string name="replace">Replace</string>
+    <string name="reset">Reset</string>
+    <string name="retry">Retry</string>
+    <string name="save">Save</string>
+    <string name="search">Search</string>
+    <string name="select">Select</string>
+    <string name="select_all">Select all</string>
+    <string name="share">Share</string>
+    <string name="show">Show</string>
+    <string name="skip">Skip</string>
+    <string name="stop">Stop</string>
+    <string name="system_default">System default</string>
+    <string name="unknown">Unknown</string>
+    <string name="view">View</string>
+
+    <!-- android.R.string.app_not_found -->
+    <string name="activity_not_found">No application found to handle this action</string>
+    <string name="copied_to_clipboard_format" translatable="false">@string/preference_copied</string>
+    <string name="open_settings">Open settings</string>
+    <string name="shortcut_created">Shortcut created</string>
+
+    <plurals name="size_in_bytes_format">
+        <item quantity="one">%1$,d byte</item>
+        <item quantity="other">%1$,d bytes</item>
+    </plurals>
+
+    <string name="all_files_access_rationale_message">App needs access to manage all files. Please allow the access in the upcoming system setting.</string>
+    <!-- The allow button before Android 10 was in all-caps. -->
+    <string name="storage_permission_rationale_message">App needs permission to access files. Please click “ALLOW” in the upcoming system dialog.</string>
+    <string name="storage_permission_permanently_denied_message">App needs permission to access files. Please grant the “Storage” permission in system settings.</string>
+    <!-- The allow button is in sentence case now. -->
+    <string name="notification_permission_rationale_message">App needs permission to post notifications about file operations. Please click “Allow” in the upcoming system dialog.</string>
+    <string name="notification_permission_permanently_denied_message">App needs permission to post notifications about file operations. Please grant the “Notification” permission in system settings.</string>
+
+    <string name="notification_channel_background_activity_start_name">Actions while background</string>
+    <string name="notification_channel_background_activity_start_description">Take actions while app is in the background</string>
+    <string name="notification_channel_file_job_name">File operations</string>
+    <string name="notification_channel_file_job_description">Display and control file operations</string>
+
+    <string name="file_action_archive_password_title">Password required</string>
+    <string name="file_action_archive_password_message_format">“%1$s” is password-protected.</string>
+    <string name="file_action_archive_password_error_empty">Password cannot be empty</string>
+
+    <plurals name="file_job_archive_scan_notification_title_format">
+        <item quantity="one">Preparing to compress %1$,d file (%2$s)</item>
+        <item quantity="other">Preparing to compress %1$,d files (%2$s)</item>
+    </plurals>
+    <string name="file_job_archive_notification_title_one_format">Compressing “%1$s” into “%2$s”</string>
+    <plurals name="file_job_archive_notification_title_multiple_format">
+        <item quantity="one">Compressing %1$,d file into “%2$s”</item>
+        <item quantity="other">Compressing %1$,d files into “%2$s”</item>
+    </plurals>
+    <plurals name="file_job_copy_scan_notification_title_format">
+        <item quantity="one">Preparing to copy %1$,d file (%2$s)</item>
+        <item quantity="other">Preparing to copy %1$,d files (%2$s)</item>
+    </plurals>
+    <string name="file_job_copy_notification_title_one_format">Copying “%1$s” to “%2$s”</string>
+    <plurals name="file_job_copy_notification_title_multiple_format">
+        <item quantity="one">Copying %1$,d file to “%2$s”</item>
+        <item quantity="other">Copying %1$,d files to “%2$s”</item>
+    </plurals>
+    <plurals name="file_job_extract_scan_notification_title_format">
+        <item quantity="one">Preparing to extract %1$,d file (%2$s)</item>
+        <item quantity="other">Preparing to extract %1$,d files (%2$s)</item>
+    </plurals>
+    <string name="file_job_extract_notification_title_one_format">Extracting “%1$s” to “%2$s”</string>
+    <plurals name="file_job_extract_notification_title_multiple_format">
+        <item quantity="one">Extracting %1$,d file to “%2$s”</item>
+        <item quantity="other">Extracting %1$,d files to “%2$s”</item>
+    </plurals>
+    <plurals name="file_job_move_scan_notification_title_format">
+        <item quantity="one">Preparing to move %1$,d file (%2$s)</item>
+        <item quantity="other">Preparing to move %1$,d files (%2$s)</item>
+    </plurals>
+    <string name="file_job_move_notification_title_one_format">Moving “%1$s” to “%2$s”</string>
+    <plurals name="file_job_move_notification_title_multiple_format">
+        <item quantity="one">Moving %1$,d file to “%2$s”</item>
+        <item quantity="other">Moving %1$,d files to “%2$s”</item>
+    </plurals>
+    <string name="file_job_transfer_size_notification_text_one_format">%1$s / %2$s</string>
+    <string name="file_job_transfer_size_notification_text_multiple_format">%1$,d / %2$,d</string>
+    <plurals name="file_job_delete_scan_notification_title_format">
+        <item quantity="one">Preparing to delete %1$,d file</item>
+        <item quantity="other">Preparing to delete %1$,d files</item>
+    </plurals>
+    <string name="file_job_delete_notification_title_one_format">Deleting “%1$s”</string>
+    <plurals name="file_job_delete_notification_title_multiple_format">
+        <item quantity="one">Deleting %1$,d file</item>
+        <item quantity="other">Deleting %1$,d files</item>
+    </plurals>
+    <plurals name="file_job_set_owner_scan_notification_title_format">
+        <item quantity="one">Preparing to change owner for %1$,d file</item>
+        <item quantity="other">Preparing to change owner for %1$,d files</item>
+    </plurals>
+    <string name="file_job_set_owner_notification_title_one_format">Changing owner for “%1$s”</string>
+    <plurals name="file_job_set_owner_notification_title_multiple_format">
+        <item quantity="one">Changing owner for %1$,d file</item>
+        <item quantity="other">Changing owner for %1$,d files</item>
+    </plurals>
+    <plurals name="file_job_set_group_scan_notification_title_format">
+        <item quantity="one">Preparing to change group for %1$,d file</item>
+        <item quantity="other">Preparing to change group for %1$,d files</item>
+    </plurals>
+    <string name="file_job_set_group_notification_title_one_format">Changing group for “%1$s”</string>
+    <plurals name="file_job_set_group_notification_title_multiple_format">
+        <item quantity="one">Changing group for %1$,d file</item>
+        <item quantity="other">Changing group for %1$,d files</item>
+    </plurals>
+    <plurals name="file_job_set_mode_scan_notification_title_format">
+        <item quantity="one">Preparing to change mode for %1$,d file</item>
+        <item quantity="other">Preparing to change mode for %1$,d files</item>
+    </plurals>
+    <string name="file_job_set_mode_notification_title_one_format">Changing mode for “%1$s”</string>
+    <plurals name="file_job_set_mode_notification_title_multiple_format">
+        <item quantity="one">Changing mode for %1$,d file</item>
+        <item quantity="other">Changing mode for %1$,d files</item>
+    </plurals>
+    <plurals name="file_job_set_selinux_context_scan_notification_title_format">
+        <item quantity="one">Preparing to change SELinux context for %1$,d file</item>
+        <item quantity="other">Preparing to change SELinux context for %1$,d files</item>
+    </plurals>
+    <string name="file_job_set_selinux_context_notification_title_one_format">Changing SELinux context for “%1$s”</string>
+    <plurals name="file_job_set_selinux_context_notification_title_multiple_format">
+        <item quantity="one">Changing SELinux context for %1$,d file</item>
+        <item quantity="other">Changing SELinux context for %1$,d files</item>
+    </plurals>
+    <plurals name="file_job_restore_selinux_context_scan_notification_title_format">
+        <item quantity="one">Preparing to restore SELinux context for %1$,d file</item>
+        <item quantity="other">Preparing to restore SELinux context for %1$,d files</item>
+    </plurals>
+    <string name="file_job_restore_selinux_context_notification_title_one_format">Restoring SELinux context for “%1$s”</string>
+    <plurals name="file_job_restore_selinux_context_notification_title_multiple_format">
+        <item quantity="one">Restoring SELinux context for %1$,d file</item>
+        <item quantity="other">Restoring SELinux context for %1$,d files</item>
+    </plurals>
+    <string name="file_job_transfer_count_notification_text_multiple_format">%1$,d / %2$,d</string>
+    <string name="file_job_write_notification_title_format">Writing “%1$s”</string>
+    <string name="file_job_create_error_title">Error while creating</string>
+    <string name="file_job_create_error_message_format">There was an error creating “%1$s”.\n%2$s</string>
+    <string name="file_job_cannot_copy_into_itself_title">Cannot copy a folder into itself</string>
+    <string name="file_job_cannot_extract_into_itself_title">Cannot extract a folder into itself</string>
+    <string name="file_job_cannot_move_into_itself_title">Cannot move a folder into itself</string>
+    <string name="file_job_cannot_copy_move_into_itself_message">The destination folder is inside the source folder.</string>
+    <string name="file_job_cannot_copy_over_itself_title">Cannot copy a file over itself</string>
+    <string name="file_job_cannot_extract_over_itself_title">Cannot extract a file over itself</string>
+    <string name="file_job_cannot_move_over_itself_title">Cannot move a file over itself</string>
+    <string name="file_job_cannot_copy_move_over_itself_message">The source file would be overwritten by the destination.</string>
+    <string name="file_job_replace_title_format">Replace file “%1$s”?</string>
+    <string name="file_job_replace_message_format">Another file with the same name already exists in “%1$s”.\nReplacing it will overwrite its content.</string>
+    <string name="file_job_replace_target_name">Original file</string>
+    <string name="file_job_replace_source_name">Replace with</string>
+    <string name="file_job_merge_title_format">Merge folder “%1$s”?</string>
+    <string name="file_job_merge_copy_message_format">Merging will ask for confirmation before replacing any files in the folder that conflict with the files being copied.</string>
+    <string name="file_job_merge_extract_message_format">Merging will ask for confirmation before replacing any files in the folder that conflict with the files being extracted.</string>
+    <string name="file_job_merge_move_message_format">Merging will ask for confirmation before replacing any files in the folder that conflict with the files being moved.</string>
+    <string name="file_job_merge_target_name">Original folder</string>
+    <string name="file_job_merge_source_name">Merge with</string>
+    <string name="file_job_conflict_show_name">Select a new name for the destination</string>
+    <string name="file_job_conflict_name_hint">New name</string>
+    <string name="file_job_archive_error_title_format">Error while compressing “%1$s”</string>
+    <string name="file_job_archive_error_message_format">There was an error compressing the file into “%1$s”.\n%2$s</string>
+    <string name="file_job_copy_error_title_format">Error while copying “%1$s”</string>
+    <string name="file_job_copy_error_message_format">There was an error copying the file into “%1$s”.\n%2$s</string>
+    <string name="file_job_extract_error_title_format">Error while extracting “%1$s”</string>
+    <string name="file_job_extract_error_message_format">There was an error extracting the file into “%1$s”.\n%2$s</string>
+    <string name="file_job_move_error_title_format">Error while moving “%1$s”</string>
+    <string name="file_job_move_error_message_format">There was an error moving the file into “%1$s”.\n%2$s</string>
+    <string name="file_job_delete_error_title">Error while deleting</string>
+    <string name="file_job_delete_error_message_format">There was an error deleting “%1$s”.\n%2$s</string>
+    <string name="file_job_rename_error_title_format">Error while renaming “%1$s”</string>
+    <string name="file_job_rename_error_message_format">There was an error renaming the file to “%1$s”.\n%2$s</string>
+    <string name="file_job_set_owner_error_title_format">Error while changing owner for “%1$s”</string>
+    <string name="file_job_set_owner_error_message_format">There was an error changing the owner to “%1$s”.\n%2$s</string>
+    <string name="file_job_set_group_error_title_format">Error while changing group for “%1$s”</string>
+    <string name="file_job_set_group_error_message_format">There was an error changing the group to “%1$s”.\n%2$s</string>
+    <string name="file_job_set_mode_error_title_format">Error while changing mode for “%1$s”</string>
+    <string name="file_job_set_mode_error_message_format">There was an error changing the mode to “%1$s”.\n%2$s</string>
+    <string name="file_job_set_selinux_context_error_title_format">Error while changing SELinux context for “%1$s”</string>
+    <string name="file_job_set_selinux_context_error_message_format">There was an error changing the SELinux context to “%1$s”.\n%2$s</string>
+    <string name="file_job_restore_selinux_context_error_title">Error while restoring SELinux context</string>
+    <string name="file_job_restore_selinux_context_error_message_format">There was an error restoring the SELinux context for “%1$s”.\n%2$s</string>
+    <string name="file_job_write_error_title">Error while writing</string>
+    <string name="file_job_write_error_message_format">There was an error writing “%1$s”.\n%2$s</string>
+    <string name="file_job_get_information_error_message_format">There was an error getting information about “%1$s”.</string>
+    <string name="file_job_remount_format">Remount “%1$s” as read-write</string>
+    <string name="file_job_remount_loading_format">Remounting “%1$s” as read-write…</string>
+    <string name="file_job_remount_success_format">“%1$s” has been remounted as read-write</string>
+    <string name="file_job_action_all">Apply this action to all files</string>
+
+    <string name="file_open_apk_message">This file is an Android package. Do you want to install it, or view its contents?</string>
+    <string name="file_edit_title" translatable="false">@string/edit</string>
+    <string name="file_open_as_title">Open as…</string>
+    <string name="file_open_as_title_format">Open “%1$s” as</string>
+    <string name="file_open_as_type_text">Text</string>
+    <string name="file_open_as_type_image">Image</string>
+    <string name="file_open_as_type_audio">Audio</string>
+    <string name="file_open_as_type_video">Video</string>
+    <string name="file_open_as_type_directory">Folder</string>
+    <string name="file_open_as_type_any">Other</string>
+    <string name="file_install_apk_from_background_title_format">“%1$s” is ready to be installed</string>
+    <string name="file_install_apk_from_background_text">Tap to install</string>
+    <string name="file_open_from_background_title_format">“%1$s” is ready to be opened</string>
+    <string name="file_open_from_background_text">Tap to open</string>
+    <string name="file_name_error_empty">File name cannot be empty</string>
+    <string name="file_name_error_invalid">Invalid file name</string>
+    <string name="file_name_error_already_exists">A file with this name already exists</string>
+    <string name="file_replace_message_format">Replace “%1$s”?</string>
+    <string name="file_delete_message_file_format">Delete “%1$s”?</string>
+    <string name="file_delete_message_directory_format">Delete folder “%1$s” and its contents?</string>
+    <plurals name="file_delete_message_multiple_files_format">
+        <item quantity="one">Delete %1$,d file?</item>
+        <item quantity="other">Delete %1$,d files?</item>
+    </plurals>
+    <plurals name="file_delete_message_multiple_directories_format">
+        <item quantity="one">Delete %1$,d folder and its content?</item>
+        <item quantity="other">Delete %1$,d folders and their contents?</item>
+    </plurals>
+    <plurals name="file_delete_message_multiple_mixed_format">
+        <item quantity="one">Delete %1$,d item?</item>
+        <item quantity="other">Delete %1$,d items?</item>
+    </plurals>
+    <string name="file_create_archive_title">Create archive</string>
+    <string name="file_create_archive_type_zip">.zip</string>
+    <string name="file_create_archive_type_tar_xz">.tar.xz</string>
+    <string name="file_create_archive_type_7z">.7z</string>
+    <string name="file_create_archive_password">Password (optional)</string>
+    <string name="file_add_bookmark_success">Bookmark added</string>
+    <string name="file_create_file_title">New file</string>
+    <string name="file_create_directory_title">New folder</string>
+
+    <string name="batch_rename">Batch rename</string>
+    <string name="batch_rename_title" translatable="false">@string/batch_rename</string>
+    <string name="batch_rename_name_hint">Base name</string>
+    <string name="batch_rename_default_name">File</string>
+    <string name="batch_rename_preview">Preview</string>
+
+    <string name="file_list_title">Files</string>
+    <plurals name="file_list_title_open_file">
+        <item quantity="one">Select a file</item>
+        <item quantity="other">Select files</item>
+    </plurals>
+    <string name="file_list_title_create_file">Save file</string>
+    <plurals name="file_list_title_open_directory">
+        <item quantity="one">Select a folder</item>
+        <item quantity="other">Select folders</item>
+    </plurals>
+    <plurals name="file_list_subtitle_directory_count_format">
+        <item quantity="one">%1$,d folder</item>
+        <item quantity="other">%1$,d folders</item>
+    </plurals>
+    <plurals name="file_list_subtitle_file_count_format">
+        <item quantity="one">%1$,d file</item>
+        <item quantity="other">%1$,d files</item>
+    </plurals>
+    <string name="file_list_subtitle_separator">,\u0020</string>
+    <string name="file_list_path_error_empty">Path cannot be empty</string>
+    <string name="file_list_path_error_invalid">Invalid path</string>
+    <string name="file_list_action_view_sort">View and sort</string>
+    <string name="file_list_action_view_list">List</string>
+    <string name="file_list_action_view_grid">Grid</string>
+    <string name="file_list_action_sort_by_name">Name</string>
+    <string name="file_list_action_sort_by_type">Type</string>
+    <string name="file_list_action_sort_by_size">Size</string>
+    <string name="file_list_action_sort_by_last_modified">Last modified</string>
+    <string name="file_list_action_sort_order_ascending">Ascending</string>
+    <string name="file_list_action_sort_directories_first">Folders first</string>
+    <string name="file_list_action_view_sort_path_specific">Only for this folder</string>
+    <string name="file_list_action_new_task">New window</string>
+    <string name="file_list_action_navigate_to">Go to</string>
+    <string name="file_list_navigate_to_title" translatable="false">@string/file_list_action_navigate_to</string>
+    <string name="file_list_action_show_hidden_files">Show hidden files</string>
+    <string name="file_list_action_copy_path">Copy path</string>
+    <string name="file_list_action_add_bookmark">Add bookmark</string>
+    <string name="file_list_action_file_tools">File tools</string>
+    <string name="file_list_action_media_tools">Media tools</string>
+    <string name="unified_search_tab_file_search">Search</string>
+    <string name="unified_search_tab_duplicates">Duplicates</string>
+    <string name="unified_search_tab_empty">Empty</string>
+    <string name="unified_search_tab_recent">Recent</string>
+    <string name="unified_search_tab_compare">Compare</string>
+    <string name="file_item_action_media_tools">Media tools</string>
+    <string name="file_list_select_action_media_tools">Media tools</string>
+    <string name="media_tool_preselected_files">%d file(s) ready</string>
+    <string name="file_list_action_file_search">File search</string>
+    <string name="file_list_action_duplicate_finder">Duplicate finder</string>
+    <string name="file_list_action_empty_search">Empty files</string>
+    <string name="file_list_action_recent_files">Recent files</string>
+    <string name="file_list_breadcrumb_action_open_in_new_task">Open in new window</string>
+    <string name="file_list_select_title_format">%1$,d</string>
+    <string name="file_list_select_action_extract" translatable="false">@string/file_item_action_extract</string>
+    <string name="file_list_select_action_archive" translatable="false">@string/file_item_action_archive</string>
+    <string name="file_list_create_file_name_hint">File name</string>
+    <string name="file_list_create_file_name_error_empty" translatable="false">@string/file_name_error_empty</string>
+    <string name="file_list_create_file_name_error_invalid" translatable="false">@string/file_name_error_invalid</string>
+    <string name="file_list_open_current_directory_format">Select “%1$s”</string>
+    <string name="file_list_paste_move_title_format">Moving %1$,d</string>
+    <string name="file_list_paste_copy_title_format">Copying %1$,d</string>
+    <string name="file_list_paste_extract_title_format">Extracting %1$,d</string>
+    <string name="file_list_paste_action_extract_here">Extract here</string>
+    <string name="file_list_empty">No files</string>
+    <string name="file_list_action_create_file">File</string>
+    <string name="file_list_action_create_directory">Folder</string>
+
+    <string name="file_item_description_separator">\u0020\u0020\u0020\u0020</string>
+    <string name="file_item_action_open_with">Open with</string>
+    <string name="file_item_action_extract">Extract</string>
+    <string name="file_item_action_archive">Compress</string>
+    <string name="file_item_action_open_hex">Hex viewer</string>
+    <string name="file_item_action_format_convert">Format convert</string>
+    <string name="file_item_action_media_info">Media info</string>
+    <string name="file_item_action_extract_audio">Extract audio</string>
+    <string name="file_item_action_trim">Trim</string>
+    <string name="file_item_action_video_compress">Video compress</string>
+    <string name="file_item_action_video_snapshot">Snapshot</string>
+    <string name="file_item_action_gif_maker">Make GIF</string>
+    <string name="file_item_action_image_compress">Image compress</string>
+    <string name="file_item_action_image_enhance">Image enhance</string>
+    <string name="file_item_action_video_enhance">Video enhance</string>
+    <string name="file_list_select_action_format_convert">Format convert</string>
+    <string name="file_item_action_copy_path" translatable="false">@string/file_list_action_copy_path</string>
+    <string name="file_item_action_add_bookmark" translatable="false">@string/file_list_action_add_bookmark</string>
+    <string name="file_item_action_properties">Properties</string>
+    <string name="file_item_action_encrypt">Encrypt</string>
+    <string name="file_item_action_decrypt">Decrypt</string>
+
+    <string name="file_properties_title_format">“%1$s” properties</string>
+    <string name="file_properties_basic">Basic</string>
+    <string name="file_properties_basic_name">Name</string>
+    <string name="file_properties_basic_type">Type</string>
+    <string name="file_properties_basic_type_format">%1$s (%2$s)</string>
+    <string name="file_properties_basic_type_symbolic_link_format">Link to %1$s (%2$s)</string>
+    <string name="file_properties_basic_symbolic_link_target">Link Target</string>
+    <string name="file_properties_basic_size">Size</string>
+    <string name="file_properties_basic_size_with_human_readable_format">%1$s (%2$s)</string>
+    <string name="file_properties_basic_contents">Contents</string>
+    <plurals name="file_properties_basic_contents_format">
+        <item quantity="one">%1$,d item, with size %2$s</item>
+        <item quantity="other">%1$,d items, totaling %2$s</item>
+    </plurals>
+    <string name="file_properties_basic_last_modification_time">Last Modified</string>
+    <string name="file_properties_basic_parent_directory">Parent Folder</string>
+    <string name="file_properties_basic_archive_file">Archive File</string>
+    <string name="file_properties_basic_archive_entry">Archive Entry</string>
+    <string name="file_properties_basic_free_space">Free Space</string>
+    <string name="file_properties_permission">Permissions</string>
+    <string name="file_properties_permission_owner">Owner</string>
+    <string name="file_properties_permission_group">Group</string>
+    <string name="file_properties_permission_principal_format">%1$s (%2$d)</string>
+    <string name="file_properties_permission_set_owner_title">Change owner</string>
+    <string name="file_properties_permission_set_group_title">Change group</string>
+    <string name="file_properties_permission_set_principal_filter_hint">Enter a name or ID</string>
+    <string name="file_properties_permission_set_principal_system">System</string>
+    <string name="file_properties_permission_mode">Mode</string>
+    <string name="file_properties_permission_mode_format">%1$s (%2$04o)</string>
+    <string name="file_properties_permission_set_mode_title">Change mode</string>
+    <string name="file_properties_permission_set_mode_others">Others</string>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_file">
+        <item>Read</item>
+        <item>Write</item>
+        <item>Execute</item>
+    </string-array>
+    <string-array name="file_properties_permission_set_mode_normal_mode_bits_directory">
+        <item>Read</item>
+        <item>Write</item>
+        <item>Search</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_special">Special</string>
+    <string-array name="file_properties_permission_set_mode_special_mode_bits">
+        <item>Set UID</item>
+        <item>Set GID</item>
+        <item>Sticky bit</item>
+    </string-array>
+    <string name="file_properties_permission_set_mode_uppercase_x">Don’t add “Execute” for enclosed files</string>
+    <string name="file_properties_permission_selinux_context">SELinux Context</string>
+    <string name="file_properties_permission_set_selinux_context_title">Change SELinux context</string>
+    <string name="file_properties_permission_set_selinux_context_restore">Restore</string>
+    <string name="file_properties_permission_recursive">Apply to enclosed files</string>
+    <string name="file_properties_image">Image</string>
+    <string name="file_properties_media_dimensions">Dimensions</string>
+    <string name="file_properties_media_dimensions_format">%1$d \u00d7 %2$d</string>
+    <string name="file_properties_media_date_time">Taken on</string>
+    <string name="file_properties_media_coordinates">Coordinates</string>
+    <string name="file_properties_media_coordinates_format">%1$.3f, %2$.3f</string>
+    <string name="file_properties_media_address">Location</string>
+    <string name="file_properties_image_gps_altitude">Altitude</string>
+    <string name="file_properties_image_gps_altitude_format">%1$,.3f m</string>
+    <string name="file_properties_image_equipment">Camera</string>
+    <string name="file_properties_image_equipment_format">%1$s %2$s</string>
+    <string name="file_properties_image_f_number">Aperture</string>
+    <string name="file_properties_image_f_number_format" translatable="false">f/%1$.1f</string>
+    <string name="file_properties_image_shutter_speed">Shutter speed</string>
+    <string name="file_properties_image_shutter_speed_with_denominator_format" translatable="false">1/%1$d</string>
+    <string name="file_properties_image_focal_length">Focal length</string>
+    <string name="file_properties_image_focal_length_format">%1$.2f mm</string>
+    <string name="file_properties_image_photographic_sensitivity">ISO equivalent</string>
+    <string name="file_properties_image_photographic_sensitivity_format">ISO %1$d</string>
+    <string name="file_properties_image_software">Software</string>
+    <string name="file_properties_image_description">Description</string>
+    <string name="file_properties_image_artist">Creator</string>
+    <string name="file_properties_image_copyright">Copyright</string>
+    <string name="file_properties_audio">Audio</string>
+    <string name="file_properties_media_title">Title</string>
+    <string name="file_properties_audio_artist">Artist</string>
+    <string name="file_properties_audio_album">Album</string>
+    <string name="file_properties_audio_album_artist">Album artist</string>
+    <string name="file_properties_audio_composer">Composer</string>
+    <string name="file_properties_audio_disc_number">Disc</string>
+    <string name="file_properties_audio_track_number">Track</string>
+    <string name="file_properties_audio_year">Year</string>
+    <string name="file_properties_audio_genre">Genre</string>
+    <string name="file_properties_media_duration">Duration</string>
+    <string name="file_properties_media_bit_rate">Bit rate</string>
+    <string name="file_properties_media_bit_rate_format">%1$d kbps</string>
+    <string name="file_properties_audio_sample_rate">Sample rate</string>
+    <string name="file_properties_audio_sample_rate_format">%1$d Hz</string>
+    <string name="file_properties_video">Video</string>
+    <string name="file_properties_apk">APK</string>
+    <string name="file_properties_apk_label">Name</string>
+    <string name="file_properties_apk_package_name">Package name</string>
+    <string name="file_properties_apk_version">Version</string>
+    <string name="file_properties_apk_version_format">%1$s (%2$d)</string>
+    <string name="file_properties_apk_min_sdk_version">Minimum system version</string>
+    <string name="file_properties_apk_target_sdk_version">Target system version</string>
+    <string name="file_properties_apk_sdk_version_format">%1$s (%2$s, %3$d)</string>
+    <string-array name="file_properties_apk_sdk_version_names" translatable="false">
+        <item>Android ?</item>
+        <item>Android 1.0</item>
+        <item>Android 1.1</item>
+        <item>Android 1.5</item>
+        <item>Android 1.6</item>
+        <item>Android 2.0</item>
+        <item>Android 2.0.1</item>
+        <item>Android 2.1</item>
+        <item>Android 2.2</item>
+        <item>Android 2.3</item>
+        <item>Android 2.3.3</item>
+        <item>Android 3.0</item>
+        <item>Android 3.1</item>
+        <item>Android 3.2</item>
+        <item>Android 4.0</item>
+        <item>Android 4.0.3</item>
+        <item>Android 4.1</item>
+        <item>Android 4.2</item>
+        <item>Android 4.3</item>
+        <item>Android 4.4</item>
+        <item>Android 4.4W</item>
+        <item>Android 5.0</item>
+        <item>Android 5.1</item>
+        <item>Android 6.0</item>
+        <item>Android 7.0</item>
+        <item>Android 7.1</item>
+        <item>Android 8.0</item>
+        <item>Android 8.1</item>
+        <item>Android 9</item>
+        <item>Android 10</item>
+        <item>Android 11</item>
+        <item>Android 12</item>
+        <item>Android 12L</item>
+        <item>Android 13</item>
+        <item>Android 14</item>
+        <item>Android 15</item>
+        <item>Android 16</item>
+        <item>Android ?</item>
+    </string-array>
+    <string-array name="file_properties_apk_sdk_version_codenames" translatable="false">
+        <item>\?</item>
+        <item>B</item>
+        <item>B_1_1</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>E_0_1</item>
+        <item>E_MR1</item>
+        <item>F</item>
+        <item>G</item>
+        <item>G_MR1</item>
+        <item>H</item>
+        <item>H_MR1</item>
+        <item>H_MR2</item>
+        <item>ICS</item>
+        <item>ICS_MR1</item>
+        <item>JB</item>
+        <item>JB_MR1</item>
+        <item>JB_MR2</item>
+        <item>KK</item>
+        <item>KK_W</item>
+        <item>L</item>
+        <item>L_MR1</item>
+        <item>M</item>
+        <item>N</item>
+        <item>N_MR1</item>
+        <item>O</item>
+        <item>O_MR1</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>S_V2</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>\?</item>
+    </string-array>
+    <string name="file_properties_apk_requested_permissions">Permissions</string>
+    <string name="file_properties_apk_requested_permissions_zero">No permissions requested</string>
+    <plurals name="file_properties_apk_requested_permissions_positive_format">
+        <item quantity="one">%1$,d permission requested</item>
+        <item quantity="other">%1$,d permissions requested</item>
+    </plurals>
+    <string name="file_properties_apk_signature_digests">Signatures</string>
+    <string name="file_properties_apk_signature_digests_empty">No valid signatures</string>
+    <string name="file_properties_apk_past_signature_digests">Old signatures</string>
+    <string name="file_properties_checksum">Checksums</string>
+    <string name="file_properties_checksum_compare">Compare</string>
+    <string name="file_properties_checksum_compare_placeholder">Any checksum</string>
+    <string name="file_properties_checksum_compare_match_format">Matches %1$s checksum</string>
+    <string name="file_properties_checksum_compare_prefix_match_format">Matches prefix of %1$s checksum</string>
+    <string name="file_properties_checksum_compare_no_match">No matching checksum found</string>
+    <string name="file_properties_checksum_crc32" translatable="false">CRC32</string>
+    <string name="file_properties_checksum_md5" translatable="false">MD5</string>
+    <string name="file_properties_checksum_sha_1" translatable="false">SHA-1</string>
+    <string name="file_properties_checksum_sha_256" translatable="false">SHA-256</string>
+    <string name="file_properties_checksum_sha_512" translatable="false">SHA-512</string>
+
+    <string name="storage_file_system_root_title">Root</string>
+    <string name="storage_list_title">Storage</string>
+    <string name="storage_list_empty">No storage</string>
+    <string name="storage_add_storage_title">Add storage</string>
+    <string name="storage_add_storage_document_tree">External storage</string>
+    <string name="storage_edit_device_storage_title">Edit device storage</string>
+    <string name="storage_edit_device_storage_name">Name</string>
+    <string name="storage_edit_device_storage_path">Path</string>
+    <string name="storage_add_external_storage_shortcut_title">Add external storage shortcut</string>
+    <string name="storage_edit_external_storage_shortcut_title">Edit external storage shortcut</string>
+    <string name="storage_edit_external_storage_shortcut_root_id">Storage volume</string>
+    <string name="storage_edit_external_storage_shortcut_root_id_error_empty">Enter a storage volume</string>
+    <string name="storage_edit_external_storage_shortcut_path">Path</string>
+    <string name="storage_add_document_tree_title">Add external storage</string>
+    <string name="storage_edit_document_tree_title">Edit external storage</string>
+    <string name="storage_edit_document_tree_name">Name</string>
+    <string name="storage_edit_document_tree_uri">URI</string>
+    <string name="storage_edit_document_tree_path">Path</string>
+
+    <string name="navigation_storage_subtitle_format">%1$s free of %2$s</string>
+    <string name="navigation_add_storage">Add storage…</string>
+    <string name="navigation_standard_directory_alarms">Alarms</string>
+    <string name="navigation_standard_directory_dcim">DCIM</string>
+    <string name="navigation_standard_directory_documents">Documents</string>
+    <string name="navigation_standard_directory_downloads">Downloads</string>
+    <string name="navigation_standard_directory_movies">Movies</string>
+    <string name="navigation_standard_directory_music">Music</string>
+    <string name="navigation_standard_directory_notifications">Notifications</string>
+    <string name="navigation_standard_directory_pictures">Pictures</string>
+    <string name="navigation_standard_directory_podcasts">Podcasts</string>
+    <string name="navigation_standard_directory_ringtones">Ringtones</string>
+    <string name="navigation_standard_directory_qq">QQ</string>
+    <string name="navigation_standard_directory_tim">TIM</string>
+    <string name="navigation_standard_directory_wechat">WeChat</string>
+    <string name="navigation_edit_bookmark_directory_title">Bookmark folder</string>
+    <string name="navigation_edit_bookmark_directory_name">Name</string>
+    <string name="navigation_edit_bookmark_directory_path">Path</string>
+    <string name="navigation_settings" translatable="false">@string/settings_title</string>
+    <string name="navigation_about" translatable="false">@string/about_title</string>
+
+    <string name="archive_viewer_title">Archive viewer</string>
+    <string name="image_viewer_title">Image viewer</string>
+    <string name="video_viewer_title">Video viewer</string>
+    <string name="image_viewer_subtitle_format">%1$,d/%2$,d</string>
+    <string name="image_viewer_delete_message_format" translatable="false">@string/file_delete_message_file_format</string>
+    <string name="video_viewer_subtitle_format" translatable="false">@string/image_viewer_subtitle_format</string>
+    <string name="video_viewer_delete_message_format" translatable="false">@string/file_delete_message_file_format</string>
+    <string name="save_as_title">Save as</string>
+    <string name="save_as_error">Error while saving file</string>
+    <string name="save_as_success_format">“%1$s” has been saved to “%2$s”</string>
+    <string name="text_editor_title">Text editor</string>
+    <string name="text_editor_title_format">%1$s</string>
+    <string name="text_editor_title_changed_format">*%1$s</string>
+    <string name="text_editor_save_success">Saved</string>
+    <string name="text_editor_reload_message">Are you sure you want to reload? Unsaved changes to this document will be lost.</string>
+    <string name="text_editor_encoding">Encoding</string>
+    <string name="text_editor_close_message">Are you sure you want to discard unsaved changes to this document?</string>
+
+    <string name="large_text_viewer_info_loaded">%1$d lines | %2$s (fully loaded)</string>
+    <string name="large_text_viewer_info_partial">%1$d lines | %2$d%% loaded (%3$s / %4$s)</string>
+    <string name="large_text_viewer_go_to_line">Go to line</string>
+
+    <string name="pdf_viewer_title">PDF viewer</string>
+    <string name="pdf_viewer_page_format">%1$d / %2$d</string>
+    <string name="pdf_viewer_loading_progress">Loading %1$d%% (%2$s / %3$s)</string>
+
+    <string name="audio_player_title">Audio player</string>
+    <string name="audio_player_unknown_artist">Unknown artist</string>
+    <string name="audio_player_play_pause">Play / Pause</string>
+    <string name="audio_player_skip_previous">Restart</string>
+    <string name="audio_player_skip_next">Skip forward</string>
+    <string name="audio_player_rewind">Rewind 10s</string>
+    <string name="audio_player_forward">Forward 30s</string>
+    <string name="audio_player_subtitle_format" translatable="false">@string/image_viewer_subtitle_format</string>
+    <string name="audio_player_delete_message_format" translatable="false">@string/file_delete_message_file_format</string>
+
+    <string name="hex_viewer_title">Hex viewer</string>
+    <string name="hex_viewer_file_size">File size: %1$s</string>
+    <string name="hex_viewer_load_more">Load remaining (%1$s)</string>
+    <string name="hex_viewer_load_more_retry">Retry loading</string>
+    <string name="hex_viewer_loading">Loading…</string>
+    <string name="hex_viewer_go_to_offset">Go to offset</string>
+    <string name="hex_viewer_header_offset">Offset</string>
+    <string name="hex_viewer_header_hex">Hex</string>
+    <string name="hex_viewer_header_ascii">ASCII</string>
+
+    <string name="ebook_viewer_title">Ebook viewer</string>
+    <string name="ebook_viewer_error">Failed to open ebook: %1$s</string>
+
+    <string name="file_open_as_type_hex">Hex</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="settings_interface_title">Interface</string>
+    <string name="settings_locale_title">Language</string>
+    <string name="settings_theme_color_title">Theme color</string>
+    <string name="settings_theme_color_summary">Color that appears most frequently in the app</string>
+    <string name="settings_material_design_3_title">Material Design 3</string>
+    <string name="settings_file_list_animation_title">File list animation</string>
+    <string name="settings_file_name_ellipsize_title">Display long file name</string>
+    <string-array name="settings_file_name_ellipsize_entries">
+        <item>Ellipsize the beginning</item>
+        <item>Ellipsize the middle</item>
+        <item>Ellipsize the end</item>
+        <item>Marquee</item>
+    </string-array>
+    <string name="settings_behavior_title">Behavior</string>
+    <string name="settings_default_directory_title">Default folder</string>
+    <string name="settings_storages_title" translatable="false">@string/storage_list_title</string>
+    <string name="settings_storages_summary_empty" translatable="false">@string/storage_list_empty</string>
+    <string name="settings_standard_directories_title">Standard folders</string>
+    <string name="settings_standard_directories_summary_empty">No standard folders enabled</string>
+    <string name="settings_standard_directory_list_title" translatable="false">@string/settings_standard_directories_title</string>
+    <string name="settings_bookmark_directory_screenshots">Screenshots</string>
+    <string name="settings_bookmark_directories_title">Bookmark folders</string>
+    <string name="settings_bookmark_directories_summary_empty">No bookmark folders</string>
+    <string name="settings_bookmark_directory_list_title" translatable="false">@string/settings_bookmark_directories_title</string>
+    <string name="settings_bookmark_directory_list_empty" translatable="false">@string/settings_bookmark_directories_summary_empty</string>
+    <string name="settings_root_strategy_title">Root access mode</string>
+    <plurals name="settings_root_strategy_message_format">
+        <item quantity="one">You have %1$,d file operation running and changing root access mode now may result in unexpected error. Are you sure you want to change it now?</item>
+        <item quantity="other">You have %1$,d file operations running and changing root access mode now may result in unexpected error. Are you sure you want to change it now?</item>
+    </plurals>
+    <string-array name="settings_root_strategy_entries">
+        <item>Normal access only</item>
+        <item>Automatic</item>
+        <item>Root access only</item>
+    </string-array>
+    <string name="settings_archive_file_name_encoding_title">Archive file name encoding</string>
+    <string name="settings_open_apk_default_action_title">Open Android package</string>
+    <string-array name="settings_open_apk_default_action_entries">
+        <item>Install</item>
+        <item>View contents</item>
+        <item>Ask what to do</item>
+    </string-array>
+    <string name="settings_show_pdf_thumbnail_pre_28_title">Show thumbnail for PDF documents</string>
+    <string name="settings_show_pdf_thumbnail_pre_28_summary">Might make the app unstable on older versions of Android</string>
+    <string name="settings_read_remote_files_for_thumbnail_title">Read remote files for thumbnail</string>
+
+    <string name="about_title">About</string>
+    <string name="about_version_title">Version</string>
+    <string name="about_github_title">View on GitHub</string>
+    <string name="about_licenses_title">Licenses</string>
+    <string name="about_privacy_policy_title">Privacy policy</string>
+    <string name="about_author_title">Author</string>
+    <string name="about_author_name_title">naipingzai</string>
+    <string name="about_author_github_title">Follow on GitHub</string>
+    <string name="about_ffmpeg_title">FFmpeg</string>
+    <string name="about_ffmpeg_version_title">FFmpeg version</string>
+    <string name="about_ffmpeg_capabilities_title">Capabilities</string>
+    <string name="about_ffmpeg_capabilities">Format convert, Extract audio, Trim, Video compress, Video snapshot, GIF maker, Video enhance, Image compress, Image enhance, Merge files</string>
+
+    <string name="shortcut_downloads_title" translatable="false">@string/navigation_standard_directory_downloads</string>
+
+    <!-- Navigation tools -->
+    <string name="navigation_tools">Tools</string>
+    <string name="navigation_file_tools">File Tools</string>
+    <string name="navigation_storage_tools">Storage Management</string>
+    <string name="navigation_system_tools">System Tools</string>
+    <string name="navigation_trash">Recycle Bin</string>
+    <string name="navigation_empty_search">Empty Files</string>
+    <string name="navigation_file_search">File Search</string>
+    <string name="navigation_duplicate_finder">Duplicate Finder</string>
+    <string name="navigation_recent_files">Recent Files</string>
+    <string name="navigation_encryption">Encryption</string>
+    <string name="navigation_file_compare">File Compare</string>
+
+    <!-- Tool group titles -->
+    <string name="file_tools_title">File Tools</string>
+    <string name="storage_tools_title">Storage Management</string>
+    <string name="system_tools_title">System Tools</string>
+
+    <!-- Tool descriptions -->
+    <string name="tool_desc_file_search">Search files by name, type, size and more</string>
+    <string name="tool_desc_duplicate_finder">Find and clean up duplicate files</string>
+    <string name="tool_desc_empty_search">Find empty files and empty folders</string>
+    <string name="tool_desc_file_compare">Compare content differences between files</string>
+    <string name="tool_desc_trash">View and restore deleted files</string>
+    <string name="tool_desc_recent_files">View recently accessed files</string>
+    <string name="tool_desc_encryption">Encrypt and decrypt files</string>
+    <string name="tool_desc_media_tools">Format convert, compress, extract audio and more</string>
+
+    <!-- Trash / Recycle Bin -->
+    <string name="trash_title">Recycle Bin</string>
+    <string name="trash_empty">Recycle bin is empty</string>
+    <string name="trash_empty_action">Empty recycle bin</string>
+    <string name="trash_empty_confirm">Are you sure you want to permanently delete all items in the recycle bin?</string>
+    <string name="trash_emptied">Recycle bin emptied</string>
+    <string name="trash_none_selected">No items selected</string>
+    <string name="trash_restored_count">%d item(s) restored</string>
+    <string name="trash_delete_selected">Delete selected</string>
+    <string name="trash_delete_confirm">Permanently delete %d selected item(s)?</string>
+    <string name="trash_unknown_origin">Unknown original location</string>
+    <string name="trash_type_folder">Folder</string>
+    <string name="trash_type_file">File</string>
+    <string name="trash_item_info">%1$s · %2$s · Deleted: %3$s</string>
+    <string name="trash_select_all">Select all</string>
+    <string name="trash_deselect_all">Deselect all</string>
+    <string name="trash_restore_selected">Restore selected</string>
+    <string name="trash_deleted_count">%d item(s) permanently deleted</string>
+    <string name="trash_open_error">Cannot open this file</string>
+    <string name="trash_open_directory_hint">Cannot preview folders</string>
+
+    <!-- Empty File/Folder Search -->
+    <string name="tool_browse">Browse</string>
+    <string name="tool_add_path">Add Path</string>
+    <string name="tool_select_directory">Select directory</string>
+    <string name="empty_search_title">Empty File Search</string>
+    <string name="empty_search_path">Search path</string>
+    <string name="empty_search_include_files">Include empty files</string>
+    <string name="empty_search_include_folders">Include empty folders</string>
+    <string name="empty_search_action">Start search</string>
+    <string name="empty_search_searching">Searching…</string>
+    <string name="empty_search_result_count">Found %d item(s)</string>
+    <string name="empty_search_error">Search failed: %s</string>
+    <string name="empty_search_select_type">Select at least one type to search</string>
+    <string name="empty_search_invalid_path">Invalid path</string>
+    <string name="empty_search_none_selected">No items selected</string>
+    <string name="empty_search_delete_selected">Delete selected</string>
+    <string name="empty_search_delete_title">Delete</string>
+    <string name="empty_search_delete_message">Permanently delete %d selected item(s)?</string>
+    <string name="empty_search_deleted_count">%d item(s) deleted</string>
+    <string name="empty_search_type_folder">Empty folder</string>
+    <string name="empty_search_type_file">Empty file (0 bytes)</string>
+    <string name="empty_search_action_copy_path">Copy path</string>
+    <string name="empty_search_action_delete">Delete</string>
+    <string name="empty_search_path_copied">Path copied</string>
+    <string name="empty_search_filter_options">Filter options</string>
+    <string name="empty_search_search_type">Search type</string>
+    <string name="empty_search_include_hidden_dirs">Include hidden directories</string>
+    <string name="empty_search_include_hidden_files">Include hidden files</string>
+    <string name="empty_search_follow_symlinks">Follow symbolic links</string>
+    <string name="empty_search_scanning_progress">Scanning… found %d item(s)</string>
+
+    <!-- File Search -->
+    <string name="file_search_title">File Search</string>
+    <string name="file_search_path">Search path</string>
+    <string name="file_search_name">File name (contains)</string>
+    <string name="file_search_extension">Extensions (comma separated, e.g. jpg,png)</string>
+    <string name="file_search_min_size">Min size (KB)</string>
+    <string name="file_search_max_size">Max size (KB)</string>
+    <string name="file_search_action">Search</string>
+    <string name="file_search_searching">Searching…</string>
+    <string name="file_search_result_count">Found %d file(s)</string>
+    <string name="file_search_invalid_path">Invalid path</string>
+    <string name="file_search_back">Back</string>
+    <string name="file_search_criteria">Search criteria</string>
+    <string name="file_search_filter_options">Filter options</string>
+    <string name="file_search_file_type">File type</string>
+    <string name="file_search_type_all">All</string>
+    <string name="file_search_type_image">Image</string>
+    <string name="file_search_type_video">Video</string>
+    <string name="file_search_type_audio">Audio</string>
+    <string name="file_search_type_document">Document</string>
+    <string name="file_search_include_hidden_dirs">Include hidden directories</string>
+    <string name="file_search_include_hidden_files">Include hidden files</string>
+    <string name="file_search_follow_symlinks">Follow symbolic links</string>
+    <string name="file_search_delete_selected">Delete selected</string>
+    <string name="file_search_delete_title">Delete</string>
+    <string name="file_search_delete_message">Delete %1$d selected file(s) (%2$s)?</string>
+    <string name="file_search_deleted_count">%d file(s) deleted</string>
+    <string name="file_search_none_selected">No files selected</string>
+    <string name="file_search_result_summary">Found %1$d file(s), total %2$s</string>
+    <string name="file_search_scanning_progress">Scanning… found %d file(s)</string>
+    <string name="file_search_error">Search failed: %s</string>
+
+    <!-- Duplicate File Finder -->
+    <string name="duplicate_finder_title">Duplicate Finder</string>
+    <string name="duplicate_search_path">Search path</string>
+    <string name="duplicate_filter_options">Filter options</string>
+    <string name="duplicate_file_type">File type</string>
+    <string name="duplicate_type_all">All</string>
+    <string name="duplicate_type_image">Image</string>
+    <string name="duplicate_type_video">Video</string>
+    <string name="duplicate_type_audio">Audio</string>
+    <string name="duplicate_type_document">Document</string>
+    <string name="duplicate_min_size">Min size (bytes)</string>
+    <string name="duplicate_max_size">Max size (bytes)</string>
+    <string name="duplicate_include_hidden_dirs">Include hidden directories</string>
+    <string name="duplicate_include_hidden_files">Include hidden files</string>
+    <string name="duplicate_follow_symlinks">Follow symbolic links</string>
+    <string name="duplicate_algorithm">Hash algorithm</string>
+    <string name="duplicate_algorithm_hint">Select one or more algorithms (multiple = higher accuracy)</string>
+    <string name="duplicate_byte_compare">Byte-by-byte</string>
+    <string name="duplicate_scan_action">Scan for duplicates</string>
+    <string name="duplicate_scanning">Scanning…</string>
+    <string name="duplicate_scan_progress">Scanned %1$d / %2$d files</string>
+    <string name="duplicate_scan_phase_collecting">Collecting files…</string>
+    <string name="duplicate_scan_phase_size">Grouping by size…</string>
+    <string name="duplicate_scan_phase_hash">Computing hashes… %1$d / %2$d</string>
+    <string name="duplicate_scan_phase_verify">Verifying… %1$d / %2$d</string>
+    <string name="duplicate_invalid_path">Invalid path</string>
+    <string name="duplicate_no_algorithm">Please select at least one algorithm</string>
+    <string name="duplicate_result_summary">%1$d groups, %2$d duplicates, wasting %3$s</string>
+    <string name="duplicate_keep_rule">Keep rule</string>
+    <string name="duplicate_keep_rule_title">Select file to keep</string>
+    <string name="duplicate_sort_path_longest">Keep longest path</string>
+    <string name="duplicate_sort_path_shortest">Keep shortest path</string>
+    <string name="duplicate_sort_date_newest">Keep newest</string>
+    <string name="duplicate_sort_date_oldest">Keep oldest</string>
+    <string name="duplicate_none_selected">No files selected</string>
+    <string name="duplicate_delete_title">Delete duplicates</string>
+    <string name="duplicate_delete_message">Permanently delete %1$d file(s) (%2$s)?</string>
+    <string name="duplicate_deleted_count">%d file(s) deleted</string>
+    <string name="duplicate_group_header">Group %1$d (%2$d files)</string>
+    <string name="duplicate_group_size">Size: %s each</string>
+    <string name="duplicate_group_hash">Hash: %s…</string>
+    <string name="duplicate_scan_error">Scan failed: %s</string>
+
+    <!-- Recent Files -->
+    <string name="recent_files_title">Recent Files</string>
+    <string name="recent_files_path">Search path</string>
+    <string name="recent_files_time_range">Time range</string>
+    <string name="recent_files_1hour">1 Hour</string>
+    <string name="recent_files_24hours">24 Hours</string>
+    <string name="recent_files_7days">7 Days</string>
+    <string name="recent_files_30days">30 Days</string>
+    <string name="recent_files_include_hidden">Include hidden files</string>
+    <string name="recent_files_action">Search</string>
+    <string name="recent_files_scanning">Scanning…</string>
+    <string name="recent_files_result_count">Found %d file(s)</string>
+    <string name="recent_files_invalid_path">Invalid path</string>
+    <string name="recent_files_open_error">Cannot open this file</string>
+    <string name="recent_files_item_info">%1$s · %2$s</string>
+    <string name="recent_files_error">Scan failed: %s</string>
+
+    <!-- File Encryption -->
+    <string name="encryption_title">File Encryption</string>
+    <string name="encryption_password_hint">Password</string>
+    <string name="encryption_delete_original">Delete original after processing</string>
+    <string name="encryption_add_file">Add file</string>
+    <string name="encryption_encrypt">Encrypt</string>
+    <string name="encryption_decrypt">Decrypt</string>
+    <string name="encryption_file_count">%d file(s)</string>
+    <string name="encryption_no_files">No files added</string>
+    <string name="encryption_no_password">Please enter a password</string>
+    <string name="encryption_password_too_short">Password must be at least 4 characters</string>
+    <string name="encryption_confirm_encrypt">Encrypt %d file(s)?</string>
+    <string name="encryption_confirm_decrypt">Decrypt %d file(s)?</string>
+    <string name="encryption_status_success">Success</string>
+    <string name="encryption_status_failed">Failed</string>
+    <string name="encryption_result">Success: %1$d, Failed: %2$d</string>
+
+    <!-- Operation Log -->
+    <string name="operation_log_title">Operation Log</string>
+    <string name="operation_log_cancel">Cancel</string>
+    <string name="operation_log_close">Close</string>
+    <string name="operation_log_completed">Completed</string>
+    <string name="operation_log_failed">Failed</string>
+    <string name="operation_log_normalizing">Normalizing</string>
+    <string name="operation_log_merging">Merging</string>
+    <string name="operation_log_encrypting">Encrypting</string>
+    <string name="operation_log_decrypting">Decrypting</string>
+    <string name="operation_log_file_skip">%1$s — already compatible, skipped</string>
+    <string name="operation_log_file_start">%1$s — processing…</string>
+    <string name="operation_log_file_encrypting">%1$s — encrypting…</string>
+    <string name="operation_log_file_decrypting">%1$s — decrypting…</string>
+    <string name="operation_log_file_done">%1$s — done (%2$s)</string>
+    <string name="operation_log_file_fail">%1$s — failed: %2$s</string>
+    <string name="operation_log_merge_start">Starting merge (%d files)…</string>
+    <string name="operation_log_merge_done">Merge completed → %s</string>
+    <string name="operation_log_progress">%1$d / %2$d</string>
+    <string name="file_compare_title">File Compare</string>
+    <string name="file_compare_file1">File 1</string>
+    <string name="file_compare_file2">File 2</string>
+    <string name="file_compare_not_selected">Not selected</string>
+    <string name="file_compare_select">Select file</string>
+    <string name="file_compare_action">Compare</string>
+    <string name="file_compare_select_both">Please select both files</string>
+    <string name="file_compare_file_not_found">File not found</string>
+    <string name="file_compare_info_header">File Information</string>
+    <string name="file_compare_file1_info">File 1: %1$s (%2$s)</string>
+    <string name="file_compare_file2_info">File 2: %1$s (%2$s)</string>
+    <string name="file_compare_size_diff">File sizes are different</string>
+    <string name="file_compare_size_same">File sizes are the same</string>
+    <string name="file_compare_identical">Files are identical</string>
+    <string name="file_compare_different">Files are different</string>
+    <string name="file_compare_text_diff">Text Differences</string>
+    <string name="file_compare_binary_files">Files appear to be binary</string>
+    <string name="file_compare_files_too_large">Files too large for text comparison</string>
+    <string name="file_compare_no_text_diff">No text differences found</string>
+    <string name="file_compare_diff_count">%d difference(s) found</string>
+    <string name="file_compare_truncated">Showing first %d lines only</string>
+
+    <!-- Image Compression -->
+    <string name="image_compress_title">Image Compress</string>
+    <string name="image_compress_quality">Quality</string>
+    <string name="image_compress_max_dimension">Max dimension</string>
+    <string name="image_compress_format">Output format</string>
+    <string name="image_compress_add_file">Add image</string>
+    <string name="image_compress_add_folder">Add folder</string>
+    <string name="image_compress_action">Compress</string>
+    <string name="image_compress_count">%d image(s)</string>
+    <string name="image_compress_no_images">No images added</string>
+    <string name="image_compress_not_image">Not an image file</string>
+    <string name="image_compress_scanned">Added %d image(s)</string>
+    <string name="image_compress_confirm_title">Compress images</string>
+    <string name="image_compress_confirm_message">Compress %1$d image(s) at %2$d%% quality?</string>
+    <string name="image_compress_saved">Saved %s</string>
+    <string name="image_compress_failed">Failed</string>
+    <string name="image_compress_result">%1$d image(s) compressed, saved %2$s total</string>
+    <string name="image_compress_error">Compression failed: %s</string>
+
+    <!-- Format Convert -->
+    <string name="format_convert_title">Format Convert (FFmpeg)</string>
+    <string name="format_convert_output_format">Output format</string>
+    <string name="format_convert_add_file">Add files</string>
+    <string name="format_convert_action">Convert</string>
+    <string name="format_convert_count">%d file(s)</string>
+    <string name="format_convert_no_files">No files added</string>
+    <string name="format_convert_unsupported_files">%d file(s) skipped (unsupported format)</string>
+    <string name="format_convert_empty_hint">Tap "Add files" to select images, videos, or audio files for conversion</string>
+    <string name="format_convert_summary_image">Image: %d</string>
+    <string name="format_convert_summary_video">Video: %d</string>
+    <string name="format_convert_summary_audio">Audio: %d</string>
+    <string name="format_convert_edit_info">Source: %1$s (%2$s) · %3$s</string>
+    <string name="format_convert_confirm_title">Convert files</string>
+    <string name="format_convert_confirm_message">Convert %1$d file(s)?</string>
+    <string name="format_convert_converting">Converting…</string>
+    <string name="format_convert_exit_confirm">Conversion is in progress. Are you sure you want to exit?</string>
+    <string name="format_convert_success">Success</string>
+    <string name="format_convert_failed">Failed</string>
+    <string name="format_convert_result">Success: %1$d, Failed: %2$d</string>
+    <string name="format_convert_error">Conversion failed: %s</string>
+    <string name="format_convert_selected_count">%d selected</string>
+    <string name="format_convert_select_all">Select all</string>
+    <string name="format_convert_deselect_all">Deselect all</string>
+    <string name="format_convert_batch_format">Batch format</string>
+    <string name="format_convert_remove_selected">Remove selected</string>
+    <string name="format_convert_batch_title">Set output format (%d files)</string>
+    <string name="format_convert_batch_info">Type: %1$s (%2$d files)</string>
+    <string name="format_convert_image_output_format">Image output format</string>
+    <string name="format_convert_video_output_format">Video output format</string>
+    <string name="format_convert_audio_output_format">Audio output format</string>
+    <string name="format_convert_error_title">Format error</string>
+    <string name="format_convert_format_mismatch">The following files have incompatible output formats:\n%1$s</string>
+
+    <!-- FFmpeg Tools -->
+    <string name="navigation_media_tools">FFmpeg Tools</string>
+    <string name="media_tools_title">FFmpeg Tools</string>
+    <string name="media_tool_format_convert">Format Convert</string>
+    <string name="media_tool_format_convert_desc">Convert media file formats via FFmpeg</string>
+    <string name="media_tool_extract_audio">Extract Audio</string>
+    <string name="media_tool_extract_audio_desc">Extract audio track from video via FFmpeg</string>
+    <string name="media_tool_media_trim">Media Trim</string>
+    <string name="media_tool_media_trim_desc">Trim media to specified time range via FFmpeg</string>
+    <string name="media_tool_video_compress">Video Compress</string>
+    <string name="media_tool_video_compress_desc">Compress video with lower bitrate via FFmpeg</string>
+    <string name="media_tool_video_snapshot">Video Snapshot</string>
+    <string name="media_tool_video_snapshot_desc">Capture frame at specified time via FFmpeg</string>
+    <string name="media_tool_gif_maker">GIF Maker</string>
+    <string name="media_tool_gif_maker_desc">Create GIF from video clip via FFmpeg</string>
+    <string name="media_tool_media_merge">Media Merge</string>
+    <string name="media_tool_media_merge_desc">Merge multiple media files via FFmpeg</string>
+    <string name="media_tool_image_compress">Image Compress</string>
+    <string name="media_tool_image_compress_desc">Compress image files via FFmpeg</string>
+    <string name="media_tool_image_enhance">Image Enhance</string>
+    <string name="media_tool_image_enhance_desc">Sharpen and enhance image clarity via FFmpeg</string>
+    <string name="media_tool_video_enhance">Video Enhance</string>
+    <string name="media_tool_video_enhance_desc">Sharpen and enhance video clarity via FFmpeg</string>
+    <string name="media_tool_enhance_result">Enhancement complete: %1$d succeeded, %2$d failed</string>
+    <string name="media_tool_media_info">Media Info</string>
+    <string name="media_tool_media_info_desc">View detailed media information via FFmpeg</string>
+    <string name="media_tool_ffmpeg_unavailable">FFmpeg is not available</string>
+    <string name="media_tool_ffmpeg_status_desc">FFmpeg library status</string>
+    <string name="media_tool_start">Start</string>
+    <string name="media_tool_extract_audio_result">Extraction complete: %1$d succeeded, %2$d failed</string>
+    <string name="media_tool_trim_start_sec">Start time (seconds)</string>
+    <string name="media_tool_trim_end_sec">End time (seconds)</string>
+    <string name="media_tool_trim_success">Trimmed to: %s</string>
+    <string name="media_tool_trim_failed">Trim failed</string>
+    <string name="media_tool_compress_result">Compression complete: %1$d succeeded, %2$d failed</string>
+    <string name="media_tool_snapshot_time_sec">Timestamp (seconds)</string>
+    <string name="media_tool_snapshot_success">Snapshot saved to: %s</string>
+    <string name="media_tool_snapshot_failed">Snapshot failed</string>
+    <string name="media_tool_gif_success">GIF saved to: %s</string>
+    <string name="media_tool_gif_failed">GIF creation failed</string>
+    <string name="media_tool_merge_need_multiple">Please select at least 2 files</string>
+    <string name="media_tool_merge_success">Merged to: %s</string>
+    <string name="media_tool_merge_failed">Merge failed</string>
+    <string name="media_tool_operation_running">Another operation is in progress</string>
+    <string name="media_tool_exit_confirm">An operation is in progress. Are you sure you want to exit?</string>
+    <string name="media_tool_info_failed">Failed to get media info</string>
+    <string name="media_tool_info_file">File</string>
+    <string name="media_tool_info_size">Size</string>
+    <string name="media_tool_info_format">Format</string>
+    <string name="media_tool_info_duration">Duration</string>
+    <string name="media_tool_info_video">Video</string>
+    <string name="media_tool_info_audio">Audio</string>
+    <string name="media_tool_info_codec">Codec</string>
+    <string name="media_tool_info_resolution">Resolution</string>
+    <string name="media_tool_info_bitrate">Bitrate</string>
+    <string name="media_tool_info_sample_rate">Sample Rate</string>
+    <string name="media_tool_info_channels">Channels</string>
+    <string name="media_tool_invalid_time_range">End time must be after start time</string>
+    <string name="media_tool_ffmpeg_required_title">FFmpeg Required</string>
+    <string name="media_tool_ffmpeg_required_message">This feature requires FFmpeg support. The FFmpeg library is currently unavailable. Please ensure the app is installed correctly.</string>
+    <string name="media_tool_no_audio_track">The selected file does not contain an audio track.</string>
+    <string name="media_tool_no_video_track">The selected file does not contain a video track.</string>
+    <string name="media_tool_prerequisite_title">Prerequisite Not Met</string>
+    <string name="media_tool_extract_audio_requires">Extract Audio requires the selected video file to contain an audio track.</string>
+    <string name="media_tool_video_requires">This feature only supports files with a video track.</string>
+    <string name="media_tool_merge_requires">Merge requirements:\n• Select at least 2 files\n• All files should use the same codec and resolution\n• Different formats may cause merge failure or playback issues</string>
+    <string name="media_tool_merge_codec_mismatch">The selected files have different codecs or resolutions. Direct merge may cause playback issues.</string>
+    <string name="media_tool_merge_confirm_title">Confirm Merge</string>
+    <string name="media_tool_merge_incompatible_hint">Files with different codecs or resolutions cannot be merged directly. Please ensure all files have the same format before merging.</string>
+    <string name="media_tool_merge_analysis_title">File Analysis</string>
+    <string name="media_tool_merge_normalize_failed">Format conversion failed: %s</string>
+    <string name="media_tool_merge_structure_mismatch">Some files contain video while others only have audio. They cannot be merged directly.</string>
+    <string name="media_tool_merge_no_av_stream">No audio or video stream found</string>
+    <string name="media_tool_format_incompatible_title">Format Incompatible</string>
+    <string name="media_tool_format_incompatible_desc">The file \"%1$s\" cannot be directly used for %2$s:\n%3$s\n\nWould you like to auto-convert to a compatible format first? The intermediate file will be automatically cleaned up.</string>
+    <string name="media_tool_auto_convert_and_continue">Auto-convert and continue</string>
+    <string name="media_tool_format_converting">Converting format, please wait…</string>
+    <string name="media_tool_format_converting_file">Converting: %1$s (%2$d/%3$d)…</string>
+    <string name="media_tool_format_convert_failed">Format conversion failed</string>
+    <string name="media_tool_format_video_issue">Video codec: %1$s (not commonly supported)</string>
+    <string name="media_tool_format_audio_mp4_issue">Audio codec: %1$s (not compatible with MP4 container)</string>
+    <string name="media_tool_format_audio_issue">Audio codec: %1$s (unsupported format)</string>
+    <string name="media_tool_format_multi_incompatible">%1$d of %2$d files need format conversion:</string>
+    <string name="media_tool_format_auto_convert_hint">Auto-convert to H.264+AAC MP4? Intermediate files will be automatically cleaned up.</string>
+    <string name="media_tool_probing_file">Analyzing file…</string>
+    <string name="media_tool_probe_failed">Cannot read file info. The file may be corrupted or in an unsupported format.</string>
+    <string name="media_tool_error_unknown">Unknown error</string>
+    <string name="media_tool_error_cancelled">Operation cancelled</string>
+    <string name="media_tool_merge_normalize_detail">Format conversion for \"%1$s\" failed:\n%2$s</string>
+    <string name="media_tool_copy_error">Copy error</string>
+    <string name="media_tool_error_copied">Error details copied</string>
+    <string name="file_type_image">Image</string>
+    <string name="file_type_video">Video</string>
+    <string name="file_type_audio">Audio</string>
+    <string name="file_type_unknown">Unknown</string>
+
+    <!-- Video compress dialog -->
+    <string name="compress_option_bitrate">Bitrate</string>
+    <string name="compress_bitrate_low">Low (500 kbps)</string>
+    <string name="compress_bitrate_medium">Medium (1500 kbps)</string>
+    <string name="compress_bitrate_high">High (3000 kbps)</string>
+    <string name="compress_option_resolution">Resolution</string>
+    <string name="compress_res_original">Original</string>
+    <string name="compress_res_720p">720p</string>
+    <string name="compress_res_480p">480p</string>
+    <string name="compress_res_360p">360p</string>
+    <string name="compress_option_framerate">Framerate</string>
+    <string name="compress_fps_original">Original</string>
+    <string name="compress_fps_30">30 fps</string>
+    <string name="compress_fps_24">24 fps</string>
+    <string name="compress_fps_15">15 fps</string>
+    <!-- Video enhance dialog -->
+    <string name="enhance_option_strength">Sharpening Strength</string>
+    <string name="enhance_strength_light">Light</string>
+    <string name="enhance_strength_medium">Medium</string>
+    <string name="enhance_strength_strong">Strong</string>
+    <!-- CSV viewer -->
+    <string name="csv_viewer_title">CSV Viewer</string>
+    <string name="csv_viewer_error">Failed to load CSV file</string>
+
+
+    <string name="file_job_started_copy">Copy task started…</string>
+    <string name="file_job_started_move">Move task started…</string>
+    <string name="file_job_started_delete">Delete task started…</string>
+    <string name="file_job_started_archive">Archive task started…</string>
+    <string name="file_job_started_extract">Extract task started…</string>
+    <string name="file_job_started_rename">Rename task started…</string>
+    <string name="file_job_started_batch_rename">Batch rename task started…</string>
+    <string name="file_job_has_running">A task is currently running, please wait…</string>
+</resources>

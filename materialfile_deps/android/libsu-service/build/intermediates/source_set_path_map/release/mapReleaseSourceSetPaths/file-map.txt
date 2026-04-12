@@ -1,0 +1,7 @@
+com.topjohnwu.superuser.ipc-pngs-0 D:\AndroidApp\MaterialFile\materialfile_deps\android\libsu-service\build\generated\res\pngs\release
+com.topjohnwu.superuser.ipc-resValues-1 D:\AndroidApp\MaterialFile\materialfile_deps\android\libsu-service\build\generated\res\resValues\release
+com.topjohnwu.superuser.ipc-mergeReleaseResources-2 D:\AndroidApp\MaterialFile\materialfile_deps\android\libsu-service\build\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.topjohnwu.superuser.ipc-mergeReleaseResources-3 D:\AndroidApp\MaterialFile\materialfile_deps\android\libsu-service\build\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.topjohnwu.superuser.ipc-release-4 D:\AndroidApp\MaterialFile\materialfile_deps\android\libsu-service\build\intermediates\merged_res\release\mergeReleaseResources
+com.topjohnwu.superuser.ipc-main-5 D:\AndroidApp\MaterialFile\materialfile_deps\android\libsu-service\src\main\res
+com.topjohnwu.superuser.ipc-release-6 D:\AndroidApp\MaterialFile\materialfile_deps\android\libsu-service\src\release\res

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ All Rights Reserved.
+  -->
+
+<resources>
+
+    <string name="pref_default_value_empty" />
+
+    <string name="pref_key_storages">key_storages</string>
+    <string name="pref_key_file_list_default_directory">key_file_list_default_directory</string>
+    <string name="pref_key_file_list_persistent_drawer_open">key_file_list_persistent_drawer_open</string>
+    <bool name="pref_default_value_file_list_persistent_drawer_open">true</bool>
+    <string name="pref_key_file_list_show_hidden_files">key_file_list_show_hidden_files</string>
+    <bool name="pref_default_value_file_list_show_hidden_files">false</bool>
+    <string name="pref_key_file_list_view_type">key_file_list_view_type</string>
+    <string name="pref_default_value_file_list_view_type">0</string>
+    <string name="pref_key_file_list_sort_options">key_file_list_sort_options</string>
+    <string name="pref_key_create_archive_type">key_create_archive_type</string>
+
+    <string name="pref_key_locale">key_locale</string>
+    <string name="pref_key_file_list_animation">key_file_list_animation</string>
+    <bool name="pref_default_value_file_list_animation">true</bool>
+    <string name="pref_key_file_name_ellipsize">key_file_name_ellipsize</string>
+    <string name="pref_default_value_file_name_ellipsize">1</string>
+    <string-array name="pref_entry_values_file_name_ellipsize">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string name="pref_key_standard_directory_settings">key_standard_directories</string>
+    <string name="pref_key_bookmark_directories">key_bookmark_directories</string>
+    <string name="pref_key_root_strategy">key_root_strategy</string>
+    <string name="pref_default_value_root_strategy">1</string>
+    <string-array name="pref_entry_values_root_strategy">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string name="pref_key_archive_file_name_encoding">key_archive_file_name_encoding</string>
+    <string name="pref_default_value_archive_file_name_encoding">UTF-8</string>
+    <string name="pref_key_open_apk_default_action">key_open_apk_default_action</string>
+    <string name="pref_default_value_open_apk_default_action">2</string>
+    <string-array name="pref_entry_values_open_apk_default_action">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string name="pref_key_show_pdf_thumbnail_pre_28">key_show_pdf_thumbnail_pre_28</string>
+    <bool name="pref_default_value_show_pdf_thumbnail_pre_28">false</bool>
+    <bool name="pref_visible_show_pdf_thumbnail_pre_28">true</bool>
+</resources>

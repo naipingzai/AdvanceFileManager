@@ -1,0 +1,54 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.11.1'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.21'
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+android {
+    namespace 'coil.base'
+    compileSdk 36
+    defaultConfig { minSdk 21 }
+    sourceSets {
+        main {
+            java.srcDirs = ['src/java']
+            res.srcDirs = ['src/res']
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+        freeCompilerArgs += ['-Xjvm-default=all']
+        apiVersion = '1.9'
+        languageVersion = '1.9'
+    }
+}
+
+dependencies {
+    api "org.jetbrains.kotlin:kotlin-stdlib:2.1.21"
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2'
+    implementation 'androidx.annotation:annotation:1.9.1'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
+    implementation 'androidx.collection:collection:1.4.5'
+    implementation 'androidx.core:core-ktx:1.16.0'
+    implementation 'androidx.exifinterface:exifinterface:1.4.1'
+    implementation 'androidx.vectordrawable:vectordrawable-animated:1.2.0'
+    api 'androidx.lifecycle:lifecycle-runtime-ktx:2.9.2'
+    compileOnly files('../../../prebuild/android/okhttp/materialfile-okhttp.jar')
+    compileOnly files('../../../prebuild/android/okio/materialfile-okio.jar')
+}

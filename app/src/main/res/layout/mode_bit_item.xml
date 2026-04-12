@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ All Rights Reserved.
+  -->
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="4dp"
+    android:paddingEnd="12dp">
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/modeBitCheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?listPreferredItemHeightSmall"
+        android:paddingStart="4dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:textAppearance="?textAppearanceListItem" />
+</FrameLayout>

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/layout-watch-v20/abc_alert_dialog_button_bar_material.xml",
+        "source": "rikka.preference.simplemenu-appcompat-1.7.1-17:/layout-watch-v20/abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/layout-watch-v20/abc_alert_dialog_title_material.xml",
+        "source": "rikka.preference.simplemenu-appcompat-1.7.1-17:/layout-watch-v20/abc_alert_dialog_title_material.xml"
+    }
+]

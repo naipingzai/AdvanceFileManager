@@ -1,0 +1,49 @@
+/.gradle/
+/.idea/
+/.kotlin/
+/build/
+/captures/
+/local.properties
+/signing.jks
+/signing.properties
+.DS_Store
+*.iml
+
+# 工具目录（JDK, Android SDK等）
+/tools/
+
+# 构建脚本和日志
+build_log.txt
+build_result.txt
+build_out.txt
+build_err.txt
+prebuild_result.txt
+all_files.txt
+
+# App 构建产物
+app/build/
+
+# NpzLib 模块构建产物 (deps/npzself/)
+deps/npzself/*/build/
+deps/npzself/*/.gradle/
+
+# prebuild 编译产物
+prebuild/build/
+prebuild/output/
+
+# deps 编译中间产物和缓存
+materialfile_deps/**/.gradle/
+materialfile_deps/**/build/
+materialfile_deps/native/*/toolchain/
+
+# prebuild 中不需要的文件
+prebuild/native/ffmpeg/share/
+prebuild/native/ffmpeg/lib/pkgconfig/
+
+# FFmpeg 编译中间文件
+materialfile_deps/native/ffmpeg/build/
+materialfile_deps/native/ffmpeg/src/
+
+# 测试临时文件
+test_output.*
+test_sample.*

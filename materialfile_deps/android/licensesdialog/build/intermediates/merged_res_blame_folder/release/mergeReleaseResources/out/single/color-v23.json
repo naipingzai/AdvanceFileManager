@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "de.psdev.licensesdialog-release-23:/color-v23/abc_tint_btn_checkable.xml",
+        "source": "de.psdev.licensesdialog-appcompat-1.7.1-12:/color-v23/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "de.psdev.licensesdialog-release-23:/color-v23/abc_tint_spinner.xml",
+        "source": "de.psdev.licensesdialog-appcompat-1.7.1-12:/color-v23/abc_tint_spinner.xml"
+    },
+    {
+        "merged": "de.psdev.licensesdialog-release-23:/color-v23/abc_tint_seek_thumb.xml",
+        "source": "de.psdev.licensesdialog-appcompat-1.7.1-12:/color-v23/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "de.psdev.licensesdialog-release-23:/color-v23/abc_btn_colored_borderless_text_material.xml",
+        "source": "de.psdev.licensesdialog-appcompat-1.7.1-12:/color-v23/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "de.psdev.licensesdialog-release-23:/color-v23/abc_tint_edittext.xml",
+        "source": "de.psdev.licensesdialog-appcompat-1.7.1-12:/color-v23/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "de.psdev.licensesdialog-release-23:/color-v23/abc_tint_switch_track.xml",
+        "source": "de.psdev.licensesdialog-appcompat-1.7.1-12:/color-v23/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "de.psdev.licensesdialog-release-23:/color-v23/abc_btn_colored_text_material.xml",
+        "source": "de.psdev.licensesdialog-appcompat-1.7.1-12:/color-v23/abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "de.psdev.licensesdialog-release-23:/color-v23/abc_tint_default.xml",
+        "source": "de.psdev.licensesdialog-appcompat-1.7.1-12:/color-v23/abc_tint_default.xml"
+    },
+    {
+        "merged": "de.psdev.licensesdialog-release-23:/color-v23/abc_color_highlight_material.xml",
+        "source": "de.psdev.licensesdialog-appcompat-1.7.1-12:/color-v23/abc_color_highlight_material.xml"
+    }
+]

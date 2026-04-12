@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ All Rights Reserved.
+  -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <naipingzai.materialfile.ui.CoordinatorAppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?colorAppBarSurface"
+        android:theme="?actionBarTheme"
+        app:liftOnScroll="true"
+        app:liftOnScrollTargetViewId="@id/recyclerView">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:popupTheme="?actionBarPopupTheme" />
+    </naipingzai.materialfile.ui.CoordinatorAppBarLayout>
+
+    <naipingzai.materialfile.ui.CoordinatorScrollingFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- Compact settings card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/screen_edge_margin"
+                android:layout_marginEnd="@dimen/screen_edge_margin"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                app:cardPreventCornerOverlap="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <!-- Quality -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/image_compress_quality"
+                            android:textAppearance="?textAppearanceLabelLarge" />
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/qualitySlider"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:valueFrom="10"
+                            android:valueTo="100"
+                            android:stepSize="5" />
+
+                        <TextView
+                            android:id="@+id/qualityValueText"
+                            android:layout_width="40dp"
+                            android:layout_height="wrap_content"
+                            android:text="80%"
+                            android:gravity="center"
+                            android:textAppearance="?textAppearanceBodySmall" />
+                    </LinearLayout>
+
+                    <!-- Max dimension -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/image_compress_max_dimension"
+                            android:textAppearance="?textAppearanceLabelLarge" />
+
+                        <com.google.android.material.slider.Slider
+                            android:id="@+id/maxDimensionSlider"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="8dp"
+                            android:valueFrom="320"
+                            android:valueTo="4000"
+                            android:stepSize="160" />
+
+                        <TextView
+                            android:id="@+id/maxDimensionValueText"
+                            android:layout_width="48dp"
+                            android:layout_height="wrap_content"
+                            android:text="1920px"
+                            android:gravity="center"
+                            android:textAppearance="?textAppearanceBodySmall" />
+                    </LinearLayout>
+
+                    <!-- Output format chips inline -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/image_compress_format"
+                            android:textAppearance="?textAppearanceLabelLarge" />
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/formatChipGroup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            app:singleSelection="true"
+                            app:selectionRequired="true"
+                            app:singleLine="true">
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipJpeg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="JPEG"
+                                android:checked="true"
+                                style="@style/Widget.Material3.Chip.Filter" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipPng"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="PNG"
+                                style="@style/Widget.Material3.Chip.Filter" />
+
+                            <com.google.android.material.chip.Chip
+                                android:id="@+id/chipWebp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="WebP"
+                                style="@style/Widget.Material3.Chip.Filter" />
+                        </com.google.android.material.chip.ChipGroup>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Action row: count + add buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/screen_edge_margin"
+                android:paddingEnd="4dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
+
+                <TextView
+                    android:id="@+id/imageCountText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAppearance="?textAppearanceBodyMedium" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/addFileButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/image_compress_add_file"
+                    app:icon="@drawable/image_icon_white_24dp"
+                    style="@style/Widget.Material3.Button.TextButton" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.Material3.LinearProgressIndicator"
+                android:visibility="gone" />
+
+            <!-- Image list -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:clipToPadding="false"
+                android:paddingBottom="72dp"
+                android:scrollbars="vertical" />
+        </LinearLayout>
+
+        <!-- Bottom compress button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/compressButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/screen_edge_margin"
+            android:layout_marginEnd="@dimen/screen_edge_margin"
+            android:layout_marginBottom="16dp"
+            android:text="@string/image_compress_action" />
+    </naipingzai.materialfile.ui.CoordinatorScrollingFrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

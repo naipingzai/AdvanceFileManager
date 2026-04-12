@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "dev.chrisbanes.insetter.ktx-release-12:/drawable/ic_call_decline_low.xml",
+        "source": "dev.chrisbanes.insetter.ktx-core-1.16.0-2:/drawable/ic_call_decline_low.xml"
+    },
+    {
+        "merged": "dev.chrisbanes.insetter.ktx-release-12:/drawable/ic_call_answer.xml",
+        "source": "dev.chrisbanes.insetter.ktx-core-1.16.0-2:/drawable/ic_call_answer.xml"
+    },
+    {
+        "merged": "dev.chrisbanes.insetter.ktx-release-12:/drawable/notification_tile_bg.xml",
+        "source": "dev.chrisbanes.insetter.ktx-core-1.16.0-2:/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "dev.chrisbanes.insetter.ktx-release-12:/drawable/ic_call_answer_low.xml",
+        "source": "dev.chrisbanes.insetter.ktx-core-1.16.0-2:/drawable/ic_call_answer_low.xml"
+    },
+    {
+        "merged": "dev.chrisbanes.insetter.ktx-release-12:/drawable/ic_call_answer_video_low.xml",
+        "source": "dev.chrisbanes.insetter.ktx-core-1.16.0-2:/drawable/ic_call_answer_video_low.xml"
+    },
+    {
+        "merged": "dev.chrisbanes.insetter.ktx-release-12:/drawable/ic_call_decline.xml",
+        "source": "dev.chrisbanes.insetter.ktx-core-1.16.0-2:/drawable/ic_call_decline.xml"
+    },
+    {
+        "merged": "dev.chrisbanes.insetter.ktx-release-12:/drawable/notification_icon_background.xml",
+        "source": "dev.chrisbanes.insetter.ktx-core-1.16.0-2:/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "dev.chrisbanes.insetter.ktx-release-12:/drawable/notification_bg_low.xml",
+        "source": "dev.chrisbanes.insetter.ktx-core-1.16.0-2:/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "dev.chrisbanes.insetter.ktx-release-12:/drawable/ic_call_answer_video.xml",
+        "source": "dev.chrisbanes.insetter.ktx-core-1.16.0-2:/drawable/ic_call_answer_video.xml"
+    },
+    {
+        "merged": "dev.chrisbanes.insetter.ktx-release-12:/drawable/notification_bg.xml",
+        "source": "dev.chrisbanes.insetter.ktx-core-1.16.0-2:/drawable/notification_bg.xml"
+    }
+]

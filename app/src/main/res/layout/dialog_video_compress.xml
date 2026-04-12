@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ All Rights Reserved.
+  -->
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Bitrate -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/compress_option_bitrate"
+            android:textAppearance="?attr/textAppearanceTitleSmall" />
+
+        <RadioGroup
+            android:id="@+id/bitrateGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <RadioButton
+                android:id="@+id/bitrate_low"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/compress_bitrate_low" />
+
+            <RadioButton
+                android:id="@+id/bitrate_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/compress_bitrate_medium" />
+
+            <RadioButton
+                android:id="@+id/bitrate_high"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/compress_bitrate_high" />
+        </RadioGroup>
+
+        <!-- Resolution -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/compress_option_resolution"
+            android:textAppearance="?attr/textAppearanceTitleSmall" />
+
+        <RadioGroup
+            android:id="@+id/resolutionGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <RadioButton
+                android:id="@+id/res_original"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/compress_res_original" />
+
+            <RadioButton
+                android:id="@+id/res_720p"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/compress_res_720p" />
+
+            <RadioButton
+                android:id="@+id/res_480p"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/compress_res_480p" />
+
+            <RadioButton
+                android:id="@+id/res_360p"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/compress_res_360p" />
+        </RadioGroup>
+
+        <!-- Framerate -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/compress_option_framerate"
+            android:textAppearance="?attr/textAppearanceTitleSmall" />
+
+        <RadioGroup
+            android:id="@+id/fpsGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <RadioButton
+                android:id="@+id/fps_original"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/compress_fps_original" />
+
+            <RadioButton
+                android:id="@+id/fps_30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/compress_fps_30" />
+
+            <RadioButton
+                android:id="@+id/fps_24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/compress_fps_24" />
+
+            <RadioButton
+                android:id="@+id/fps_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/compress_fps_15" />
+        </RadioGroup>
+
+    </LinearLayout>
+</ScrollView>

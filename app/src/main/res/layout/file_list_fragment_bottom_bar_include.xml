@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ All Rights Reserved.
+  -->
+
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <naipingzai.materialfile.ui.BottomBarLayout
+        android:id="@+id/bottomBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="?colorSurface"
+        android:elevation="@dimen/bottom_bar_elevation"
+        android:fitsSystemWindows="true"
+        android:theme="?actionBarTheme">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/bottomToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:paddingStart="@dimen/file_list_toolbar_padding_start"
+            android:paddingEnd="@dimen/file_list_toolbar_padding_end_no_overflow"
+            app:navigationIcon="@drawable/close_icon_control_normal_24dp"
+            app:navigationContentDescription="@string/close"
+            app:popupTheme="?actionBarPopupTheme">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/bottomCreateFileNameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/file_list_create_file_name_hint"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:maxLines="1" />
+        </com.google.android.material.appbar.MaterialToolbar>
+    </naipingzai.materialfile.ui.BottomBarLayout>
+</merge>

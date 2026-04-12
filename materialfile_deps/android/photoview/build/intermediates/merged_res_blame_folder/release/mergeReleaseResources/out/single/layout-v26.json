@@ -1,0 +1,6 @@
+[
+    {
+        "merged": "com.github.chrisbanes.photoview-release-22:/layout-v26/abc_screen_toolbar.xml",
+        "source": "com.github.chrisbanes.photoview-appcompat-1.7.1-11:/layout-v26/abc_screen_toolbar.xml"
+    }
+]

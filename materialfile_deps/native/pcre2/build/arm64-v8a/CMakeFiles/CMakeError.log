@@ -1,0 +1,86 @@
+Determining if the include file windows.h exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/pcre2/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_9526f && [1/2] Building C object CMakeFiles/cmTC_9526f.dir/CheckIncludeFile.c.o
+FAILED: CMakeFiles/cmTC_9526f.dir/CheckIncludeFile.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_9526f.dir/CheckIncludeFile.c.o -MF CMakeFiles\cmTC_9526f.dir\CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_9526f.dir/CheckIncludeFile.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/pcre2/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/pcre2/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: 'windows.h' file not found
+    1 | #include <windows.h>
+      |          ^~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the memfd_create exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/pcre2/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_4f552 && [1/2] Building C object CMakeFiles/cmTC_4f552.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_4f552.dir/CheckSymbolExists.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_4f552.dir/CheckSymbolExists.c.o -MF CMakeFiles\cmTC_4f552.dir\CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_4f552.dir/CheckSymbolExists.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/pcre2/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/pcre2/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'memfd_create'
+    8 |   return ((int*)(&memfd_create))[argc];
+      |                   ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File D:/AndroidApp/MaterialFile/materialfile_deps/native/pcre2/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/mman.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef memfd_create
+  return ((int*)(&memfd_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the secure_getenv exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/pcre2/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_436b9 && [1/2] Building C object CMakeFiles/cmTC_436b9.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_436b9.dir/CheckSymbolExists.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_436b9.dir/CheckSymbolExists.c.o -MF CMakeFiles\cmTC_436b9.dir\CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_436b9.dir/CheckSymbolExists.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/pcre2/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/pcre2/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'secure_getenv'
+    8 |   return ((int*)(&secure_getenv))[argc];
+      |                   ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File D:/AndroidApp/MaterialFile/materialfile_deps/native/pcre2/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef secure_getenv
+  return ((int*)(&secure_getenv))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test INTEL_CET_ENABLED failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/pcre2/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_49a74 && [1/2] Building C object CMakeFiles/cmTC_49a74.dir/src.c.o
+FAILED: CMakeFiles/cmTC_49a74.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DINTEL_CET_ENABLED  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -MD -MT CMakeFiles/cmTC_49a74.dir/src.c.o -MF CMakeFiles\cmTC_49a74.dir\src.c.o.d -o CMakeFiles/cmTC_49a74.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/pcre2/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/pcre2/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:2:5: error: CET is not enabled
+    2 |    #error CET is not enabled
+      |     ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#ifndef __CET__
+   #error CET is not enabled
+   #endif
+   int main() { return 0; }

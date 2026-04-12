@@ -1,0 +1,14 @@
+prefix=/d/AndroidApp/MaterialFile/prebuild/native/ffmpeg
+exec_prefix=${prefix}
+libdir=/d/AndroidApp/MaterialFile/prebuild/native/ffmpeg/lib
+includedir=/d/AndroidApp/MaterialFile/prebuild/native/ffmpeg/include
+
+Name: libavcodec
+Description: FFmpeg codec library
+Version: 61.19.100
+Requires: libswresample >= 5.3.100, libavutil >= 59.39.100
+Requires.private: 
+Conflicts:
+Libs: -L${libdir}  -lavcodec -pthread -lm -latomic -landroid -lmediandk -lz
+Libs.private: 
+Cflags: -I${includedir}

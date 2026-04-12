@@ -1,0 +1,350 @@
+Performing C SOURCE FILE Test Intl_IS_BUILT_IN failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_e1454 && [1/2] Building C object CMakeFiles/cmTC_e1454.dir/src.c.o
+FAILED: CMakeFiles/cmTC_e1454.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DIntl_IS_BUILT_IN  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -std=gnu11 -MD -MT CMakeFiles/cmTC_e1454.dir/src.c.o -MF CMakeFiles\cmTC_e1454.dir\src.c.o.d -o CMakeFiles/cmTC_e1454.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:1:10: fatal error: 'libintl.h' file not found
+    1 | #include <libintl.h>
+      |          ^~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <libintl.h>
+int main(void) {
+  gettext("");
+  dgettext("", "");
+  dcgettext("", "", 0);
+  return 0;
+}
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_f9a15 && [1/2] Building C object CMakeFiles/cmTC_f9a15.dir/src.c.o
+FAILED: CMakeFiles/cmTC_f9a15.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DCMAKE_HAVE_LIBC_PTHREAD -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -std=gnu11 -MD -MT CMakeFiles/cmTC_f9a15.dir/src.c.o -MF CMakeFiles\cmTC_f9a15.dir\src.c.o.d -o CMakeFiles/cmTC_f9a15.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:13:3: error: call to undeclared function 'pthread_cancel'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   13 |   pthread_cancel(thread);
+      |   ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:13:3: note: did you mean 'pthread_once'?
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/include/pthread.h:250:5: note: 'pthread_once' declared here
+  250 | int pthread_once(pthread_once_t* _Nonnull __once, void (* _Nonnull __init_routine)(void));
+      |     ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the cap_rights_limit exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_758f6 && [1/2] Building C object CMakeFiles/cmTC_758f6.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_758f6.dir/CheckSymbolExists.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -std=gnu11 -MD -MT CMakeFiles/cmTC_758f6.dir/CheckSymbolExists.c.o -MF CMakeFiles\cmTC_758f6.dir\CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_758f6.dir/CheckSymbolExists.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: 'sys/capsicum.h' file not found
+    2 | #include <sys/capsicum.h>
+      |          ^~~~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/capsicum.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef cap_rights_limit
+  return ((int*)(&cap_rights_limit))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the pledge exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_4a857 && [1/2] Building C object CMakeFiles/cmTC_4a857.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_4a857.dir/CheckSymbolExists.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -std=gnu11 -MD -MT CMakeFiles/cmTC_4a857.dir/CheckSymbolExists.c.o -MF CMakeFiles\cmTC_4a857.dir\CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_4a857.dir/CheckSymbolExists.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'pledge'
+    8 |   return ((int*)(&pledge))[argc];
+      |                   ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <unistd.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pledge
+  return ((int*)(&pledge))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Performing C SOURCE FILE Test TUKLIB_PHYSMEM_SPECIAL failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_3ca1e && [1/2] Building C object CMakeFiles/cmTC_3ca1e.dir/src.c.o
+FAILED: CMakeFiles/cmTC_3ca1e.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DTUKLIB_PHYSMEM_SPECIAL -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -std=gnu11 -MD -MT CMakeFiles/cmTC_3ca1e.dir/src.c.o -MF CMakeFiles\cmTC_3ca1e.dir\src.c.o.d -o CMakeFiles/cmTC_3ca1e.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:5:13: error: unknown type name 'compile'
+    5 |             compile error
+      |             ^
+D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:5:26: error: expected ';' after top level declarator
+    5 |             compile error
+      |                          ^
+      |                          ;
+2 errors generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+            #if defined(_WIN32) || defined(__CYGWIN__) || defined(__OS2__)                 || defined(__DJGPP__) || defined(__VMS)                 || defined(AMIGA) || defined(__AROS__) || defined(__QNX__)
+            int main(void) { return 0; }
+            #else
+            compile error
+            #endif
+        
+Performing C SOURCE FILE Test TUKLIB_PHYSMEM_AIX failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_3a353 && [1/2] Building C object CMakeFiles/cmTC_3a353.dir/src.c.o
+FAILED: CMakeFiles/cmTC_3a353.dir/src.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DTUKLIB_PHYSMEM_AIX -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -std=gnu11 -MD -MT CMakeFiles/cmTC_3a353.dir/src.c.o -MF CMakeFiles\cmTC_3a353.dir\src.c.o.d -o CMakeFiles/cmTC_3a353.dir/src.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:2:22: fatal error: 'sys/systemcfg.h' file not found
+    2 |             #include <sys/systemcfg.h>
+      |                      ^~~~~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+
+            #include <sys/systemcfg.h>
+            int main(void)
+            {
+                (void)_system_configuration.physmem;
+                return 0;
+            }
+        
+Determining if the include file cpuid.h exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_43f56 && [1/2] Building C object CMakeFiles/cmTC_43f56.dir/CheckIncludeFile.c.o
+FAILED: CMakeFiles/cmTC_43f56.dir/CheckIncludeFile.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -std=gnu11 -MD -MT CMakeFiles/cmTC_43f56.dir/CheckIncludeFile.c.o -MF CMakeFiles\cmTC_43f56.dir\CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_43f56.dir/CheckIncludeFile.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+In file included from D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/cpuid.h:14:2: error: this header is for x86 only
+   14 | #error this header is for x86 only
+      |  ^
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/cpuid.h:309:5: error: invalid output constraint '=a' in asm
+  309 |     __cpuid(__leaf, __eax, __ebx, __ecx, __edx);
+      |     ^
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/cpuid.h:273:11: note: expanded from macro '__cpuid'
+  273 |         : "=a"(__eax), "=r" (__ebx), "=c"(__ecx), "=d"(__edx) \
+      |           ^
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/cpuid.h:324:5: error: invalid output constraint '=a' in asm
+  324 |     __cpuid(__leaf, *__eax, *__ebx, *__ecx, *__edx);
+      |     ^
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/cpuid.h:273:11: note: expanded from macro '__cpuid'
+  273 |         : "=a"(__eax), "=r" (__ebx), "=c"(__ecx), "=d"(__edx) \
+      |           ^
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/cpuid.h:338:5: error: invalid output constraint '=a' in asm
+  338 |     __cpuid_count(__leaf, __subleaf, *__eax, *__ebx, *__ecx, *__edx);
+      |     ^
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/cpuid.h:280:11: note: expanded from macro '__cpuid_count'
+  280 |         : "=a"(__eax), "=r" (__ebx), "=c"(__ecx), "=d"(__edx) \
+      |           ^
+4 errors generated.
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the include file immintrin.h exists failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_acf1d && [1/2] Building C object CMakeFiles/cmTC_acf1d.dir/CheckIncludeFile.c.o
+FAILED: CMakeFiles/cmTC_acf1d.dir/CheckIncludeFile.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -std=gnu11 -MD -MT CMakeFiles/cmTC_acf1d.dir/CheckIncludeFile.c.o -MF CMakeFiles\cmTC_acf1d.dir\CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_acf1d.dir/CheckIncludeFile.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+In file included from D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/immintrin.h:14:2: error: "This header is only meant to be used on x86 and x64 architecture"
+   14 | #error "This header is only meant to be used on x86 and x64 architecture"
+      |  ^
+In file included from D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+In file included from D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/immintrin.h:17:
+In file included from D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/x86gprintrin.h:15:
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/hresetintrin.h:42:27: error: invalid input constraint 'a' in asm
+   42 |   __asm__ ("hreset $0" :: "a"(__eax));
+      |                           ^
+In file included from D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+In file included from D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/immintrin.h:21:
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:14:2: error: "This header is only meant to be used on x86 and x64 architecture"
+   14 | #error "This header is only meant to be used on x86 and x64 architecture"
+      |  ^
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:56:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+   56 |     return (__m64)__builtin_ia32_vec_init_v2si(__i, 0);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:130:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  130 |     return (__m64)__builtin_ia32_packsswb((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:155:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  155 |     return (__m64)__builtin_ia32_packssdw((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:180:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  180 |     return (__m64)__builtin_ia32_packuswb((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:207:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  207 |     return (__m64)__builtin_ia32_punpckhbw((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:230:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  230 |     return (__m64)__builtin_ia32_punpckhwd((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:251:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  251 |     return (__m64)__builtin_ia32_punpckhdq((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:278:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  278 |     return (__m64)__builtin_ia32_punpcklbw((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:301:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  301 |     return (__m64)__builtin_ia32_punpcklwd((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:322:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  322 |     return (__m64)__builtin_ia32_punpckldq((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:343:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  343 |     return (__m64)__builtin_ia32_paddb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:364:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  364 |     return (__m64)__builtin_ia32_paddw((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:385:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  385 |     return (__m64)__builtin_ia32_paddd((__v2si)__m1, (__v2si)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:409:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  409 |     return (__m64)__builtin_ia32_paddsb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:433:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  433 |     return (__m64)__builtin_ia32_paddsw((__v4hi)__m1, (__v4hi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/lib/clang/19/include/mmintrin.h:456:12: error: invalid conversion between vector type '__m64' (vector of 1 'long long' value) and integer type 'int' of different size
+  456 |     return (__m64)__builtin_ia32_paddusb((__v8qi)__m1, (__v8qi)__m2);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+ninja: build stopped: subcommand failed.
+
+
+
+Determining if the elf_aux_info exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_ea1df && [1/2] Building C object CMakeFiles/cmTC_ea1df.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_ea1df.dir/CheckSymbolExists.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -std=gnu11 -MD -MT CMakeFiles/cmTC_ea1df.dir/CheckSymbolExists.c.o -MF CMakeFiles\cmTC_ea1df.dir\CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_ea1df.dir/CheckSymbolExists.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'elf_aux_info'
+    8 |   return ((int*)(&elf_aux_info))[argc];
+      |                   ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/auxv.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef elf_aux_info
+  return ((int*)(&elf_aux_info))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the sysctlbyname exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_24061 && [1/2] Building C object CMakeFiles/cmTC_24061.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_24061.dir/CheckSymbolExists.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -std=gnu11 -MD -MT CMakeFiles/cmTC_24061.dir/CheckSymbolExists.c.o -MF CMakeFiles\cmTC_24061.dir\CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_24061.dir/CheckSymbolExists.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: 'sys/sysctl.h' file not found
+    2 | #include <sys/sysctl.h>
+      |          ^~~~~~~~~~~~~~
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <sys/sysctl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef sysctlbyname
+  return ((int*)(&sysctlbyname))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the program_invocation_name exist failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_3954e && [1/2] Building C object CMakeFiles/cmTC_3954e.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_3954e.dir/CheckSymbolExists.c.o 
+D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -D_ALL_SOURCE -D_GNU_SOURCE -D_POSIX_PTHREAD_SEMANTICS -D_TANDEM_SOURCE -D__EXTENSIONS__  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fPIE -std=gnu11 -MD -MT CMakeFiles/cmTC_3954e.dir/CheckSymbolExists.c.o -MF CMakeFiles\cmTC_3954e.dir\CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_3954e.dir/CheckSymbolExists.c.o -c D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8:19: error: use of undeclared identifier 'program_invocation_name'
+    8 |   return ((int*)(&program_invocation_name))[argc];
+      |                   ^
+1 error generated.
+ninja: build stopped: subcommand failed.
+
+
+File D:/AndroidApp/MaterialFile/materialfile_deps/native/xz/build/arm64-v8a/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <errno.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef program_invocation_name
+  return ((int*)(&program_invocation_name))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

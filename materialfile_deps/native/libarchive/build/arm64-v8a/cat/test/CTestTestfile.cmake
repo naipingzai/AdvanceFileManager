@@ -1,0 +1,6 @@
+# CMake generated Testfile for 
+# Source directory: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/src/cat/test
+# Build directory: D:/AndroidApp/MaterialFile/materialfile_deps/native/libarchive/build/arm64-v8a/cat/test
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.

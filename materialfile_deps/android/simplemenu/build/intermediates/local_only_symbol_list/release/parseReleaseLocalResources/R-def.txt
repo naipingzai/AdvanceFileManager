@@ -1,0 +1,41 @@
+R_DEF: Internal format may change without notice
+local
+anim grow_fade_in
+anim grow_fade_in_center
+anim grow_fade_in_from_bottom
+anim shrink_fade_out
+anim shrink_fade_out_center
+anim shrink_fade_out_from_bottom
+attr? dialogElevation
+attr? dialogItemPadding
+attr? dialogMarginHorizontal
+attr? dialogMarginVertical
+attr? dialogMaxWidth
+attr? foregroundInsidePadding
+attr? listElevation
+attr? listItemPadding
+attr? listMarginHorizontal
+attr? listMarginVertical
+attr? maxUnits
+attr? popupBackgroundRadius
+attr? simpleMenuPreferenceStyle
+attr? unit
+dimen simple_menu_dialog_max_width
+dimen simple_menu_margin
+dimen simple_menu_unit
+drawable simple_menu_background
+drawable simple_menu_item_background
+integer config_activityDefaultDur
+integer config_activityShortDur
+integer simple_menu_max_units
+layout preference_simplemenu
+layout simple_menu_item
+layout simple_menu_list
+style Animation.Preference.SimpleMenuCenter
+style Preference.SimpleMenuPreference
+style ThemeOverlay.Preference.SimpleMenuPreference.PopupMenu
+style Widget.Preference.SimpleMenuPreference.PopupMenu
+styleable ForegroundCheckTextView android:foregroundGravity android:foreground foregroundInsidePadding
+styleable SimpleMenuPopup listMarginHorizontal listMarginVertical listItemPadding listElevation dialogMarginHorizontal dialogMarginVertical dialogItemPadding dialogElevation dialogMaxWidth unit maxUnits
+styleable SimpleMenuPreference android:popupMenuStyle android:popupTheme popupBackgroundRadius
+styleable Theme simpleMenuPreferenceStyle

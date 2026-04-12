@@ -1,0 +1,7 @@
+rikka.shizuku.shared-pngs-0 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-shared\build\generated\res\pngs\release
+rikka.shizuku.shared-resValues-1 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-shared\build\generated\res\resValues\release
+rikka.shizuku.shared-mergeReleaseResources-2 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-shared\build\intermediates\incremental\release\mergeReleaseResources\merged.dir
+rikka.shizuku.shared-mergeReleaseResources-3 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-shared\build\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+rikka.shizuku.shared-release-4 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-shared\build\intermediates\merged_res\release\mergeReleaseResources
+rikka.shizuku.shared-main-5 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-shared\src\main\res
+rikka.shizuku.shared-release-6 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-shared\src\release\res

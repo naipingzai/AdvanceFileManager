@@ -1,0 +1,7 @@
+com.topjohnwu.superuser-pngs-0 D:\AndroidApp\MaterialFile\materialfile_deps\android\libsu-core\build\generated\res\pngs\release
+com.topjohnwu.superuser-resValues-1 D:\AndroidApp\MaterialFile\materialfile_deps\android\libsu-core\build\generated\res\resValues\release
+com.topjohnwu.superuser-mergeReleaseResources-2 D:\AndroidApp\MaterialFile\materialfile_deps\android\libsu-core\build\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.topjohnwu.superuser-mergeReleaseResources-3 D:\AndroidApp\MaterialFile\materialfile_deps\android\libsu-core\build\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.topjohnwu.superuser-release-4 D:\AndroidApp\MaterialFile\materialfile_deps\android\libsu-core\build\intermediates\merged_res\release\mergeReleaseResources
+com.topjohnwu.superuser-main-5 D:\AndroidApp\MaterialFile\materialfile_deps\android\libsu-core\src\main\res
+com.topjohnwu.superuser-release-6 D:\AndroidApp\MaterialFile\materialfile_deps\android\libsu-core\src\release\res

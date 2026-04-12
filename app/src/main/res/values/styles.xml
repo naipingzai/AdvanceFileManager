@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ All Rights Reserved.
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      ~ See also drawable-v21/mtrl_popupmenu_background.xml and
+      ~ drawable-v23/mtrl_popupmenu_background_dark.xml which are overridden.
+      -->
+    <style name="Widget.MaterialFiles.ListView.DropDown" parent="Widget.AppCompat.ListView.DropDown">
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
+    <style name="Widget.MaterialFiles.CardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="android:stateListAnimator">@null</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/mtrl_btn_stroke_color_selector</item>
+        <item name="strokeWidth">@dimen/mtrl_btn_stroke_size</item>
+    </style>
+
+    <style name="ThemeOverlay.MaterialFiles.ActionBar" parent="ThemeOverlay.Material3.ActionBar">
+        <item name="colorControlNormal">?colorOnSurface</item>
+        <item name="searchViewStyle">@style/Widget.AppCompat.SearchView.ActionBar</item>
+    </style>
+
+    <style name="ThemeOverlay.MaterialFiles.ActionBarPopup" parent="ThemeOverlay.Material3.Dark.ActionBar">
+        <item name="colorControlNormal">?colorOnSurfaceVariant</item>
+        <item name="android:textColorPrimary">?colorOnSurface</item>
+        <item name="android:textColorSecondary">?colorOnSurfaceVariant</item>
+        <item name="searchViewStyle">@style/Widget.AppCompat.SearchView</item>
+    </style>
+</resources>

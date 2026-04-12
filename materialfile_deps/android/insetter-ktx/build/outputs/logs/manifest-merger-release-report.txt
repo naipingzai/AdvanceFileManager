@@ -1,0 +1,15 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\AndroidApp\MaterialFile\materialfile_deps\android\insetter-ktx\src\AndroidManifest.xml:17:1-51
+INJECTED from D:\AndroidApp\MaterialFile\materialfile_deps\android\insetter-ktx\src\AndroidManifest.xml:17:1-51
+	package
+		ADDED from D:\AndroidApp\MaterialFile\materialfile_deps\android\insetter-ktx\src\AndroidManifest.xml:17:11-48
+		INJECTED from D:\AndroidApp\MaterialFile\materialfile_deps\android\insetter-ktx\src\AndroidManifest.xml
+uses-sdk
+INJECTED from D:\AndroidApp\MaterialFile\materialfile_deps\android\insetter-ktx\src\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\AndroidApp\MaterialFile\materialfile_deps\android\insetter-ktx\src\AndroidManifest.xml
+INJECTED from D:\AndroidApp\MaterialFile\materialfile_deps\android\insetter-ktx\src\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\AndroidApp\MaterialFile\materialfile_deps\android\insetter-ktx\src\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\AndroidApp\MaterialFile\materialfile_deps\android\insetter-ktx\src\AndroidManifest.xml

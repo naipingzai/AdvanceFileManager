@@ -1,0 +1,23 @@
+Checking whether the ASM compiler is GNU using "--version" did not match "(GNU assembler)|(GCC)|(Free Software Foundation)":
+Android (13324770, based on r530567d) clang version 19.0.0 (https://android.googlesource.com/toolchain/llvm-project 97a699bf4812a18fb657c2779f5296a4ab2694d2)
+Target: x86_64-w64-windows-gnu
+Thread model: posix
+InstalledDir: D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/bin
+Performing C SOURCE FILE Test LD_FLAG_Z_NOEXECSTACK failed with the following output:
+Change Dir: D:/AndroidApp/MaterialFile/materialfile_deps/native/zstd/build/arm64-v8a/CMakeFiles/CMakeTmp
+
+Run Build Command(s):D:\AndroidApp\MaterialFile\tools\android-sdk\cmake\3.22.1\bin\ninja.exe cmTC_f0921 && [1/2] Building C object CMakeFiles/cmTC_f0921.dir/src.c.o
+D:/AndroidApp/MaterialFile/materialfile_deps/native/zstd/build/arm64-v8a/CMakeFiles/CMakeTmp/src.c:1:9: warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+    1 | int main() { return 0; }
+      |         ^
+      |          void
+1 warning generated.
+[2/2] Linking C executable cmTC_f0921
+FAILED: cmTC_f0921 
+cmd.exe /C "cd . && D:\AndroidApp\MaterialFile\tools\android-sdk\ndk\28.1.13356709\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android21 --sysroot=D:/AndroidApp/MaterialFile/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -Wall -Wextra -Wundef -Wshadow -Wcast-align -Wcast-qual -Wstrict-prototypes -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments      "-z noexecstack" CMakeFiles/cmTC_f0921.dir/src.c.o -o cmTC_f0921  -latomic -lm && cd ."
+clang: error: unknown argument: '-z noexecstack'
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }

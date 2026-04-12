@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ All Rights Reserved.
+  -->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="@string/settings_interface_title">
+
+        <naipingzai.materialfile.settings.LocalePreference
+            android:key="@string/pref_key_locale"
+            android:title="@string/settings_locale_title" />
+
+        <rikka.preference.SimpleMenuPreference
+            android:key="@string/pref_key_file_name_ellipsize"
+            android:title="@string/settings_file_name_ellipsize_title"
+            android:defaultValue="@string/pref_default_value_file_name_ellipsize"
+            android:entries="@array/settings_file_name_ellipsize_entries"
+            android:entryValues="@array/pref_entry_values_file_name_ellipsize"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_behavior_title">
+
+        <naipingzai.materialfile.settings.DefaultDirectoryPreference
+            android:key="@string/pref_key_file_list_default_directory"
+            android:title="@string/settings_default_directory_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <naipingzai.materialfile.settings.StoragesPreference
+            android:title="@string/settings_storages_title"
+            android:summary="@string/settings_storages_summary_empty" />
+
+        <naipingzai.materialfile.settings.BookmarkDirectoriesPreference
+            android:title="@string/settings_bookmark_directories_title"
+            android:summary="@string/settings_bookmark_directories_summary_empty" />
+
+        <naipingzai.materialfile.settings.RootStrategyPreference
+            android:key="@string/pref_key_root_strategy"
+            android:title="@string/settings_root_strategy_title"
+            android:defaultValue="@string/pref_default_value_root_strategy"
+            android:entries="@array/settings_root_strategy_entries"
+            android:entryValues="@array/pref_entry_values_root_strategy"
+            app:useSimpleSummaryProvider="true" />
+
+        <naipingzai.materialfile.settings.CharsetPreference
+            android:key="@string/pref_key_archive_file_name_encoding"
+            android:title="@string/settings_archive_file_name_encoding_title"
+            android:defaultValue="@string/pref_default_value_archive_file_name_encoding"
+            app:useSimpleSummaryProvider="true" />
+
+        <rikka.preference.SimpleMenuPreference
+            android:key="@string/pref_key_open_apk_default_action"
+            android:title="@string/settings_open_apk_default_action_title"
+            android:defaultValue="@string/pref_default_value_open_apk_default_action"
+            android:entries="@array/settings_open_apk_default_action_entries"
+            android:entryValues="@array/pref_entry_values_open_apk_default_action"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            android:key="@string/pref_key_show_pdf_thumbnail_pre_28"
+            android:title="@string/settings_show_pdf_thumbnail_pre_28_title"
+            android:defaultValue="@bool/pref_default_value_show_pdf_thumbnail_pre_28"
+            android:summary="@string/settings_show_pdf_thumbnail_pre_28_summary"
+            app:isPreferenceVisible="@bool/pref_visible_show_pdf_thumbnail_pre_28" />
+    </PreferenceCategory>
+</PreferenceScreen>

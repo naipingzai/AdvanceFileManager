@@ -1,0 +1,17 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\AndroidApp\MaterialFile\materialfile_deps\android\licensesdialog\src\AndroidManifest.xml:17:1-21:12
+INJECTED from D:\AndroidApp\MaterialFile\materialfile_deps\android\licensesdialog\src\AndroidManifest.xml:17:1-21:12
+	package
+		ADDED from D:\AndroidApp\MaterialFile\materialfile_deps\android\licensesdialog\src\AndroidManifest.xml:17:11-44
+		INJECTED from D:\AndroidApp\MaterialFile\materialfile_deps\android\licensesdialog\src\AndroidManifest.xml
+application
+ADDED from D:\AndroidApp\MaterialFile\materialfile_deps\android\licensesdialog\src\AndroidManifest.xml:19:5-20
+uses-sdk
+INJECTED from D:\AndroidApp\MaterialFile\materialfile_deps\android\licensesdialog\src\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\AndroidApp\MaterialFile\materialfile_deps\android\licensesdialog\src\AndroidManifest.xml
+INJECTED from D:\AndroidApp\MaterialFile\materialfile_deps\android\licensesdialog\src\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from D:\AndroidApp\MaterialFile\materialfile_deps\android\licensesdialog\src\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\AndroidApp\MaterialFile\materialfile_deps\android\licensesdialog\src\AndroidManifest.xml

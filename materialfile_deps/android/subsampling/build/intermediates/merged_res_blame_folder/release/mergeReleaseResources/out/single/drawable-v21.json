@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "com.davemorrissey.labs.subscaleview-release-23:/drawable-v21/abc_list_divider_material.xml",
+        "source": "com.davemorrissey.labs.subscaleview-appcompat-1.7.1-11:/drawable-v21/abc_list_divider_material.xml"
+    },
+    {
+        "merged": "com.davemorrissey.labs.subscaleview-release-23:/drawable-v21/abc_dialog_material_background.xml",
+        "source": "com.davemorrissey.labs.subscaleview-appcompat-1.7.1-11:/drawable-v21/abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "com.davemorrissey.labs.subscaleview-release-23:/drawable-v21/abc_edit_text_material.xml",
+        "source": "com.davemorrissey.labs.subscaleview-appcompat-1.7.1-11:/drawable-v21/abc_edit_text_material.xml"
+    },
+    {
+        "merged": "com.davemorrissey.labs.subscaleview-release-23:/drawable-v21/abc_btn_colored_material.xml",
+        "source": "com.davemorrissey.labs.subscaleview-appcompat-1.7.1-11:/drawable-v21/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "com.davemorrissey.labs.subscaleview-release-23:/drawable-v21/notification_action_background.xml",
+        "source": "com.davemorrissey.labs.subscaleview-core-1.13.0-18:/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "com.davemorrissey.labs.subscaleview-release-23:/drawable-v21/abc_action_bar_item_background_material.xml",
+        "source": "com.davemorrissey.labs.subscaleview-appcompat-1.7.1-11:/drawable-v21/abc_action_bar_item_background_material.xml"
+    }
+]

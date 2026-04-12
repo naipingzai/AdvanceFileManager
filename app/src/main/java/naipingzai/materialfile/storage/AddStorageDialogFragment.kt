@@ -1,0 +1,43 @@
+/*
+ * Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+ * All Rights Reserved.
+ */
+
+package naipingzai.materialfile.storage
+
+import android.app.Dialog
+import android.content.DialogInterface
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatDialogFragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import naipingzai.materialfile.R
+import naipingzai.materialfile.util.createIntent
+import naipingzai.materialfile.util.finish
+import naipingzai.materialfile.util.startActivitySafe
+
+class AddStorageDialogFragment : AppCompatDialogFragment() {
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
+        MaterialAlertDialogBuilder(requireContext(), theme)
+            .setTitle(R.string.storage_add_storage_title)
+            .apply {
+                val items = STORAGE_TYPES.map { getString(it.first) }.toTypedArray<CharSequence>()
+                setItems(items) { _, which ->
+                    startActivitySafe(STORAGE_TYPES[which].second)
+                    finish()
+                }
+            }
+            .create()
+
+    override fun onCancel(dialog: DialogInterface) {
+        super.onCancel(dialog)
+
+        finish()
+    }
+
+    companion object {
+        private val STORAGE_TYPES = listOf(
+            R.string.storage_add_storage_document_tree to
+                AddDocumentTreeActivity::class.createIntent(),
+        )
+    }
+}

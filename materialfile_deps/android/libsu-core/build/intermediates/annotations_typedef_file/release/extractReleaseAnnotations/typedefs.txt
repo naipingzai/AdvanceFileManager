@@ -1,0 +1,2 @@
+D com/topjohnwu/superuser/Shell$ConfigFlags
+D com/topjohnwu/superuser/Shell$Status

@@ -1,0 +1,11 @@
+D:/AndroidApp/MaterialFile/prebuild/native/lz4/lib/liblz4.a
+D:/AndroidApp/MaterialFile/prebuild/native/lz4/include/lz4.h
+D:/AndroidApp/MaterialFile/prebuild/native/lz4/include/lz4hc.h
+D:/AndroidApp/MaterialFile/prebuild/native/lz4/include/lz4frame.h
+D:/AndroidApp/MaterialFile/prebuild/native/lz4/include/lz4file.h
+D:/AndroidApp/MaterialFile/prebuild/native/lz4/share/man/man1/lz4.1
+D:/AndroidApp/MaterialFile/prebuild/native/lz4/lib/pkgconfig/liblz4.pc
+D:/AndroidApp/MaterialFile/prebuild/native/lz4/lib/cmake/lz4/lz4Targets.cmake
+D:/AndroidApp/MaterialFile/prebuild/native/lz4/lib/cmake/lz4/lz4Targets-release.cmake
+D:/AndroidApp/MaterialFile/prebuild/native/lz4/lib/cmake/lz4/lz4Config.cmake
+D:/AndroidApp/MaterialFile/prebuild/native/lz4/lib/cmake/lz4/lz4ConfigVersion.cmake

@@ -1,0 +1,7 @@
+coil-pngs-0 D:\AndroidApp\MaterialFile\materialfile_deps\android\coil\build\generated\res\pngs\release
+coil-resValues-1 D:\AndroidApp\MaterialFile\materialfile_deps\android\coil\build\generated\res\resValues\release
+coil-mergeReleaseResources-2 D:\AndroidApp\MaterialFile\materialfile_deps\android\coil\build\intermediates\incremental\release\mergeReleaseResources\merged.dir
+coil-mergeReleaseResources-3 D:\AndroidApp\MaterialFile\materialfile_deps\android\coil\build\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+coil-release-4 D:\AndroidApp\MaterialFile\materialfile_deps\android\coil\build\intermediates\merged_res\release\mergeReleaseResources
+coil-main-5 D:\AndroidApp\MaterialFile\materialfile_deps\android\coil\src\main\res
+coil-release-6 D:\AndroidApp\MaterialFile\materialfile_deps\android\coil\src\release\res

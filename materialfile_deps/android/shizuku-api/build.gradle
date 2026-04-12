@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.11.1'
+    }
+}
+
+apply plugin: 'com.android.library'
+
+repositories {
+    google()
+    mavenCentral()
+    flatDir { dirs '../../../prebuild/android/shizuku-aidl' }
+    flatDir { dirs '../../../prebuild/android/shizuku-shared' }
+}
+
+android {
+    namespace 'rikka.shizuku'
+    compileSdk 36
+    defaultConfig { minSdk 21 }
+    sourceSets {
+        main {
+            java.srcDirs = ['src/java']
+            manifest.srcFile 'src/AndroidManifest.xml'
+        }
+    }
+}
+
+dependencies {
+    compileOnly(name: 'materialfile-shizuku-shared', ext: 'aar')
+    compileOnly(name: 'materialfile-shizuku-aidl', ext: 'aar')
+    implementation 'androidx.annotation:annotation:1.9.1'
+}

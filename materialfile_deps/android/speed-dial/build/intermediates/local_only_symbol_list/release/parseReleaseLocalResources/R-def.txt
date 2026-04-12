@@ -1,0 +1,56 @@
+R_DEF: Internal format may change without notice
+local
+anim sd_fade_and_translate_in
+anim sd_fade_and_translate_out
+anim sd_scale_fade_and_translate_in
+anim sd_scale_fade_and_translate_out
+attr? clickable_overlay
+attr? fabBackgroundColor
+attr? fabLabel
+attr? fabLabelBackgroundColor
+attr? fabLabelClickable
+attr? fabLabelColor
+attr? sdExpansionMode
+attr? sdMainFabAnimationRotateAngle
+attr? sdMainFabClosedBackgroundColor
+attr? sdMainFabClosedIconColor
+attr? sdMainFabClosedSrc
+attr? sdMainFabOpenedBackgroundColor
+attr? sdMainFabOpenedIconColor
+attr? sdMainFabOpenedSrc
+attr? sdOverlayLayout
+attr? sdUseReverseAnimationOnClose
+attr? srcCompat
+color sd_label_background_color
+color sd_label_text_color
+color sd_overlay_color
+dimen sd_close_elevation
+dimen sd_fab_mini_size
+dimen sd_fab_normal_size
+dimen sd_fab_side_margin
+dimen sd_label_max_width
+dimen sd_open_elevation
+dimen sd_overlay_elevation
+id bottom
+id left
+id right
+id sd_fab
+id sd_fab_fill
+id sd_label
+id sd_label_container
+id sd_main_fab
+id top
+integer sd_close_animation_duration
+integer sd_open_animation_duration
+integer sd_rotate_animation_duration
+layout sd_fab_with_label_view
+layout sd_fill_fab
+string speeddial_scrolling_view_snackbar_behavior
+string speeddial_snackbar_behavior
+style SpeedDial
+style SpeedDial.Base
+style SpeedDial.Base.FabLabelStyle
+style SpeedDial.FabLabelStyle
+styleable FabWithLabelView android:src srcCompat fabLabel fabBackgroundColor fabLabelColor fabLabelBackgroundColor fabLabelClickable
+styleable SpeedDialOverlayLayout clickable_overlay android:background
+styleable SpeedDialView android:enabled sdExpansionMode sdMainFabAnimationRotateAngle sdMainFabClosedSrc sdMainFabClosedIconColor sdMainFabClosedBackgroundColor sdMainFabOpenedSrc sdMainFabOpenedIconColor sdMainFabOpenedBackgroundColor sdOverlayLayout sdUseReverseAnimationOnClose

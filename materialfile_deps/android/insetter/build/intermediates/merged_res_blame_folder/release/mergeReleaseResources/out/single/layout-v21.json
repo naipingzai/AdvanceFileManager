@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "dev.chrisbanes.insetter-release-12:/layout-v21/notification_action.xml",
+        "source": "dev.chrisbanes.insetter-core-1.16.0-2:/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "dev.chrisbanes.insetter-release-12:/layout-v21/notification_template_icon_group.xml",
+        "source": "dev.chrisbanes.insetter-core-1.16.0-2:/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "dev.chrisbanes.insetter-release-12:/layout-v21/notification_action_tombstone.xml",
+        "source": "dev.chrisbanes.insetter-core-1.16.0-2:/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "dev.chrisbanes.insetter-release-12:/layout-v21/notification_template_custom_big.xml",
+        "source": "dev.chrisbanes.insetter-core-1.16.0-2:/layout-v21/notification_template_custom_big.xml"
+    }
+]

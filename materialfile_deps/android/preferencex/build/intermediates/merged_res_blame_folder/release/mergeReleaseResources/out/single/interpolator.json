@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "com.takisoft.preferencex-release-38:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1.xml",
+        "source": "com.takisoft.preferencex-appcompat-1.7.1-18:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_1.xml"
+    },
+    {
+        "merged": "com.takisoft.preferencex-release-38:/interpolator/btn_radio_to_off_mtrl_animation_interpolator_0.xml",
+        "source": "com.takisoft.preferencex-appcompat-1.7.1-18:/interpolator/btn_radio_to_off_mtrl_animation_interpolator_0.xml"
+    },
+    {
+        "merged": "com.takisoft.preferencex-release-38:/interpolator/btn_radio_to_on_mtrl_animation_interpolator_0.xml",
+        "source": "com.takisoft.preferencex-appcompat-1.7.1-18:/interpolator/btn_radio_to_on_mtrl_animation_interpolator_0.xml"
+    },
+    {
+        "merged": "com.takisoft.preferencex-release-38:/interpolator/mtrl_linear.xml",
+        "source": "com.takisoft.preferencex-material-1.12.0-25:/interpolator/mtrl_linear.xml"
+    },
+    {
+        "merged": "com.takisoft.preferencex-release-38:/interpolator/fast_out_slow_in.xml",
+        "source": "com.takisoft.preferencex-appcompat-1.7.1-18:/interpolator/fast_out_slow_in.xml"
+    },
+    {
+        "merged": "com.takisoft.preferencex-release-38:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_0.xml",
+        "source": "com.takisoft.preferencex-appcompat-1.7.1-18:/interpolator/btn_checkbox_checked_mtrl_animation_interpolator_0.xml"
+    },
+    {
+        "merged": "com.takisoft.preferencex-release-38:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml",
+        "source": "com.takisoft.preferencex-appcompat-1.7.1-18:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_1.xml"
+    },
+    {
+        "merged": "com.takisoft.preferencex-release-38:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml",
+        "source": "com.takisoft.preferencex-appcompat-1.7.1-18:/interpolator/btn_checkbox_unchecked_mtrl_animation_interpolator_0.xml"
+    }
+]

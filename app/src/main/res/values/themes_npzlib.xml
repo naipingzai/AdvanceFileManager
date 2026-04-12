@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ All Rights Reserved.
+  ~
+  ~ Default Theme Overlay
+  ~ Apply this overlay to get default values for all semantic style attributes.
+  -->
+
+<resources>
+
+    <!--
+      Default NpzLib Theme Overlay.
+      Maps all semantic attributes to library-defined default style values.
+    -->
+    <style name="ThemeOverlay.NpzLib.Default" parent="">
+        <!-- TextAppearance mappings -->
+        <item name="npzCardTitleTextAppearance">@style/TextAppearance.NpzLib.CardTitle</item>
+        <item name="npzCardBodyTextAppearance">@style/TextAppearance.NpzLib.CardBody</item>
+        <item name="npzSectionTitleTextAppearance">@style/TextAppearance.NpzLib.SectionTitle</item>
+        <item name="npzInfoLabelTextAppearance">@style/TextAppearance.NpzLib.InfoLabel</item>
+        <item name="npzStatValueTextAppearance">@style/TextAppearance.NpzLib.StatValue</item>
+        <item name="npzListItemTitleTextAppearance">@style/TextAppearance.NpzLib.ListItemTitle</item>
+        <item name="npzListItemSubtitleTextAppearance">@style/TextAppearance.NpzLib.ListItemSubtitle</item>
+        <item name="npzToolbarTitleTextAppearance">@style/TextAppearance.NpzLib.ToolbarTitle</item>
+        <item name="npzDialogTitleTextAppearance">@style/TextAppearance.NpzLib.DialogTitle</item>
+        <item name="npzDialogBodyTextAppearance">@style/TextAppearance.NpzLib.DialogBody</item>
+
+        <!-- Widget style mappings -->
+        <item name="npzOutlinedCardStyle">@style/Widget.NpzLib.CardView.Outlined</item>
+        <item name="npzFilledCardStyle">@style/Widget.NpzLib.CardView.Filled</item>
+
+        <!-- Semantic color mappings (reference M3 default colors) -->
+        <item name="npzCardTitleColor">?colorOnSurface</item>
+        <item name="npzCardBodyColor">?colorOnSurfaceVariant</item>
+        <item name="npzCardIconTint">?colorOnSurfaceVariant</item>
+        <item name="npzCardArrowTint">?colorOnSurfaceVariant</item>
+
+        <!-- Dimension mappings -->
+        <item name="npzCardCornerRadius">@dimen/npzlib_card_corner_radius</item>
+        <item name="npzCardIconContainerSize">@dimen/npzlib_card_icon_container_size</item>
+        <item name="npzCardIconSize">@dimen/npzlib_card_icon_size</item>
+        <item name="npzScreenEdgeMargin">@dimen/npzlib_screen_edge_margin</item>
+    </style>
+
+</resources>

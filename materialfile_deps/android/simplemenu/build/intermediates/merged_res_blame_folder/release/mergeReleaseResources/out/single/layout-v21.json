@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/layout-v21/notification_action.xml",
+        "source": "rikka.preference.simplemenu-core-1.13.0-27:/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/layout-v21/notification_template_custom_big.xml",
+        "source": "rikka.preference.simplemenu-core-1.13.0-27:/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/layout-v21/notification_template_icon_group.xml",
+        "source": "rikka.preference.simplemenu-core-1.13.0-27:/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/layout-v21/notification_action_tombstone.xml",
+        "source": "rikka.preference.simplemenu-core-1.13.0-27:/layout-v21/notification_action_tombstone.xml"
+    }
+]

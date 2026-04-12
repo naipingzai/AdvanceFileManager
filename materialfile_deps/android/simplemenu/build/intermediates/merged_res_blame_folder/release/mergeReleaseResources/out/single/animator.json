@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/animator/fragment_open_exit.xml",
+        "source": "rikka.preference.simplemenu-fragment-1.5.4-21:/animator/fragment_open_exit.xml"
+    },
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/animator/fragment_close_exit.xml",
+        "source": "rikka.preference.simplemenu-fragment-1.5.4-21:/animator/fragment_close_exit.xml"
+    },
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/animator/fragment_fade_enter.xml",
+        "source": "rikka.preference.simplemenu-fragment-1.5.4-21:/animator/fragment_fade_enter.xml"
+    },
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/animator/fragment_close_enter.xml",
+        "source": "rikka.preference.simplemenu-fragment-1.5.4-21:/animator/fragment_close_enter.xml"
+    },
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/animator/fragment_fade_exit.xml",
+        "source": "rikka.preference.simplemenu-fragment-1.5.4-21:/animator/fragment_fade_exit.xml"
+    },
+    {
+        "merged": "rikka.preference.simplemenu-release-33:/animator/fragment_open_enter.xml",
+        "source": "rikka.preference.simplemenu-fragment-1.5.4-21:/animator/fragment_open_enter.xml"
+    }
+]

@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+ * All Rights Reserved.
+ */
+
+package naipingzai.materialfile.compat
+
+import android.app.Dialog
+import android.view.View
+import androidx.annotation.IdRes
+import androidx.core.app.DialogCompat
+
+@Suppress("UNCHECKED_CAST")
+fun <T : View> Dialog.requireViewByIdCompat(@IdRes id: Int): T =
+    DialogCompat.requireViewById(this, id) as T
