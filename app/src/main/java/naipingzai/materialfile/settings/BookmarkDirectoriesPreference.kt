@@ -11,8 +11,10 @@ import android.util.AttributeSet
 import android.widget.TextView
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.preference.Preference
+import androidx.preference.PreferenceManager
 import androidx.preference.PreferenceViewHolder
 import naipingzai.materialfile.R
 import naipingzai.materialfile.app.ToolHostActivity
@@ -22,6 +24,7 @@ import naipingzai.materialfile.util.startActivitySafe
 
 class BookmarkDirectoriesPreference : Preference {
     private var emptySummary = summary
+    private var lifecycleOwner: LifecycleOwner? = null
 
     private val observer = Observer<List<BookmarkDirectory>> { onBookmarkDirectoryListChanged(it) }
 
@@ -44,16 +47,22 @@ class BookmarkDirectoriesPreference : Preference {
         isPersistent = false
     }
 
-    override fun onAttached() {
-        super.onAttached()
+    override fun onAttachedToHierarchy(preferenceManager: PreferenceManager) {
+        super.onAttachedToHierarchy(preferenceManager)
 
-        Settings.BOOKMARK_DIRECTORIES.observeForever(observer)
+        val owner = context as? LifecycleOwner
+        if (owner != null) {
+            lifecycleOwner = owner
+            Settings.BOOKMARK_DIRECTORIES.observeForever(observer)
+        }
     }
 
     override fun onDetached() {
         super.onDetached()
-
-        Settings.BOOKMARK_DIRECTORIES.removeObserver(observer)
+        lifecycleOwner?.let {
+            Settings.BOOKMARK_DIRECTORIES.removeObserver(observer)
+            lifecycleOwner = null
+        }
     }
 
     private fun onBookmarkDirectoryListChanged(bookmarkDirectories: List<BookmarkDirectory>) {

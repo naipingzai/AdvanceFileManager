@@ -84,7 +84,9 @@ class ImageCompressFragment : Fragment() {
         activity.setSupportActionBar(binding.toolbar)
         activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
-        adapter = ImageItemAdapter(imageList)
+        adapter = ImageItemAdapter(imageList) { position ->
+            removeImageAt(position)
+        }
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = adapter
 
@@ -113,6 +115,7 @@ class ImageCompressFragment : Fragment() {
             }
             binding.qualitySlider.value = savedInstanceState.getFloat(KEY_QUALITY, DEFAULT_QUALITY)
             binding.maxDimensionSlider.value = savedInstanceState.getFloat(KEY_MAX_DIMENSION, DEFAULT_MAX_DIMENSION)
+            binding.deleteOriginalSwitch.isChecked = savedInstanceState.getBoolean(KEY_DELETE_ORIGINAL, false)
         }
 
         updateCount()
@@ -126,6 +129,7 @@ class ImageCompressFragment : Fragment() {
         if (::binding.isInitialized) {
             outState.putFloat(KEY_QUALITY, binding.qualitySlider.value)
             outState.putFloat(KEY_MAX_DIMENSION, binding.maxDimensionSlider.value)
+            outState.putBoolean(KEY_DELETE_ORIGINAL, binding.deleteOriginalSwitch.isChecked)
         }
     }
 
@@ -136,6 +140,7 @@ class ImageCompressFragment : Fragment() {
         private const val MAX_SAVED_FILES = 500
         private const val DEFAULT_QUALITY = 80f
         private const val DEFAULT_MAX_DIMENSION = 1920f
+        private const val KEY_DELETE_ORIGINAL = "delete_original"
     }
 
     override fun onDestroyView() {
@@ -160,6 +165,22 @@ class ImageCompressFragment : Fragment() {
         binding.imageCountText.text = getString(R.string.image_compress_count, imageList.size)
     }
 
+    private fun removeImageAt(position: Int) {
+        if (position !in imageList.indices) return
+        val item = imageList[position]
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.image_compress_remove_title)
+            .setMessage(getString(R.string.image_compress_remove_message, item.name))
+            .setPositiveButton(android.R.string.ok) { _, _ ->
+                imageList.removeAt(position)
+                adapter.notifyItemRemoved(position)
+                adapter.notifyItemRangeChanged(position, imageList.size - position)
+                updateCount()
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
+    }
+
     private fun startCompress() {
         if (imageList.isEmpty()) {
             Snackbar.make(binding.root, R.string.image_compress_no_images, Snackbar.LENGTH_SHORT).show()
@@ -173,18 +194,19 @@ class ImageCompressFragment : Fragment() {
             binding.chipWebp.isChecked -> "webp"
             else -> "jpg"
         }
+        val deleteOriginal = binding.deleteOriginalSwitch.isChecked
 
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.image_compress_confirm_title)
             .setMessage(getString(R.string.image_compress_confirm_message, imageList.size, quality))
             .setPositiveButton(android.R.string.ok) { _, _ ->
-                executeCompress(quality, maxDimension, outputFormat)
+                executeCompress(quality, maxDimension, outputFormat, deleteOriginal)
             }
             .setNegativeButton(android.R.string.cancel, null)
             .show()
     }
 
-    private fun executeCompress(quality: Int, maxDimension: Int, outputFormat: String) {
+    private fun executeCompress(quality: Int, maxDimension: Int, outputFormat: String, deleteOriginal: Boolean) {
         binding.progressBar.isVisible = true
         binding.compressButton.isEnabled = false
 
@@ -208,6 +230,14 @@ class ImageCompressFragment : Fragment() {
                             compressedSize = result,
                             status = getString(R.string.image_compress_saved, FormatUtils.formatSize(saved))
                         )
+                        if (deleteOriginal) {
+                            withContext(Dispatchers.IO) {
+                                try {
+                                    val originalFile = File(item.path)
+                                    if (originalFile.exists()) originalFile.delete()
+                                } catch (_: Exception) { }
+                            }
+                        }
                     } else {
                         imageList[i] = item.copy(
                             status = getString(R.string.image_compress_failed)

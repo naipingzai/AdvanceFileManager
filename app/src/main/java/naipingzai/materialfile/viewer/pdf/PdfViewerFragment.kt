@@ -96,7 +96,7 @@ class PdfViewerFragment : Fragment() {
 
         val activity = requireActivity() as AppCompatActivity
         activity.setSupportActionBar(binding.toolbar)
-        activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         activity.title = path.fileName.toString()
 
         // Overlay toolbar: draw content under status bar
@@ -262,12 +262,7 @@ class PdfViewerFragment : Fragment() {
     }
 
     private fun formatFileSize(bytes: Long): String {
-        return when {
-            bytes < 1024 -> "$bytes B"
-            bytes < 1024 * 1024 -> String.format("%.1f KB", bytes / 1024.0)
-            bytes < 1024 * 1024 * 1024 -> String.format("%.1f MB", bytes / (1024.0 * 1024))
-            else -> String.format("%.2f GB", bytes / (1024.0 * 1024 * 1024))
-        }
+        return naipingzai.materialfile.util.FormatUtils.formatSize(bytes)
     }
 
 
@@ -275,6 +270,14 @@ class PdfViewerFragment : Fragment() {
     private fun sharePdf() {
         val path = args.intent.extraPath ?: return
         val uri = path.fileProviderUri
+        if (uri == null) {
+            android.widget.Toast.makeText(
+                requireContext(),
+                R.string.open_file_error,
+                android.widget.Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
         val intent = Intent(Intent.ACTION_SEND).apply {
             type = "application/pdf"
             putExtra(Intent.EXTRA_STREAM, uri)

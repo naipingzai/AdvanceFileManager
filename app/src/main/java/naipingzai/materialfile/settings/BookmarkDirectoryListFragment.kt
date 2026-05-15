@@ -23,10 +23,12 @@ import naipingzai.materialfile.databinding.BookmarkDirectoryListFragmentBinding
 import naipingzai.materialfile.filelist.FileListActivity
 import naipingzai.materialfile.navigation.BookmarkDirectories
 import naipingzai.materialfile.navigation.BookmarkDirectory
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import naipingzai.materialfile.navigation.EditBookmarkDirectoryDialogFragment
 import naipingzai.materialfile.ui.ScrollingViewOnApplyWindowInsetsListener
 import naipingzai.materialfile.util.fadeToVisibilityUnsafe
 import naipingzai.materialfile.util.getDrawable
+import naipingzai.materialfile.R
 import naipingzai.materialfile.util.launchSafe
 import naipingzai.materialfile.util.putArgs
 import naipingzai.materialfile.util.startActivitySafe
@@ -55,7 +57,7 @@ class BookmarkDirectoryListFragment : Fragment(), BookmarkDirectoryListAdapter.L
 
         val activity = requireActivity() as AppCompatActivity
         activity.setSupportActionBar(binding.toolbar)
-        activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.recyclerView.layoutManager = LinearLayoutManager(
             activity, RecyclerView.VERTICAL, false
         )
@@ -117,5 +119,21 @@ class BookmarkDirectoryListFragment : Fragment(), BookmarkDirectoryListAdapter.L
 
     override fun moveBookmarkDirectory(fromPosition: Int, toPosition: Int) {
         BookmarkDirectories.move(fromPosition, toPosition)
+    }
+
+    override fun deleteBookmarkDirectory(bookmarkDirectory: BookmarkDirectory) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.delete)
+            .setMessage(
+                getString(
+                    R.string.file_delete_message_directory_format,
+                    bookmarkDirectory.name ?: bookmarkDirectory.path.toString()
+                )
+            )
+            .setPositiveButton(R.string.delete) { _, _ ->
+                BookmarkDirectories.remove(bookmarkDirectory)
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
     }
 }

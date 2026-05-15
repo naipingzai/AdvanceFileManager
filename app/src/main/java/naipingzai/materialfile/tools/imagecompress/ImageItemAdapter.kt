@@ -15,7 +15,8 @@ import naipingzai.materialfile.ui.CheckableItemBackground
 import naipingzai.materialfile.util.FormatUtils
 
 class ImageItemAdapter(
-    private val items: List<ImageCompressFragment.ImageItem>
+    private val items: List<ImageCompressFragment.ImageItem>,
+    private val onItemLongClick: (Int) -> Unit = {}
 ) : RecyclerView.Adapter<ImageItemAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: ToolFileItemBinding) : RecyclerView.ViewHolder(binding.root)
@@ -56,6 +57,10 @@ class ImageItemAdapter(
                 }
             }
             pathText.text = item.path
+        }
+        holder.itemView.setOnLongClickListener {
+            onItemLongClick(holder.adapterPosition)
+            true
         }
     }
 

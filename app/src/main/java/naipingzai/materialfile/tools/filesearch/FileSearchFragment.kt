@@ -103,6 +103,7 @@ class FileSearchFragment : Fragment() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean =
                 when (menuItem.itemId) {
                     R.id.action_delete_selected -> { deleteSelected(); true }
+                    R.id.action_select_all -> { toggleSelectAll(); true }
                     else -> false
                 }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
@@ -193,6 +194,14 @@ class FileSearchFragment : Fragment() {
         val menu = optionsMenu ?: return
         val hasChecked = showingResults && searchResults.any { it.isChecked }
         menu.findItem(R.id.action_delete_selected)?.isVisible = hasChecked
+        val selectAllItem = menu.findItem(R.id.action_select_all)
+        selectAllItem?.isVisible = showingResults && searchResults.isNotEmpty()
+        val allSelected = showingResults && searchResults.isNotEmpty() && searchResults.all { it.isChecked }
+        selectAllItem?.title = if (allSelected) {
+            getString(R.string.file_search_deselect_all)
+        } else {
+            getString(R.string.file_search_select_all)
+        }
     }
 
     private fun updateBackCallback() {
@@ -397,6 +406,14 @@ class FileSearchFragment : Fragment() {
             adapter.notifyItemChanged(position)
             updateMenuVisibility()
         }
+    }
+
+    private fun toggleSelectAll() {
+        val allSelected = searchResults.isNotEmpty() && searchResults.all { it.isChecked }
+        val newState = !allSelected
+        searchResults.forEach { it.isChecked = newState }
+        adapter.notifyDataSetChanged()
+        updateMenuVisibility()
     }
 
     private fun deleteSelected() {

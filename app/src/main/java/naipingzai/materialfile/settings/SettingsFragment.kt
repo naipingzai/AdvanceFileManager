@@ -13,6 +13,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import naipingzai.materialfile.databinding.SettingsFragmentBinding
 
+// TODO: Consider merging this into SettingsPreferenceFragment if the toolbar setup
+// can be handled there directly, reducing fragment nesting. Currently kept separate
+// because SettingsPreferenceFragment extends PreferenceFragmentCompat which limits
+// layout flexibility for the toolbar.
 class SettingsFragment : Fragment() {
     private lateinit var binding: SettingsFragmentBinding
 
@@ -30,6 +34,6 @@ class SettingsFragment : Fragment() {
 
         val activity = requireActivity() as AppCompatActivity
         activity.setSupportActionBar(binding.toolbar)
-        activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 }

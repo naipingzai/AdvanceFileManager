@@ -277,12 +277,7 @@ class LargeTextViewerFragment : Fragment() {
     }
 
     private fun formatFileSize(bytes: Long): String {
-        return when {
-            bytes < 1024 -> "$bytes B"
-            bytes < 1024 * 1024 -> String.format("%.1f KB", bytes / 1024.0)
-            bytes < 1024L * 1024 * 1024 -> String.format("%.1f MB", bytes / (1024.0 * 1024))
-            else -> String.format("%.2f GB", bytes / (1024.0 * 1024 * 1024))
-        }
+        return naipingzai.materialfile.util.FormatUtils.formatSize(bytes)
     }
 
     private fun reloadWithEncoding(newEncoding: Charset) {

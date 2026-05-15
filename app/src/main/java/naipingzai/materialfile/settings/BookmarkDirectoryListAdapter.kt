@@ -37,6 +37,10 @@ class BookmarkDirectoryListAdapter(
         // Need to remove the ripple before it's drawn onto the bitmap for dragging.
         binding.root.foregroundCompat!!.mutate().setVisible(!holder.dragState.isActive, false)
         binding.root.setOnClickListener { listener.editBookmarkDirectory(bookmarkDirectory) }
+        binding.root.setOnLongClickListener {
+            listener.deleteBookmarkDirectory(bookmarkDirectory)
+            true
+        }
         binding.nameText.text = bookmarkDirectory.name
         binding.pathText.text = bookmarkDirectory.path.toUserFriendlyString()
     }
@@ -52,11 +56,13 @@ class BookmarkDirectoryListAdapter(
     override fun onCheckCanDrop(draggingPosition: Int, dropPosition: Int): Boolean = true
 
     override fun onItemDragStarted(position: Int) {
-        notifyDataSetChanged()
+        notifyItemChanged(position)
     }
 
     override fun onItemDragFinished(fromPosition: Int, toPosition: Int, result: Boolean) {
-        notifyDataSetChanged()
+        val start = minOf(fromPosition, toPosition)
+        val end = maxOf(fromPosition, toPosition)
+        notifyItemRangeChanged(start, end - start + 1)
     }
 
     override fun onMoveItem(fromPosition: Int, toPosition: Int) {
@@ -73,5 +79,6 @@ class BookmarkDirectoryListAdapter(
     interface Listener {
         fun editBookmarkDirectory(bookmarkDirectory: BookmarkDirectory)
         fun moveBookmarkDirectory(fromPosition: Int, toPosition: Int)
+        fun deleteBookmarkDirectory(bookmarkDirectory: BookmarkDirectory)
     }
 }

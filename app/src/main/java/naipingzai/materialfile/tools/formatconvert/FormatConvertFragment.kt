@@ -115,6 +115,10 @@ class FormatConvertFragment : Fragment() {
                 Snackbar.LENGTH_SHORT
             ).show()
         }
+        // Auto-select all newly added files
+        if (added > 0) {
+            adapter.selectAll()
+        }
     }
 
     @Parcelize
@@ -182,6 +186,7 @@ class FormatConvertFragment : Fragment() {
         }
         binding.convertButton.setOnClickListener { startConvert() }
         binding.batchFormatButton.setOnClickListener { showBatchFormatDialog() }
+        binding.convertAllButton.setOnClickListener { convertAllWithDefaultFormat() }
         binding.removeSelectedButton.setOnClickListener { removeSelectedFiles() }
 
         // Back press exits selection mode
@@ -228,11 +233,16 @@ class FormatConvertFragment : Fragment() {
                 fileList.clear()
                 fileList.addAll(saved)
                 adapter.notifyDataSetChanged()
+                // Auto-select restored files
+                if (fileList.isNotEmpty()) {
+                    adapter.selectAll()
+                }
             }
         } else {
             // Load initial files from Intent extras (e.g. from file list context menu)
             val initialPaths = arguments?.getStringArray(EXTRA_FILE_PATHS)
             if (initialPaths != null) {
+                var unknownSkipped = 0
                 for (path in initialPaths) {
                     val file = File(path)
                     if (file.exists()) {
@@ -240,8 +250,21 @@ class FormatConvertFragment : Fragment() {
                         val type = detectFileType(ext)
                         if (type != FileType.UNKNOWN) {
                             addFile(file, type)
+                        } else {
+                            unknownSkipped++
                         }
                     }
+                }
+                if (unknownSkipped > 0) {
+                    android.widget.Toast.makeText(
+                        requireContext(),
+                        getString(R.string.format_convert_unknown_type_skipped, unknownSkipped),
+                        android.widget.Toast.LENGTH_SHORT
+                    ).show()
+                }
+                // Auto-select all initial files
+                if (fileList.isNotEmpty()) {
+                    adapter.selectAll()
                 }
             }
         }
@@ -475,6 +498,26 @@ class FormatConvertFragment : Fragment() {
             }
         adapter.clearSelection()
         adapter.notifyDataSetChanged()
+    }
+
+    private fun convertAllWithDefaultFormat() {
+        if (fileList.isEmpty()) {
+            Snackbar.make(binding.root, R.string.format_convert_no_files, Snackbar.LENGTH_SHORT)
+                .show()
+            return
+        }
+        // Set default output format for all files based on their type
+        for (i in fileList.indices) {
+            val item = fileList[i]
+            val defaultFormat = getDefaultOutputFormat(item.fileType)
+            if (defaultFormat.isNotEmpty() && item.outputFormat != defaultFormat) {
+                fileList[i] = item.copy(outputFormat = defaultFormat)
+            }
+        }
+        adapter.clearSelection()
+        adapter.notifyDataSetChanged()
+        // Start conversion
+        startConvert()
     }
 
     private fun addFile(file: File, type: FileType) {

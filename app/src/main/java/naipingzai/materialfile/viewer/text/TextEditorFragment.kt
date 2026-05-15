@@ -121,7 +121,7 @@ class TextEditorFragment : Fragment(), ConfirmReloadDialogFragment.Listener,
         val activity = requireActivity() as AppCompatActivity
         activity.lifecycleScope.launchWhenCreated {
             activity.setSupportActionBar(binding.toolbar)
-            activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+            activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
 
         ThemedFastScroller.create(binding.scrollView)

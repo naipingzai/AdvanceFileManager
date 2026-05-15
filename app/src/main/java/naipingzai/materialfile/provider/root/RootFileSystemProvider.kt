@@ -17,19 +17,19 @@ open class RootFileSystemProvider(scheme: String) : RemoteFileSystemProvider(
     RemoteInterface { RootFileService.getRemoteFileSystemProviderInterface(scheme) }
 ) {
     override fun getScheme(): String {
-        throw AssertionError()
+        throw UnsupportedOperationException("Not supported")
     }
 
     override fun newFileSystem(uri: URI, env: Map<String, *>): FileSystem {
-        throw AssertionError()
+        throw UnsupportedOperationException("Not supported")
     }
 
     override fun getFileSystem(uri: URI): FileSystem {
-        throw AssertionError()
+        throw UnsupportedOperationException("Not supported")
     }
 
     override fun getPath(uri: URI): Path {
-        throw AssertionError()
+        throw UnsupportedOperationException("Not supported")
     }
 
     override fun <V : FileAttributeView> getFileAttributeView(
@@ -37,6 +37,6 @@ open class RootFileSystemProvider(scheme: String) : RemoteFileSystemProvider(
         type: Class<V>,
         vararg options: LinkOption
     ): V? {
-        throw AssertionError()
+        throw UnsupportedOperationException("Not supported")
     }
 }

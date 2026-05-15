@@ -51,10 +51,15 @@ class SettingsActivity : AppActivity() {
             onSaveInstanceState(this)
         }
         finish()
-        val intent = SettingsActivity::class.createIntent().putArgs(Args(savedInstanceState))
-        startActivitySafe(intent)
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-        isRestarting = true
+        try {
+            val intent = SettingsActivity::class.createIntent().putArgs(Args(savedInstanceState))
+            startActivitySafe(intent)
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+            isRestarting = true
+        } catch (e: Exception) {
+            // If restart fails, reset isRestarting to allow normal interaction
+            isRestarting = false
+        }
     }
 
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {

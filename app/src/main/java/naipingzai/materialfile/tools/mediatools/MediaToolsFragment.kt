@@ -213,7 +213,7 @@ class MediaToolsFragment : Fragment() {
         }
 
         adapter = MediaToolCardAdapter(features) { feature -> onFeatureClick(feature) }
-        binding.recyclerView.layoutManager = androidx.recyclerview.widget.GridLayoutManager(requireContext(), 3)
+        binding.recyclerView.layoutManager = androidx.recyclerview.widget.GridLayoutManager(requireContext(), 2)
         binding.recyclerView.adapter = adapter
 
         // Read preselected files from arguments / intent extras
@@ -1146,6 +1146,74 @@ class MediaToolsFragment : Fragment() {
 
     // ======== Media Merge ========
     private fun doMediaMerge(files: List<File>) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            // Probe all files to check codec consistency
+            val infos = mutableListOf<Pair<File, MediaInfo>>()
+            for (file in files) {
+                val info = probeFile(file)
+                if (info != null) {
+                    infos.add(file to info)
+                }
+            }
+
+            if (infos.size < 2) {
+                showPrerequisiteDialog(R.string.media_tool_probe_failed)
+                return@launch
+            }
+
+            // Check if all video codecs and audio codecs are consistent
+            val firstInfo = infos.first().second
+            val firstVideoCodec = firstInfo.videoCodec?.lowercase()
+            val firstAudioCodec = firstInfo.audioCodec?.lowercase()
+            val firstWidth = firstInfo.width
+            val firstHeight = firstInfo.height
+
+            val codecMismatch = infos.drop(1).any { (_, info) ->
+                val videoDifferent = firstInfo.hasVideo && info.hasVideo &&
+                    (info.videoCodec?.lowercase() != firstVideoCodec ||
+                     info.width != firstWidth || info.height != firstHeight)
+                val audioDifferent = firstInfo.hasAudio && info.hasAudio &&
+                    (info.audioCodec?.lowercase() != firstAudioCodec)
+                videoDifferent || audioDifferent
+            }
+
+            if (codecMismatch) {
+                // Build mismatch description
+                val mismatchDesc = buildString {
+                    for ((i, pair) in infos.withIndex()) {
+                        val (file, info) = pair
+                        appendLine("${i + 1}. ${file.name}")
+                        if (info.hasVideo) {
+                            append("   ${getString(R.string.media_tool_info_video)}: ${info.videoCodec}")
+                            append(" ${info.width}x${info.height}")
+                            appendLine()
+                        }
+                        if (info.hasAudio) {
+                            append("   ${getString(R.string.media_tool_info_audio)}: ${info.audioCodec}")
+                            appendLine()
+                        }
+                    }
+                }.trimEnd()
+
+                val message = getString(R.string.media_tool_merge_transcode_message, mismatchDesc)
+
+                MaterialAlertDialogBuilder(requireContext())
+                    .setTitle(R.string.media_tool_merge_transcode_title)
+                    .setMessage(message)
+                    .setPositiveButton(R.string.media_tool_merge_transcode_and_merge) { _, _ ->
+                        doMediaMergeWithTranscode(files, firstWidth, firstHeight)
+                    }
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show()
+            } else {
+                // Codecs are consistent, proceed with direct stream concatenation
+                doMediaMergeDirect(files)
+            }
+        }
+    }
+
+    /** Direct stream concatenation (same codec/resolution) */
+    private fun doMediaMergeDirect(files: List<File>) {
         val outputDir = OutputPaths.resolve(OutputPaths.MERGED).also { it.mkdirs() }
         val ext = files.first().extension.ifEmpty { "mp4" }
         val outputFile = FileTypeUtils.getUniqueFile(outputDir, "merged", ext)
@@ -1153,7 +1221,6 @@ class MediaToolsFragment : Fragment() {
 
         launchExclusiveOperation {
             showOperationProgress(getString(R.string.media_tool_media_merge))
-            val t0 = System.currentTimeMillis()
             val result = withContext(Dispatchers.IO) {
                 try {
                     FFmpegJni.mergeFiles(inputPaths, outputFile.absolutePath,
@@ -1173,6 +1240,52 @@ class MediaToolsFragment : Fragment() {
                 outputFile.delete()
                 val nativeError = try { FFmpegJni.getLastError() } catch (_: Exception) { "" }
                 Log.e(TAG, "Direct merge FAILED: result=$result error=$nativeError")
+
+                if (isAdded) {
+                    MaterialAlertDialogBuilder(requireContext())
+                        .setTitle(R.string.media_tool_merge_failed)
+                        .setMessage(nativeError.ifEmpty { getString(R.string.media_tool_error_unknown) })
+                        .setPositiveButton(android.R.string.ok, null)
+                        .show()
+                }
+            }
+        }
+    }
+
+    /** Transcode all files to a common format then merge (different codec/resolution) */
+    private fun doMediaMergeWithTranscode(
+        files: List<File>,
+        targetWidth: Int,
+        targetHeight: Int
+    ) {
+        val outputDir = OutputPaths.resolve(OutputPaths.MERGED).also { it.mkdirs() }
+        val outputFile = FileTypeUtils.getUniqueFile(outputDir, "merged", "mp4")
+        val inputPaths = files.map { it.absolutePath }.toTypedArray()
+
+        launchExclusiveOperation {
+            showOperationProgress(getString(R.string.media_tool_merge_transcoding))
+            val result = withContext(Dispatchers.IO) {
+                try {
+                    FFmpegJni.mergeFilesTranscode(
+                        inputPaths, outputFile.absolutePath,
+                        targetWidth, targetHeight, 0,
+                        makeProgressCallback(getString(R.string.media_tool_merge_transcoding))
+                    )
+                } catch (e: Exception) {
+                    Log.e(TAG, "mergeFilesTranscode exception", e)
+                    -1
+                }
+            }
+            hideOperationProgress()
+            if (result == 0) {
+                MediaScanner.scan(outputFile)
+                Snackbar.make(binding.root,
+                    getString(R.string.media_tool_merge_success, outputFile.name),
+                    Snackbar.LENGTH_LONG).show()
+            } else {
+                outputFile.delete()
+                val nativeError = try { FFmpegJni.getLastError() } catch (_: Exception) { "" }
+                Log.e(TAG, "Transcode merge FAILED: result=$result error=$nativeError")
 
                 if (isAdded) {
                     MaterialAlertDialogBuilder(requireContext())

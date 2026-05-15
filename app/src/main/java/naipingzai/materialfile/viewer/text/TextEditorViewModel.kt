@@ -85,7 +85,8 @@ class TextEditorViewModel(file: Path) : ViewModel() {
             currentCoroutineContext().ensureActive()
             _bytesState.value = DataState.Success(bytes)
         } catch (e: CancellationException) {
-            e.printStackTrace()
+            // CancellationException is expected during coroutine cancellation, don't log
+            throw e
         } catch (e: Exception) {
             _bytesState.value = _bytesState.value.toError(e)
         }
@@ -111,7 +112,8 @@ class TextEditorViewModel(file: Path) : ViewModel() {
                                 currentCoroutineContext().ensureActive()
                                 _textState.value = DataState.Success(text)
                             } catch (e: CancellationException) {
-                                e.printStackTrace()
+                                // CancellationException is expected during coroutine cancellation, don't log
+                                throw e
                             } catch (e: Exception) {
                                 _textState.value = _textState.value.toError(e)
                             }

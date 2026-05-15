@@ -11,8 +11,10 @@ import android.util.AttributeSet
 import android.widget.TextView
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.preference.Preference
+import androidx.preference.PreferenceManager
 import androidx.preference.PreferenceViewHolder
 import naipingzai.materialfile.R
 import naipingzai.materialfile.app.ToolHostActivity
@@ -23,6 +25,7 @@ import naipingzai.materialfile.navigation.StandardDirectory
 class StandardDirectoriesPreference : Preference {
     private val observer = Observer<List<StandardDirectory>> { onStandardDirectoriesChanged(it) }
     private var emptySummary = summary
+    private var lifecycleOwner: LifecycleOwner? = null
 
     constructor(context: Context) : super(context)
 
@@ -43,16 +46,22 @@ class StandardDirectoriesPreference : Preference {
         isPersistent = false
     }
 
-    override fun onAttached() {
-        super.onAttached()
+    override fun onAttachedToHierarchy(preferenceManager: PreferenceManager) {
+        super.onAttachedToHierarchy(preferenceManager)
 
-        StandardDirectoriesLiveData.observeForever(observer)
+        val owner = context as? LifecycleOwner
+        if (owner != null) {
+            lifecycleOwner = owner
+            StandardDirectoriesLiveData.observeForever(observer)
+        }
     }
 
     override fun onDetached() {
         super.onDetached()
-
-        StandardDirectoriesLiveData.removeObserver(observer)
+        lifecycleOwner?.let {
+            StandardDirectoriesLiveData.removeObserver(observer)
+            lifecycleOwner = null
+        }
     }
 
     private fun onStandardDirectoriesChanged(standardDirectories: List<StandardDirectory>) {

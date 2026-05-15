@@ -29,21 +29,9 @@ import naipingzai.materialfile.R
 import naipingzai.materialfile.databinding.EncryptionFragmentBinding
 import naipingzai.materialfile.file.MimeType
 import naipingzai.materialfile.filelist.FileListActivity
-import naipingzai.materialfile.provider.linux.media.MediaScanner
 import naipingzai.materialfile.tools.FileTypeUtils
 import naipingzai.materialfile.tools.OperationLogBottomSheet
-import naipingzai.materialfile.tools.OutputPaths
-import java.io.DataInputStream
 import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.IOException
-import java.security.SecureRandom
-import javax.crypto.Cipher
-import javax.crypto.SecretKeyFactory
-import javax.crypto.spec.GCMParameterSpec
-import javax.crypto.spec.PBEKeySpec
-import javax.crypto.spec.SecretKeySpec
 
 class EncryptionFragment : Fragment() {
     private lateinit var binding: EncryptionFragmentBinding
@@ -124,13 +112,6 @@ class EncryptionFragment : Fragment() {
     companion object {
         private const val KEY_FILE_LIST = "file_list"
         private const val MAX_SAVED_FILES = 500
-        private const val BUFFER_SIZE = 8192
-        private const val PBKDF2_ITERATIONS = 65536
-        private const val AES_KEY_SIZE = 256
-        private const val GCM_TAG_LENGTH = 128
-        private const val SALT_SIZE = 16
-        private const val IV_SIZE = 12
-        private const val FILE_HEADER = "MFENC"
     }
 
     override fun onDestroyView() {
@@ -271,116 +252,10 @@ class EncryptionFragment : Fragment() {
     }
 
     private suspend fun encryptFile(file: File, password: String, deleteOriginal: Boolean) {
-        val salt = ByteArray(SALT_SIZE).also { SecureRandom().nextBytes(it) }
-        val iv = ByteArray(IV_SIZE).also { SecureRandom().nextBytes(it) }
-        val key = deriveKey(password, salt)
-
-        val cipher = Cipher.getInstance("AES/GCM/NoPadding")
-        cipher.init(Cipher.ENCRYPT_MODE, key, GCMParameterSpec(GCM_TAG_LENGTH, iv))
-
-        val encDir = OutputPaths.resolve(OutputPaths.ENCRYPTED)
-        if (!encDir.mkdirs() && !encDir.isDirectory) {
-            throw IOException("Failed to create output directory: $encDir")
-        }
-        val outputFile = FileTypeUtils.getUniqueFile(encDir, file.name, "enc")
-        try {
-            FileOutputStream(outputFile).use { fos ->
-                fos.write(FILE_HEADER.toByteArray())
-                fos.write(salt)
-                fos.write(iv)
-
-                FileInputStream(file).use { fis ->
-                    val buffer = ByteArray(BUFFER_SIZE)
-                    var read: Int
-                    while (fis.read(buffer).also { read = it } != -1) {
-                        currentCoroutineContext().ensureActive()
-                        val encrypted = cipher.update(buffer, 0, read)
-                        if (encrypted != null) fos.write(encrypted)
-                    }
-                    val finalBlock = cipher.doFinal()
-                    if (finalBlock != null) fos.write(finalBlock)
-                }
-            }
-        } catch (e: Exception) {
-            outputFile.delete()
-            throw e
-        }
-
-        MediaScanner.scan(outputFile)
-
-        // Delete original if encryption succeeded
-        if (deleteOriginal) {
-            file.delete()
-            MediaScanner.scan(file, true)
-        }
+        FileEncryptionHelper.encryptFile(file, password, deleteOriginal)
     }
 
     private suspend fun decryptFile(file: File, password: String, deleteOriginal: Boolean) {
-        val decDir = OutputPaths.resolve(OutputPaths.DECRYPTED)
-        if (!decDir.mkdirs() && !decDir.isDirectory) {
-            throw IOException("Failed to create output directory: $decDir")
-        }
-        val outputName = if (file.name.endsWith(".enc")) {
-            file.name.removeSuffix(".enc")
-        } else {
-            file.name + ".dec"
-        }
-        val nameOnly = outputName.substringBeforeLast('.')
-        val extOnly = outputName.substringAfterLast('.', "")
-        val outputFile = FileTypeUtils.getUniqueFile(decDir, nameOnly, extOnly)
-
-        try {
-            FileInputStream(file).use { fis ->
-                val dis = DataInputStream(fis)
-                val header = ByteArray(FILE_HEADER.length)
-                dis.readFully(header)
-                if (String(header) != FILE_HEADER) {
-                    throw IllegalArgumentException("Not an encrypted file")
-                }
-
-                val salt = ByteArray(SALT_SIZE)
-                dis.readFully(salt)
-                val iv = ByteArray(IV_SIZE)
-                dis.readFully(iv)
-
-                val key = deriveKey(password, salt)
-                val cipher = Cipher.getInstance("AES/GCM/NoPadding")
-                cipher.init(Cipher.DECRYPT_MODE, key, GCMParameterSpec(GCM_TAG_LENGTH, iv))
-
-                FileOutputStream(outputFile).use { fos ->
-                    val buffer = ByteArray(BUFFER_SIZE)
-                    var read: Int
-                    while (fis.read(buffer).also { read = it } != -1) {
-                        currentCoroutineContext().ensureActive()
-                        val decrypted = cipher.update(buffer, 0, read)
-                        if (decrypted != null) fos.write(decrypted)
-                    }
-                    val finalBlock = cipher.doFinal()
-                    if (finalBlock != null) fos.write(finalBlock)
-                }
-            }
-        } catch (e: Exception) {
-            outputFile.delete()
-            throw e
-        }
-
-        MediaScanner.scan(outputFile)
-
-        // Delete encrypted file if option is set
-        if (deleteOriginal) {
-            file.delete()
-            MediaScanner.scan(file, true)
-        }
-    }
-
-    private fun deriveKey(password: String, salt: ByteArray): SecretKeySpec {
-        val factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256")
-        val spec = PBEKeySpec(password.toCharArray(), salt, PBKDF2_ITERATIONS, AES_KEY_SIZE)
-        try {
-            val secretKey = factory.generateSecret(spec)
-            return SecretKeySpec(secretKey.encoded, "AES")
-        } finally {
-            spec.clearPassword()
-        }
+        FileEncryptionHelper.decryptFile(file, password, deleteOriginal)
     }
 }

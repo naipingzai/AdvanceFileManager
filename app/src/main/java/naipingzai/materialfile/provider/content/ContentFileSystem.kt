@@ -24,7 +24,7 @@ internal class ContentFileSystem(private val provider: ContentFileSystemProvider
     override fun provider(): FileSystemProvider = provider
 
     override fun close() {
-        throw UnsupportedOperationException()
+        // No-op: file system does not need to be closed explicitly
     }
 
     override fun isOpen(): Boolean = true

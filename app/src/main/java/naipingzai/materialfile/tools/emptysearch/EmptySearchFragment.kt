@@ -34,6 +34,7 @@ import kotlin.coroutines.coroutineContext
 import kotlinx.parcelize.Parcelize
 import naipingzai.materialfile.R
 import naipingzai.materialfile.databinding.EmptySearchFragmentBinding
+import java8.nio.file.DirectoryStream
 import java8.nio.file.LinkOption
 import java8.nio.file.Path
 import java8.nio.file.Paths
@@ -70,6 +71,7 @@ class EmptySearchFragment : Fragment() {
         val path: String,
         val name: String,
         val isDirectory: Boolean,
+        val size: Long = 0L,
         var isChecked: Boolean = false
     ) : Parcelable
 
@@ -93,6 +95,7 @@ class EmptySearchFragment : Fragment() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean =
                 when (menuItem.itemId) {
                     R.id.action_delete_selected -> { deleteSelected(); true }
+                    R.id.action_select_all -> { toggleSelectAll(); true }
                     else -> false
                 }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
@@ -178,6 +181,14 @@ class EmptySearchFragment : Fragment() {
         val menu = optionsMenu ?: return
         val hasChecked = showingResults && searchResults.any { it.isChecked }
         menu.findItem(R.id.action_delete_selected)?.isVisible = hasChecked
+        val selectAllItem = menu.findItem(R.id.action_select_all)
+        selectAllItem?.isVisible = showingResults && searchResults.isNotEmpty()
+        val allSelected = showingResults && searchResults.isNotEmpty() && searchResults.all { it.isChecked }
+        selectAllItem?.title = if (allSelected) {
+            getString(R.string.empty_search_deselect_all)
+        } else {
+            getString(R.string.empty_search_select_all)
+        }
     }
 
     private fun updateBackCallback() {
@@ -326,7 +337,7 @@ class EmptySearchFragment : Fragment() {
         results: MutableList<EmptyItem>
     ) {
         searchEmptyRecursive(
-            dirPath, searchFiles, searchFolders,
+            dirPath, null, searchFiles, searchFolders,
             includeHiddenDirs, includeHiddenFiles, followSymlinks,
             results
         ) { }
@@ -334,6 +345,7 @@ class EmptySearchFragment : Fragment() {
 
     private suspend fun searchEmptyRecursive(
         dirPath: Path,
+        existingStream: DirectoryStream<Path>?,
         searchFiles: Boolean,
         searchFolders: Boolean,
         includeHiddenDirs: Boolean,
@@ -342,13 +354,13 @@ class EmptySearchFragment : Fragment() {
         results: MutableList<EmptyItem>,
         onScan: () -> Unit
     ) {
-        val directoryStream = try {
+        val directoryStream = existingStream ?: try {
             dirPath.newDirectoryStream()
         } catch (e: IOException) {
             return
         }
-        directoryStream.use {
-            for (path in it) {
+        try {
+            for (path in directoryStream) {
                 coroutineContext.ensureActive()
                 onScan()
                 val attributes = try {
@@ -363,22 +375,44 @@ class EmptySearchFragment : Fragment() {
                 if (!followSymlinks && attributes.isSymbolicLink) continue
                 if (attributes.isDirectory) {
                     if (!includeHiddenDirs && isHidden) continue
-                    if (searchFolders && isEmptyDirectory(path)) {
-                        results.add(
-                            EmptyItem(
-                                path = path.toString(),
-                                name = name,
-                                isDirectory = true
-                            )
-                        )
-                        if (results.size % 50 == 0) {
-                            updateProgress(
-                                R.string.empty_search_scanning_progress, results.size
-                            )
+                    if (searchFolders) {
+                        // Open child directory stream once to check emptiness,
+                        // and reuse it for recursion if non-empty, avoiding a
+                        // redundant second DirectoryStream open.
+                        val childStream = try {
+                            path.newDirectoryStream()
+                        } catch (e: IOException) {
+                            null
+                        }
+                        if (childStream != null) {
+                            val childIterator = childStream.iterator()
+                            if (!childIterator.hasNext()) {
+                                childStream.close()
+                                results.add(
+                                    EmptyItem(
+                                        path = path.toString(),
+                                        name = name,
+                                        isDirectory = true,
+                                        size = 0L
+                                    )
+                                )
+                                if (results.size % 50 == 0) {
+                                    updateProgress(
+                                        R.string.empty_search_scanning_progress, results.size
+                                    )
+                                }
+                            } else {
+                                // Non-empty directory, recurse using the already-opened stream
+                                searchEmptyRecursive(
+                                    path, childStream, searchFiles, searchFolders,
+                                    includeHiddenDirs, includeHiddenFiles, followSymlinks,
+                                    results, onScan
+                                )
+                            }
                         }
                     } else {
                         searchEmptyRecursive(
-                            path, searchFiles, searchFolders,
+                            path, null, searchFiles, searchFolders,
                             includeHiddenDirs, includeHiddenFiles, followSymlinks,
                             results, onScan
                         )
@@ -390,7 +424,8 @@ class EmptySearchFragment : Fragment() {
                             EmptyItem(
                                 path = path.toString(),
                                 name = name,
-                                isDirectory = false
+                                isDirectory = false,
+                                size = attributes.size()
                             )
                         )
                         if (results.size % 50 == 0) {
@@ -401,16 +436,8 @@ class EmptySearchFragment : Fragment() {
                     }
                 }
             }
-        }
-    }
-
-    private fun isEmptyDirectory(dirPath: Path): Boolean {
-        return try {
-            dirPath.newDirectoryStream().use { stream ->
-                !stream.iterator().hasNext()
-            }
-        } catch (e: IOException) {
-            false
+        } finally {
+            directoryStream.close()
         }
     }
 
@@ -472,6 +499,14 @@ class EmptySearchFragment : Fragment() {
             adapter.notifyItemChanged(position)
             updateMenuVisibility()
         }
+    }
+
+    private fun toggleSelectAll() {
+        val allSelected = searchResults.isNotEmpty() && searchResults.all { it.isChecked }
+        val newState = !allSelected
+        searchResults.forEach { it.isChecked = newState }
+        adapter.notifyDataSetChanged()
+        updateMenuVisibility()
     }
 
 }

@@ -115,7 +115,10 @@ internal class ArchiveFileSystem(
             if (!isOpen) {
                 throw ClosedFileSystemException()
             }
-            passwords += password
+            if (password !in passwords) {
+                passwords += password
+                isRefreshNeeded = true
+            }
         }
     }
 

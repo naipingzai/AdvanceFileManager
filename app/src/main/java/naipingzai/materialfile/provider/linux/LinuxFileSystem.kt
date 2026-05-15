@@ -28,7 +28,7 @@ internal class LinuxFileSystem(provider: LinuxFileSystemProvider) : RootableFile
         localFileSystem.getPath(first, *more)
 
     override fun close() {
-        throw UnsupportedOperationException()
+        // No-op: file system does not need to be closed explicitly
     }
 
     override fun describeContents(): Int = 0

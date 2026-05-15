@@ -14,11 +14,15 @@ import android.os.Handler
 import android.os.Looper
 import android.view.GestureDetector
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.lifecycle.lifecycleScope
@@ -126,9 +130,34 @@ class AudioPlayerFragment : Fragment(), ConfirmDeleteAudioDialogFragment.Listene
             return
         }
 
-        val activity = activity as AppCompatActivity
+        val activity = requireActivity() as AppCompatActivity
         activity.setSupportActionBar(binding.toolbar)
-        activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // Register menu provider for delete and share actions
+        activity.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.audio_player, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+                    android.R.id.home -> {
+                        activity.onBackPressed()
+                        true
+                    }
+                    R.id.action_delete -> {
+                        confirmDelete()
+                        true
+                    }
+                    R.id.action_share -> {
+                        share()
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }, viewLifecycleOwner)
         activity.window.statusBarColor = Color.TRANSPARENT
         binding.appBarLayout.applySystemWindowInsetsToPadding(
             left = true, top = true, right = true
@@ -399,16 +428,6 @@ class AudioPlayerFragment : Fragment(), ConfirmDeleteAudioDialogFragment.Listene
     override fun onStart() {
         super.onStart()
         initializePlayer()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        if (player == null) initializePlayer()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        releasePlayer()
     }
 
     override fun onStop() {

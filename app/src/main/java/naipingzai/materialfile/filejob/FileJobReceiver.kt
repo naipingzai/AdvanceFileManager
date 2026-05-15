@@ -17,7 +17,9 @@ class FileJobReceiver : BroadcastReceiver() {
                 val jobId = intent.getIntExtra(EXTRA_JOB_ID, 0)
                 FileJobService.cancelJob(jobId)
             }
-            else -> throw IllegalArgumentException(action)
+            else -> {
+                // Unknown action, ignore silently
+            }
         }
     }
 

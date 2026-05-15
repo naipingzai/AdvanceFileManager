@@ -72,7 +72,7 @@ class LocalePreference : ListPreference {
         // See com.android.internal.app.LocaleHelper.toSentenceCase() for a proper case conversion
         // implementation which requires android.icu.text.CaseMap that's only available on API 29+.
         @Suppress("DEPRECATION")
-        get() = getDisplayName(this).capitalize(this)
+        get() = getDisplayName(this).replaceFirstChar { if (it.isLowerCase()) it.titlecase(this) else it.toString() }
 
     override fun getPersistedString(defaultReturnValue: String?): String =
         applicationLocale?.toLanguageTag() ?: VALUE_SYSTEM_DEFAULT

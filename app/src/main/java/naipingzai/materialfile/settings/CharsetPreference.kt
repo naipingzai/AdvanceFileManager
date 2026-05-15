@@ -28,9 +28,35 @@ class CharsetPreference : ListPreference {
         @StyleRes defStyleRes: Int
     ) : super(context, attrs, defStyleAttr, defStyleRes)
 
+    private val allDisplayNames: List<String>
+    private val allCharsetNames: List<String>
+
     init {
         val charsets = Charset.availableCharsets()
-        entries = charsets.values.map { it.displayName() }.toTypedArray<CharSequence>()
-        entryValues = charsets.keys.toTypedArray<CharSequence>()
+        allCharsetNames = charsets.keys.toList()
+        allDisplayNames = charsets.values.map { it.displayName() }
+        entries = allDisplayNames.toTypedArray()
+        entryValues = allCharsetNames.toTypedArray()
+    }
+
+    /**
+     * Filter the charset list by a query string. Matches against both the charset
+     * name (e.g. "UTF-8") and its display name (e.g. "UTF-8"). Passing an empty
+     * or blank query restores the full list.
+     */
+    fun filterCharsets(query: String?) {
+        val trimmed = query?.trim() ?: ""
+        if (trimmed.isEmpty()) {
+            entries = allDisplayNames.toTypedArray()
+            entryValues = allCharsetNames.toTypedArray()
+            return
+        }
+        val lowerQuery = trimmed.lowercase()
+        val filtered = allCharsetNames.indices.filter { i ->
+            allCharsetNames[i].lowercase().contains(lowerQuery) ||
+                    allDisplayNames[i].lowercase().contains(lowerQuery)
+        }
+        entries = filtered.map { allDisplayNames[it] }.toTypedArray()
+        entryValues = filtered.map { allCharsetNames[it] }.toTypedArray()
     }
 }

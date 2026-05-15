@@ -124,6 +124,7 @@ abstract class RemoteFileSystemProvider(
     override fun copy(source: Path, target: Path, vararg options: CopyOption) {
         var interruptible: RemoteCallback? = null
         try {
+            // Known tech debt: runBlocking blocks the calling thread; consider migrating to coroutine-based API
             runBlocking<Unit> {
                 suspendCoroutine { continuation ->
                     val callback = RemoteCallback {
@@ -152,6 +153,7 @@ abstract class RemoteFileSystemProvider(
     override fun move(source: Path, target: Path, vararg options: CopyOption) {
         var interruptible: RemoteCallback? = null
         try {
+            // Known tech debt: runBlocking blocks the calling thread; consider migrating to coroutine-based API
             runBlocking<Unit> {
                 suspendCoroutine { continuation ->
                     val callback = RemoteCallback {
@@ -245,6 +247,7 @@ abstract class RemoteFileSystemProvider(
     ) {
         var interruptible: RemoteCallback? = null
         try {
+            // Known tech debt: runBlocking blocks the calling thread; consider migrating to coroutine-based API
             runBlocking<Unit> {
                 suspendCoroutine { continuation ->
                     val callback = RemoteCallback {

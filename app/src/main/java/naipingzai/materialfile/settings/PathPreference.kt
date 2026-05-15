@@ -22,6 +22,7 @@ import naipingzai.materialfile.filelist.toUserFriendlyString
 import naipingzai.materialfile.navigation.NavigationRootMapLiveData
 import naipingzai.materialfile.util.startActivityForResultSafe
 import naipingzai.materialfile.util.valueCompat
+import java.util.concurrent.atomic.AtomicInteger
 
 abstract class PathPreference : Preference, PreferenceActivityResultListener {
     private val openPathContract = FileListActivity.OpenDirectoryContract()
@@ -89,9 +90,7 @@ abstract class PathPreference : Preference, PreferenceActivityResultListener {
         }
     }
 
-    private val requestCode: Int
-        // @see FragmentActivity#checkForValidRequestCode()
-        get() = key.hashCode() and 0x0000FFFF
+    private val requestCode: Int = nextRequestCode.getAndIncrement()
 
     protected abstract var persistedPath: Path
 
@@ -101,5 +100,9 @@ abstract class PathPreference : Preference, PreferenceActivityResultListener {
             val navigationRoot = NavigationRootMapLiveData.valueCompat[path]
             return navigationRoot?.getName(preference.context) ?: path.toUserFriendlyString()
         }
+    }
+
+    companion object {
+        private val nextRequestCode = AtomicInteger(1)
     }
 }

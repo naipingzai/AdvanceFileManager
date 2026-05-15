@@ -141,7 +141,7 @@ private fun FileJob.postNotification(
                 pendingIntentFlags = pendingIntentFlags or PendingIntent.FLAG_IMMUTABLE
             }
             val pendingIntent = PendingIntent.getBroadcast(
-                service, id + 1, intent, pendingIntentFlags
+                service, id + 10000, intent, pendingIntentFlags
             )
             addAction(
                 R.drawable.close_icon_white_24dp, getString(android.R.string.cancel), pendingIntent
@@ -155,15 +155,13 @@ private const val PROGRESS_INTERVAL_MILLIS = 200L
 
 private const val NOTIFICATION_INTERVAL_MILLIS = 500L
 
-private fun FileJob.showToast(textRes: Int, duration: Int = Toast.LENGTH_SHORT) {
+private fun FileJob.showToast(message: Any, duration: Int = Toast.LENGTH_SHORT) {
     service.mainExecutorCompat.execute {
-        service.showToast(textRes, duration)
-    }
-}
-
-private fun FileJob.showToast(text: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
-    service.mainExecutorCompat.execute {
-        service.showToast(text, duration)
+        when (message) {
+            is Int -> service.showToast(message, duration)
+            is CharSequence -> service.showToast(message, duration)
+            else -> throw IllegalArgumentException("Unsupported message type: ${message::class}")
+        }
     }
 }
 
@@ -948,6 +946,11 @@ class DeleteFileJob(private val paths: List<Path>) : FileJob() {
                 if (TrashHelper.moveToTrash(path)) {
                     continue // Successfully moved to trash
                 }
+                // moveToTrash failed, inform user that file will be permanently deleted
+                val msg = "Failed to move to trash, will be permanently deleted"
+                service.mainExecutor.execute {
+                    service.showToast(msg)
+                }
             }
             remainingPaths.add(path)
         }
@@ -1374,12 +1377,10 @@ private fun FileJob.copyOrMove(
                 FileJobConflictAction.CANCEL -> throw InterruptedIOException()
             }
         } catch (e: InvalidFileNameException) {
-            // TODO: Prompt invalid name.
-            if (false) {
-                retry = true
-                continue
-            }
-            throw e
+            // Skip invalid file names
+            transferInfo.skipFile(source)
+            postCopyMoveNotification(transferInfo, source, type)
+            false
         } catch (e: InterruptedIOException) {
             throw e
         } catch (e: IOException) {
@@ -1554,21 +1555,64 @@ class BatchRenameFileJob(private val paths: List<Path>, private val baseName: St
     override fun run() {
         val count = paths.size
         val digitCount = count.toString().length
-        
+
+        // Phase 1: Build the full rename plan and detect conflicts before any mutation
+        data class RenameEntry(val source: Path, val target: Path)
+
+        val renamePlan = mutableListOf<RenameEntry>()
+        val conflictNames = mutableListOf<String>()
+
         for ((index, path) in paths.withIndex()) {
             val fileName = path.fileName?.toString() ?: continue
             val extension = fileName.substringAfterLast('.', "")
             val hasExtension = extension.isNotEmpty() && fileName.contains('.')
-            
+
             val number = (index + 1).toString().padStart(digitCount, '0')
             val newName = if (hasExtension) {
                 "$baseName-$number.$extension"
             } else {
                 "$baseName-$number"
             }
-            
+
             val newPath = path.resolveSibling(newName)
-            rename(path, newPath)
+            renamePlan.add(RenameEntry(path, newPath))
+
+            // Check whether a file already occupies the target path
+            if (newPath.exists(LinkOption.NOFOLLOW_LINKS)) {
+                conflictNames.add(newName)
+            }
+        }
+
+        // Phase 2: If conflicts were found, ask the user to skip or cancel
+        if (conflictNames.isNotEmpty()) {
+            val conflictList = conflictNames.joinToString("\n  ")
+            val result = showErrorDialog(
+                getString(R.string.file_job_rename_error_title_format, baseName),
+                getString(
+                    R.string.file_job_rename_error_message_format,
+                    conflictList,
+                    getString(R.string.batch_rename_conflict_message)
+                ),
+                null,
+                false,
+                getString(R.string.skip),
+                getString(android.R.string.cancel),
+                null
+            )
+            when (result.action) {
+                FileJobErrorAction.POSITIVE -> { /* Skip conflicting files, continue with the rest */ }
+                FileJobErrorAction.NEGATIVE, FileJobErrorAction.CANCELED ->
+                    throw InterruptedIOException()
+                else -> throw AssertionError(result.action)
+            }
+        }
+
+        // Phase 3: Execute renames, skipping files whose target still exists on disk
+        for (entry in renamePlan) {
+            if (entry.target.exists(LinkOption.NOFOLLOW_LINKS)) {
+                continue
+            }
+            rename(entry.source, entry.target)
         }
     }
 }

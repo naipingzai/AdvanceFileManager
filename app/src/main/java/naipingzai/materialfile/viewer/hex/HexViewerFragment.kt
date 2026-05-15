@@ -33,6 +33,7 @@ import naipingzai.materialfile.util.ParcelableArgs
 import naipingzai.materialfile.util.args
 import naipingzai.materialfile.util.extraPath
 import naipingzai.materialfile.util.finish
+import naipingzai.materialfile.util.showToast
 import java8.nio.file.Path
 import java.io.IOException
 
@@ -87,7 +88,7 @@ class HexViewerFragment : Fragment() {
 
         val activity = requireActivity() as AppCompatActivity
         activity.setSupportActionBar(binding.toolbar)
-        activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         activity.title = path.fileName.toString()
 
         adapter = HexAdapter(hexRows)
@@ -209,12 +210,7 @@ class HexViewerFragment : Fragment() {
     }
 
     private fun formatFileSize(bytes: Long): String {
-        return when {
-            bytes < 1024 -> "$bytes B"
-            bytes < 1024 * 1024 -> String.format("%.1f KB", bytes / 1024.0)
-            bytes < 1024 * 1024 * 1024 -> String.format("%.1f MB", bytes / (1024.0 * 1024))
-            else -> String.format("%.2f GB", bytes / (1024.0 * 1024 * 1024))
-        }
+        return naipingzai.materialfile.util.FormatUtils.formatSize(bytes)
     }
 
 
@@ -237,6 +233,8 @@ class HexViewerFragment : Fragment() {
                     if (rowIndex in hexRows.indices) {
                         (binding.recyclerView.layoutManager as LinearLayoutManager)
                             .scrollToPositionWithOffset(rowIndex, 0)
+                    } else {
+                        requireContext().showToast(R.string.error)
                     }
                 } catch (_: NumberFormatException) {}
             }

@@ -12,6 +12,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
+import android.provider.MediaStore
 import android.os.Bundle
 import android.os.Environment
 import android.os.Handler
@@ -147,7 +148,6 @@ import naipingzai.materialfile.viewer.video.VideoViewerActivity
 import naipingzai.materialfile.viewer.audio.AudioPlayerActivity
 import naipingzai.materialfile.app.ToolHostActivity
 import naipingzai.materialfile.tools.formatconvert.FormatConvertFragment
-import naipingzai.materialfile.tools.mediatools.FFmpegOperationHelper
 import naipingzai.materialfile.tools.encryption.FileEncryptionHelper
 import naipingzai.materialfile.tools.duplicatefinder.DuplicateFinderFragment
 import naipingzai.materialfile.tools.emptysearch.EmptySearchFragment
@@ -206,10 +206,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
     private lateinit var layoutManager: GridLayoutManager
 
     private lateinit var adapter: FileListAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -296,7 +292,14 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                 true, binding.swipeRefreshLayout.progressViewEndOffset
             )
         }
-        binding.swipeRefreshLayout.setOnRefreshListener { this.refresh() }
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            this.refresh()
+            view?.postDelayed({
+                if (binding.swipeRefreshLayout.isRefreshing) {
+                    binding.swipeRefreshLayout.isRefreshing = false
+                }
+            }, SWIPE_REFRESH_TIMEOUT_MS)
+        }
         layoutManager = GridLayoutManager(activity, 1)
         binding.recyclerView.layoutManager = layoutManager
         adapter = FileListAdapter(this)
@@ -373,12 +376,16 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                         PickOptions.Mode.OPEN_DIRECTORY, null, false, emptyList(), localOnly, false
                     )
                 }
-                ACTION_VIEW_DOWNLOADS ->
-                    path = Paths.get(
-                        Environment.getExternalStoragePublicDirectory(
-                            Environment.DIRECTORY_DOWNLOADS
-                        ).path
-                    )
+                ACTION_VIEW_DOWNLOADS -> {
+                    // Use MediaStore to resolve Downloads directory path
+                    // instead of deprecated Environment.getExternalStoragePublicDirectory()
+                    val downloadsPath = resolveDownloadsPath()
+                    if (downloadsPath != null) {
+                        path = downloadsPath
+                    } else {
+                        path = Settings.FILE_LIST_DEFAULT_DIRECTORY.valueCompat
+                    }
+                }
                 else ->
                     if (path != null) {
                         val mimeType = intent.type?.asMimeTypeOrNull()
@@ -439,10 +446,10 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             binding.drawerLayout?.openDrawer(GravityCompat.START)
         }
 
-        if (!viewModel.isNotificationPermissionRequested) {
+        if (!viewModel.isStorageAccessRequested) {
             ensureStorageAccess()
         }
-        if (!viewModel.isStorageAccessRequested) {
+        if (!viewModel.isNotificationPermissionRequested) {
             ensureNotificationPermission()
         }
     }
@@ -485,10 +492,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         updateOverlayToolbar()
         updateBottomToolbar()
     }
-
-    private fun onSearchViewExpandedChanged_REMOVED() {}
-
-    private fun onViewSortPathSpecificChanged_REMOVED() {}
 
     private fun onFileListChanged(stateful: Stateful<List<FileItem>>) {
         val files = stateful.value
@@ -567,7 +570,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                     persistentDrawerLayout.isDrawerOpen(GravityCompat.START)) {
                     widthDp -= getDimensionDp(R.dimen.navigation_max_width).roundToInt()
                 }
-                (widthDp / 180).coerceAtLeast(2)
+                (widthDp / GRID_COLUMN_WIDTH_DP).coerceAtLeast(2)
             }
         }
     }
@@ -576,8 +579,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         adapter.sortOptions = sortOptions
         updateViewSortMenuItems()
     }
-
-    private fun onViewSortPathSpecificChanged(pathSpecific: Boolean) {}
 
     private fun updateViewSortMenuItems() {
         if (!this::menuBinding.isInitialized) {
@@ -593,7 +594,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         val checkedSortByItem = when (sortOptions.by) {
             By.NAME -> menuBinding.sortByNameItem
             By.TYPE -> menuBinding.sortByTypeItem
-            By.SIZE -> menuBinding.sortByNameItem
+            By.SIZE -> menuBinding.sortBySizeItem
             By.LAST_MODIFIED -> menuBinding.sortByLastModifiedItem
         }
         checkedSortByItem.isChecked = true
@@ -1638,6 +1639,48 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         }
     }
 
+    /**
+     * Resolve the Downloads directory path using MediaStore instead of
+     * the deprecated Environment.getExternalStoragePublicDirectory().
+     * Falls back to a direct path on older API levels.
+     */
+    private fun resolveDownloadsPath(): Path? {
+        val context = requireContext()
+        val projection = arrayOf(MediaStore.Downloads.DATA)
+        val selection = "${MediaStore.Downloads.RELATIVE_PATH} LIKE ?"
+        val selectionArgs = arrayOf("${Environment.DIRECTORY_DOWNLOADS}%")
+        val sortOrder = "${MediaStore.Downloads.DATE_ADDED} DESC"
+
+        context.contentResolver.query(
+            MediaStore.Downloads.EXTERNAL_CONTENT_URI,
+            projection,
+            selection,
+            selectionArgs,
+            sortOrder
+        )?.use { cursor ->
+            if (cursor.moveToFirst()) {
+                val dataColumn = cursor.getColumnIndexOrThrow(MediaStore.Downloads.DATA)
+                val filePath = cursor.getString(dataColumn)
+                if (filePath != null) {
+                    val file = java.io.File(filePath)
+                    val downloadsDir = file.parentFile
+                    if (downloadsDir != null && downloadsDir.exists()) {
+                        return Paths.get(downloadsDir.absolutePath)
+                    }
+                }
+            }
+        }
+
+        // Fallback for older APIs or when MediaStore has no entries
+        @Suppress("DEPRECATION")
+        val fallbackDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)
+        return if (fallbackDir.exists()) {
+            Paths.get(fallbackDir.path)
+        } else {
+            null
+        }
+    }
+
     override fun onShowRequestAllFilesAccessRationaleResult(shouldRequest: Boolean) {
         if (shouldRequest) {
             requestAllFilesAccess()
@@ -1778,6 +1821,8 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             "naipingzai.materialfile.intent.action.VIEW_DOWNLOADS"
 
         private const val IMAGE_VIEWER_ACTIVITY_PATH_LIST_SIZE_MAX = 1000
+        private const val GRID_COLUMN_WIDTH_DP = 180
+        private const val SWIPE_REFRESH_TIMEOUT_MS = 30_000L
     }
 
     private class RequestAllFilesAccessContract : ActivityResultContract<Unit, Boolean>() {
@@ -1860,6 +1905,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         val viewGridItem: MenuItem,
         val sortByNameItem: MenuItem,
         val sortByTypeItem: MenuItem,
+        val sortBySizeItem: MenuItem,
         val sortByLastModifiedItem: MenuItem,
         val sortDirectoriesFirstItem: MenuItem,
         val selectAllItem: MenuItem,
@@ -1873,6 +1919,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                     menu.findItem(R.id.action_view_list), menu.findItem(R.id.action_view_grid),
                     menu.findItem(R.id.action_sort_by_name),
                     menu.findItem(R.id.action_sort_by_type),
+                    menu.findItem(R.id.action_sort_by_size),
                     menu.findItem(R.id.action_sort_by_last_modified),
                     menu.findItem(R.id.action_sort_directories_first),
                     menu.findItem(R.id.action_select_all),

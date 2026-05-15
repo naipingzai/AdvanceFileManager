@@ -64,11 +64,14 @@ class NonNegativeIntegerPreference : EditTextPreference {
     }
 
     override fun setText(text: String?) {
-        text ?: return
+        if (text.isNullOrEmpty()) {
+            integer = 0
+            return
+        }
         integer = try {
             text.toInt()
         } catch (e: NumberFormatException) {
-            return
+            0
         }
     }
 

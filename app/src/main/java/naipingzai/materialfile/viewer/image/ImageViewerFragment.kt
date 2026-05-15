@@ -9,10 +9,14 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.doOnPreDraw
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.viewpager2.widget.ViewPager2
@@ -80,9 +84,34 @@ class ImageViewerFragment : Fragment(), ConfirmDeleteDialogFragment.Listener {
             return
         }
 
-        val activity = activity as AppCompatActivity
+        val activity = requireActivity() as AppCompatActivity
         activity.setSupportActionBar(binding.toolbar)
-        activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // Register menu provider for delete and share actions
+        activity.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.image_viewer, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+                    android.R.id.home -> {
+                        activity.onBackPressed()
+                        true
+                    }
+                    R.id.action_delete -> {
+                        confirmDelete()
+                        true
+                    }
+                    R.id.action_share -> {
+                        share()
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }, viewLifecycleOwner)
         // Our app bar will draw the status bar background.
         activity.window.statusBarColor = Color.TRANSPARENT
         binding.appBarLayout.applySystemWindowInsetsToPadding(left = true, top = true, right = true)

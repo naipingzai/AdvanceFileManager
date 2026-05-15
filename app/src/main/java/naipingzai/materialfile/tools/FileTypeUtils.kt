@@ -67,7 +67,7 @@ object FileTypeUtils {
 
     fun isImageFile(name: String): Boolean {
         val ext = name.substringAfterLast('.', "").lowercase()
-        return ext in FFMPEG_IMAGE_EXTENSIONS
+        return ext in IMAGE_EXTENSIONS
     }
 
     /** 文件类型过滤器 */

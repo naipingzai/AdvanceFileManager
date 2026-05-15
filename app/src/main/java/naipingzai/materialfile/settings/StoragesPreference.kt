@@ -11,8 +11,10 @@ import android.util.AttributeSet
 import android.widget.TextView
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.preference.Preference
+import androidx.preference.PreferenceManager
 import androidx.preference.PreferenceViewHolder
 import naipingzai.materialfile.R
 import naipingzai.materialfile.app.ToolHostActivity
@@ -23,6 +25,7 @@ import naipingzai.materialfile.util.startActivitySafe
 
 class StoragesPreference : Preference {
     private var emptySummary = summary
+    private var lifecycleOwner: LifecycleOwner? = null
 
     private val observer = Observer<List<Storage>> { onStorageListChanged(it) }
 
@@ -45,16 +48,22 @@ class StoragesPreference : Preference {
         isPersistent = false
     }
 
-    override fun onAttached() {
-        super.onAttached()
+    override fun onAttachedToHierarchy(preferenceManager: PreferenceManager) {
+        super.onAttachedToHierarchy(preferenceManager)
 
-        Settings.STORAGES.observeForever(observer)
+        val owner = context as? LifecycleOwner
+        if (owner != null) {
+            lifecycleOwner = owner
+            Settings.STORAGES.observeForever(observer)
+        }
     }
 
     override fun onDetached() {
         super.onDetached()
-
-        Settings.STORAGES.removeObserver(observer)
+        lifecycleOwner?.let {
+            Settings.STORAGES.removeObserver(observer)
+            lifecycleOwner = null
+        }
     }
 
     private fun onStorageListChanged(storages: List<Storage>) {

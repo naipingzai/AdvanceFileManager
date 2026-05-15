@@ -117,7 +117,7 @@ object FileEncryptionHelper {
         }
     }
 
-    private suspend fun encryptFile(file: File, password: String, deleteOriginal: Boolean) {
+    internal suspend fun encryptFile(file: File, password: String, deleteOriginal: Boolean) {
         val salt = ByteArray(SALT_SIZE).also { SecureRandom().nextBytes(it) }
         val iv = ByteArray(IV_SIZE).also { SecureRandom().nextBytes(it) }
         val key = deriveKey(password, salt)
@@ -157,7 +157,7 @@ object FileEncryptionHelper {
         }
     }
 
-    private suspend fun decryptFile(file: File, password: String, deleteOriginal: Boolean) {
+    internal suspend fun decryptFile(file: File, password: String, deleteOriginal: Boolean) {
         val decDir = OutputPaths.resolve(OutputPaths.DECRYPTED)
         if (!decDir.mkdirs() && !decDir.isDirectory) {
             throw IOException("Failed to create output directory")

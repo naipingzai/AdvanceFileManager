@@ -12,11 +12,15 @@ import android.os.Handler
 import android.os.Looper
 import android.view.GestureDetector
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GestureDetectorCompat
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.media3.common.MediaItem
@@ -120,9 +124,34 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
             return
         }
 
-        val activity = activity as AppCompatActivity
+        val activity = requireActivity() as AppCompatActivity
         activity.setSupportActionBar(binding.toolbar)
-        activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        // Register menu provider for delete and share actions
+        activity.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.video_viewer, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+                    android.R.id.home -> {
+                        activity.onBackPressed()
+                        true
+                    }
+                    R.id.action_delete -> {
+                        confirmDelete()
+                        true
+                    }
+                    R.id.action_share -> {
+                        share()
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }, viewLifecycleOwner)
         activity.window.statusBarColor = Color.TRANSPARENT
         binding.appBarLayout.applySystemWindowInsetsToPadding(left = true, top = true, right = true)
         
@@ -411,36 +440,41 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
         initializePlayer()
     }
 
-    override fun onResume() {
-        super.onResume()
-        if (player == null) {
-            initializePlayer()
+    override fun onStop() {
+        super.onStop()
+        savePlaybackPosition()
+        releasePlayer()
+    }
+
+    private fun savePlaybackPosition() {
+        player?.let { exoPlayer ->
+            // Save playback position for restoration
+            savedPlaybackPosition = exoPlayer.currentPosition
+            savedPlayWhenReady = exoPlayer.playWhenReady
         }
     }
 
-    override fun onPause() {
-        super.onPause()
-        releasePlayer()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        releasePlayer()
-    }
+    private var savedPlaybackPosition: Long = 0L
+    private var savedPlayWhenReady: Boolean = true
 
     private fun initializePlayer() {
         if (paths.isEmpty()) return
-        
+
         player = ExoPlayer.Builder(requireContext())
             .build()
             .also { exoPlayer ->
                 binding.playerView.player = exoPlayer
-                
+
                 exoPlayer.addListener(object : Player.Listener {
                     override fun onPlaybackStateChanged(playbackState: Int) {
                         when (playbackState) {
                             Player.STATE_READY -> {
                                 binding.progressBar.visibility = View.GONE
+                                // Restore playback position if available
+                                if (savedPlaybackPosition > 0) {
+                                    exoPlayer.seekTo(savedPlaybackPosition)
+                                    savedPlaybackPosition = 0L
+                                }
                             }
                             Player.STATE_BUFFERING -> {
                                 binding.progressBar.visibility = View.VISIBLE
@@ -457,13 +491,13 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
                         }
                     }
                 })
-                
+
                 // Play current video
                 val path = paths[currentPosition]
                 val uri = path.fileProviderUri
                 val mediaItem = MediaItem.fromUri(uri)
                 exoPlayer.setMediaItem(mediaItem)
-                exoPlayer.playWhenReady = playWhenReady
+                exoPlayer.playWhenReady = savedPlayWhenReady
                 exoPlayer.prepare()
             }
     }

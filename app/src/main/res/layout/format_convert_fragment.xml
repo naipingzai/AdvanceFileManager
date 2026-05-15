@@ -137,16 +137,26 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="4dp"
                 android:text="@string/format_convert_batch_format"
                 app:icon="@drawable/edit_icon_white_24dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/convertAllButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:text="@string/format_convert_convert_all"
+                app:icon="@drawable/convert_icon_white_24dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/removeSelectedButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="4dp"
                 android:text="@string/format_convert_remove_selected"
                 app:icon="@drawable/delete_icon_white_24dp"
                 style="@style/Widget.Material3.Button.TonalButton" />

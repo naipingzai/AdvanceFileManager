@@ -1126,4 +1126,22 @@
     <string name="file_job_started_rename">Rename task started…</string>
     <string name="file_job_started_batch_rename">Batch rename task started…</string>
     <string name="file_job_has_running">A task is currently running, please wait…</string>
+
+    <string name="video_viewer_seekbar">Video progress</string>
+    <string name="audio_player_seekbar">Audio progress</string>
+    <string name="file_job_invalid_file_name">Invalid file name: &quot;%1$s&quot;</string>
+    <string name="format_convert_convert_all">Convert all</string>
+    <string name="image_compress_delete_original">Delete original file</string>
+    <string name="image_compress_remove_title">Remove from list</string>
+    <string name="image_compress_remove_message">Remove this image from the compression list?</string>
+    <string name="empty_search_select_all">Select all</string>
+    <string name="empty_search_deselect_all">Deselect all</string>
+    <string name="file_search_select_all">Select all</string>
+    <string name="file_search_deselect_all">Deselect all</string>
+    <string name="format_convert_unknown_type_skipped">Some files were skipped because their type is unknown.</string>
+    <string name="batch_rename_conflict_message">Some files would overwrite existing files. Conflicting files will be skipped.</string>
+    <string name="media_tool_merge_transcode_title">Different encodings detected</string>
+    <string name="media_tool_merge_transcode_message">The selected files have different video codecs or resolutions. They need to be transcoded before merging.</string>
+    <string name="media_tool_merge_transcode_and_merge">Transcode and merge</string>
+    <string name="media_tool_merge_transcoding">Transcoding and merging…</string>
 </resources>

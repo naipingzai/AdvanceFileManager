@@ -14,6 +14,7 @@ import naipingzai.materialfile.databinding.ToolFileItemBinding
 import naipingzai.materialfile.file.MimeType
 import naipingzai.materialfile.file.iconRes
 import naipingzai.materialfile.ui.CheckableItemBackground
+import naipingzai.materialfile.util.FormatUtils
 
 class EmptyItemAdapter(
     private val items: List<EmptySearchFragment.EmptyItem>,
@@ -56,9 +57,9 @@ class EmptyItemAdapter(
 
             nameText.text = item.name
             descriptionText.text = if (item.isDirectory) {
-                context.getString(R.string.empty_search_type_folder)
+                context.getString(R.string.empty_search_type_folder) + " (" + FormatUtils.formatSize(item.size) + ")"
             } else {
-                context.getString(R.string.empty_search_type_file)
+                context.getString(R.string.empty_search_type_file) + " (" + FormatUtils.formatSize(item.size) + ")"
             }
             pathText.text = item.path
         }

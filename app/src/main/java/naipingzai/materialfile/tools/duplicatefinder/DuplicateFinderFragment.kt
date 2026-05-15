@@ -706,8 +706,9 @@ class DuplicateFinderFragment : Fragment() {
             .setPositiveButton(android.R.string.ok) { _, _ ->
                 viewLifecycleOwner.lifecycleScope.launch {
                     var deleted = 0
-                    // Snapshot selected paths before IO to avoid TOCTOU with user unchecking
-                    val pathsToDelete = selectedFiles.map { it.path }.toSet()
+                    // Track only successfully deleted paths so we don't remove
+                    // files from the UI that still exist on disk
+                    val deletedPaths = mutableSetOf<String>()
                     withContext(Dispatchers.IO) {
                         selectedFiles.forEach { item ->
                             try {
@@ -716,13 +717,16 @@ class DuplicateFinderFragment : Fragment() {
                                     filePath.delete()
                                 }
                                 MediaScanner.scan(filePath.toFile(), true)
+                                deletedPaths.add(item.path)
                                 deleted++
                             } catch (_: Exception) {}
                         }
                     }
+                    // Remove successfully deleted files from their groups
                     duplicateGroups.forEach { group ->
-                        group.files.removeAll { it.path in pathsToDelete }
+                        group.files.removeAll { it.path in deletedPaths }
                     }
+                    // Remove groups that are no longer duplicate groups (0 or 1 file remaining)
                     duplicateGroups.removeAll { it.files.size <= 1 }
                     adapter.refreshFlatList()
                     adapter.notifyDataSetChanged()

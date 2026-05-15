@@ -40,7 +40,12 @@ class DefaultIfEmptyEditTextPreference : EditTextPreference {
     }
 
     override fun setText(text: String?) {
-        val text = if (!text.isNullOrEmpty()) text else defaultValue
-        super.setText(text)
+        if (!text.isNullOrEmpty()) {
+            super.setText(text)
+        } else {
+            // Pass null so the EditText shows its hint text instead of
+            // silently restoring the default value.
+            super.setText(null)
+        }
     }
 }

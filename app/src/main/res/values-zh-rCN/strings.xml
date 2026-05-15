@@ -931,6 +931,10 @@
     <string name="media_tool_error_unknown">未知错误</string>
     <string name="media_tool_error_cancelled">操作已取消</string>
     <string name="media_tool_merge_normalize_detail">文件「%1$s」格式转换失败：\n%2$s</string>
+    <string name="media_tool_merge_transcode_title">编解码器不一致</string>
+    <string name="media_tool_merge_transcode_message">所选文件的编解码器或分辨率不一致：\n%1$s\n\n直接流拼接可能导致合并失败或输出无法播放。\n是否先将所有文件转码为统一格式后再合并？</string>
+    <string name="media_tool_merge_transcode_and_merge">转码后合并</string>
+    <string name="media_tool_merge_transcoding">正在转码并合并…</string>
     <string name="media_tool_copy_error">复制错误信息</string>
     <string name="media_tool_error_copied">错误详情已复制</string>
     <string name="file_item_action_format_convert">格式转换</string>

@@ -5,6 +5,7 @@
 
 package naipingzai.materialfile.tools.recentfiles
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Environment
 import android.os.Parcelable
@@ -13,11 +14,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.chip.Chip
+import android.webkit.MimeTypeMap
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -109,8 +112,24 @@ class RecentFilesFragment : Fragment() {
             val item = recentResults.getOrNull(position) ?: return@RecentFileAdapter
             try {
                 val path = Paths.get(item.path)
-                val intent = FileListActivity.createViewIntent(path)
-                startActivity(intent)
+                // Try to open with system default app first
+                val openIntent = Intent(Intent.ACTION_VIEW).apply {
+                    val file = path.toFile()
+                    val uri = FileProvider.getUriForFile(
+                        requireContext(),
+                        "${requireContext().packageName}.fileprovider",
+                        file
+                    )
+                    setDataAndType(uri, getMimeType(file.name))
+                    addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                }
+                try {
+                    startActivity(openIntent)
+                } catch (e: Exception) {
+                    // Fallback to file manager if no app can open the file
+                    val intent = FileListActivity.createViewIntent(path)
+                    startActivity(intent)
+                }
             } catch (e: Exception) {
                 Snackbar.make(binding.root, R.string.recent_files_open_error, Snackbar.LENGTH_SHORT).show()
             }
@@ -306,5 +325,11 @@ class RecentFilesFragment : Fragment() {
         binding.resultsLayout.isVisible = false
         showingResults = false
         updateBackCallback()
+    }
+
+    private fun getMimeType(fileName: String): String {
+        val ext = fileName.substringAfterLast('.', "")
+        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext)
+            ?: "application/octet-stream"
     }
 }

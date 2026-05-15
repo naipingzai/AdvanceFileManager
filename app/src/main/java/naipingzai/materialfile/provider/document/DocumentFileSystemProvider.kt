@@ -56,7 +56,7 @@ object DocumentFileSystemProvider : FileSystemProvider(), PathObservableProvider
 
     private val HIDDEN_FILE_NAME_PREFIX = ".".toByteString()
 
-    private val fileSystems = mutableMapOf<Uri, DocumentFileSystem>()
+    private val fileSystems = java.util.WeakHashMap<Uri, DocumentFileSystem>()
 
     private val lock = Any()
 

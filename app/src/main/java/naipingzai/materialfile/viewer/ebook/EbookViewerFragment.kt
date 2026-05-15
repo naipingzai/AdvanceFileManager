@@ -95,7 +95,7 @@ class EbookViewerFragment : Fragment() {
 
         val activity = requireActivity() as AppCompatActivity
         activity.setSupportActionBar(binding.toolbar)
-        activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         activity.title = path.fileName.toString()
 
         // Overlay toolbar: draw content under status bar

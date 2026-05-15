@@ -161,6 +161,14 @@
                                 style="@style/Widget.Material3.Chip.Filter" />
                         </com.google.android.material.chip.ChipGroup>
                     </LinearLayout>
+
+                    <!-- Delete original after compress -->
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/deleteOriginalSwitch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/image_compress_delete_original" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

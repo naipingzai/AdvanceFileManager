@@ -16,9 +16,11 @@ import java8.nio.file.StandardOpenOption
 import java8.nio.file.attribute.BasicFileAttributeView
 import java8.nio.file.attribute.BasicFileAttributes
 import java8.nio.file.attribute.FileTime
+import android.util.Log
 import java.io.IOException
 
 internal object ForeignCopyMove {
+    private const val TAG = "ForeignCopyMove"
     @Throws(IOException::class)
     fun copy(source: Path, target: Path, vararg options: CopyOption) {
         val copyOptions = options.toCopyOptions()
@@ -148,8 +150,10 @@ internal object ForeignCopyMove {
                 try {
                     target.delete()
                 } catch (e2: IOException) {
+                    Log.e(TAG, "Failed to roll back target after source delete failure", e2)
                     e.addSuppressed(e2)
                 } catch (e2: UnsupportedOperationException) {
+                    Log.e(TAG, "Cannot roll back target: unsupported operation", e2)
                     e.addSuppressed(e2)
                 }
             }
@@ -158,8 +162,10 @@ internal object ForeignCopyMove {
             try {
                 target.delete()
             } catch (e2: IOException) {
+                Log.e(TAG, "Failed to roll back target after source delete failure", e2)
                 e.addSuppressed(e2)
             } catch (e2: UnsupportedOperationException) {
+                Log.e(TAG, "Cannot roll back target: unsupported operation", e2)
                 e.addSuppressed(e2)
             }
             throw e

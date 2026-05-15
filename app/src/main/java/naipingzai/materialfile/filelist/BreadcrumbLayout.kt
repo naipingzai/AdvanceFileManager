@@ -190,6 +190,10 @@ class BreadcrumbLayout : HorizontalScrollView {
             }
             menu.setOnMenuItemClickListener {
                 when (it.itemId) {
+                    R.id.action_copy_path -> {
+                        listener.copyPath(path)
+                        true
+                    }
                     R.id.action_open_in_new_task -> {
                         listener.openInNewTask(path)
                         true
