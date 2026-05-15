@@ -141,13 +141,13 @@ static jbyteArray doGetfilecon(JNIEnv *env, jbyteArray javaPath, bool isLgetfile
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_advancefilemanager_lib_libselinux_SeLinux_getfilecon(
+Java_com_advancefilemanager_lib_libselinux_SeLinux_getfilecon(
         JNIEnv *env, jclass clazz, jbyteArray javaPath) {
     return doGetfilecon(env, javaPath, false);
 }
 
 JNIEXPORT jboolean JNICALL
-Java_advancefilemanager_lib_libselinux_SeLinux_is_1selinux_1enabled(
+Java_com_advancefilemanager_lib_libselinux_SeLinux_is_1selinux_1enabled(
         JNIEnv *env, jclass clazz) {
     int enabled = is_selinux_enabled();
     jboolean javaEnabled = (jboolean) (enabled ? JNI_TRUE : JNI_FALSE);
@@ -155,7 +155,7 @@ Java_advancefilemanager_lib_libselinux_SeLinux_is_1selinux_1enabled(
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_advancefilemanager_lib_libselinux_SeLinux_lgetfilecon(
+Java_com_advancefilemanager_lib_libselinux_SeLinux_lgetfilecon(
         JNIEnv *env, jclass clazz, jbyteArray javaPath) {
     return doGetfilecon(env, javaPath, true);
 }

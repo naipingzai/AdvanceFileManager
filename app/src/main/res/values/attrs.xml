@@ -19,4 +19,44 @@
         <attr name="itemSubtitleTextSize" format="dimension" />
         <attr name="dividerVerticalPadding" format="dimension" />
     </declare-styleable>
+
+    <attr name="appScreenEdgeMargin" format="dimension" />
+
+    <attr name="appCardIconSize" format="dimension" />
+
+    <attr name="appCardIconContainerSize" format="dimension" />
+
+    <attr name="appCardCornerRadius" format="dimension" />
+
+    <attr name="appCardArrowTint" format="color" />
+
+    <attr name="appCardIconTint" format="color" />
+
+    <attr name="appCardBodyColor" format="color" />
+
+    <attr name="appCardTitleColor" format="color" />
+
+    <attr name="appFilledCardStyle" format="reference" />
+
+    <attr name="appOutlinedCardStyle" format="reference" />
+
+    <attr name="appDialogBodyTextAppearance" format="reference" />
+
+    <attr name="appDialogTitleTextAppearance" format="reference" />
+
+    <attr name="appToolbarTitleTextAppearance" format="reference" />
+
+    <attr name="appListItemSubtitleTextAppearance" format="reference" />
+
+    <attr name="appListItemTitleTextAppearance" format="reference" />
+
+    <attr name="appStatValueTextAppearance" format="reference" />
+
+    <attr name="appInfoLabelTextAppearance" format="reference" />
+
+    <attr name="appSectionTitleTextAppearance" format="reference" />
+
+    <attr name="appCardBodyTextAppearance" format="reference" />
+
+    <attr name="appCardTitleTextAppearance" format="reference" />
 </resources>

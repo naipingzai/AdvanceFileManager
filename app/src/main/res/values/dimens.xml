@@ -75,4 +75,28 @@
     <dimen name="afs_md2_popup_text_size">34dp</dimen>
     <!-- iconloaderlib -->
     <dimen name="profile_badge_size">24dp</dimen>
+
+    <dimen name="app_screen_edge_margin">16dp</dimen>
+
+    <dimen name="app_icon_size_large">40dp</dimen>
+
+    <dimen name="app_icon_size_default">24dp</dimen>
+
+    <dimen name="app_icon_size_small">18dp</dimen>
+
+    <dimen name="app_card_arrow_size">20dp</dimen>
+
+    <dimen name="app_card_margin_vertical">2dp</dimen>
+
+    <dimen name="app_card_icon_text_spacing">14dp</dimen>
+
+    <dimen name="app_card_padding_vertical">12dp</dimen>
+
+    <dimen name="app_card_padding_horizontal">16dp</dimen>
+
+    <dimen name="app_card_icon_size">24dp</dimen>
+
+    <dimen name="app_card_icon_container_size">44dp</dimen>
+
+    <dimen name="app_card_corner_radius">16dp</dimen>
 </resources>

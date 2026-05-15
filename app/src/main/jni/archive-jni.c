@@ -29,11 +29,11 @@
 #include <archive_read_private.h>
 
 /*
- * 兼容�? 以下自定义函数在标准上游 libarchive 中不存在�?
- * archive_mbedtls_version: 本地实现�?
- * archive_set/get_user_data: 使用静态查找表实现�?
- * archive_read_get_callback_data / _size: 通过私有头访问内部结构�?
- * archive_parse_date: 委托�?libarchive 内部�?__archive_get_date�?
+ * 兼容�? 以下自定义函数在标准上游 libarchive 中不存在�?
+ * archive_mbedtls_version: 本地实现�?
+ * archive_set/get_user_data: 使用静态查找表实现�?
+ * archive_read_get_callback_data / _size: 通过私有头访问内部结构�?
+ * archive_parse_date: 委托�?libarchive 内部�?__archive_get_date�?
  */
 
 #ifdef HAVE_MBEDTLS
@@ -48,7 +48,7 @@ static const char *archive_mbedtls_version(void) {
 #endif
 }
 
-/* --- user_data: 静态查找表 (避免修改 struct archive �?ABI) --- */
+/* --- user_data: 静态查找表 (避免修改 struct archive �?ABI) --- */
 #include <pthread.h>
 #define USER_DATA_TABLE_SIZE 64
 static struct {
@@ -93,7 +93,7 @@ static void *archive_get_user_data(struct archive *a) {
     return NULL;
 }
 
-/* --- callback_data: 通过私有头访�?struct archive_read --- */
+/* --- callback_data: 通过私有头访�?struct archive_read --- */
 static unsigned int archive_read_get_callback_data_size(struct archive *_a) {
     struct archive_read *a = (struct archive_read *)_a;
     return a->client.nodes;
@@ -105,7 +105,7 @@ static void *archive_read_get_callback_data(struct archive *_a, unsigned int ind
     return a->client.dataset[index].data;
 }
 
-/* --- parse_date: 委托�?libarchive 内部函数 --- */
+/* --- parse_date: 委托�?libarchive 内部函数 --- */
 extern time_t __archive_get_date(time_t now, const char *);
 static time_t archive_parse_date(time_t now, const char *dateString) {
     return __archive_get_date(now, dateString);
@@ -284,7 +284,7 @@ static JNIEnv *getEnv() {
 static jclass getArchiveExceptionClass(JNIEnv *env) {
     static jclass clazz = NULL;
     if (!clazz) {
-        clazz = findClass(env, "naipingzai/materialfile/lib/libarchive/ArchiveException");
+        clazz = findClass(env, "advancefilemanager/lib/libarchive/ArchiveException");
     }
     return clazz;
 }
@@ -397,7 +397,7 @@ static jobject callArchiveReadCallbackOnRead(JNIEnv *env, jobject callback, jlon
         jobject clientData) {
     static jclass clazz = NULL;
     if (!clazz) {
-        clazz = findClass(env, "naipingzai/materialfile/lib/libarchive/Archive$ReadCallback");
+        clazz = findClass(env, "advancefilemanager/lib/libarchive/Archive$ReadCallback");
     }
     static jmethodID method = NULL;
     if (!method) {
@@ -410,7 +410,7 @@ static jlong callArchiveSkipCallbackOnSkip(JNIEnv *env, jobject callback, jlong 
         jobject clientData, jlong request) {
     static jclass clazz = NULL;
     if (!clazz) {
-        clazz = findClass(env, "naipingzai/materialfile/lib/libarchive/Archive$SkipCallback");
+        clazz = findClass(env, "advancefilemanager/lib/libarchive/Archive$SkipCallback");
     }
     static jmethodID method = NULL;
     if (!method) {
@@ -423,7 +423,7 @@ static jlong callArchiveSeekCallbackOnSeek(JNIEnv *env, jobject callback, jlong 
         jobject clientData, jlong offset, jint whence) {
     static jclass clazz = NULL;
     if (!clazz) {
-        clazz = findClass(env, "naipingzai/materialfile/lib/libarchive/Archive$SeekCallback");
+        clazz = findClass(env, "advancefilemanager/lib/libarchive/Archive$SeekCallback");
     }
     static jmethodID method = NULL;
     if (!method) {
@@ -436,7 +436,7 @@ static void callArchiveWriteCallbackOnWrite(JNIEnv *env, jobject callback, jlong
         jobject clientData, jobject buffer) {
     static jclass clazz = NULL;
     if (!clazz) {
-        clazz = findClass(env, "naipingzai/materialfile/lib/libarchive/Archive$WriteCallback");
+        clazz = findClass(env, "advancefilemanager/lib/libarchive/Archive$WriteCallback");
     }
     static jmethodID method = NULL;
     if (!method) {
@@ -449,7 +449,7 @@ static void callArchiveOpenCallbackOnOpen(JNIEnv *env, jobject callback, jlong a
         jobject clientData) {
     static jclass clazz = NULL;
     if (!clazz) {
-        clazz = findClass(env, "naipingzai/materialfile/lib/libarchive/Archive$OpenCallback");
+        clazz = findClass(env, "advancefilemanager/lib/libarchive/Archive$OpenCallback");
     }
     static jmethodID method = NULL;
     if (!method) {
@@ -462,7 +462,7 @@ static void callArchiveCloseCallbackOnClose(JNIEnv *env, jobject callback, jlong
         jobject clientData) {
     static jclass clazz = NULL;
     if (!clazz) {
-        clazz = findClass(env, "naipingzai/materialfile/lib/libarchive/Archive$CloseCallback");
+        clazz = findClass(env, "advancefilemanager/lib/libarchive/Archive$CloseCallback");
     }
     static jmethodID method = NULL;
     if (!method) {
@@ -475,7 +475,7 @@ static void callArchiveFreeCallbackOnFree(JNIEnv *env, jobject callback, jlong a
         jobject clientData) {
     static jclass clazz = NULL;
     if (!clazz) {
-        clazz = findClass(env, "naipingzai/materialfile/lib/libarchive/Archive$FreeCallback");
+        clazz = findClass(env, "advancefilemanager/lib/libarchive/Archive$FreeCallback");
     }
     static jmethodID method = NULL;
     if (!method) {
@@ -488,7 +488,7 @@ static void callArchiveSwitchCallbackOnSwitch(JNIEnv *env, jobject callback, jlo
         jobject clientData1, jobject clientData2) {
     static jclass clazz = NULL;
     if (!clazz) {
-        clazz = findClass(env, "naipingzai/materialfile/lib/libarchive/Archive$SwitchCallback");
+        clazz = findClass(env, "advancefilemanager/lib/libarchive/Archive$SwitchCallback");
     }
     static jmethodID method = NULL;
     if (!method) {
@@ -501,7 +501,7 @@ static jbyteArray callArchivePassphraseCallbackOnPassphrase(JNIEnv *env, jobject
         jlong archive, jobject clientData) {
     static jclass clazz = NULL;
     if (!clazz) {
-        clazz = findClass(env, "naipingzai/materialfile/lib/libarchive/Archive$PassphraseCallback");
+        clazz = findClass(env, "advancefilemanager/lib/libarchive/Archive$PassphraseCallback");
     }
     static jmethodID method = NULL;
     if (!method) {
@@ -683,7 +683,7 @@ static void setByteBufferPosition(JNIEnv *env, jobject byteBuffer, jint position
 static jclass getStructTimespecClass(JNIEnv *env) {
     static jclass clazz = NULL;
     if (!clazz) {
-        clazz = findClass(env, "naipingzai/materialfile/lib/libarchive/ArchiveEntry$StructTimespec");
+        clazz = findClass(env, "advancefilemanager/lib/libarchive/ArchiveEntry$StructTimespec");
     }
     return clazz;
 }
@@ -732,7 +732,7 @@ static void readStructTimespec(JNIEnv *env, jobject javaTimespec, struct timespe
 static jclass getStructStatClass(JNIEnv *env) {
     static jclass clazz = NULL;
     if (!clazz) {
-        clazz = findClass(env, "naipingzai/materialfile/lib/libarchive/ArchiveEntry$StructStat");
+        clazz = findClass(env, "advancefilemanager/lib/libarchive/ArchiveEntry$StructStat");
     }
     return clazz;
 }
@@ -813,7 +813,7 @@ static jfieldID getStructStatStAtimField(JNIEnv *env) {
     static jfieldID field = NULL;
     if (!field) {
         field = findField(env, getStructStatClass(env), "stAtim",
-                "Lnaipingzai/materialfile/lib/libarchive/ArchiveEntry$StructTimespec;");
+                "Ladvancefilemanager/lib/libarchive/ArchiveEntry$StructTimespec;");
     }
     return field;
 }
@@ -822,7 +822,7 @@ static jfieldID getStructStatStMtimField(JNIEnv *env) {
     static jfieldID field = NULL;
     if (!field) {
         field = findField(env, getStructStatClass(env), "stMtim",
-                "Lnaipingzai/materialfile/lib/libarchive/ArchiveEntry$StructTimespec;");
+                "Ladvancefilemanager/lib/libarchive/ArchiveEntry$StructTimespec;");
     }
     return field;
 }
@@ -831,7 +831,7 @@ static jfieldID getStructStatStCtimField(JNIEnv *env) {
     static jfieldID field = NULL;
     if (!field) {
         field = findField(env, getStructStatClass(env), "stCtim",
-                "Lnaipingzai/materialfile/lib/libarchive/ArchiveEntry$StructTimespec;");
+                "Ladvancefilemanager/lib/libarchive/ArchiveEntry$StructTimespec;");
     }
     return field;
 }

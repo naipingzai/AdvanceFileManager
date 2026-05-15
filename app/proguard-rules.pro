@@ -14,43 +14,31 @@
 
 # Preserve the line number information for
 # debugging stack traces.
--keepattributes SourceFile,LineNumberTable
 
 # Hide the original source file name.
--renamesourcefileattribute SourceFile
 
 # Native methods
 # https://www.guardsquare.com/en/products/proguard/manual/examples#native
--keepclasseswithmembernames,includedescriptorclasses class * {
     native <methods>;
 }
 
 # App
--keep class advancefilemanager.** implements androidx.appcompat.view.CollapsibleActionView { *; }
--keep class advancefilemanager.provider.common.ByteString { *; }
--keep class advancefilemanager.provider.linux.syscall.** { *; }
--keepnames class * extends java.lang.Exception
 # For Class.getEnumConstants()
--keepclassmembers enum * {
     public static **[] values();
 }
--keepnames class advancefilemanager.** implements android.os.Parcelable
+
+# 保证JNI依赖的StructStat/StructDirent不被裁剪
+-keep class com.advancefilemanager.provider.linux.syscall.StructStat { *; }
+-keep class com.advancefilemanager.provider.linux.syscall.StructDirent { *; }
 
 # Apache FtpServer
--keepclassmembers class * implements org.apache.mina.core.service.IoProcessor {
     public <init>(java.util.concurrent.ExecutorService);
     public <init>(java.util.concurrent.Executor);
     public <init>();
 }
 
 # Bouncy Castle
--keep class org.bouncycastle.jcajce.provider.** { *; }
--keep class org.bouncycastle.jce.provider.** { *; }
 
 # SMBJ
--dontwarn javax.el.**
--dontwarn org.ietf.jgss.**
--dontwarn sun.security.x509.X509Key
 
 # SMBJ-RPC
--dontwarn java.rmi.UnmarshalException

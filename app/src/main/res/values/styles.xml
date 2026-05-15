@@ -35,4 +35,228 @@
         <item name="android:textColorSecondary">?colorOnSurfaceVariant</item>
         <item name="searchViewStyle">@style/Widget.AppCompat.SearchView</item>
     </style>
+
+
+    <style name="TextAppearance.App.M3.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.M3.LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.M3.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.M3.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.M3.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.M3.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.M3.TitleSmall" parent="TextAppearance.Material3.TitleSmall">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.M3.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.M3.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.M3.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.M3.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.M3.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.M3.DisplaySmall" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.M3.DisplayMedium" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.M3.DisplayLarge" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="Widget.App.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextAppearance">@style/TextAppearance.App.ToolbarTitle</item>
+    </style>
+
+
+    <style name="ShapeAppearance.App.LargeComponent" parent="ShapeAppearance.Material3.LargeComponent">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerSize">12dp</item>
+    </style>
+
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerSize">8dp</item>
+    </style>
+
+
+    <style name="Widget.App.CardView.Filled" parent="Widget.Material3.CardView.Filled">
+        <item name="android:stateListAnimator">@null</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeWidth">0dp</item>
+        <item name="cardBackgroundColor">?colorSurfaceContainerLow</item>
+        <item name="cardCornerRadius">16dp</item>
+    </style>
+
+
+    <style name="Widget.App.CardView.Outlined" parent="Widget.Material3.CardView.Elevated">
+        <item name="android:stateListAnimator">@null</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">?colorOutlineVariant</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardCornerRadius">16dp</item>
+    </style>
+
+
+    <style name="TextAppearance.App.AboutListItem" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.AboutAppName" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.DialogBody" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.DialogTitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textSize">16sp</item>
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.ListItemSubtitle.Compact" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textSize">12sp</item>
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.ListItemTitle.Compact" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+    <style name="TextAppearance.App.ListItemSubtitle" parent="TextAppearance.Material3.TitleSmall">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.ListItemTitle" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.StatValue" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?colorOnSurface</item>
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.InfoLabel" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">?colorOnSurfaceVariant</item>
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.SectionTitle" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?colorOnSurface</item>
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.CardBody" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textColor">?colorOnSurfaceVariant</item>
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
+
+
+    <style name="TextAppearance.App.CardTitle" parent="TextAppearance.Material3.TitleSmall">
+        <item name="fontFamily">@string/app_typeface_plain_regular</item>
+        <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
+    </style>
 </resources>

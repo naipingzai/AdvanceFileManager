@@ -1144,4 +1144,6 @@
     <string name="media_tool_merge_transcode_message">The selected files have different video codecs or resolutions. They need to be transcoded before merging.</string>
     <string name="media_tool_merge_transcode_and_merge">Transcode and merge</string>
     <string name="media_tool_merge_transcoding">Transcoding and merging…</string>
+
+    <string name="app_typeface_plain_regular" translatable="false">sans-serif</string>
 </resources>

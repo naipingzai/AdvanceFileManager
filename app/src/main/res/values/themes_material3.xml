@@ -22,28 +22,28 @@
         <item name="android:windowAllowReturnTransitionOverlap">true</item>
 
         <!-- 全局 M3 Typography: 统一使用 sans-serif (regular) 字体 -->
-        <item name="textAppearanceDisplayLarge">@style/TextAppearance.NpzLib.M3.DisplayLarge</item>
-        <item name="textAppearanceDisplayMedium">@style/TextAppearance.NpzLib.M3.DisplayMedium</item>
-        <item name="textAppearanceDisplaySmall">@style/TextAppearance.NpzLib.M3.DisplaySmall</item>
-        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.NpzLib.M3.HeadlineLarge</item>
-        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.NpzLib.M3.HeadlineMedium</item>
-        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.NpzLib.M3.HeadlineSmall</item>
-        <item name="textAppearanceTitleLarge">@style/TextAppearance.NpzLib.M3.TitleLarge</item>
-        <item name="textAppearanceTitleMedium">@style/TextAppearance.NpzLib.M3.TitleMedium</item>
-        <item name="textAppearanceTitleSmall">@style/TextAppearance.NpzLib.M3.TitleSmall</item>
-        <item name="textAppearanceBodyLarge">@style/TextAppearance.NpzLib.M3.BodyLarge</item>
-        <item name="textAppearanceBodyMedium">@style/TextAppearance.NpzLib.M3.BodyMedium</item>
-        <item name="textAppearanceBodySmall">@style/TextAppearance.NpzLib.M3.BodySmall</item>
-        <item name="textAppearanceLabelLarge">@style/TextAppearance.NpzLib.M3.LabelLarge</item>
-        <item name="textAppearanceLabelMedium">@style/TextAppearance.NpzLib.M3.LabelMedium</item>
-        <item name="textAppearanceLabelSmall">@style/TextAppearance.NpzLib.M3.LabelSmall</item>
+        <item name="textAppearanceDisplayLarge">@style/TextAppearance.App.M3.DisplayLarge</item>
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.App.M3.DisplayMedium</item>
+        <item name="textAppearanceDisplaySmall">@style/TextAppearance.App.M3.DisplaySmall</item>
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.App.M3.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.App.M3.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.App.M3.HeadlineSmall</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.App.M3.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.M3.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.App.M3.TitleSmall</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.App.M3.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.App.M3.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.App.M3.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.App.M3.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.App.M3.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.App.M3.LabelSmall</item>
 
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.NpzLib.SmallComponent</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.NpzLib.MediumComponent</item>
-        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.NpzLib.LargeComponent</item>
-        <item name="textAppearanceListItem">@style/TextAppearance.NpzLib.ListItemTitle</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.App.LargeComponent</item>
+        <item name="textAppearanceListItem">@style/TextAppearance.App.ListItemTitle</item>
         <item name="android:textAppearanceListItem">?textAppearanceListItem</item>
-        <item name="textAppearanceListItemSmall">@style/TextAppearance.NpzLib.ListItemSubtitle</item>
+        <item name="textAppearanceListItemSmall">@style/TextAppearance.App.ListItemSubtitle</item>
         <item name="android:textAppearanceListItemSmall">?textAppearanceListItemSmall</item>
         <item name="floatingActionButtonStyle">?floatingActionButtonSecondaryStyle</item>
         <item name="materialCardViewStyle">@style/Widget.MaterialFiles.CardView</item>
@@ -52,32 +52,32 @@
         <item name="switchPreferenceCompatStyle">@style/Preference.MaterialFiles.Material3.SwitchPreferenceCompat</item>
         <item name="tabStyle">@style/Widget.MaterialFiles.Material3.TabLayout</item>
         <item name="textInputStyle">?textInputOutlinedStyle</item>
-        <item name="toolbarStyle">@style/Widget.NpzLib.Toolbar</item>
+        <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
         <item name="minTouchTargetSize">0dp</item>
 
         <item name="colorAppBarSurface">?colorSurface</item>
 
-        <!-- NpzLib 语义化样式属性 -->
-        <item name="npzCardTitleTextAppearance">@style/TextAppearance.NpzLib.CardTitle</item>
-        <item name="npzCardBodyTextAppearance">@style/TextAppearance.NpzLib.CardBody</item>
-        <item name="npzSectionTitleTextAppearance">@style/TextAppearance.NpzLib.SectionTitle</item>
-        <item name="npzInfoLabelTextAppearance">@style/TextAppearance.NpzLib.InfoLabel</item>
-        <item name="npzStatValueTextAppearance">@style/TextAppearance.NpzLib.StatValue</item>
-        <item name="npzListItemTitleTextAppearance">@style/TextAppearance.NpzLib.ListItemTitle</item>
-        <item name="npzListItemSubtitleTextAppearance">@style/TextAppearance.NpzLib.ListItemSubtitle</item>
-        <item name="npzToolbarTitleTextAppearance">@style/TextAppearance.NpzLib.ToolbarTitle</item>
-        <item name="npzDialogTitleTextAppearance">@style/TextAppearance.NpzLib.DialogTitle</item>
-        <item name="npzDialogBodyTextAppearance">@style/TextAppearance.NpzLib.DialogBody</item>
-        <item name="npzOutlinedCardStyle">@style/Widget.NpzLib.CardView.Outlined</item>
-        <item name="npzFilledCardStyle">@style/Widget.NpzLib.CardView.Filled</item>
-        <item name="npzCardTitleColor">?colorOnSurface</item>
-        <item name="npzCardBodyColor">?colorOnSurfaceVariant</item>
-        <item name="npzCardIconTint">?colorOnSurfaceVariant</item>
-        <item name="npzCardArrowTint">?colorOnSurfaceVariant</item>
-        <item name="npzCardCornerRadius">@dimen/npzlib_card_corner_radius</item>
-        <item name="npzCardIconContainerSize">@dimen/npzlib_card_icon_container_size</item>
-        <item name="npzCardIconSize">@dimen/npzlib_card_icon_size</item>
-        <item name="npzScreenEdgeMargin">@dimen/npzlib_screen_edge_margin</item>
+        <!-- App 语义化样式属性 -->
+        <item name="appCardTitleTextAppearance">@style/TextAppearance.App.CardTitle</item>
+        <item name="appCardBodyTextAppearance">@style/TextAppearance.App.CardBody</item>
+        <item name="appSectionTitleTextAppearance">@style/TextAppearance.App.SectionTitle</item>
+        <item name="appInfoLabelTextAppearance">@style/TextAppearance.App.InfoLabel</item>
+        <item name="appStatValueTextAppearance">@style/TextAppearance.App.StatValue</item>
+        <item name="appListItemTitleTextAppearance">@style/TextAppearance.App.ListItemTitle</item>
+        <item name="appListItemSubtitleTextAppearance">@style/TextAppearance.App.ListItemSubtitle</item>
+        <item name="appToolbarTitleTextAppearance">@style/TextAppearance.App.ToolbarTitle</item>
+        <item name="appDialogTitleTextAppearance">@style/TextAppearance.App.DialogTitle</item>
+        <item name="appDialogBodyTextAppearance">@style/TextAppearance.App.DialogBody</item>
+        <item name="appOutlinedCardStyle">@style/Widget.App.CardView.Outlined</item>
+        <item name="appFilledCardStyle">@style/Widget.App.CardView.Filled</item>
+        <item name="appCardTitleColor">?colorOnSurface</item>
+        <item name="appCardBodyColor">?colorOnSurfaceVariant</item>
+        <item name="appCardIconTint">?colorOnSurfaceVariant</item>
+        <item name="appCardArrowTint">?colorOnSurfaceVariant</item>
+        <item name="appCardCornerRadius">@dimen/app_card_corner_radius</item>
+        <item name="appCardIconContainerSize">@dimen/app_card_icon_container_size</item>
+        <item name="appCardIconSize">@dimen/app_card_icon_size</item>
+        <item name="appScreenEdgeMargin">@dimen/app_screen_edge_margin</item>
     </style>
     <style name="Theme.MaterialFiles.Material3" parent="Base.Theme.MaterialFiles.Material3" />
 
@@ -118,29 +118,29 @@
         <item name="android:windowBackground">@android:color/black</item>
 
         <!-- 全局 M3 Typography: 统一使用 sans-serif (regular) 字体 -->
-        <item name="textAppearanceDisplayLarge">@style/TextAppearance.NpzLib.M3.DisplayLarge</item>
-        <item name="textAppearanceDisplayMedium">@style/TextAppearance.NpzLib.M3.DisplayMedium</item>
-        <item name="textAppearanceDisplaySmall">@style/TextAppearance.NpzLib.M3.DisplaySmall</item>
-        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.NpzLib.M3.HeadlineLarge</item>
-        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.NpzLib.M3.HeadlineMedium</item>
-        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.NpzLib.M3.HeadlineSmall</item>
-        <item name="textAppearanceTitleLarge">@style/TextAppearance.NpzLib.M3.TitleLarge</item>
-        <item name="textAppearanceTitleMedium">@style/TextAppearance.NpzLib.M3.TitleMedium</item>
-        <item name="textAppearanceTitleSmall">@style/TextAppearance.NpzLib.M3.TitleSmall</item>
-        <item name="textAppearanceBodyLarge">@style/TextAppearance.NpzLib.M3.BodyLarge</item>
-        <item name="textAppearanceBodyMedium">@style/TextAppearance.NpzLib.M3.BodyMedium</item>
-        <item name="textAppearanceBodySmall">@style/TextAppearance.NpzLib.M3.BodySmall</item>
-        <item name="textAppearanceLabelLarge">@style/TextAppearance.NpzLib.M3.LabelLarge</item>
-        <item name="textAppearanceLabelMedium">@style/TextAppearance.NpzLib.M3.LabelMedium</item>
-        <item name="textAppearanceLabelSmall">@style/TextAppearance.NpzLib.M3.LabelSmall</item>
+        <item name="textAppearanceDisplayLarge">@style/TextAppearance.App.M3.DisplayLarge</item>
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.App.M3.DisplayMedium</item>
+        <item name="textAppearanceDisplaySmall">@style/TextAppearance.App.M3.DisplaySmall</item>
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.App.M3.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.App.M3.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.App.M3.HeadlineSmall</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.App.M3.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.M3.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.App.M3.TitleSmall</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.App.M3.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.App.M3.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.App.M3.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.App.M3.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.App.M3.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.App.M3.LabelSmall</item>
 
         <item name="colorAccent">?colorPrimary</item>
-        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.NpzLib.SmallComponent</item>
-        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.NpzLib.MediumComponent</item>
-        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.NpzLib.LargeComponent</item>
-        <item name="textAppearanceListItem">@style/TextAppearance.NpzLib.ListItemTitle</item>
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.App.LargeComponent</item>
+        <item name="textAppearanceListItem">@style/TextAppearance.App.ListItemTitle</item>
         <item name="android:textAppearanceListItem">?textAppearanceListItem</item>
-        <item name="textAppearanceListItemSmall">@style/TextAppearance.NpzLib.ListItemSubtitle</item>
+        <item name="textAppearanceListItemSmall">@style/TextAppearance.App.ListItemSubtitle</item>
         <item name="android:textAppearanceListItemSmall">?textAppearanceListItemSmall</item>
         <item name="floatingActionButtonStyle">?floatingActionButtonSecondaryStyle</item>
         <item name="materialCardViewStyle">@style/Widget.MaterialFiles.CardView</item>
@@ -149,7 +149,7 @@
         <item name="switchPreferenceCompatStyle">@style/Preference.MaterialFiles.Material3.SwitchPreferenceCompat</item>
         <item name="tabStyle">@style/Widget.MaterialFiles.Material3.TabLayout</item>
         <item name="textInputStyle">?textInputOutlinedStyle</item>
-        <item name="toolbarStyle">@style/Widget.NpzLib.Toolbar</item>
+        <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
         <item name="minTouchTargetSize">0dp</item>
 
         <item name="colorAppBarSurface">@color/dark_50_percent</item>
@@ -162,4 +162,35 @@
 
     <!-- Settings page theme inherits app theme so typography stays consistent across pages -->
     <style name="Theme.MaterialFiles.Material3.Settings" parent="Theme.MaterialFiles.Material3" />
+
+
+    <style name="ThemeOverlay.App.Default" parent="">
+        <!-- TextAppearance mappings -->
+        <item name="appCardTitleTextAppearance">@style/TextAppearance.App.CardTitle</item>
+        <item name="appCardBodyTextAppearance">@style/TextAppearance.App.CardBody</item>
+        <item name="appSectionTitleTextAppearance">@style/TextAppearance.App.SectionTitle</item>
+        <item name="appInfoLabelTextAppearance">@style/TextAppearance.App.InfoLabel</item>
+        <item name="appStatValueTextAppearance">@style/TextAppearance.App.StatValue</item>
+        <item name="appListItemTitleTextAppearance">@style/TextAppearance.App.ListItemTitle</item>
+        <item name="appListItemSubtitleTextAppearance">@style/TextAppearance.App.ListItemSubtitle</item>
+        <item name="appToolbarTitleTextAppearance">@style/TextAppearance.App.ToolbarTitle</item>
+        <item name="appDialogTitleTextAppearance">@style/TextAppearance.App.DialogTitle</item>
+        <item name="appDialogBodyTextAppearance">@style/TextAppearance.App.DialogBody</item>
+
+        <!-- Widget style mappings -->
+        <item name="appOutlinedCardStyle">@style/Widget.App.CardView.Outlined</item>
+        <item name="appFilledCardStyle">@style/Widget.App.CardView.Filled</item>
+
+        <!-- Semantic color mappings (reference M3 default colors) -->
+        <item name="appCardTitleColor">?colorOnSurface</item>
+        <item name="appCardBodyColor">?colorOnSurfaceVariant</item>
+        <item name="appCardIconTint">?colorOnSurfaceVariant</item>
+        <item name="appCardArrowTint">?colorOnSurfaceVariant</item>
+
+        <!-- Dimension mappings -->
+        <item name="appCardCornerRadius">@dimen/app_card_corner_radius</item>
+        <item name="appCardIconContainerSize">@dimen/app_card_icon_container_size</item>
+        <item name="appCardIconSize">@dimen/app_card_icon_size</item>
+        <item name="appScreenEdgeMargin">@dimen/app_screen_edge_margin</item>
+    </style>
 </resources>
