@@ -45,30 +45,30 @@ target_link_libraries(syscall
 find_library(Z_LIBRARY libz.a)
 
 add_library(bz STATIC IMPORTED)
-set_target_properties(bz PROPERTIES IMPORTED_LOCATION ${PREBUILD_DIR}/bzip2/lib/libmaterialfile_bz2.a)
+set_target_properties(bz PROPERTIES IMPORTED_LOCATION ${PREBUILD_DIR}/bzip2/lib/libadvancefilemanager_bz2.a)
 
 add_library(lzma STATIC IMPORTED)
-set_target_properties(lzma PROPERTIES IMPORTED_LOCATION ${PREBUILD_DIR}/xz/lib/libmaterialfile_lzma.a)
+set_target_properties(lzma PROPERTIES IMPORTED_LOCATION ${PREBUILD_DIR}/xz/lib/libadvancefilemanager_lzma.a)
 
 add_library(lz4 STATIC IMPORTED)
-set_target_properties(lz4 PROPERTIES IMPORTED_LOCATION ${PREBUILD_DIR}/lz4/lib/libmaterialfile_lz4.a)
+set_target_properties(lz4 PROPERTIES IMPORTED_LOCATION ${PREBUILD_DIR}/lz4/lib/libadvancefilemanager_lz4.a)
 
 add_library(zstd STATIC IMPORTED)
-set_target_properties(zstd PROPERTIES IMPORTED_LOCATION ${PREBUILD_DIR}/zstd/lib/libmaterialfile_zstd.a)
+set_target_properties(zstd PROPERTIES IMPORTED_LOCATION ${PREBUILD_DIR}/zstd/lib/libadvancefilemanager_zstd.a)
 
 add_library(mbedcrypto STATIC IMPORTED)
 set_target_properties(mbedcrypto PROPERTIES
-        IMPORTED_LOCATION ${PREBUILD_DIR}/mbedtls/lib/libmaterialfile_mbedcrypto.a
+        IMPORTED_LOCATION ${PREBUILD_DIR}/mbedtls/lib/libadvancefilemanager_mbedcrypto.a
         INTERFACE_INCLUDE_DIRECTORIES "${PREBUILD_DIR}/mbedtls/include")
 
 add_library(archive STATIC IMPORTED)
 set_target_properties(archive PROPERTIES
-        IMPORTED_LOCATION ${PREBUILD_DIR}/libarchive/lib/libmaterialfile_archive.a
+        IMPORTED_LOCATION ${PREBUILD_DIR}/libarchive/lib/libadvancefilemanager_archive.a
         INTERFACE_INCLUDE_DIRECTORIES "${PREBUILD_DIR}/libarchive/include")
 
 add_library(pcre2 STATIC IMPORTED)
 set_target_properties(pcre2 PROPERTIES
-        IMPORTED_LOCATION ${PREBUILD_DIR}/pcre2/lib/libmaterialfile_pcre2.a)
+        IMPORTED_LOCATION ${PREBUILD_DIR}/pcre2/lib/libadvancefilemanager_pcre2.a)
 
 # ===========================================================================
 # archive-jni (shared library)
@@ -92,7 +92,7 @@ target_link_libraries(archive-jni
 
 add_library(selinux STATIC IMPORTED)
 set_target_properties(selinux PROPERTIES
-        IMPORTED_LOCATION ${PREBUILD_DIR}/selinux/lib/libmaterialfile_selinux.a
+        IMPORTED_LOCATION ${PREBUILD_DIR}/selinux/lib/libadvancefilemanager_selinux.a
         INTERFACE_INCLUDE_DIRECTORIES "${PREBUILD_DIR}/selinux/include")
 
 # --- selinux-jni (shared library) ---
@@ -106,32 +106,32 @@ target_link_libraries(selinux-jni selinux pcre2 ${LOG_LIBRARY})
 
 add_library(avcodec STATIC IMPORTED)
 set_target_properties(avcodec PROPERTIES
-        IMPORTED_LOCATION ${PREBUILD_DIR}/ffmpeg/lib/libmaterialfile_avcodec.a
+        IMPORTED_LOCATION ${PREBUILD_DIR}/ffmpeg/lib/libadvancefilemanager_avcodec.a
         INTERFACE_INCLUDE_DIRECTORIES "${PREBUILD_DIR}/ffmpeg/include")
 
 add_library(avformat STATIC IMPORTED)
 set_target_properties(avformat PROPERTIES
-        IMPORTED_LOCATION ${PREBUILD_DIR}/ffmpeg/lib/libmaterialfile_avformat.a
+        IMPORTED_LOCATION ${PREBUILD_DIR}/ffmpeg/lib/libadvancefilemanager_avformat.a
         INTERFACE_INCLUDE_DIRECTORIES "${PREBUILD_DIR}/ffmpeg/include")
 
 add_library(avutil STATIC IMPORTED)
 set_target_properties(avutil PROPERTIES
-        IMPORTED_LOCATION ${PREBUILD_DIR}/ffmpeg/lib/libmaterialfile_avutil.a
+        IMPORTED_LOCATION ${PREBUILD_DIR}/ffmpeg/lib/libadvancefilemanager_avutil.a
         INTERFACE_INCLUDE_DIRECTORIES "${PREBUILD_DIR}/ffmpeg/include")
 
 add_library(avfilter STATIC IMPORTED)
 set_target_properties(avfilter PROPERTIES
-        IMPORTED_LOCATION ${PREBUILD_DIR}/ffmpeg/lib/libmaterialfile_avfilter.a
+        IMPORTED_LOCATION ${PREBUILD_DIR}/ffmpeg/lib/libadvancefilemanager_avfilter.a
         INTERFACE_INCLUDE_DIRECTORIES "${PREBUILD_DIR}/ffmpeg/include")
 
 add_library(swresample STATIC IMPORTED)
 set_target_properties(swresample PROPERTIES
-        IMPORTED_LOCATION ${PREBUILD_DIR}/ffmpeg/lib/libmaterialfile_swresample.a
+        IMPORTED_LOCATION ${PREBUILD_DIR}/ffmpeg/lib/libadvancefilemanager_swresample.a
         INTERFACE_INCLUDE_DIRECTORIES "${PREBUILD_DIR}/ffmpeg/include")
 
 add_library(swscale STATIC IMPORTED)
 set_target_properties(swscale PROPERTIES
-        IMPORTED_LOCATION ${PREBUILD_DIR}/ffmpeg/lib/libmaterialfile_swscale.a
+        IMPORTED_LOCATION ${PREBUILD_DIR}/ffmpeg/lib/libadvancefilemanager_swscale.a
         INTERFACE_INCLUDE_DIRECTORIES "${PREBUILD_DIR}/ffmpeg/include")
 
 # --- ffmpeg-jni (shared library) ---

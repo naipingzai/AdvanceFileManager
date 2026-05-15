@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ Copyright (c) 2026 advancefilemanager
   ~ All Rights Reserved.
   -->
 
@@ -42,18 +42,18 @@
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <naipingzai.materialfile.ui.ReadOnlyTextInputLayout
+            <com.advancefilemanager.ui.ReadOnlyTextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/storage_edit_device_storage_path">
 
-                <naipingzai.materialfile.ui.ReadOnlyTextInputEditText
+                <com.advancefilemanager.ui.ReadOnlyTextInputEditText
                     android:id="@+id/pathText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textIsSelectable="true" />
-            </naipingzai.materialfile.ui.ReadOnlyTextInputLayout>
+            </com.advancefilemanager.ui.ReadOnlyTextInputLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </FrameLayout>

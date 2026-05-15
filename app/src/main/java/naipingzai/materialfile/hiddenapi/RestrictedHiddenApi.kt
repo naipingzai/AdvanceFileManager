@@ -1,9 +1,0 @@
-/*
- * Copyright (c) 2026 naipingzai <npznnz@gmail.com>
- * All Rights Reserved.
- */
-
-package naipingzai.materialfile.hiddenapi
-
-@Retention(AnnotationRetention.SOURCE)
-annotation class RestrictedHiddenApi

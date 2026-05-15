@@ -911,62 +911,62 @@ static void readStructStat(JNIEnv *env, jobject javaStat, struct stat *stat) {
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_versionNumber(
+Java_advancefilemanager_lib_libarchive_Archive_versionNumber(
         JNIEnv *env, jclass clazz) {
     return archive_version_number();
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_versionString(
+Java_advancefilemanager_lib_libarchive_Archive_versionString(
         JNIEnv *env, jclass clazz) {
     const char *versionString = archive_version_string();
     return newBytesFromString(env, versionString);
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_versionDetails(
+Java_advancefilemanager_lib_libarchive_Archive_versionDetails(
         JNIEnv *env, jclass clazz) {
     const char *versionDetails = archive_version_details();
     return newBytesFromString(env, versionDetails);
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_zlibVersion(
+Java_advancefilemanager_lib_libarchive_Archive_zlibVersion(
         JNIEnv *env, jclass clazz) {
     const char *zlibVersion = archive_zlib_version();
     return newBytesFromString(env, zlibVersion);
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_liblzmaVersion(
+Java_advancefilemanager_lib_libarchive_Archive_liblzmaVersion(
         JNIEnv *env, jclass clazz) {
     const char *liblzmaVersion = archive_liblzma_version();
     return newBytesFromString(env, liblzmaVersion);
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_bzlibVersion(
+Java_advancefilemanager_lib_libarchive_Archive_bzlibVersion(
         JNIEnv *env, jclass clazz) {
     const char *bzlibVersion = archive_bzlib_version();
     return newBytesFromString(env, bzlibVersion);
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_liblz4Version(
+Java_advancefilemanager_lib_libarchive_Archive_liblz4Version(
         JNIEnv *env, jclass clazz) {
     const char *liblz4Version = archive_liblz4_version();
     return newBytesFromString(env, liblz4Version);
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_libzstdVersion(
+Java_advancefilemanager_lib_libarchive_Archive_libzstdVersion(
         JNIEnv *env, jclass clazz) {
     const char *libzstdVersion = archive_libzstd_version();
     return newBytesFromString(env, libzstdVersion);
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_mbedtlsVersion(
+Java_advancefilemanager_lib_libarchive_Archive_mbedtlsVersion(
         JNIEnv *env, jclass clazz) {
     const char *mbedtlsVersion = archive_mbedtls_version();
     return newBytesFromString(env, mbedtlsVersion);
@@ -982,7 +982,7 @@ static bool mallocArchiveJniData(JNIEnv* env, struct archive *archive) {
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readNew(
+Java_advancefilemanager_lib_libarchive_Archive_readNew(
         JNIEnv* env, jclass clazz) {
     struct archive *archive = archive_read_new();
     if (!archive) {
@@ -998,7 +998,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readNew(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSupportFilterAll(
+Java_advancefilemanager_lib_libarchive_Archive_readSupportFilterAll(
         JNIEnv* env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_read_support_filter_all(archive);
@@ -1008,7 +1008,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readSupportFilterAll(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSupportFilterByCode(
+Java_advancefilemanager_lib_libarchive_Archive_readSupportFilterByCode(
         JNIEnv* env, jclass clazz, jlong javaArchive, jint code) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_read_support_filter_by_code(archive, code);
@@ -1018,7 +1018,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readSupportFilterByCode(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSupportFilterProgramSignature(
+Java_advancefilemanager_lib_libarchive_Archive_readSupportFilterProgramSignature(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaCommand,
         jbyteArray javaSignature) {
     struct archive *archive = (struct archive *) javaArchive;
@@ -1039,7 +1039,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readSupportFilterProgramSign
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSupportFormatAll(
+Java_advancefilemanager_lib_libarchive_Archive_readSupportFormatAll(
         JNIEnv* env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_read_support_format_all(archive);
@@ -1049,7 +1049,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readSupportFormatAll(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSupportFormatByCode(
+Java_advancefilemanager_lib_libarchive_Archive_readSupportFormatByCode(
         JNIEnv* env, jclass clazz, jlong javaArchive, jint code) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_read_support_format_by_code(archive, code);
@@ -1059,7 +1059,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readSupportFormatByCode(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSupportFormatZipStreamable(
+Java_advancefilemanager_lib_libarchive_Archive_readSupportFormatZipStreamable(
         JNIEnv* env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_read_support_format_zip_streamable(archive);
@@ -1069,7 +1069,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readSupportFormatZipStreamab
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSupportFormatZipSeekable(
+Java_advancefilemanager_lib_libarchive_Archive_readSupportFormatZipSeekable(
         JNIEnv* env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_read_support_format_zip_seekable(archive);
@@ -1079,7 +1079,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readSupportFormatZipSeekable
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSetFormat(
+Java_advancefilemanager_lib_libarchive_Archive_readSetFormat(
         JNIEnv *env, jclass clazz, jlong javaArchive, jint code) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_read_set_format(archive, code);
@@ -1089,7 +1089,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readSetFormat(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readAppendFilter(
+Java_advancefilemanager_lib_libarchive_Archive_readAppendFilter(
         JNIEnv *env, jclass clazz, jlong javaArchive, jint code) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_read_append_filter(archive, code);
@@ -1099,7 +1099,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readAppendFilter(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readAppendFilterProgramSignature(
+Java_advancefilemanager_lib_libarchive_Archive_readAppendFilterProgramSignature(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaCommand,
         jbyteArray javaSignature) {
     struct archive *archive = (struct archive *) javaArchive;
@@ -1138,7 +1138,7 @@ static int archiveOpenCallback(struct archive *archive, void *client_data) {
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSetOpenCallback(
+Java_advancefilemanager_lib_libarchive_Archive_readSetOpenCallback(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject javaCallback) {
     struct archive *archive = (struct archive *) javaArchive;
     jobject javaCallbackRef = (*env)->NewGlobalRef(env, javaCallback);
@@ -1200,7 +1200,7 @@ static la_ssize_t archiveReadCallback(struct archive *archive, void *client_data
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSetReadCallback(
+Java_advancefilemanager_lib_libarchive_Archive_readSetReadCallback(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject javaCallback) {
     struct archive *archive = (struct archive *) javaArchive;
     jobject javaCallbackRef = (*env)->NewGlobalRef(env, javaCallback);
@@ -1241,7 +1241,7 @@ static la_int64_t archiveSeekCallback(struct archive *archive, void *client_data
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSetSeekCallback(
+Java_advancefilemanager_lib_libarchive_Archive_readSetSeekCallback(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject javaCallback) {
     struct archive *archive = (struct archive *) javaArchive;
     jobject javaCallbackRef = (*env)->NewGlobalRef(env, javaCallback);
@@ -1283,7 +1283,7 @@ static la_int64_t archiveSkipCallback(struct archive *archive, void *client_data
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSetSkipCallback(
+Java_advancefilemanager_lib_libarchive_Archive_readSetSkipCallback(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject javaCallback) {
     struct archive *archive = (struct archive *) javaArchive;
     jobject javaCallbackRef = (*env)->NewGlobalRef(env, javaCallback);
@@ -1322,7 +1322,7 @@ static int archiveCloseCallback(struct archive *archive, void *client_data) {
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSetCloseCallback(
+Java_advancefilemanager_lib_libarchive_Archive_readSetCloseCallback(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject javaCallback) {
     struct archive *archive = (struct archive *) javaArchive;
     jobject javaCallbackRef = (*env)->NewGlobalRef(env, javaCallback);
@@ -1361,7 +1361,7 @@ static int archiveSwitchCallback(struct archive *archive, void *client_data1, vo
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSetSwitchCallback(
+Java_advancefilemanager_lib_libarchive_Archive_readSetSwitchCallback(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject javaCallback) {
     struct archive *archive = (struct archive *) javaArchive;
     jobject javaCallbackRef = (*env)->NewGlobalRef(env, javaCallback);
@@ -1382,7 +1382,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readSetSwitchCallback(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSetCallbackData2(
+Java_advancefilemanager_lib_libarchive_Archive_readSetCallbackData2(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject clientData, jint index) {
     struct archive *archive = (struct archive *) javaArchive;
     jobject clientDataRef = (*env)->NewGlobalRef(env, clientData);
@@ -1408,7 +1408,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readSetCallbackData2(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readAddCallbackData(
+Java_advancefilemanager_lib_libarchive_Archive_readAddCallbackData(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject clientData, jint index) {
     struct archive *archive = (struct archive *) javaArchive;
     jobject clientDataRef = (*env)->NewGlobalRef(env, clientData);
@@ -1427,7 +1427,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readAddCallbackData(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readAppendCallbackData(
+Java_advancefilemanager_lib_libarchive_Archive_readAppendCallbackData(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject clientData) {
     struct archive *archive = (struct archive *) javaArchive;
     jobject clientDataRef = (*env)->NewGlobalRef(env, clientData);
@@ -1446,7 +1446,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readAppendCallbackData(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readOpen1(
+Java_advancefilemanager_lib_libarchive_Archive_readOpen1(
         JNIEnv* env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_read_open1(archive);
@@ -1456,7 +1456,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readOpen1(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readOpenFileName(
+Java_advancefilemanager_lib_libarchive_Archive_readOpenFileName(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaFileName, jlong blockSize) {
     struct archive *archive = (struct archive *) javaArchive;
     char *fileName = mallocStringFromBytes(env, javaFileName);
@@ -1472,7 +1472,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readOpenFileName(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readOpenFileNames(
+Java_advancefilemanager_lib_libarchive_Archive_readOpenFileNames(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobjectArray javaFileNames,
         jlong blockSize) {
     struct archive *archive = (struct archive *) javaArchive;
@@ -1489,7 +1489,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readOpenFileNames(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readOpenMemory(
+Java_advancefilemanager_lib_libarchive_Archive_readOpenMemory(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject javaBuffer) {
     struct archive *archive = (struct archive *) javaArchive;
     struct ArchiveJniData *jniData = archive_get_user_data(archive);
@@ -1517,7 +1517,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readOpenMemory(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readOpenMemoryUnsafe(
+Java_advancefilemanager_lib_libarchive_Archive_readOpenMemoryUnsafe(
         JNIEnv *env, jclass clazz, jlong javaArchive, jlong javaBuffer, jlong bufferSize) {
     struct archive *archive = (struct archive *) javaArchive;
     const void *buffer = (const void *) javaBuffer;
@@ -1528,7 +1528,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readOpenMemoryUnsafe(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readOpenFd(
+Java_advancefilemanager_lib_libarchive_Archive_readOpenFd(
         JNIEnv *env, jclass clazz, jlong javaArchive, jint fd, jlong blockSize) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_read_open_fd(archive, fd, blockSize);
@@ -1538,7 +1538,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readOpenFd(
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readNextHeader(
+Java_advancefilemanager_lib_libarchive_Archive_readNextHeader(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     struct archive_entry *entry = NULL;
@@ -1553,7 +1553,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readNextHeader(
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readNextHeader2(
+Java_advancefilemanager_lib_libarchive_Archive_readNextHeader2(
         JNIEnv *env, jclass clazz, jlong javaArchive, jlong javaEntry) {
     struct archive *archive = (struct archive *) javaArchive;
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
@@ -1568,7 +1568,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readNextHeader2(
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readHeaderPosition(
+Java_advancefilemanager_lib_libarchive_Archive_readHeaderPosition(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     la_int64_t position = archive_read_header_position(archive);
@@ -1580,21 +1580,21 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readHeaderPosition(
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readHasEncryptedEntries(
+Java_advancefilemanager_lib_libarchive_Archive_readHasEncryptedEntries(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     return archive_read_has_encrypted_entries(archive);
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readFormatCapabilities(
+Java_advancefilemanager_lib_libarchive_Archive_readFormatCapabilities(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     return archive_read_format_capabilities(archive);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readData(
+Java_advancefilemanager_lib_libarchive_Archive_readData(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject javaBuffer) {
     struct archive *archive = (struct archive *) javaArchive;
     jint position = 0;
@@ -1624,7 +1624,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readData(
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_seekData(
+Java_advancefilemanager_lib_libarchive_Archive_seekData(
         JNIEnv *env, jclass clazz, jlong javaArchive, jlong offset, jint whence) {
     struct archive *archive = (struct archive *) javaArchive;
     la_int64_t position = archive_seek_data(archive, offset, whence);
@@ -1636,7 +1636,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_seekData(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readDataSkip(
+Java_advancefilemanager_lib_libarchive_Archive_readDataSkip(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_read_data_skip(archive);
@@ -1646,7 +1646,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readDataSkip(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readDataIntoFd(
+Java_advancefilemanager_lib_libarchive_Archive_readDataIntoFd(
         JNIEnv *env, jclass clazz, jlong javaArchive, jint fd) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_read_data_into_fd(archive, fd);
@@ -1656,7 +1656,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readDataIntoFd(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSetFormatOption(
+Java_advancefilemanager_lib_libarchive_Archive_readSetFormatOption(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaModule, jbyteArray javaOption,
         jbyteArray javaValue) {
     struct archive *archive = (struct archive *) javaArchive;
@@ -1685,7 +1685,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readSetFormatOption(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSetFilterOption(
+Java_advancefilemanager_lib_libarchive_Archive_readSetFilterOption(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaModule, jbyteArray javaOption,
         jbyteArray javaValue) {
     struct archive *archive = (struct archive *) javaArchive;
@@ -1714,7 +1714,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readSetFilterOption(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSetOption(
+Java_advancefilemanager_lib_libarchive_Archive_readSetOption(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaModule, jbyteArray javaOption,
         jbyteArray javaValue) {
     struct archive *archive = (struct archive *) javaArchive;
@@ -1743,7 +1743,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readSetOption(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSetOptions(
+Java_advancefilemanager_lib_libarchive_Archive_readSetOptions(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaOptions) {
     struct archive *archive = (struct archive *) javaArchive;
     char *options = mallocStringFromBytes(env, javaOptions);
@@ -1759,7 +1759,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readSetOptions(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readAddPassphrase(
+Java_advancefilemanager_lib_libarchive_Archive_readAddPassphrase(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaPassphrase) {
     struct archive *archive = (struct archive *) javaArchive;
     char *passphrase = mallocStringFromBytes(env, javaPassphrase);
@@ -1803,7 +1803,7 @@ static const char *archivePassphraseCallback(struct archive *archive, void *clie
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readSetPassphraseCallback(
+Java_advancefilemanager_lib_libarchive_Archive_readSetPassphraseCallback(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject clientData, jobject javaCallback) {
     struct archive *archive = (struct archive *) javaArchive;
     jobject clientDataRef = (*env)->NewGlobalRef(env, clientData);
@@ -1865,7 +1865,7 @@ static void closeArchiveJniData(JNIEnv* env, struct archive *archive) {
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_readClose(
+Java_advancefilemanager_lib_libarchive_Archive_readClose(
         JNIEnv* env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_read_close(archive);
@@ -1876,7 +1876,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_readClose(
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeNew(
+Java_advancefilemanager_lib_libarchive_Archive_writeNew(
         JNIEnv* env, jclass clazz) {
     struct archive *archive = archive_write_new();
     if (!archive) {
@@ -1892,7 +1892,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeNew(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetBytesPerBlock(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetBytesPerBlock(
         JNIEnv *env, jclass clazz, jlong javaArchive, jint bytesPerBlock) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_bytes_per_block(archive, bytesPerBlock);
@@ -1902,7 +1902,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetBytesPerBlock(
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeGetBytesPerBlock(
+Java_advancefilemanager_lib_libarchive_Archive_writeGetBytesPerBlock(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int bytesPerBlock = archive_write_get_bytes_per_block(archive);
@@ -1914,7 +1914,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeGetBytesPerBlock(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetBytesInLastBlock(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetBytesInLastBlock(
         JNIEnv *env, jclass clazz, jlong javaArchive, jint bytesInLastBlock) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_bytes_in_last_block(archive, bytesInLastBlock);
@@ -1924,7 +1924,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetBytesInLastBlock(
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeGetBytesInLastBlock(
+Java_advancefilemanager_lib_libarchive_Archive_writeGetBytesInLastBlock(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int bytesInLastBlock = archive_write_get_bytes_in_last_block(archive);
@@ -1936,7 +1936,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeGetBytesInLastBlock(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilter(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilter(
         JNIEnv *env, jclass clazz, jlong javaArchive, jint code) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_add_filter(archive, code);
@@ -1946,7 +1946,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilter(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterByName(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterByName(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaName) {
     struct archive *archive = (struct archive *) javaArchive;
     char *name = mallocStringFromBytes(env, javaName);
@@ -1962,7 +1962,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterByName(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterB64encode(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterB64encode(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_add_filter_b64encode(archive);
@@ -1972,7 +1972,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterB64encode(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterBzip2(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterBzip2(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_add_filter_bzip2(archive);
@@ -1982,7 +1982,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterBzip2(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterCompress(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterCompress(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_add_filter_compress(archive);
@@ -1992,7 +1992,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterCompress(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterGrzip(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterGrzip(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_add_filter_grzip(archive);
@@ -2002,7 +2002,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterGrzip(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterGzip(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterGzip(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_add_filter_gzip(archive);
@@ -2012,7 +2012,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterGzip(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterLrzip(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterLrzip(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_add_filter_lrzip(archive);
@@ -2022,7 +2022,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterLrzip(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterLz4(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterLz4(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_add_filter_lz4(archive);
@@ -2032,7 +2032,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterLz4(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterLzip(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterLzip(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_add_filter_lzip(archive);
@@ -2042,7 +2042,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterLzip(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterLzma(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterLzma(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_add_filter_lzma(archive);
@@ -2052,7 +2052,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterLzma(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterLzop(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterLzop(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_add_filter_lzop(archive);
@@ -2062,7 +2062,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterLzop(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterNone(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterNone(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_add_filter_none(archive);
@@ -2072,7 +2072,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterNone(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterProgram(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterProgram(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaCommand) {
     struct archive *archive = (struct archive *) javaArchive;
     char *command = mallocStringFromBytes(env, javaCommand);
@@ -2088,7 +2088,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterProgram(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterUuencode(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterUuencode(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_add_filter_uuencode(archive);
@@ -2098,7 +2098,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterUuencode(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterXz(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterXz(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_add_filter_xz(archive);
@@ -2108,7 +2108,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterXz(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterZstd(
+Java_advancefilemanager_lib_libarchive_Archive_writeAddFilterZstd(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_add_filter_zstd(archive);
@@ -2118,7 +2118,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeAddFilterZstd(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormat(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormat(
         JNIEnv *env, jclass clazz, jlong javaArchive, jint code) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format(archive, code);
@@ -2128,7 +2128,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormat(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatByName(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatByName(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaName) {
     struct archive *archive = (struct archive *) javaArchive;
     char *name = mallocStringFromBytes(env, javaName);
@@ -2144,7 +2144,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatByName(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormat7zip(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormat7zip(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_7zip(archive);
@@ -2154,7 +2154,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormat7zip(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatArBsd(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatArBsd(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_ar_bsd(archive);
@@ -2164,7 +2164,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatArBsd(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatArSvr4(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatArSvr4(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_ar_svr4(archive);
@@ -2174,7 +2174,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatArSvr4(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatCpio(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatCpio(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_cpio(archive);
@@ -2184,7 +2184,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatCpio(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatCpioBin(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatCpioBin(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_cpio_bin(archive);
@@ -2194,7 +2194,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatCpioBin(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatCpioNewc(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatCpioNewc(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_cpio_newc(archive);
@@ -2204,7 +2204,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatCpioNewc(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatCpioOdc(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatCpioOdc(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_cpio_odc(archive);
@@ -2214,7 +2214,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatCpioOdc(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatCpioPwb(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatCpioPwb(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_cpio_pwb(archive);
@@ -2224,7 +2224,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatCpioPwb(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatGnutar(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatGnutar(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_gnutar(archive);
@@ -2234,7 +2234,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatGnutar(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatIso9660(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatIso9660(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_iso9660(archive);
@@ -2244,7 +2244,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatIso9660(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatMtree(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatMtree(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_mtree(archive);
@@ -2254,7 +2254,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatMtree(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatMtreeClassic(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatMtreeClassic(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_mtree_classic(archive);
@@ -2264,7 +2264,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatMtreeClassic(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatPax(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatPax(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_pax(archive);
@@ -2274,7 +2274,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatPax(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatPaxRestricted(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatPaxRestricted(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_pax_restricted(archive);
@@ -2284,7 +2284,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatPaxRestricted(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatRaw(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatRaw(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_raw(archive);
@@ -2294,7 +2294,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatRaw(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatShar(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatShar(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_shar(archive);
@@ -2304,7 +2304,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatShar(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatSharDump(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatSharDump(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_shar_dump(archive);
@@ -2314,7 +2314,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatSharDump(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatUstar(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatUstar(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_ustar(archive);
@@ -2324,7 +2324,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatUstar(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatV7tar(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatV7tar(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_v7tar(archive);
@@ -2334,7 +2334,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatV7tar(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatWarc(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatWarc(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_warc(archive);
@@ -2344,7 +2344,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatWarc(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatXar(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatXar(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_xar(archive);
@@ -2354,7 +2354,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatXar(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatZip(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatZip(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_set_format_zip(archive);
@@ -2364,7 +2364,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatZip(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatFilterByExt(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatFilterByExt(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaFileName) {
     struct archive *archive = (struct archive *) javaArchive;
     char *fileName = mallocStringFromBytes(env, javaFileName);
@@ -2380,7 +2380,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatFilterByExt(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatFilterByExtDef(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatFilterByExtDef(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaFileName,
         jbyteArray javaDefaultExtension) {
     struct archive *archive = (struct archive *) javaArchive;
@@ -2403,7 +2403,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatFilterByExtDef
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeZipSetCompressionDeflate(
+Java_advancefilemanager_lib_libarchive_Archive_writeZipSetCompressionDeflate(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_zip_set_compression_deflate(archive);
@@ -2413,7 +2413,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeZipSetCompressionDeflat
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeZipSetCompressionStore(
+Java_advancefilemanager_lib_libarchive_Archive_writeZipSetCompressionStore(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_zip_set_compression_store(archive);
@@ -2423,7 +2423,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeZipSetCompressionStore(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeZipSetCompressionLzma(
+Java_advancefilemanager_lib_libarchive_Archive_writeZipSetCompressionLzma(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_zip_set_compression_lzma(archive);
@@ -2433,7 +2433,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeZipSetCompressionLzma(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeZipSetCompressionXz(
+Java_advancefilemanager_lib_libarchive_Archive_writeZipSetCompressionXz(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_zip_set_compression_xz(archive);
@@ -2443,7 +2443,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeZipSetCompressionXz(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeZipSetCompressionBzip2(
+Java_advancefilemanager_lib_libarchive_Archive_writeZipSetCompressionBzip2(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_zip_set_compression_bzip2(archive);
@@ -2453,7 +2453,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeZipSetCompressionBzip2(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeZipSetCompressionZstd(
+Java_advancefilemanager_lib_libarchive_Archive_writeZipSetCompressionZstd(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_zip_set_compression_zstd(archive);
@@ -2516,7 +2516,7 @@ static int archiveFreeCallback(struct archive *archive, void *client_data) {
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeOpen2(
+Java_advancefilemanager_lib_libarchive_Archive_writeOpen2(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject clientData, jobject javaOpenCallback,
         jobject javaWriteCallback, jobject javaCloseCallback, jobject javaFreeCallback) {
     struct archive *archive = (struct archive *) javaArchive;
@@ -2584,7 +2584,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeOpen2(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeOpenFd(
+Java_advancefilemanager_lib_libarchive_Archive_writeOpenFd(
         JNIEnv *env, jclass clazz, jlong javaArchive, jint fd) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_open_fd(archive, fd);
@@ -2594,7 +2594,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeOpenFd(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeOpenFileName(
+Java_advancefilemanager_lib_libarchive_Archive_writeOpenFileName(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaFileName) {
     struct archive *archive = (struct archive *) javaArchive;
     char *fileName = mallocStringFromBytes(env, javaFileName);
@@ -2610,7 +2610,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeOpenFileName(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeOpenMemory(
+Java_advancefilemanager_lib_libarchive_Archive_writeOpenMemory(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject javaBuffer) {
     struct archive *archive = (struct archive *) javaArchive;
     struct ArchiveJniData *jniData = archive_get_user_data(archive);
@@ -2651,7 +2651,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeOpenMemory(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeOpenMemoryUnsafe(
+Java_advancefilemanager_lib_libarchive_Archive_writeOpenMemoryUnsafe(
         JNIEnv *env, jclass clazz, jlong javaArchive, jlong javaBuffer, jlong bufferSize) {
     struct archive *archive = (struct archive *) javaArchive;
     struct ArchiveJniData *jniData = archive_get_user_data(archive);
@@ -2665,7 +2665,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeOpenMemoryUnsafe(
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeOpenMemoryGetUsed(
+Java_advancefilemanager_lib_libarchive_Archive_writeOpenMemoryGetUsed(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     struct ArchiveJniData *jniData = archive_get_user_data(archive);
@@ -2673,7 +2673,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeOpenMemoryGetUsed(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeHeader(
+Java_advancefilemanager_lib_libarchive_Archive_writeHeader(
         JNIEnv *env, jclass clazz, jlong javaArchive, jlong javaEntry) {
     struct archive *archive = (struct archive *) javaArchive;
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
@@ -2684,7 +2684,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeHeader(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeData(
+Java_advancefilemanager_lib_libarchive_Archive_writeData(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject javaBuffer) {
     struct archive *archive = (struct archive *) javaArchive;
     jint position = 0;
@@ -2714,7 +2714,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeData(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeFinishEntry(
+Java_advancefilemanager_lib_libarchive_Archive_writeFinishEntry(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_finish_entry(archive);
@@ -2724,7 +2724,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeFinishEntry(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeClose(
+Java_advancefilemanager_lib_libarchive_Archive_writeClose(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_close(archive);
@@ -2735,7 +2735,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeClose(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeFail(
+Java_advancefilemanager_lib_libarchive_Archive_writeFail(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     int errorCode = archive_write_fail(archive);
@@ -2745,7 +2745,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeFail(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatOption(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFormatOption(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaModule, jbyteArray javaOption,
         jbyteArray javaValue) {
     struct archive *archive = (struct archive *) javaArchive;
@@ -2774,7 +2774,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFormatOption(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFilterOption(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetFilterOption(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaModule, jbyteArray javaOption,
         jbyteArray javaValue) {
     struct archive *archive = (struct archive *) javaArchive;
@@ -2803,7 +2803,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetFilterOption(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetOption(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetOption(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaModule, jbyteArray javaOption,
         jbyteArray javaValue) {
     struct archive *archive = (struct archive *) javaArchive;
@@ -2832,7 +2832,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetOption(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetOptions(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetOptions(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaOptions) {
     struct archive *archive = (struct archive *) javaArchive;
     char *options = mallocStringFromBytes(env, javaOptions);
@@ -2848,7 +2848,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetOptions(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetPassphrase(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetPassphrase(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaPassphrase) {
     struct archive *archive = (struct archive *) javaArchive;
     char *passphrase = mallocStringFromBytes(env, javaPassphrase);
@@ -2864,7 +2864,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetPassphrase(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_writeSetPassphraseCallback(
+Java_advancefilemanager_lib_libarchive_Archive_writeSetPassphraseCallback(
         JNIEnv *env, jclass clazz, jlong javaArchive, jobject clientData, jobject javaCallback) {
     struct archive *archive = (struct archive *) javaArchive;
     jobject clientDataRef = (*env)->NewGlobalRef(env, clientData);
@@ -2937,7 +2937,7 @@ static void freeArchiveJniData(JNIEnv* env, struct archive *archive) {
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_free(
+Java_advancefilemanager_lib_libarchive_Archive_free(
         JNIEnv* env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     // archive_write_close() is the same as archive_read_close(), and we must call it before
@@ -2958,28 +2958,28 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_free(
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_filterCount(
+Java_advancefilemanager_lib_libarchive_Archive_filterCount(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     return archive_filter_count(archive);
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_filterBytes(
+Java_advancefilemanager_lib_libarchive_Archive_filterBytes(
         JNIEnv *env, jclass clazz, jlong javaArchive, jint index) {
     struct archive *archive = (struct archive *) javaArchive;
     return archive_filter_bytes(archive, index);
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_filterCode(
+Java_advancefilemanager_lib_libarchive_Archive_filterCode(
         JNIEnv *env, jclass clazz, jlong javaArchive, jint index) {
     struct archive *archive = (struct archive *) javaArchive;
     return archive_filter_code(archive, index);
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_filterName(
+Java_advancefilemanager_lib_libarchive_Archive_filterName(
         JNIEnv *env, jclass clazz, jlong javaArchive, jint index) {
     struct archive *archive = (struct archive *) javaArchive;
     const char *filterName = archive_filter_name(archive, index);
@@ -2987,7 +2987,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_filterName(
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_parseDate(
+Java_advancefilemanager_lib_libarchive_Archive_parseDate(
         JNIEnv *env, jclass clazz, jlong javaNow, jbyteArray javaDateString) {
     time_t now = (time_t) javaNow;
     char *dateString = mallocStringFromBytes(env, javaDateString);
@@ -3001,14 +3001,14 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_parseDate(
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_errno(
+Java_advancefilemanager_lib_libarchive_Archive_errno(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     return archive_errno(archive);
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_errorString(
+Java_advancefilemanager_lib_libarchive_Archive_errorString(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     const char *string = archive_error_string(archive);
@@ -3016,7 +3016,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_errorString(
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_formatName(
+Java_advancefilemanager_lib_libarchive_Archive_formatName(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     const char *formatName = archive_format_name(archive);
@@ -3024,21 +3024,21 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_formatName(
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_format(
+Java_advancefilemanager_lib_libarchive_Archive_format(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     return archive_format(archive);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_clearError(
+Java_advancefilemanager_lib_libarchive_Archive_clearError(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     archive_clear_error(archive);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_setError(
+Java_advancefilemanager_lib_libarchive_Archive_setError(
         JNIEnv *env, jclass clazz, jlong javaArchive, jint number, jbyteArray javaString) {
     struct archive *archive = (struct archive *) javaArchive;
     if (javaString) {
@@ -3051,7 +3051,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_setError(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_copyError(
+Java_advancefilemanager_lib_libarchive_Archive_copyError(
         JNIEnv *env, jclass clazz, jlong javaDestination, jlong javaSource) {
     struct archive *destination = (struct archive *) javaDestination;
     struct archive *source = (struct archive *) javaSource;
@@ -3059,14 +3059,14 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_copyError(
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_fileCount(
+Java_advancefilemanager_lib_libarchive_Archive_fileCount(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     return archive_file_count(archive);
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_charset(
+Java_advancefilemanager_lib_libarchive_Archive_charset(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     const char *charset = archive_charset(archive);
@@ -3074,7 +3074,7 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_charset(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_Archive_setCharset(
+Java_advancefilemanager_lib_libarchive_Archive_setCharset(
         JNIEnv *env, jclass clazz, jlong javaArchive, jbyteArray javaCharset) {
     struct archive *archive = (struct archive *) javaArchive;
     char *charset = mallocStringFromBytes(env, javaCharset);
@@ -3090,146 +3090,146 @@ Java_naipingzai_materialfile_lib_libarchive_Archive_setCharset(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_clear(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_clear(
         JNIEnv* env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_clear(entry);
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_clone(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_clone(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return (jlong) archive_entry_clone(entry);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_free(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_free(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_free(entry);
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_new1(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_new1(
         JNIEnv *env, jclass clazz) {
     return (jlong) archive_entry_new();
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_new2(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_new2(
         JNIEnv *env, jclass clazz, jlong javaArchive) {
     struct archive *archive = (struct archive *) javaArchive;
     return (jlong) archive_entry_new2(archive);
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_atime(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_atime(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_atime(entry);
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_atimeNsec(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_atimeNsec(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_atime_nsec(entry);
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_atimeIsSet(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_atimeIsSet(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_atime_is_set(entry) != 0;
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_birthtime(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_birthtime(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_birthtime(entry);
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_birthtimeNsec(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_birthtimeNsec(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_birthtime_nsec(entry);
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_birthtimeIsSet(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_birthtimeIsSet(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_birthtime_is_set(entry) != 0;
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_ctime(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_ctime(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_ctime(entry);
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_ctimeNsec(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_ctimeNsec(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_ctime_nsec(entry);
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_ctimeIsSet(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_ctimeIsSet(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_ctime_is_set(entry) != 0;
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_dev(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_dev(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_dev(entry);
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_devIsSet(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_devIsSet(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_dev_is_set(entry) != 0;
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_devmajor(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_devmajor(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_devmajor(entry);
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_devminor(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_devminor(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_devminor(entry);
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_filetype(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_filetype(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_filetype(entry);
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_filetypeIsSet(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_filetypeIsSet(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_filetype_is_set(entry) != 0;
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_fflagsSet(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_fflagsSet(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     unsigned long fflagsSet;
@@ -3239,7 +3239,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_fflagsSet(
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_fflagsClear(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_fflagsClear(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     unsigned long fflagsSet;
@@ -3249,7 +3249,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_fflagsClear(
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_fflagsText(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_fflagsText(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *fflagsText = archive_entry_fflags_text(entry);
@@ -3257,21 +3257,21 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_fflagsText(
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_gid(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_gid(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_gid(entry);
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_gidIsSet(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_gidIsSet(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_gid_is_set(entry) != 0;
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_gname(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_gname(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *gname = archive_entry_gname(entry);
@@ -3279,7 +3279,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_gname(
 }
 
 JNIEXPORT jstring JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_gnameUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_gnameUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *gnameUtf8 = archive_entry_gname_utf8(entry);
@@ -3287,7 +3287,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_gnameUtf8(
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_hardlink(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_hardlink(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *hardlink = archive_entry_hardlink(entry);
@@ -3295,7 +3295,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_hardlink(
 }
 
 JNIEXPORT jstring JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_hardlinkUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_hardlinkUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *hardlinkUtf8 = archive_entry_hardlink_utf8(entry);
@@ -3303,63 +3303,63 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_hardlinkUtf8(
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_hardlinkIsSet(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_hardlinkIsSet(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_hardlink_is_set(entry) != 0;
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_ino(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_ino(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_ino64(entry);
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_inoIsSet(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_inoIsSet(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_ino_is_set(entry) != 0;
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_mode(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_mode(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_mode(entry);
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_mtime(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_mtime(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_mtime(entry);
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_mtimeNsec(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_mtimeNsec(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_mtime_nsec(entry);
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_mtimeIsSet(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_mtimeIsSet(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_mtime_is_set(entry) != 0;
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_nlink(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_nlink(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_nlink(entry);
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_pathname(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_pathname(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *pathname = archive_entry_pathname(entry);
@@ -3367,7 +3367,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_pathname(
 }
 
 JNIEXPORT jstring JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_pathnameUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_pathnameUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *pathnameUtf8 = archive_entry_pathname_utf8(entry);
@@ -3375,49 +3375,49 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_pathnameUtf8(
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_perm(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_perm(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_perm(entry);
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_permIsSet(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_permIsSet(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_perm_is_set(entry) != 0;
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_rdevIsSet(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_rdevIsSet(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_rdev_is_set(entry) != 0;
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_rdev(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_rdev(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_rdev(entry);
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_rdevmajor(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_rdevmajor(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_rdevmajor(entry);
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_rdevminor(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_rdevminor(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_rdevminor(entry);
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_sourcepath(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_sourcepath(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *sourcepath = archive_entry_sourcepath(entry);
@@ -3425,21 +3425,21 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_sourcepath(
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_size(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_size(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_size(entry);
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_sizeIsSet(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_sizeIsSet(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_size_is_set(entry) != 0;
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_strmode(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_strmode(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *strmode = archive_entry_strmode(entry);
@@ -3447,7 +3447,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_strmode(
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_symlink(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_symlink(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *symlink = archive_entry_symlink(entry);
@@ -3455,7 +3455,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_symlink(
 }
 
 JNIEXPORT jstring JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_symlinkUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_symlinkUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *symlinkUtf8 = archive_entry_symlink_utf8(entry);
@@ -3463,28 +3463,28 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_symlinkUtf8(
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_symlinkType(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_symlinkType(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_symlink_type(entry);
 }
 
 JNIEXPORT jlong JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_uid(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_uid(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_uid(entry);
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_uidIsSet(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_uidIsSet(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_uid_is_set(entry) != 0;
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_uname(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_uname(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *uname = archive_entry_uname(entry);
@@ -3492,7 +3492,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_uname(
 }
 
 JNIEXPORT jstring JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_unameUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_unameUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *unameUtf8 = archive_entry_uname_utf8(entry);
@@ -3500,28 +3500,28 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_unameUtf8(
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_isDataEncrypted(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_isDataEncrypted(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_is_data_encrypted(entry) != 0;
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_isMetadataEncrypted(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_isMetadataEncrypted(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_is_metadata_encrypted(entry) != 0;
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_isEncrypted(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_isEncrypted(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     return archive_entry_is_encrypted(entry) != 0;
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setAtime(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setAtime(
         JNIEnv *env, jclass clazz, jlong javaEntry, jlong javaAtime, jlong javaAtimeNsec) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     time_t atime = (time_t) javaAtime;
@@ -3530,14 +3530,14 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setAtime(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_unsetAtime(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_unsetAtime(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_unset_atime(entry);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setBirthtime(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setBirthtime(
         JNIEnv *env, jclass clazz, jlong javaEntry, jlong javaBirthtime, jlong javaBirthtimeNsec) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     time_t birthtime = (time_t) javaBirthtime;
@@ -3546,14 +3546,14 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setBirthtime(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_unsetBirthtime(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_unsetBirthtime(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_unset_birthtime(entry);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setCtime(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setCtime(
         JNIEnv *env, jclass clazz, jlong javaEntry, jlong javaCtime, jlong javaCtimeNsec) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     time_t ctime = (time_t) javaCtime;
@@ -3562,49 +3562,49 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setCtime(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_unsetCtime(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_unsetCtime(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_unset_ctime(entry);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setDev(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setDev(
         JNIEnv *env, jclass clazz, jlong javaEntry, jlong dev) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_dev(entry, dev);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setDevmajor(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setDevmajor(
         JNIEnv *env, jclass clazz, jlong javaEntry, jlong devmajor) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_devmajor(entry, devmajor);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setDevminor(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setDevminor(
         JNIEnv *env, jclass clazz, jlong javaEntry, jlong devminor) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_devminor(entry, devminor);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setFiletype(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setFiletype(
         JNIEnv *env, jclass clazz, jlong javaEntry, jint filetype) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_filetype(entry, filetype);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setFflags(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setFflags(
         JNIEnv *env, jclass clazz, jlong javaEntry, jlong set, jlong clear) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_fflags(entry, set, clear);
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setFflagsText(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setFflagsText(
         JNIEnv *env, jclass clazz, jlong javaEntry, jbyteArray javaFflags) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     char *fflags = mallocStringFromBytes(env, javaFflags);
@@ -3615,14 +3615,14 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setFflagsText(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setGid(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setGid(
         JNIEnv *env, jclass clazz, jlong javaEntry, jlong gid) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_gid(entry, gid);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setGname(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setGname(
         JNIEnv *env, jclass clazz, jlong javaEntry, jbyteArray javaGname) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     char *gname = mallocStringFromBytes(env, javaGname);
@@ -3631,7 +3631,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setGname(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setGnameUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setGnameUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry, jstring javaGname) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *gname = (*env)->GetStringUTFChars(env, javaGname, NULL);
@@ -3640,7 +3640,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setGnameUtf8(
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_updateGnameUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_updateGnameUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry, jstring javaGname) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *gname = (*env)->GetStringUTFChars(env, javaGname, NULL);
@@ -3650,7 +3650,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_updateGnameUtf8(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setHardlink(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setHardlink(
         JNIEnv *env, jclass clazz, jlong javaEntry, jbyteArray javaHardlink) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     char *hardlink = mallocStringFromBytes(env, javaHardlink);
@@ -3659,7 +3659,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setHardlink(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setHardlinkUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setHardlinkUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry, jstring javaHardlink) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *hardlink = (*env)->GetStringUTFChars(env, javaHardlink, NULL);
@@ -3668,7 +3668,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setHardlinkUtf8(
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_updateHardlinkUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_updateHardlinkUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry, jstring javaHardlink) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *hardlink = (*env)->GetStringUTFChars(env, javaHardlink, NULL);
@@ -3678,14 +3678,14 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_updateHardlinkUtf8(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setIno(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setIno(
         JNIEnv *env, jclass clazz, jlong javaEntry, jlong ino) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_ino(entry, ino);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setLink(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setLink(
         JNIEnv *env, jclass clazz, jlong javaEntry, jbyteArray javaLink) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     char *link = mallocStringFromBytes(env, javaLink);
@@ -3694,7 +3694,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setLink(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setLinkUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setLinkUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry, jstring javaLink) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *link = (*env)->GetStringUTFChars(env, javaLink, NULL);
@@ -3703,7 +3703,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setLinkUtf8(
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_updateLinkUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_updateLinkUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry, jstring javaLink) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *link = (*env)->GetStringUTFChars(env, javaLink, NULL);
@@ -3713,14 +3713,14 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_updateLinkUtf8(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setMode(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setMode(
         JNIEnv *env, jclass clazz, jlong javaEntry, jint mode) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_mode(entry, mode);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setMtime(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setMtime(
         JNIEnv *env, jclass clazz, jlong javaEntry, jlong javaMtime, jlong javaMtimeNsec) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     time_t mtime = (time_t) javaMtime;
@@ -3729,21 +3729,21 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setMtime(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_unsetMtime(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_unsetMtime(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_unset_mtime(entry);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setNlink(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setNlink(
         JNIEnv *env, jclass clazz, jlong javaEntry, jint nlink) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_nlink(entry, nlink);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setPathname(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setPathname(
         JNIEnv *env, jclass clazz, jlong javaEntry, jbyteArray javaPathname) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     char *pathname = mallocStringFromBytes(env, javaPathname);
@@ -3752,7 +3752,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setPathname(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setPathnameUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setPathnameUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry, jstring javaPathname) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *pathname = (*env)->GetStringUTFChars(env, javaPathname, NULL);
@@ -3761,7 +3761,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setPathnameUtf8(
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_updatePathnameUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_updatePathnameUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry, jstring javaPathname) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *pathname = (*env)->GetStringUTFChars(env, javaPathname, NULL);
@@ -3771,49 +3771,49 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_updatePathnameUtf8(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setPerm(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setPerm(
         JNIEnv *env, jclass clazz, jlong javaEntry, jint perm) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_perm(entry, perm);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setRdev(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setRdev(
         JNIEnv *env, jclass clazz, jlong javaEntry, jlong rdev) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_rdev(entry, rdev);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setRdevmajor(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setRdevmajor(
         JNIEnv *env, jclass clazz, jlong javaEntry, jlong rdevmajor) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_rdevmajor(entry, rdevmajor);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setRdevminor(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setRdevminor(
         JNIEnv *env, jclass clazz, jlong javaEntry, jlong rdevminor) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_rdevminor(entry, rdevminor);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setSize(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setSize(
         JNIEnv *env, jclass clazz, jlong javaEntry, jlong size) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_size(entry, size);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_unsetSize(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_unsetSize(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_unset_size(entry);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setSourcepath(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setSourcepath(
         JNIEnv *env, jclass clazz, jlong javaEntry, jbyteArray javaSourcepath) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     char *sourcepath = mallocStringFromBytes(env, javaSourcepath);
@@ -3822,7 +3822,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setSourcepath(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setSymlink(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setSymlink(
         JNIEnv *env, jclass clazz, jlong javaEntry, jbyteArray javaSymlink) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     char *symlink = mallocStringFromBytes(env, javaSymlink);
@@ -3831,14 +3831,14 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setSymlink(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setSymlinkType(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setSymlinkType(
         JNIEnv *env, jclass clazz, jlong javaEntry, jint type) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_symlink_type(entry, type);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setSymlinkUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setSymlinkUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry, jstring javaSymlink) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *symlink = (*env)->GetStringUTFChars(env, javaSymlink, NULL);
@@ -3847,7 +3847,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setSymlinkUtf8(
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_updateSymlinkUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_updateSymlinkUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry, jstring javaSymlink) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *symlink = (*env)->GetStringUTFChars(env, javaSymlink, NULL);
@@ -3857,14 +3857,14 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_updateSymlinkUtf8(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setUid(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setUid(
         JNIEnv *env, jclass clazz, jlong javaEntry, jlong uid) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     archive_entry_set_uid(entry, uid);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setUname(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setUname(
         JNIEnv *env, jclass clazz, jlong javaEntry, jbyteArray javaUname) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     char *uname = mallocStringFromBytes(env, javaUname);
@@ -3873,7 +3873,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setUname(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setUnameUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setUnameUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry, jstring javaUname) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *uname = (*env)->GetStringUTFChars(env, javaUname, NULL);
@@ -3882,7 +3882,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setUnameUtf8(
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_updateUnameUtf8(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_updateUnameUtf8(
         JNIEnv *env, jclass clazz, jlong javaEntry, jstring javaUname) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const char *uname = (*env)->GetStringUTFChars(env, javaUname, NULL);
@@ -3892,7 +3892,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_updateUnameUtf8(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setDataEncrypted(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setDataEncrypted(
         JNIEnv *env, jclass clazz, jlong javaEntry, jboolean javaEncrypted) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     char encrypted = (char) javaEncrypted;
@@ -3900,7 +3900,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setDataEncrypted(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setMetadataEncrypted(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setMetadataEncrypted(
         JNIEnv *env, jclass clazz, jlong javaEntry, jboolean javaEncrypted) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     char encrypted = (char) javaEncrypted;
@@ -3908,7 +3908,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setMetadataEncrypted(
 }
 
 JNIEXPORT jobject JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_stat(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_stat(
         JNIEnv *env, jclass clazz, jlong javaEntry) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const struct stat *stat = archive_entry_stat(entry);
@@ -3917,7 +3917,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_stat(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setStat(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_setStat(
         JNIEnv *env, jclass clazz, jlong javaEntry, jobject javaStat) {
     if (!javaStat) {
         return;
@@ -3929,7 +3929,7 @@ Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_setStat(
 }
 
 JNIEXPORT jobject JNICALL
-Java_naipingzai_materialfile_lib_libarchive_ArchiveEntry_digest(
+Java_advancefilemanager_lib_libarchive_ArchiveEntry_digest(
         JNIEnv *env, jclass clazz, jlong javaEntry, jint type) {
     struct archive_entry *entry = (struct archive_entry *) javaEntry;
     const unsigned char *digest = archive_entry_digest(entry, type);

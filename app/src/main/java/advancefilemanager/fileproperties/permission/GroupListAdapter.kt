@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2026 advancefilemanager
+ * All Rights Reserved.
+ */
+
+package com.advancefilemanager.fileproperties.permission
+
+import androidx.annotation.DrawableRes
+import com.advancefilemanager.R
+import com.advancefilemanager.util.SelectionLiveData
+
+class GroupListAdapter(
+    selectionLiveData: SelectionLiveData<Int>
+) : PrincipalListAdapter(selectionLiveData) {
+    @DrawableRes
+    override val principalIconRes: Int = R.drawable.people_icon_control_normal_24dp
+}

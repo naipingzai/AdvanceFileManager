@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2026 advancefilemanager
+ * All Rights Reserved.
+ */
+
+package com.advancefilemanager.provider.linux
+
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+internal data class LinuxFileKey(
+    private val deviceId: Long,
+    private val inodeNumber: Long
+) : Parcelable

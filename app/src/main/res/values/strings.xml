@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ Copyright (c) 2026 advancefilemanager
   ~ All Rights Reserved.
   -->
 
 <resources>
 
-    <string name="app_name">Material Files</string>
+    <string name="app_name">AdvanceFileManager</string>
 
     <!-- Common -->
     <string name="open_file_error">Cannot open this file</string>
@@ -705,7 +705,7 @@
     <string name="about_licenses_title">Licenses</string>
     <string name="about_privacy_policy_title">Privacy policy</string>
     <string name="about_author_title">Author</string>
-    <string name="about_author_name_title">naipingzai</string>
+    <string name="about_author_name_title">advancefilemanager</string>
     <string name="about_author_github_title">Follow on GitHub</string>
     <string name="about_ffmpeg_title">FFmpeg</string>
     <string name="about_ffmpeg_version_title">FFmpeg version</string>

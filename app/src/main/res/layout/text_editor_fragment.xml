@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ Copyright (c) 2026 advancefilemanager
   ~ All Rights Reserved.
   -->
 
@@ -12,7 +12,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <naipingzai.materialfile.ui.CoordinatorAppBarLayout
+    <com.advancefilemanager.ui.CoordinatorAppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?colorAppBarSurface"
@@ -25,9 +25,9 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             app:popupTheme="?actionBarPopupTheme" />
-    </naipingzai.materialfile.ui.CoordinatorAppBarLayout>
+    </com.advancefilemanager.ui.CoordinatorAppBarLayout>
 
-    <naipingzai.materialfile.ui.CoordinatorScrollingFrameLayout
+    <com.advancefilemanager.ui.CoordinatorScrollingFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -52,14 +52,14 @@
             app:drawableTopCompat="@drawable/error_icon_240dp" />
 
         <!-- TODO: Use a WebView for large amount of text. -->
-        <naipingzai.materialfile.lib.fastscroll.FastScrollNestedScrollView
+        <com.advancefilemanager.lib.fastscroll.FastScrollNestedScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
             android:fillViewport="true">
 
-            <naipingzai.materialfile.ui.ScrollingChildEditText
+            <com.advancefilemanager.ui.ScrollingChildEditText
                 android:id="@+id/textEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                 android:inputType="textMultiLine"
                 android:textAppearance="?textAppearanceListItemSecondary">
                 <requestFocus />
-            </naipingzai.materialfile.ui.ScrollingChildEditText>
-        </naipingzai.materialfile.lib.fastscroll.FastScrollNestedScrollView>
-    </naipingzai.materialfile.ui.CoordinatorScrollingFrameLayout>
+            </com.advancefilemanager.ui.ScrollingChildEditText>
+        </com.advancefilemanager.lib.fastscroll.FastScrollNestedScrollView>
+    </com.advancefilemanager.ui.CoordinatorScrollingFrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

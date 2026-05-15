@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ Copyright (c) 2026 advancefilemanager
   ~ All Rights Reserved.
   -->
 
@@ -26,72 +26,72 @@
             android:clipToPadding="false"
             android:orientation="vertical">
 
-            <naipingzai.materialfile.ui.ReadOnlyTextInputLayout
+            <com.advancefilemanager.ui.ReadOnlyTextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/file_properties_permission_owner">
 
-                <naipingzai.materialfile.ui.ReadOnlyTextInputEditText
+                <com.advancefilemanager.ui.ReadOnlyTextInputEditText
                     android:id="@+id/ownerText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
-                <naipingzai.materialfile.ui.DropDownView
+                <com.advancefilemanager.ui.DropDownView
                     android:id="@+id/ownerDropDown"
                     android:layout_width="match_parent"
                     android:layout_height="0dp" />
-            </naipingzai.materialfile.ui.ReadOnlyTextInputLayout>
+            </com.advancefilemanager.ui.ReadOnlyTextInputLayout>
 
-            <naipingzai.materialfile.ui.ReadOnlyTextInputLayout
+            <com.advancefilemanager.ui.ReadOnlyTextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/file_properties_permission_group">
 
-                <naipingzai.materialfile.ui.ReadOnlyTextInputEditText
+                <com.advancefilemanager.ui.ReadOnlyTextInputEditText
                     android:id="@+id/groupText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
-                <naipingzai.materialfile.ui.DropDownView
+                <com.advancefilemanager.ui.DropDownView
                     android:id="@+id/groupDropDown"
                     android:layout_width="match_parent"
                     android:layout_height="0dp" />
-            </naipingzai.materialfile.ui.ReadOnlyTextInputLayout>
+            </com.advancefilemanager.ui.ReadOnlyTextInputLayout>
 
-            <naipingzai.materialfile.ui.ReadOnlyTextInputLayout
+            <com.advancefilemanager.ui.ReadOnlyTextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/file_properties_permission_set_mode_others">
 
-                <naipingzai.materialfile.ui.ReadOnlyTextInputEditText
+                <com.advancefilemanager.ui.ReadOnlyTextInputEditText
                     android:id="@+id/othersText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
-                <naipingzai.materialfile.ui.DropDownView
+                <com.advancefilemanager.ui.DropDownView
                     android:id="@+id/othersDropDown"
                     android:layout_width="match_parent"
                     android:layout_height="0dp" />
-            </naipingzai.materialfile.ui.ReadOnlyTextInputLayout>
+            </com.advancefilemanager.ui.ReadOnlyTextInputLayout>
 
-            <naipingzai.materialfile.ui.ReadOnlyTextInputLayout
+            <com.advancefilemanager.ui.ReadOnlyTextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:hint="@string/file_properties_permission_set_mode_special">
 
-                <naipingzai.materialfile.ui.ReadOnlyTextInputEditText
+                <com.advancefilemanager.ui.ReadOnlyTextInputEditText
                     android:id="@+id/specialText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
-                <naipingzai.materialfile.ui.DropDownView
+                <com.advancefilemanager.ui.DropDownView
                     android:id="@+id/specialDropDown"
                     android:layout_width="match_parent"
                     android:layout_height="0dp" />
-            </naipingzai.materialfile.ui.ReadOnlyTextInputLayout>
+            </com.advancefilemanager.ui.ReadOnlyTextInputLayout>
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:id="@+id/recursiveCheck"

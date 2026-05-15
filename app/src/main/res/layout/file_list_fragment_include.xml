@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ Copyright (c) 2026 advancefilemanager
   ~ All Rights Reserved.
   -->
 
@@ -13,12 +13,12 @@
         android:layout_width="match_parent"
         android:fitsSystemWindows="true">
 
-        <naipingzai.materialfile.ui.IgnoreFitsSystemWindowsFullyDraggableDrawerContentLayout
+        <com.advancefilemanager.ui.IgnoreFitsSystemWindowsFullyDraggableDrawerContentLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true">
 
-            <naipingzai.materialfile.ui.PersistentBarLayout
+            <com.advancefilemanager.ui.PersistentBarLayout
                 android:id="@+id/persistentBarLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -38,14 +38,14 @@
                 <include layout="@layout/file_list_fragment_bottom_bar_include" />
 
                 <include layout="@layout/file_list_fragment_speed_dial_include" />
-            </naipingzai.materialfile.ui.PersistentBarLayout>
-        </naipingzai.materialfile.ui.IgnoreFitsSystemWindowsFullyDraggableDrawerContentLayout>
+            </com.advancefilemanager.ui.PersistentBarLayout>
+        </com.advancefilemanager.ui.IgnoreFitsSystemWindowsFullyDraggableDrawerContentLayout>
 
         <!--
           ~ We have to set android:fitsSystemWindows="true" here to prevent DrawerLayout from
           ~ applying the window insets as margins for this view.
           -->
-        <naipingzai.materialfile.ui.NavigationFrameLayout
+        <com.advancefilemanager.ui.NavigationFrameLayout
             android:id="@+id/navigationFragment"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

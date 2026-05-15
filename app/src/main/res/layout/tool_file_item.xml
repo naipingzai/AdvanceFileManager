@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ Copyright (c) 2026 advancefilemanager
   ~ All Rights Reserved.
   -->
 
-<naipingzai.materialfile.ui.CheckableForegroundLinearLayout
+<com.advancefilemanager.ui.CheckableForegroundLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/itemLayout"
     android:layout_width="match_parent"
@@ -67,7 +67,7 @@
             android:singleLine="true"
             android:textAppearance="?textAppearanceListItem" />
 
-        <naipingzai.materialfile.ui.AutoGoneTextView
+        <com.advancefilemanager.ui.AutoGoneTextView
             android:id="@+id/descriptionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
             android:textAppearance="?textAppearanceListItemSecondary"
             android:textColor="?colorOnSurfaceVariant" />
 
-        <naipingzai.materialfile.ui.AutoGoneTextView
+        <com.advancefilemanager.ui.AutoGoneTextView
             android:id="@+id/pathText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,4 +87,4 @@
             android:textAppearance="?textAppearanceLabelSmall"
             android:textColor="?colorOnSurfaceVariant" />
     </LinearLayout>
-</naipingzai.materialfile.ui.CheckableForegroundLinearLayout>
+</com.advancefilemanager.ui.CheckableForegroundLinearLayout>

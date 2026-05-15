@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ Copyright (c) 2026 advancefilemanager
   ~ All Rights Reserved.
   -->
 
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <naipingzai.materialfile.ui.PersistentBarLayout
+    <com.advancefilemanager.ui.PersistentBarLayout
         android:id="@+id/persistentBarLayout"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -21,13 +21,13 @@
 
             <include layout="@layout/file_list_fragment_app_bar_include" />
 
-            <naipingzai.materialfile.ui.PersistentDrawerLayout
+            <com.advancefilemanager.ui.PersistentDrawerLayout
                 android:id="@+id/persistentDrawerLayout"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1">
 
-                <naipingzai.materialfile.ui.NavigationFrameLayout
+                <com.advancefilemanager.ui.NavigationFrameLayout
                     android:id="@+id/navigationFragment"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -35,11 +35,11 @@
                     android:background="?colorSurface" />
 
                 <include layout="@layout/file_list_fragment_content_include" />
-            </naipingzai.materialfile.ui.PersistentDrawerLayout>
+            </com.advancefilemanager.ui.PersistentDrawerLayout>
         </LinearLayout>
 
         <include layout="@layout/file_list_fragment_bottom_bar_include" />
 
         <include layout="@layout/file_list_fragment_speed_dial_include" />
-    </naipingzai.materialfile.ui.PersistentBarLayout>
+    </com.advancefilemanager.ui.PersistentBarLayout>
 </merge>

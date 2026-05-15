@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ Copyright (c) 2026 advancefilemanager
   ~ All Rights Reserved.
   -->
 
@@ -10,7 +10,7 @@
     <notice>
         <name>Material Files</name>
         <url></url>
-        <copyright>Copyright 2026 naipingzai</copyright>
+        <copyright>Copyright 2026 advancefilemanager</copyright>
         <license>GNU General Public License 3.0</license>
     </notice>
 
@@ -213,21 +213,21 @@
     <notice>
         <name>libselinux-android</name>
         <url></url>
-        <copyright>Copyright 2026 naipingzai</copyright>
+        <copyright>Copyright 2026 advancefilemanager</copyright>
         <license>Apache Software License 2.0</license>
     </notice>
 
     <notice>
         <name>AndroidRetroFile</name>
         <url></url>
-        <copyright>Copyright 2026 naipingzai</copyright>
+        <copyright>Copyright 2026 advancefilemanager</copyright>
         <license>GNU General Public License 2.0</license>
     </notice>
 
     <notice>
         <name>SystemUiHelper</name>
         <url></url>
-        <copyright>Copyright 2026 naipingzai</copyright>
+        <copyright>Copyright 2026 advancefilemanager</copyright>
         <license>Apache Software License 2.0</license>
     </notice>
 

@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2026 advancefilemanager
+ * All Rights Reserved.
+ */
+
+package com.advancefilemanager.storage
+
+import android.content.Context
+import android.content.Intent
+import java8.nio.file.Path
+import kotlinx.parcelize.Parcelize
+import com.advancefilemanager.app.DialogHostActivity
+import com.advancefilemanager.file.ExternalStorageUri
+import com.advancefilemanager.file.displayName
+import com.advancefilemanager.util.createDocumentsUiViewDirectoryIntent
+import com.advancefilemanager.util.putArgs
+import kotlin.random.Random
+
+@Parcelize
+data class ExternalStorageShortcut(
+    override val id: Long,
+    override val customName: String?,
+    val uri: ExternalStorageUri
+) : Storage() {
+    constructor(
+        id: Long?,
+        customName: String?,
+        uri: ExternalStorageUri
+    ) : this(id ?: Random.nextLong(), customName, uri)
+
+    override fun getDefaultName(context: Context): String = uri.displayName
+
+    override val description: String
+        get() = uri.value.toString()
+
+    override val path: Path?
+        get() = null
+
+    override fun createIntent(): Intent = uri.value.createDocumentsUiViewDirectoryIntent()
+
+    override fun createEditIntent(): Intent =
+        DialogHostActivity.createIntent<EditExternalStorageShortcutDialogFragment>()
+            .putArgs(EditExternalStorageShortcutDialogFragment.Args(this))
+}

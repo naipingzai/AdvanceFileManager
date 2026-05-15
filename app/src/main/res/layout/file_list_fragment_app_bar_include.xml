@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ Copyright (c) 2026 advancefilemanager
   ~ All Rights Reserved.
   -->
 
@@ -10,7 +10,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <!-- app:statusBarBackground is broken when scrolling. -->
-    <naipingzai.materialfile.ui.CoordinatorAppBarLayout
+    <com.advancefilemanager.ui.CoordinatorAppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             app:layout_scrollFlags="@integer/file_list_toolbar_scroll_flags">
 
-            <naipingzai.materialfile.ui.CrossfadeSubtitleToolbar
+            <com.advancefilemanager.ui.CrossfadeSubtitleToolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
@@ -35,7 +35,7 @@
                 app:popupTheme="?actionBarPopupTheme"
                 app:subtitleTextAppearance="?textAppearanceLabelSmall" />
 
-            <naipingzai.materialfile.ui.OverlayToolbar
+            <com.advancefilemanager.ui.OverlayToolbar
                 android:id="@+id/overlayToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
@@ -47,11 +47,11 @@
                 app:popupTheme="?actionBarPopupTheme" />
         </FrameLayout>
 
-        <naipingzai.materialfile.filelist.BreadcrumbLayout
+        <com.advancefilemanager.filelist.BreadcrumbLayout
             android:id="@+id/breadcrumbLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/content_start_margin_minus_12dp"
             android:paddingEnd="@dimen/screen_edge_margin_minus_12dp" />
-    </naipingzai.materialfile.ui.CoordinatorAppBarLayout>
+    </com.advancefilemanager.ui.CoordinatorAppBarLayout>
 </merge>

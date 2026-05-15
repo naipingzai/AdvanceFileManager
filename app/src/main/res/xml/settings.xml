@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ Copyright (c) 2026 advancefilemanager
   ~ All Rights Reserved.
   -->
 
@@ -11,7 +11,7 @@
 
     <PreferenceCategory android:title="@string/settings_interface_title">
 
-        <naipingzai.materialfile.settings.LocalePreference
+        <com.advancefilemanager.settings.LocalePreference
             android:key="@string/pref_key_locale"
             android:title="@string/settings_locale_title" />
 
@@ -26,20 +26,20 @@
 
     <PreferenceCategory android:title="@string/settings_behavior_title">
 
-        <naipingzai.materialfile.settings.DefaultDirectoryPreference
+        <com.advancefilemanager.settings.DefaultDirectoryPreference
             android:key="@string/pref_key_file_list_default_directory"
             android:title="@string/settings_default_directory_title"
             app:useSimpleSummaryProvider="true" />
 
-        <naipingzai.materialfile.settings.StoragesPreference
+        <com.advancefilemanager.settings.StoragesPreference
             android:title="@string/settings_storages_title"
             android:summary="@string/settings_storages_summary_empty" />
 
-        <naipingzai.materialfile.settings.BookmarkDirectoriesPreference
+        <com.advancefilemanager.settings.BookmarkDirectoriesPreference
             android:title="@string/settings_bookmark_directories_title"
             android:summary="@string/settings_bookmark_directories_summary_empty" />
 
-        <naipingzai.materialfile.settings.RootStrategyPreference
+        <com.advancefilemanager.settings.RootStrategyPreference
             android:key="@string/pref_key_root_strategy"
             android:title="@string/settings_root_strategy_title"
             android:defaultValue="@string/pref_default_value_root_strategy"
@@ -47,7 +47,7 @@
             android:entryValues="@array/pref_entry_values_root_strategy"
             app:useSimpleSummaryProvider="true" />
 
-        <naipingzai.materialfile.settings.CharsetPreference
+        <com.advancefilemanager.settings.CharsetPreference
             android:key="@string/pref_key_archive_file_name_encoding"
             android:title="@string/settings_archive_file_name_encoding_title"
             android:defaultValue="@string/pref_default_value_archive_file_name_encoding"

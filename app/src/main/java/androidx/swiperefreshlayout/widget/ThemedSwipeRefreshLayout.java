@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+ * Copyright (c) 2026 advancefilemanager
  * All Rights Reserved.
  */
 
@@ -14,9 +14,9 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.graphics.ColorUtils;
-import naipingzai.materialfile.R;
-import naipingzai.materialfile.compat.ContextCompatKt;
-import naipingzai.materialfile.util.ContextExtensionsKt;
+import com.advancefilemanager.R;
+import com.advancefilemanager.compat.ContextCompatKt;
+import com.advancefilemanager.util.ContextExtensionsKt;
 
 public class ThemedSwipeRefreshLayout extends SwipeRefreshLayout {
     public ThemedSwipeRefreshLayout(@NonNull Context context) {

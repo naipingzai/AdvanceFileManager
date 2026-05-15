@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+ * Copyright (c) 2026 advancefilemanager
  * All Rights Reserved.
  */
 
@@ -993,7 +993,7 @@ static int smart_convert(const char *in_path, const char *out_path,
  * ==================================================================== */
 
 JNIEXPORT jstring JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_getVersion(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_getVersion(
     JNIEnv *env, jclass clazz) {
     (void)clazz;
     char buf[128];
@@ -1004,7 +1004,7 @@ Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_getVersion(
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_convert(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_convert(
     JNIEnv *env, jclass clazz,
     jstring j_input, jstring j_output, jobject callback) {
     (void)clazz;
@@ -1043,21 +1043,21 @@ Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_convert(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_cancel(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_cancel(
     JNIEnv *env, jclass clazz) {
     (void)env; (void)clazz;
     g_cancel = 1;
 }
 
 JNIEXPORT jstring JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_getLastError(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_getLastError(
     JNIEnv *env, jclass clazz) {
     (void)clazz;
     return (*env)->NewStringUTF(env, g_last_error);
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_getMediaInfo(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_getMediaInfo(
     JNIEnv *env, jclass clazz, jstring j_path, jobject info) {
     (void)clazz;
 
@@ -1218,7 +1218,7 @@ ear_end:
  *  Extract Audio JNI: try remux first (fast), fallback to transcode.
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_extractAudio(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_extractAudio(
     JNIEnv *env, jclass clazz,
     jstring j_input, jstring j_output, jobject callback) {
     (void)clazz;
@@ -1395,7 +1395,7 @@ end:
 }
 
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_trim(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_trim(
     JNIEnv *env, jclass clazz,
     jstring j_input, jstring j_output, jlong startMs, jlong endMs, jobject callback) {
     (void)clazz;
@@ -1434,7 +1434,7 @@ Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_trim(
  *  targetFps = 0 means keep original.
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_videoCompress(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_videoCompress(
     JNIEnv *env, jclass clazz,
     jstring j_input, jstring j_output, jint targetBitrateKbps,
     jint targetWidth, jint targetHeight, jint targetFps,
@@ -1749,7 +1749,7 @@ vc_end:
  *  targetWidth/targetHeight of 0 means keep original resolution.
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_normalizeVideo(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_normalizeVideo(
     JNIEnv *env, jclass clazz,
     jstring j_input, jstring j_output,
     jint targetWidth, jint targetHeight, jint targetBitrateKbps,
@@ -2181,7 +2181,7 @@ nv_end:
  *  Video Snapshot: extract single frame at given timestamp.
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_videoSnapshot(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_videoSnapshot(
     JNIEnv *env, jclass clazz,
     jstring j_input, jstring j_output, jlong timeMs) {
     (void)clazz;
@@ -2328,7 +2328,7 @@ vs_end:
  *  GIF Maker: extract video segment and encode as GIF.
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_gifMake(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_gifMake(
     JNIEnv *env, jclass clazz,
     jstring j_input, jstring j_output, jlong startMs, jlong endMs,
     jint width, jint fps, jobject callback) {
@@ -2601,7 +2601,7 @@ gif_end:
  *  can correctly handle file boundary offsets natively.
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_mergeFiles(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_mergeFiles(
     JNIEnv *env, jclass clazz,
     jobjectArray j_inputs, jstring j_output, jobject callback) {
     (void)clazz;
@@ -2821,7 +2821,7 @@ merge_end:
  *  Output is always H.264+AAC MP4.
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_mergeFilesTranscode(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_mergeFilesTranscode(
     JNIEnv *env, jclass clazz,
     jobjectArray j_inputs, jstring j_output,
     jint targetWidth, jint targetHeight, jint targetBitrateKbps,
@@ -3404,7 +3404,7 @@ mt_end:
  *  imageCompress: compress/resize image via FFmpeg (replaces Bitmap API)
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_imageCompress(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_imageCompress(
         JNIEnv *env, jclass clazz,
         jstring j_input, jstring j_output,
         jint quality, jint maxWidth, jint maxHeight) {
@@ -3547,7 +3547,7 @@ ic_end:
  *  imageEnhance: sharpen image using FFmpeg unsharp filter
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_imageEnhance(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_imageEnhance(
         JNIEnv *env, jclass clazz,
         jstring j_input, jstring j_output, jfloat strength) {
     const char *input  = (*env)->GetStringUTFChars(env, j_input, NULL);
@@ -3672,7 +3672,7 @@ ien_end:
  *  videoEnhance: sharpen video using FFmpeg unsharp filter
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_naipingzai_materialfile_tools_formatconvert_FFmpegJni_videoEnhance(
+Java_advancefilemanager_tools_formatconvert_FFmpegJni_videoEnhance(
         JNIEnv *env, jclass clazz,
         jstring j_input, jstring j_output,
         jfloat strength, jint targetBitrateKbps,

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ Copyright (c) 2026 advancefilemanager
   ~ All Rights Reserved.
   -->
 
@@ -12,7 +12,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
-    <naipingzai.materialfile.ui.CoordinatorAppBarLayout
+    <com.advancefilemanager.ui.CoordinatorAppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?colorAppBarSurface"
@@ -24,9 +24,9 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             app:popupTheme="?actionBarPopupTheme" />
-    </naipingzai.materialfile.ui.CoordinatorAppBarLayout>
+    </com.advancefilemanager.ui.CoordinatorAppBarLayout>
 
-    <naipingzai.materialfile.ui.CoordinatorScrollingFrameLayout
+    <com.advancefilemanager.ui.CoordinatorScrollingFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -150,5 +150,5 @@
                     android:textIsSelectable="true" />
             </ScrollView>
         </LinearLayout>
-    </naipingzai.materialfile.ui.CoordinatorScrollingFrameLayout>
+    </com.advancefilemanager.ui.CoordinatorScrollingFrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

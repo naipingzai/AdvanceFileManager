@@ -10,12 +10,12 @@ apply plugin: 'kotlin-parcelize'
 apply from: '../signing.gradle'
 
 android {
-    namespace = 'naipingzai.materialfile'
+    namespace = 'com.advancefilemanager'
     buildToolsVersion = '36.0.0'
     compileSdk = 36
     ndkVersion = '28.1.13356709'
     defaultConfig {
-        applicationId 'naipingzai.materialfile'
+        applicationId 'com.advancefilemanager'
         minSdk = 21
         targetSdk = 35
         versionCode = 1
@@ -95,34 +95,34 @@ repositories {
 dependencies {
     // --- Local JARs (materialfile_deps source builds) ---
     implementation files(
-            '../prebuild/android/dav4jvm/materialfile-dav4jvm.jar',
-            '../prebuild/android/okhttp/materialfile-okhttp.jar',
-            '../prebuild/android/okio/materialfile-okio.jar'
+            '../prebuild/android/dav4jvm/advancefilemanager-dav4jvm.jar',
+            '../prebuild/android/okhttp/advancefilemanager-okhttp.jar',
+            '../prebuild/android/okio/advancefilemanager-okio.jar'
     )
 
     // --- Local AARs (materialfile_deps source builds) ---
-    implementation(name: 'materialfile-photoview', ext: 'aar')
-    implementation(name: 'materialfile-libsu-service', ext: 'aar')
-    implementation(name: 'materialfile-libsu-core', ext: 'aar')
-    implementation(name: 'materialfile-speed-dial', ext: 'aar')
-    implementation(name: 'materialfile-subsampling', ext: 'aar')
-    implementation(name: 'materialfile-licensesdialog', ext: 'aar')
-    implementation(name: 'materialfile-coil', ext: 'aar')
-    implementation(name: 'materialfile-coil-base', ext: 'aar')
-    implementation(name: 'materialfile-coil-gif', ext: 'aar')
-    implementation(name: 'materialfile-coil-svg', ext: 'aar')
-    implementation(name: 'materialfile-coil-video', ext: 'aar')
-    implementation(name: 'materialfile-preferencex', ext: 'aar')
-    implementation(name: 'materialfile-simplemenu', ext: 'aar')
-    implementation(name: 'materialfile-advrecyclerview', ext: 'aar')
-    implementation(name: 'materialfile-materialshadownp', ext: 'aar')
-    implementation(name: 'materialfile-insetter-ktx', ext: 'aar')
-    implementation(name: 'materialfile-insetter', ext: 'aar')
-    implementation(name: 'materialfile-shizuku-api', ext: 'aar')
-    implementation(name: 'materialfile-shizuku-shared', ext: 'aar')
-    implementation(name: 'materialfile-shizuku-aidl', ext: 'aar')
-    implementation(name: 'materialfile-androidsvg', ext: 'aar')
-    implementation(name: 'materialfile-drawer', ext: 'aar')
+    implementation(name: 'advancefilemanager-photoview', ext: 'aar')
+    implementation(name: 'advancefilemanager-libsu-service', ext: 'aar')
+    implementation(name: 'advancefilemanager-libsu-core', ext: 'aar')
+    implementation(name: 'advancefilemanager-speed-dial', ext: 'aar')
+    implementation(name: 'advancefilemanager-subsampling', ext: 'aar')
+    implementation(name: 'advancefilemanager-licensesdialog', ext: 'aar')
+    implementation(name: 'advancefilemanager-coil', ext: 'aar')
+    implementation(name: 'advancefilemanager-coil-base', ext: 'aar')
+    implementation(name: 'advancefilemanager-coil-gif', ext: 'aar')
+    implementation(name: 'advancefilemanager-coil-svg', ext: 'aar')
+    implementation(name: 'advancefilemanager-coil-video', ext: 'aar')
+    implementation(name: 'advancefilemanager-preferencex', ext: 'aar')
+    implementation(name: 'advancefilemanager-simplemenu', ext: 'aar')
+    implementation(name: 'advancefilemanager-advrecyclerview', ext: 'aar')
+    implementation(name: 'advancefilemanager-materialshadownp', ext: 'aar')
+    implementation(name: 'advancefilemanager-insetter-ktx', ext: 'aar')
+    implementation(name: 'advancefilemanager-insetter', ext: 'aar')
+    implementation(name: 'advancefilemanager-shizuku-api', ext: 'aar')
+    implementation(name: 'advancefilemanager-shizuku-shared', ext: 'aar')
+    implementation(name: 'advancefilemanager-shizuku-aidl', ext: 'aar')
+    implementation(name: 'advancefilemanager-androidsvg', ext: 'aar')
+    implementation(name: 'advancefilemanager-drawer', ext: 'aar')
 
     // --- Official dependencies (Google / JetBrains / AndroidX) ---
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
@@ -151,7 +151,7 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'com.google.android.material:material:1.12.0'
 
-    // Libraries embedded as source code (naipingzai.materialfile.lib.*):
+    // Libraries embedded as source code (advancefilemanager.lib.*):
     // appiconloader, fastscroll, foregroundcompat, systemuihelper
     // JNI libraries (all prebuilt in prebuild/):
     // libarchive, libselinux, bzip2, xz, lz4, zstd, mbedtls, pcre2

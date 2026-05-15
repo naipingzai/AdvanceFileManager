@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ Copyright (c) 2026 advancefilemanager
   ~ All Rights Reserved.
   -->
 
@@ -16,7 +16,7 @@
         android:shortcutShortLabel="@string/shortcut_downloads_title">
 
         <intent
-            android:action="naipingzai.materialfile.intent.action.VIEW_DOWNLOADS"
-            android:targetPackage="naipingzai.materialfile" />
+            android:action="com.advancefilemanager.intent.action.VIEW_DOWNLOADS"
+            android:targetPackage="advancefilemanager" />
     </shortcut>
 </shortcuts>

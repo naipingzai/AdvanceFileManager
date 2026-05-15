@@ -1,4 +1,4 @@
-# Material Files
+# AdvanceFileManager
 
 [本文中文版](README_zh-CN.md)
 
@@ -63,20 +63,20 @@ All third-party dependencies are compiled from source. Build them first before b
 
 ```powershell
 # PowerShell (Windows)
-powershell -NoProfile -ExecutionPolicy Bypass -File materialfile_deps/build-all.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File advancefilemanager_deps/build-all.ps1
 
 # Shell (Linux/macOS)
-bash materialfile_deps/build-all.sh
+bash advancefilemanager_deps/build-all.sh
 ```
 
 To build a single library:
 
 ```powershell
 # Example: build bzip2 (native)
-powershell -NoProfile -ExecutionPolicy Bypass -File materialfile_deps/native/bzip2/build.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File advancefilemanager_deps/native/bzip2/build.ps1
 
 # Example: build advrecyclerview (android)
-powershell -NoProfile -ExecutionPolicy Bypass -File materialfile_deps/android/advrecyclerview/build.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File advancefilemanager_deps/android/advrecyclerview/build.ps1
 ```
 
 ### Build APK
@@ -88,9 +88,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File materialfile_deps/android/ad
 
 ## Third-Party Dependencies
 
-All third-party libraries are compiled from source. Sources and build scripts are in `materialfile_deps/` (organized by `native/` and `android/`), build outputs go to `prebuild/`. Compiled artifacts use `materialfile` prefix to indicate project-local builds.
+All third-party libraries are compiled from source. Sources and build scripts are in `advancefilemanager_deps/` (organized by `native/` and `android/`), build outputs go to `prebuild/`. Compiled artifacts use `advancefilemanager` prefix to indicate project-local builds.
 
-See [materialfile_deps/README.md](materialfile_deps/README.md) for download sources, build instructions, and dependency details.
+See [advancefilemanager_deps/README.md](advancefilemanager_deps/README.md) for download sources, build instructions, and dependency details.
 
 ### Native (C/C++) — 9 libraries
 
@@ -129,7 +129,7 @@ See [materialfile_deps/README.md](materialfile_deps/README.md) for download sour
 
 ## License
 
-    Copyright (C) 2026 naipingzai <npznnz@gmail.com>
+    Copyright (C) 2026 advancefilemanager <npznnz@gmail.com>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

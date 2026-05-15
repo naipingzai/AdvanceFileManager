@@ -141,13 +141,13 @@ static jbyteArray doGetfilecon(JNIEnv *env, jbyteArray javaPath, bool isLgetfile
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libselinux_SeLinux_getfilecon(
+Java_advancefilemanager_lib_libselinux_SeLinux_getfilecon(
         JNIEnv *env, jclass clazz, jbyteArray javaPath) {
     return doGetfilecon(env, javaPath, false);
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libselinux_SeLinux_is_1selinux_1enabled(
+Java_advancefilemanager_lib_libselinux_SeLinux_is_1selinux_1enabled(
         JNIEnv *env, jclass clazz) {
     int enabled = is_selinux_enabled();
     jboolean javaEnabled = (jboolean) (enabled ? JNI_TRUE : JNI_FALSE);
@@ -155,7 +155,7 @@ Java_naipingzai_materialfile_lib_libselinux_SeLinux_is_1selinux_1enabled(
 }
 
 JNIEXPORT jbyteArray JNICALL
-Java_naipingzai_materialfile_lib_libselinux_SeLinux_lgetfilecon(
+Java_advancefilemanager_lib_libselinux_SeLinux_lgetfilecon(
         JNIEnv *env, jclass clazz, jbyteArray javaPath) {
     return doGetfilecon(env, javaPath, true);
 }
@@ -173,13 +173,13 @@ static void doSetfilecon(JNIEnv *env, jbyteArray javaPath, jbyteArray javaContex
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libselinux_SeLinux_lsetfilecon(
+Java_advancefilemanager_lib_libselinux_SeLinux_lsetfilecon(
         JNIEnv *env, jclass clazz, jbyteArray javaPath, jbyteArray javaContext) {
     doSetfilecon(env, javaPath, javaContext, true);
 }
 
 JNIEXPORT jboolean JNICALL
-Java_naipingzai_materialfile_lib_libselinux_SeLinux_security_1getenforce(
+Java_advancefilemanager_lib_libselinux_SeLinux_security_1getenforce(
         JNIEnv *env, jclass clazz) {
     int enforce = TEMP_FAILURE_RETRY(security_getenforce());
     if (enforce == -1 && !errno) {
@@ -195,7 +195,7 @@ Java_naipingzai_materialfile_lib_libselinux_SeLinux_security_1getenforce(
 }
 
 JNIEXPORT void JNICALL
-Java_naipingzai_materialfile_lib_libselinux_SeLinux_setfilecon(
+Java_advancefilemanager_lib_libselinux_SeLinux_setfilecon(
         JNIEnv *env, jclass clazz, jbyteArray javaPath, jbyteArray javaContext) {
     doSetfilecon(env, javaPath, javaContext, false);
 }

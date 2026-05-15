@@ -17,6 +17,6 @@
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
     <background android:drawable="@color/legacy_icon_background"/>
     <foreground>
-        <naipingzai.materialfile.lib.appiconloader.iconloaderlib.FixedScaleDrawable />
+        <com.advancefilemanager.lib.appiconloader.iconloaderlib.FixedScaleDrawable />
     </foreground>
 </adaptive-icon>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ Copyright (c) 2026 advancefilemanager
   ~ All Rights Reserved.
   -->
 
-<naipingzai.materialfile.lib.foregroundcompat.ForegroundLinearLayout
+<com.advancefilemanager.lib.foregroundcompat.ForegroundLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -59,4 +59,4 @@
         android:padding="@dimen/touch_target_icon_padding"
         android:src="@drawable/drag_handle_icon_white_24dp"
         app:tint="?colorOnSurfaceVariant" />
-</naipingzai.materialfile.lib.foregroundcompat.ForegroundLinearLayout>
+</com.advancefilemanager.lib.foregroundcompat.ForegroundLinearLayout>
