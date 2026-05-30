@@ -87,45 +87,20 @@ android {
 }
 
 repositories {
-    file("$rootDir/prebuild/android").listFiles()?.findAll { it.isDirectory() }?.each { dir ->
-        flatDir { dirs dir }
-    }
 }
 
 dependencies {
-    // --- Local JARs (materialfile_deps source builds) ---
-    implementation files(
-            '../prebuild/android/dav4jvm/advancefilemanager-dav4jvm.jar',
-            '../prebuild/android/okhttp/advancefilemanager-okhttp.jar',
-            '../prebuild/android/okio/advancefilemanager-okio.jar'
-    )
-
-    // --- Local AARs (materialfile_deps source builds) ---
-    implementation(name: 'advancefilemanager-photoview', ext: 'aar')
-    implementation(name: 'advancefilemanager-libsu-service', ext: 'aar')
-    implementation(name: 'advancefilemanager-libsu-core', ext: 'aar')
-    implementation(name: 'advancefilemanager-speed-dial', ext: 'aar')
-    implementation(name: 'advancefilemanager-subsampling', ext: 'aar')
-    implementation(name: 'advancefilemanager-licensesdialog', ext: 'aar')
-    implementation(name: 'advancefilemanager-coil', ext: 'aar')
-    implementation(name: 'advancefilemanager-coil-base', ext: 'aar')
-    implementation(name: 'advancefilemanager-coil-gif', ext: 'aar')
-    implementation(name: 'advancefilemanager-coil-svg', ext: 'aar')
-    implementation(name: 'advancefilemanager-coil-video', ext: 'aar')
-    implementation(name: 'advancefilemanager-preferencex', ext: 'aar')
-    implementation(name: 'advancefilemanager-simplemenu', ext: 'aar')
-    implementation(name: 'advancefilemanager-advrecyclerview', ext: 'aar')
-    implementation(name: 'advancefilemanager-materialshadownp', ext: 'aar')
-    implementation(name: 'advancefilemanager-insetter-ktx', ext: 'aar')
-    implementation(name: 'advancefilemanager-insetter', ext: 'aar')
-    implementation(name: 'advancefilemanager-shizuku-api', ext: 'aar')
-    implementation(name: 'advancefilemanager-shizuku-shared', ext: 'aar')
-    implementation(name: 'advancefilemanager-shizuku-aidl', ext: 'aar')
-    implementation(name: 'advancefilemanager-androidsvg', ext: 'aar')
-    implementation(name: 'advancefilemanager-drawer', ext: 'aar')
+    // --- Plugin modules (compiled as libraries into single APK) ---
+    implementation project(':plugin-protocol')
+    implementation project(':plugin-ffmpeg-tools')
+    implementation project(':plugin-file-tools')
 
     // --- Official dependencies (Google / JetBrains / AndroidX) ---
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
+
+    def media3_version = '1.2.1'
+    implementation "androidx.media3:media3-exoplayer:$media3_version"
+    implementation "androidx.media3:media3-ui:$media3_version"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     def kotlinx_coroutines_version = '1.10.2'
@@ -138,9 +113,6 @@ dependencies {
     implementation 'androidx.drawerlayout:drawerlayout:1.2.0'
     implementation 'androidx.exifinterface:exifinterface:1.4.1'
     implementation 'androidx.fragment:fragment-ktx:1.8.8'
-    def media3_version = '1.2.1'
-    implementation "androidx.media3:media3-exoplayer:$media3_version"
-    implementation "androidx.media3:media3-ui:$media3_version"
     def androidx_lifecycle_version = '2.9.2'
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-process:$androidx_lifecycle_version"
@@ -151,9 +123,32 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'com.google.android.material:material:1.12.0'
 
+    // --- Third-party dependencies (Maven/JitPack) ---
+    implementation 'com.squareup.okio:okio:3.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'com.github.bitfireAT:dav4jvm:2.2.1'
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    implementation 'com.github.topjohnwu.libsu:core:5.2.2'
+    implementation 'com.github.topjohnwu.libsu:service:5.2.2'
+    implementation 'com.leinardi.android:speed-dial:3.3.0'
+    implementation 'com.davemorrissey.labs:subsampling-scale-image-view-androidx:3.10.0'
+    implementation 'de.psdev.licensesdialog:licensesdialog:2.2.0'
+    implementation 'io.coil-kt:coil:2.7.0'
+    implementation 'io.coil-kt:coil-gif:2.7.0'
+    implementation 'io.coil-kt:coil-svg:2.7.0'
+    implementation 'io.coil-kt:coil-video:2.7.0'
+    implementation 'com.takisoft.preferencex:preferencex:1.1.0'
+    implementation 'com.caverock:androidsvg-aar:1.4'
+    implementation 'dev.rikka.shizuku:api:12.1.0'
+    implementation 'dev.rikka.shizuku:provider:12.1.0'
+    implementation project(':simplemenu')
+    implementation 'com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:1.0.0'
+    implementation 'com.h6ah4i.android.materialshadowninepatch:materialshadowninepatch:1.0.0'
+    implementation 'com.drakeet.drawer:drawer:1.0.3'
+
     // Libraries embedded as source code (advancefilemanager.lib.*):
     // appiconloader, fastscroll, foregroundcompat, systemuihelper
-    // JNI libraries (all prebuilt in prebuild/):
+    // JNI libraries (prebuilt native .a in prebuild/native/):
     // libarchive, libselinux, bzip2, xz, lz4, zstd, mbedtls, pcre2
     // AndroidRetroFile embedded as source (java8.nio.*)
 

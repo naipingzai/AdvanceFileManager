@@ -32,7 +32,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import dev.chrisbanes.insetter.applySystemWindowInsetsToPadding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.isActive
@@ -102,9 +101,11 @@ class PdfViewerFragment : Fragment() {
         // Overlay toolbar: draw content under status bar
         WindowCompat.setDecorFitsSystemWindows(activity.window, false)
         activity.window.statusBarColor = Color.TRANSPARENT
-        binding.appBarLayout.applySystemWindowInsetsToPadding(
-            left = true, top = true, right = true
-        )
+        ViewCompat.setOnApplyWindowInsetsListener(binding.appBarLayout) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.updatePadding(top = systemBars.top)
+            insets
+        }
 
         // RecyclerView: only bottom padding for nav bar; content starts at screen top
         ViewCompat.setOnApplyWindowInsetsListener(binding.recyclerView) { v, insets ->

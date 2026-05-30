@@ -27,7 +27,8 @@ import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import androidx.media3.exoplayer.ExoPlayer
 import com.google.android.material.slider.Slider
-import dev.chrisbanes.insetter.applySystemWindowInsetsToPadding
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import java8.nio.file.Path
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.WriteWith
@@ -153,7 +154,11 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
             }
         }, viewLifecycleOwner)
         activity.window.statusBarColor = Color.TRANSPARENT
-        binding.appBarLayout.applySystemWindowInsetsToPadding(left = true, top = true, right = true)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.appBarLayout) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
+            insets
+        }
         
         systemUiHelper = SystemUiHelper(
             activity, SystemUiHelper.LEVEL_IMMERSIVE, SystemUiHelper.FLAG_IMMERSIVE_STICKY

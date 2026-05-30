@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2026 naipingzai <npznnz@gmail.com>
+  ~ All Rights Reserved.
+  -->
+
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application>
+        <!-- 电子书阅读器 Activity（由 manifest merger 合入主 APP） -->
+        <activity
+            android:name="com.advancefilemanager.plugin.ebookviewer.EbookViewerActivity"
+            android:exported="true"
+            android:theme="@style/Theme.EbookViewer">
+            <intent-filter>
+                <action android:name="com.advancefilemanager.intent.action.PLUGIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.advancefilemanager.intent.action.PLUGIN_EXECUTE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/epub+zip" />
+                <data android:mimeType="application/x-mobipocket-ebook" />
+                <data android:mimeType="application/vnd.amazon.ebook" />
+                <data android:mimeType="application/vnd.amazon.mobi8-ebook" />
+            </intent-filter>
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/epub+zip" />
+                <data android:mimeType="application/x-mobipocket-ebook" />
+                <data android:mimeType="application/vnd.amazon.ebook" />
+                <data android:mimeType="application/vnd.amazon.mobi8-ebook" />
+            </intent-filter>
+            <meta-data android:name="com.advancefilemanager.plugin.ID" android:value="ebook-viewer" />
+            <meta-data android:name="com.advancefilemanager.plugin.TITLE" android:value="电子书阅读器" />
+            <meta-data android:name="com.advancefilemanager.plugin.DESCRIPTION" android:value="EPUB/MOBI 电子书阅读" />
+            <meta-data android:name="com.advancefilemanager.plugin.MIME_TYPES" android:value="application/epub+zip,application/x-mobipocket-ebook,application/vnd.amazon.ebook,application/vnd.amazon.mobi8-ebook" />
+            <meta-data android:name="com.advancefilemanager.plugin.CATEGORY" android:value="viewer" />
+            <meta-data android:name="com.advancefilemanager.plugin.VERSION" android:value="1" />
+        </activity>
+    </application>
+</manifest>

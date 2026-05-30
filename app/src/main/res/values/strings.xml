@@ -310,15 +310,11 @@
     <string name="file_list_action_copy_path">Copy path</string>
     <string name="file_list_action_add_bookmark">Add bookmark</string>
     <string name="file_list_action_file_tools">File tools</string>
-    <string name="file_list_action_media_tools">Media tools</string>
     <string name="unified_search_tab_file_search">Search</string>
     <string name="unified_search_tab_duplicates">Duplicates</string>
     <string name="unified_search_tab_empty">Empty</string>
     <string name="unified_search_tab_recent">Recent</string>
     <string name="unified_search_tab_compare">Compare</string>
-    <string name="file_item_action_media_tools">Media tools</string>
-    <string name="file_list_select_action_media_tools">Media tools</string>
-    <string name="media_tool_preselected_files">%d file(s) ready</string>
     <string name="file_list_action_file_search">File search</string>
     <string name="file_list_action_duplicate_finder">Duplicate finder</string>
     <string name="file_list_action_empty_search">Empty files</string>
@@ -707,10 +703,6 @@
     <string name="about_author_title">Author</string>
     <string name="about_author_name_title">advancefilemanager</string>
     <string name="about_author_github_title">Follow on GitHub</string>
-    <string name="about_ffmpeg_title">FFmpeg</string>
-    <string name="about_ffmpeg_version_title">FFmpeg version</string>
-    <string name="about_ffmpeg_capabilities_title">Capabilities</string>
-    <string name="about_ffmpeg_capabilities">Format convert, Extract audio, Trim, Video compress, Video snapshot, GIF maker, Video enhance, Image compress, Image enhance, Merge files</string>
 
     <string name="shortcut_downloads_title" translatable="false">@string/navigation_standard_directory_downloads</string>
 
@@ -740,7 +732,6 @@
     <string name="tool_desc_trash">View and restore deleted files</string>
     <string name="tool_desc_recent_files">View recently accessed files</string>
     <string name="tool_desc_encryption">Encrypt and decrypt files</string>
-    <string name="tool_desc_media_tools">Format convert, compress, extract audio and more</string>
 
     <!-- Trash / Recycle Bin -->
     <string name="trash_title">Recycle Bin</string>
@@ -997,122 +988,23 @@
     <string name="format_convert_error_title">Format error</string>
     <string name="format_convert_format_mismatch">The following files have incompatible output formats:\n%1$s</string>
 
-    <!-- FFmpeg Tools -->
-    <string name="navigation_media_tools">FFmpeg Tools</string>
-    <string name="media_tools_title">FFmpeg Tools</string>
-    <string name="media_tool_format_convert">Format Convert</string>
-    <string name="media_tool_format_convert_desc">Convert media file formats via FFmpeg</string>
-    <string name="media_tool_extract_audio">Extract Audio</string>
-    <string name="media_tool_extract_audio_desc">Extract audio track from video via FFmpeg</string>
-    <string name="media_tool_media_trim">Media Trim</string>
-    <string name="media_tool_media_trim_desc">Trim media to specified time range via FFmpeg</string>
-    <string name="media_tool_video_compress">Video Compress</string>
-    <string name="media_tool_video_compress_desc">Compress video with lower bitrate via FFmpeg</string>
-    <string name="media_tool_video_snapshot">Video Snapshot</string>
-    <string name="media_tool_video_snapshot_desc">Capture frame at specified time via FFmpeg</string>
-    <string name="media_tool_gif_maker">GIF Maker</string>
-    <string name="media_tool_gif_maker_desc">Create GIF from video clip via FFmpeg</string>
-    <string name="media_tool_media_merge">Media Merge</string>
-    <string name="media_tool_media_merge_desc">Merge multiple media files via FFmpeg</string>
-    <string name="media_tool_image_compress">Image Compress</string>
-    <string name="media_tool_image_compress_desc">Compress image files via FFmpeg</string>
-    <string name="media_tool_image_enhance">Image Enhance</string>
-    <string name="media_tool_image_enhance_desc">Sharpen and enhance image clarity via FFmpeg</string>
-    <string name="media_tool_video_enhance">Video Enhance</string>
-    <string name="media_tool_video_enhance_desc">Sharpen and enhance video clarity via FFmpeg</string>
-    <string name="media_tool_enhance_result">Enhancement complete: %1$d succeeded, %2$d failed</string>
-    <string name="media_tool_media_info">Media Info</string>
-    <string name="media_tool_media_info_desc">View detailed media information via FFmpeg</string>
-    <string name="media_tool_ffmpeg_unavailable">FFmpeg is not available</string>
-    <string name="media_tool_ffmpeg_status_desc">FFmpeg library status</string>
-    <string name="media_tool_start">Start</string>
-    <string name="media_tool_extract_audio_result">Extraction complete: %1$d succeeded, %2$d failed</string>
-    <string name="media_tool_trim_start_sec">Start time (seconds)</string>
-    <string name="media_tool_trim_end_sec">End time (seconds)</string>
-    <string name="media_tool_trim_success">Trimmed to: %s</string>
-    <string name="media_tool_trim_failed">Trim failed</string>
-    <string name="media_tool_compress_result">Compression complete: %1$d succeeded, %2$d failed</string>
-    <string name="media_tool_snapshot_time_sec">Timestamp (seconds)</string>
-    <string name="media_tool_snapshot_success">Snapshot saved to: %s</string>
-    <string name="media_tool_snapshot_failed">Snapshot failed</string>
-    <string name="media_tool_gif_success">GIF saved to: %s</string>
-    <string name="media_tool_gif_failed">GIF creation failed</string>
-    <string name="media_tool_merge_need_multiple">Please select at least 2 files</string>
-    <string name="media_tool_merge_success">Merged to: %s</string>
-    <string name="media_tool_merge_failed">Merge failed</string>
-    <string name="media_tool_operation_running">Another operation is in progress</string>
-    <string name="media_tool_exit_confirm">An operation is in progress. Are you sure you want to exit?</string>
+    <!-- Plugin / tool errors -->
     <string name="media_tool_info_failed">Failed to get media info</string>
-    <string name="media_tool_info_file">File</string>
-    <string name="media_tool_info_size">Size</string>
-    <string name="media_tool_info_format">Format</string>
-    <string name="media_tool_info_duration">Duration</string>
-    <string name="media_tool_info_video">Video</string>
-    <string name="media_tool_info_audio">Audio</string>
-    <string name="media_tool_info_codec">Codec</string>
-    <string name="media_tool_info_resolution">Resolution</string>
-    <string name="media_tool_info_bitrate">Bitrate</string>
-    <string name="media_tool_info_sample_rate">Sample Rate</string>
-    <string name="media_tool_info_channels">Channels</string>
-    <string name="media_tool_invalid_time_range">End time must be after start time</string>
-    <string name="media_tool_ffmpeg_required_title">FFmpeg Required</string>
-    <string name="media_tool_ffmpeg_required_message">This feature requires FFmpeg support. The FFmpeg library is currently unavailable. Please ensure the app is installed correctly.</string>
-    <string name="media_tool_no_audio_track">The selected file does not contain an audio track.</string>
-    <string name="media_tool_no_video_track">The selected file does not contain a video track.</string>
-    <string name="media_tool_prerequisite_title">Prerequisite Not Met</string>
-    <string name="media_tool_extract_audio_requires">Extract Audio requires the selected video file to contain an audio track.</string>
-    <string name="media_tool_video_requires">This feature only supports files with a video track.</string>
-    <string name="media_tool_merge_requires">Merge requirements:\n• Select at least 2 files\n• All files should use the same codec and resolution\n• Different formats may cause merge failure or playback issues</string>
-    <string name="media_tool_merge_codec_mismatch">The selected files have different codecs or resolutions. Direct merge may cause playback issues.</string>
-    <string name="media_tool_merge_confirm_title">Confirm Merge</string>
-    <string name="media_tool_merge_incompatible_hint">Files with different codecs or resolutions cannot be merged directly. Please ensure all files have the same format before merging.</string>
-    <string name="media_tool_merge_analysis_title">File Analysis</string>
-    <string name="media_tool_merge_normalize_failed">Format conversion failed: %s</string>
-    <string name="media_tool_merge_structure_mismatch">Some files contain video while others only have audio. They cannot be merged directly.</string>
-    <string name="media_tool_merge_no_av_stream">No audio or video stream found</string>
-    <string name="media_tool_format_incompatible_title">Format Incompatible</string>
-    <string name="media_tool_format_incompatible_desc">The file \"%1$s\" cannot be directly used for %2$s:\n%3$s\n\nWould you like to auto-convert to a compatible format first? The intermediate file will be automatically cleaned up.</string>
-    <string name="media_tool_auto_convert_and_continue">Auto-convert and continue</string>
-    <string name="media_tool_format_converting">Converting format, please wait…</string>
-    <string name="media_tool_format_converting_file">Converting: %1$s (%2$d/%3$d)…</string>
-    <string name="media_tool_format_convert_failed">Format conversion failed</string>
-    <string name="media_tool_format_video_issue">Video codec: %1$s (not commonly supported)</string>
-    <string name="media_tool_format_audio_mp4_issue">Audio codec: %1$s (not compatible with MP4 container)</string>
-    <string name="media_tool_format_audio_issue">Audio codec: %1$s (unsupported format)</string>
-    <string name="media_tool_format_multi_incompatible">%1$d of %2$d files need format conversion:</string>
-    <string name="media_tool_format_auto_convert_hint">Auto-convert to H.264+AAC MP4? Intermediate files will be automatically cleaned up.</string>
-    <string name="media_tool_probing_file">Analyzing file…</string>
-    <string name="media_tool_probe_failed">Cannot read file info. The file may be corrupted or in an unsupported format.</string>
     <string name="media_tool_error_unknown">Unknown error</string>
-    <string name="media_tool_error_cancelled">Operation cancelled</string>
-    <string name="media_tool_merge_normalize_detail">Format conversion for \"%1$s\" failed:\n%2$s</string>
-    <string name="media_tool_copy_error">Copy error</string>
-    <string name="media_tool_error_copied">Error details copied</string>
+    <string name="plugin_not_installed">Plugin not installed. Please install the corresponding plugin first.</string>
+
+    <!-- Plugin settings -->
+    <string name="settings_plugins_title">Plugins</string>
+    <string name="settings_plugin_manage_title">Plugin management</string>
+    <string name="settings_plugin_manage_summary">View and enable/disable plugins</string>
+    <string name="plugin_settings_title">Plugin Management</string>
+    <string name="plugin_settings_empty">No plugins found</string>
+
     <string name="file_type_image">Image</string>
     <string name="file_type_video">Video</string>
     <string name="file_type_audio">Audio</string>
     <string name="file_type_unknown">Unknown</string>
 
-    <!-- Video compress dialog -->
-    <string name="compress_option_bitrate">Bitrate</string>
-    <string name="compress_bitrate_low">Low (500 kbps)</string>
-    <string name="compress_bitrate_medium">Medium (1500 kbps)</string>
-    <string name="compress_bitrate_high">High (3000 kbps)</string>
-    <string name="compress_option_resolution">Resolution</string>
-    <string name="compress_res_original">Original</string>
-    <string name="compress_res_720p">720p</string>
-    <string name="compress_res_480p">480p</string>
-    <string name="compress_res_360p">360p</string>
-    <string name="compress_option_framerate">Framerate</string>
-    <string name="compress_fps_original">Original</string>
-    <string name="compress_fps_30">30 fps</string>
-    <string name="compress_fps_24">24 fps</string>
-    <string name="compress_fps_15">15 fps</string>
-    <!-- Video enhance dialog -->
-    <string name="enhance_option_strength">Sharpening Strength</string>
-    <string name="enhance_strength_light">Light</string>
-    <string name="enhance_strength_medium">Medium</string>
-    <string name="enhance_strength_strong">Strong</string>
     <!-- CSV viewer -->
     <string name="csv_viewer_title">CSV Viewer</string>
     <string name="csv_viewer_error">Failed to load CSV file</string>

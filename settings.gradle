@@ -1,1 +1,6 @@
 include ':app'
+include ':plugin-protocol'
+include ':plugin-ffmpeg-tools'
+include ':plugin-file-tools'
+include ':simplemenu'
+project(':simplemenu').projectDir = new File('materialfile_deps/android/simplemenu')

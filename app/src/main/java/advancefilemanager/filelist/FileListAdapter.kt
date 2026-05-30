@@ -5,8 +5,10 @@
 
 package com.advancefilemanager.filelist
 
+import android.content.Intent
 import android.text.TextUtils
 import android.view.ContextThemeWrapper
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
@@ -40,6 +42,10 @@ import com.advancefilemanager.provider.common.isEncrypted
 import com.advancefilemanager.provider.linux.isLinuxPath
 import com.advancefilemanager.compat.setGroupDividerEnabledCompat
 import com.advancefilemanager.settings.Settings
+import com.advancefilemanager.plugin.PluginSettings
+import com.advancefilemanager.plugin.protocol.PluginFeature
+import com.advancefilemanager.plugin.protocol.PluginInfo
+import com.advancefilemanager.plugin.protocol.PluginManager
 import com.advancefilemanager.ui.AnimatedListAdapter
 import com.advancefilemanager.ui.CheckableForegroundLinearLayout
 import com.advancefilemanager.ui.CheckableItemBackground
@@ -353,11 +359,25 @@ class FileListAdapter(
         menu.findItem(R.id.action_rename).isVisible = !isReadOnly
         menu.findItem(R.id.action_extract).isVisible = file.isArchiveFile
         menu.findItem(R.id.action_archive).isVisible = !isArchivePath
-        menu.findItem(R.id.action_media_tools).isVisible = isMediaFile
-        menu.findItem(R.id.action_open_hex).isVisible = !isDirectory
-        menu.findItem(R.id.action_encrypt).isVisible = isLinux && !isDirectory && !file.name.endsWith(".enc")
-        menu.findItem(R.id.action_decrypt).isVisible = isLinux && !isDirectory && file.name.endsWith(".enc")
         menu.findItem(R.id.action_add_bookmark).isVisible = isDirectory
+        // Dynamic plugin feature menu items
+        menu.removeGroup(R.id.group_plugins)
+        val enabledFeatures = if (isLinux) {
+            PluginManager.discoverPlugins(holder.itemView.context)
+                .flatMap { plugin ->
+                    if (PluginSettings.isPluginEnabled(plugin.id)) {
+                        plugin.features.filter { PluginSettings.isFeatureEnabled(it.id) }
+                            .map { feature -> plugin to feature }
+                    } else {
+                        emptyList()
+                    }
+                }
+        } else {
+            emptyList()
+        }
+        enabledFeatures.forEachIndexed { index, (_, feature) ->
+            menu.add(R.id.group_plugins, Menu.FIRST + index, Menu.NONE, feature.title)
+        }
         holder.popupMenu.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.action_open_with -> { listener.openFileWith(file); true }
@@ -368,14 +388,26 @@ class FileListAdapter(
                 R.id.action_extract -> { listener.extractFile(file); true }
                 R.id.action_archive -> { listener.showCreateArchiveDialog(file); true }
                 R.id.action_share -> { listener.shareFile(file); true }
-                R.id.action_media_tools -> { listener.openMediaToolsForFile(file); true }
-                R.id.action_open_hex -> { listener.openHexViewer(file); true }
-                R.id.action_encrypt -> { listener.encryptFile(file); true }
-                R.id.action_decrypt -> { listener.decryptFile(file); true }
                 R.id.action_copy_path -> { listener.copyPath(file); true }
                 R.id.action_add_bookmark -> { listener.addBookmark(file); true }
                 R.id.action_properties -> { listener.showPropertiesDialog(file); true }
-                else -> false
+                else -> {
+                    // Handle plugin feature menu items
+                    val featureIndex = it.itemId - Menu.FIRST
+                    if (featureIndex in enabledFeatures.indices) {
+                        val (plugin, feature) = enabledFeatures[featureIndex]
+                        val intent = PluginManager.createPluginIntent(
+                            plugin,
+                            filePath = file.path.toString(),
+                            mimeType = mimeType.value,
+                            actionType = feature.actionType
+                        )
+                        holder.itemView.context.startActivity(intent)
+                        true
+                    } else {
+                        false
+                    }
+                }
             }
         }
     }
@@ -469,10 +501,6 @@ class FileListAdapter(
         fun extractFile(file: FileItem)
         fun showCreateArchiveDialog(file: FileItem)
         fun shareFile(file: FileItem)
-        fun openMediaToolsForFile(file: FileItem)
-        fun openHexViewer(file: FileItem)
-        fun encryptFile(file: FileItem)
-        fun decryptFile(file: FileItem)
         fun copyPath(file: FileItem)
         fun addBookmark(file: FileItem)
         fun showPropertiesDialog(file: FileItem)

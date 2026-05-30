@@ -15,7 +15,6 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.advancefilemanager.R
 import com.advancefilemanager.databinding.AboutFragmentBinding
-import com.advancefilemanager.tools.formatconvert.FFmpegJni
 import com.advancefilemanager.ui.LicensesDialogFragment
 import com.advancefilemanager.util.createViewIntent
 import com.advancefilemanager.util.startActivitySafe
@@ -48,14 +47,6 @@ class AboutFragment : Fragment() {
 //#endif
         binding.authorNameLayout.setOnClickListener { /* Link removed */ }
         binding.authorGitHubLayout.setOnClickListener { /* Link removed */ }
-
-        // FFmpeg info
-        try {
-            binding.ffmpegVersionText.text = FFmpegJni.getVersion()
-        } catch (e: Exception) {
-            binding.ffmpegVersionText.text = "N/A"
-        }
-        binding.ffmpegCapabilitiesText.text = getString(R.string.about_ffmpeg_capabilities)
     }
 
     companion object {

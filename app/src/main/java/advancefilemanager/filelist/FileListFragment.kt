@@ -139,22 +139,13 @@ import com.advancefilemanager.util.takeIfNotEmpty
 import com.advancefilemanager.util.valueCompat
 import com.advancefilemanager.util.viewModels
 import com.advancefilemanager.util.withChooser
-import com.advancefilemanager.viewer.hex.HexViewerActivity
 import com.advancefilemanager.viewer.image.ImageViewerActivity
-import com.advancefilemanager.viewer.csv.CsvViewerActivity
-import com.advancefilemanager.viewer.ebook.EbookViewerActivity
-import com.advancefilemanager.viewer.pdf.PdfViewerActivity
 import com.advancefilemanager.viewer.video.VideoViewerActivity
 import com.advancefilemanager.viewer.audio.AudioPlayerActivity
-import com.advancefilemanager.app.ToolHostActivity
-import com.advancefilemanager.tools.formatconvert.FormatConvertFragment
-import com.advancefilemanager.tools.encryption.FileEncryptionHelper
-import com.advancefilemanager.tools.duplicatefinder.DuplicateFinderFragment
-import com.advancefilemanager.tools.emptysearch.EmptySearchFragment
-import com.advancefilemanager.tools.filesearch.FileSearchFragment
-import com.advancefilemanager.tools.filesearch.UnifiedSearchFragment
-import com.advancefilemanager.tools.mediatools.MediaToolsFragment
-import com.advancefilemanager.tools.recentfiles.RecentFilesFragment
+import com.advancefilemanager.viewer.csv.CsvViewerActivity
+import com.advancefilemanager.viewer.pdf.PdfViewerActivity
+import com.advancefilemanager.plugin.protocol.PluginContract
+import com.advancefilemanager.plugin.protocol.PluginManager
 import kotlin.math.roundToInt
 
 class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.Listener,
@@ -255,8 +246,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                         setShowHiddenFiles(!menuBinding.showHiddenFilesItem.isChecked)
                         true
                     }
-                    R.id.action_file_tools -> { openFileTools(); true }
-                    R.id.action_media_tools -> { openMediaTools(); true }
                     else -> false
                 }
             }
@@ -764,10 +753,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             val isCurrentPathReadOnly = viewModel.currentPath.fileSystem.isReadOnly
             menu.findItem(R.id.action_archive).isVisible = !isCurrentPathReadOnly
             menu.findItem(R.id.action_batch_rename).isVisible = !isAnyFileReadOnly && !areAllFilesArchivePaths
-            val areAllFilesMedia = files.all {
-                it.mimeType.isImage || it.mimeType.isVideo || it.mimeType.isAudio
-            }
-            menu.findItem(R.id.action_media_tools).isVisible = areAllFilesMedia
         }
         if (!overlayActionMode.isActive) {
             binding.appBarLayout.setExpanded(true)
@@ -819,10 +804,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             }
             R.id.action_batch_rename -> {
                 showBatchRenameDialog(viewModel.selectedFiles)
-                true
-            }
-            R.id.action_media_tools -> {
-                openMediaToolsForFiles(viewModel.selectedFiles)
                 true
             }
             R.id.action_share -> {
@@ -918,22 +899,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
 
     private fun shareFiles(files: FileItemSet) {
         shareFiles(files.map { it.path }, files.map { it.mimeType })
-        viewModel.selectFiles(files, false)
-    }
-
-    private fun openMediaToolsForFiles(files: FileItemSet) {
-        val linuxFiles = files.filter { it.path.isLinuxPath }
-        if (linuxFiles.isEmpty()) {
-            showToast(R.string.media_tool_info_failed)
-            return
-        }
-        val filePaths = linuxFiles.map { it.path.toFile().absolutePath }.toTypedArray()
-        val intent = ToolHostActivity.createIntent<MediaToolsFragment>(
-            R.string.media_tools_title
-        ).apply {
-            putExtra(MediaToolsFragment.EXTRA_FILE_PATHS, filePaths)
-        }
-        startActivitySafe(intent)
         viewModel.selectFiles(files, false)
     }
 
@@ -1203,6 +1168,28 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         startActivitySafe(intent)
     }
 
+    /**
+     * 通过插件协议打开文件。
+     * 查找支持该 MIME 类型的已安装插件，如果有则启动插件，否则使用系统 Intent。
+     */
+    private fun openWithPlugin(file: FileItem, mimeType: String) {
+        val plugins = PluginManager.findPluginsForMimeType(requireContext(), mimeType)
+            .filter { it.category == PluginContract.CATEGORY_VIEWER }
+        if (plugins.isNotEmpty()) {
+            val plugin = plugins.first()
+            val filePath = if (file.path.isLinuxPath) file.path.toFile().absolutePath else null
+            val intent = PluginManager.createPluginIntent(
+                plugin = plugin,
+                filePath = filePath,
+                mimeType = mimeType
+            )
+            startActivitySafe(intent)
+        } else {
+            // 没有安装对应插件，使用系统 Intent 打开
+            openFileWithIntent(file, false)
+        }
+    }
+
     private fun openTextEditor(file: FileItem) {
         val intent = com.advancefilemanager.viewer.text.TextEditorActivity::class.createIntent().apply {
             extraPath = file.path
@@ -1220,11 +1207,13 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
 
     private fun openEbookViewer(file: FileItem) {
         val path = file.path
-        val intent = EbookViewerActivity::class.createIntent().apply {
+        val intent = com.advancefilemanager.viewer.ebook.EbookViewerActivity::class.createIntent().apply {
             extraPath = path
         }
         startActivitySafe(intent)
     }
+
+
 
     private fun openCsvViewer(file: FileItem) {
         val path = file.path
@@ -1420,126 +1409,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
 
     override fun shareFile(file: FileItem) {
         shareFile(file.path, file.mimeType)
-    }
-
-    override fun openMediaToolsForFile(file: FileItem) {
-        if (!file.path.isLinuxPath) {
-            showToast(R.string.media_tool_info_failed)
-            return
-        }
-        val filePath = file.path.toFile().absolutePath
-        val intent = ToolHostActivity.createIntent<MediaToolsFragment>(
-            R.string.media_tools_title
-        ).apply {
-            putExtra(MediaToolsFragment.EXTRA_FILE_PATHS, arrayOf(filePath))
-        }
-        startActivitySafe(intent)
-    }
-
-    private fun launchMediaToolAction(file: FileItem, action: (String) -> Unit) {
-        if (!file.path.isLinuxPath) {
-            showToast(R.string.media_tool_info_failed)
-            return
-        }
-        action(file.path.toFile().absolutePath)
-    }
-
-    override fun openHexViewer(file: FileItem) {
-        val path = file.path
-        val intent = HexViewerActivity::class.createIntent().apply {
-            extraPath = path
-        }
-        startActivitySafe(intent)
-    }
-
-    override fun encryptFile(file: FileItem) {
-        if (!file.path.isLinuxPath) {
-            showToast(R.string.media_tool_info_failed)
-            return
-        }
-        FileEncryptionHelper.encrypt(this, file.path.toFile().absolutePath)
-    }
-
-    override fun decryptFile(file: FileItem) {
-        if (!file.path.isLinuxPath) {
-            showToast(R.string.media_tool_info_failed)
-            return
-        }
-        FileEncryptionHelper.decrypt(this, file.path.toFile().absolutePath)
-    }
-
-    private fun openRecentFiles() {
-        val path = currentPath
-        val filePath = if (path.isLinuxPath) path.toFile().absolutePath else null
-        val intent = ToolHostActivity.createIntent<RecentFilesFragment>(
-            R.string.recent_files_title
-        ).apply {
-            if (filePath != null) {
-                putExtra(RecentFilesFragment.EXTRA_PATH, filePath)
-            }
-        }
-        startActivitySafe(intent)
-    }
-
-    private fun openFileTools() {
-        val path = currentPath
-        val filePath = if (path.isLinuxPath) path.toFile().absolutePath else null
-        val intent = ToolHostActivity.createIntent<UnifiedSearchFragment>(
-            R.string.file_tools_title
-        ).apply {
-            if (filePath != null) {
-                putExtra(UnifiedSearchFragment.EXTRA_PATH, filePath)
-            }
-        }
-        startActivitySafe(intent)
-    }
-
-    private fun openMediaTools() {
-        val intent = ToolHostActivity.createIntent<MediaToolsFragment>(
-            R.string.media_tools_title
-        )
-        startActivitySafe(intent)
-    }
-
-    private fun openFileSearch() {
-        val path = currentPath
-        val filePath = if (path.isLinuxPath) path.toFile().absolutePath else null
-        val intent = ToolHostActivity.createIntent<FileSearchFragment>(
-            R.string.file_search_title
-        ).apply {
-            if (filePath != null) {
-                putExtra(FileSearchFragment.EXTRA_PATH, filePath)
-            }
-        }
-        startActivitySafe(intent)
-    }
-
-    private fun openDuplicateFinder() {
-        val path = currentPath
-        val filePath = if (path.isLinuxPath) path.toFile().absolutePath else null
-        val intent = ToolHostActivity.createIntent<DuplicateFinderFragment>(
-            R.string.duplicate_finder_title
-        ).apply {
-            if (filePath != null) {
-                putExtra(DuplicateFinderFragment.EXTRA_PATH, filePath)
-
-            }
-        }
-        startActivitySafe(intent)
-    }
-
-    private fun openEmptySearch() {
-        val path = currentPath
-        val filePath = if (path.isLinuxPath) path.toFile().absolutePath else null
-        val intent = ToolHostActivity.createIntent<EmptySearchFragment>(
-            R.string.empty_search_title
-        ).apply {
-            if (filePath != null) {
-                putExtra(EmptySearchFragment.EXTRA_PATH, filePath)
-
-            }
-        }
-        startActivitySafe(intent)
     }
 
     private fun shareFile(path: Path, mimeType: MimeType) {

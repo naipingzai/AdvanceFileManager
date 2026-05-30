@@ -57,7 +57,7 @@ val navigationItems: List<NavigationItem?>
                 addAll(bookmarkDirectoryItems)
             }
             add(null)
-            addAll(toolItems)
+            addAll(trashItems)
             add(null)
             addAll(menuItems)
         }
@@ -371,7 +371,7 @@ private val menuItems: List<NavigationItem>
         )
     )
 
-private val toolItems: List<NavigationItem>
+private val trashItems: List<NavigationItem>
     get() = listOf(
         IntentMenuItem(
             R.drawable.delete_icon_white_24dp, R.string.navigation_trash,

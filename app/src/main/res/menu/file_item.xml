@@ -33,20 +33,10 @@
             android:id="@+id/action_share"
             android:title="@string/share" />
     </group>
+    <!-- Plugin group (dynamically populated) -->
+    <group android:id="@+id/group_plugins" />
     <!-- Extended group -->
     <group android:id="@+id/group_extended">
-        <item
-            android:id="@+id/action_media_tools"
-            android:title="@string/file_item_action_media_tools" />
-        <item
-            android:id="@+id/action_open_hex"
-            android:title="@string/file_item_action_open_hex" />
-        <item
-            android:id="@+id/action_encrypt"
-            android:title="@string/file_item_action_encrypt" />
-        <item
-            android:id="@+id/action_decrypt"
-            android:title="@string/file_item_action_decrypt" />
         <item
             android:id="@+id/action_copy_path"
             android:title="@string/file_item_action_copy_path" />

@@ -38,7 +38,7 @@
     <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" tools:node="remove" />
 
     <!-- Shizuku requires API 23. -->
-    <uses-sdk tools:overrideLibrary="rikka.shizuku.aidl,rikka.shizuku.api,rikka.shizuku.shared" />
+    <uses-sdk tools:overrideLibrary="rikka.shizuku.aidl,rikka.shizuku.api,rikka.shizuku.shared,rikka.shizuku.provider" />
 
     <!--
       ~ Samsung DeX requires explicitly setting android:resizeableActivity="true" for the app to be
@@ -271,6 +271,7 @@
             </intent-filter>
         </activity>
 
+        <!-- Video/Audio viewers moved to plugin-media-player -->
         <activity
             android:name="com.advancefilemanager.viewer.video.VideoViewerActivity"
             android:exported="true"
@@ -308,12 +309,6 @@
                 <data android:mimeType="audio/*" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name="com.advancefilemanager.viewer.hex.HexViewerActivity"
-            android:exported="false"
-            android:label="@string/hex_viewer_title"
-            android:theme="@style/Theme.MaterialFiles.Material3" />
 
         <activity
             android:name="com.advancefilemanager.viewer.csv.CsvViewerActivity"

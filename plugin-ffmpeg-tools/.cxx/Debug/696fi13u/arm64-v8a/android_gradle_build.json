@@ -1,0 +1,38 @@
+{
+  "buildFiles": [
+    "/home/npznnz/github/AdvanceFileManager/plugin-ffmpeg-tools/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/npznnz/github/AdvanceFileManager/tools/android-sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/home/npznnz/github/AdvanceFileManager/plugin-ffmpeg-tools/.cxx/Debug/696fi13u/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/npznnz/github/AdvanceFileManager/tools/android-sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/home/npznnz/github/AdvanceFileManager/plugin-ffmpeg-tools/.cxx/Debug/696fi13u/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "ffmpeg-jni::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "ffmpeg-jni",
+      "output": "/home/npznnz/github/AdvanceFileManager/plugin-ffmpeg-tools/build/intermediates/cxx/Debug/696fi13u/obj/arm64-v8a/libffmpeg-jni.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/home/npznnz/github/AdvanceFileManager/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/linux-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/home/npznnz/github/AdvanceFileManager/tools/android-sdk/ndk/28.1.13356709/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": []
+}

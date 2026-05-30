@@ -1,9 +1,0 @@
-D:/AndroidApp/MaterialFile/prebuild/native/zstd/lib/cmake/zstd/zstdTargets.cmake
-D:/AndroidApp/MaterialFile/prebuild/native/zstd/lib/cmake/zstd/zstdTargets-release.cmake
-D:/AndroidApp/MaterialFile/prebuild/native/zstd/lib/cmake/zstd/zstdConfig.cmake
-D:/AndroidApp/MaterialFile/prebuild/native/zstd/lib/cmake/zstd/zstdConfigVersion.cmake
-D:/AndroidApp/MaterialFile/prebuild/native/zstd/lib/pkgconfig/libzstd.pc
-D:/AndroidApp/MaterialFile/prebuild/native/zstd/include/zdict.h
-D:/AndroidApp/MaterialFile/prebuild/native/zstd/include/zstd.h
-D:/AndroidApp/MaterialFile/prebuild/native/zstd/include/zstd_errors.h
-D:/AndroidApp/MaterialFile/prebuild/native/zstd/lib/libzstd.a

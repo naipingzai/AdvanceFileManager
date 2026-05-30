@@ -166,7 +166,6 @@
 
 
     <style name="TextAppearance.App.AboutListItem" parent="TextAppearance.Material3.BodyLarge">
-        <item name="android:textSize">14sp</item>
         <item name="fontFamily">@string/app_typeface_plain_regular</item>
         <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
     </style>
@@ -213,13 +212,13 @@
     </style>
 
 
-    <style name="TextAppearance.App.ListItemSubtitle" parent="TextAppearance.Material3.TitleSmall">
+    <style name="TextAppearance.App.ListItemSubtitle" parent="TextAppearance.Material3.BodyMedium">
         <item name="fontFamily">@string/app_typeface_plain_regular</item>
         <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
     </style>
 
 
-    <style name="TextAppearance.App.ListItemTitle" parent="TextAppearance.Material3.TitleMedium">
+    <style name="TextAppearance.App.ListItemTitle" parent="TextAppearance.Material3.BodyLarge">
         <item name="fontFamily">@string/app_typeface_plain_regular</item>
         <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
     </style>

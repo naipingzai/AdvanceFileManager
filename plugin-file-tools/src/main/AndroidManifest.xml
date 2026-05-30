@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application>
+        <activity
+            android:name=".FileToolsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MaterialFiles.Material3">
+            <intent-filter>
+                <action android:name="com.advancefilemanager.intent.action.PLUGIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.advancefilemanager.intent.action.PLUGIN_EXECUTE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            <meta-data android:name="com.advancefilemanager.plugin.ID" android:value="file-tools" />
+            <meta-data android:name="com.advancefilemanager.plugin.TITLE" android:value="文件工具" />
+            <meta-data android:name="com.advancefilemanager.plugin.DESCRIPTION" android:value="文件搜索、重复文件查找、空文件夹搜索、最近文件、回收站、文件加密、文件对比" />
+            <meta-data android:name="com.advancefilemanager.plugin.MIME_TYPES" android:value="*/*" />
+            <meta-data android:name="com.advancefilemanager.plugin.CATEGORY" android:value="tool" />
+            <meta-data android:name="com.advancefilemanager.plugin.VERSION" android:value="1" />
+        </activity>
+    </application>
+</manifest>

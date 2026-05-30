@@ -8,7 +8,10 @@ package com.advancefilemanager.settings
 import android.os.Build
 import android.os.Bundle
 import com.advancefilemanager.R
+import com.advancefilemanager.app.ToolHostActivity
+import com.advancefilemanager.plugin.PluginSettingsFragment
 import com.advancefilemanager.ui.PreferenceFragmentCompat
+import com.advancefilemanager.util.startActivitySafe
 
 class SettingsPreferenceFragment : PreferenceFragmentCompat() {
     private lateinit var localePreference: LocalePreference
@@ -22,6 +25,14 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
                 val activity = requireActivity() as SettingsActivity
                 activity.setApplicationLocalesPre33(locales)
             }
+        }
+
+        findPreference<androidx.preference.Preference>("pref_key_plugin_manage")?.setOnPreferenceClickListener {
+            val intent = ToolHostActivity.createIntent<PluginSettingsFragment>(
+                R.string.plugin_settings_title
+            )
+            startActivitySafe(intent)
+            true
         }
     }
 

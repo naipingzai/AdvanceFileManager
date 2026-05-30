@@ -1,7 +1,0 @@
-rikka.shizuku-pngs-0 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-api\build\generated\res\pngs\release
-rikka.shizuku-resValues-1 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-api\build\generated\res\resValues\release
-rikka.shizuku-mergeReleaseResources-2 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-api\build\intermediates\incremental\release\mergeReleaseResources\merged.dir
-rikka.shizuku-mergeReleaseResources-3 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-api\build\intermediates\incremental\release\mergeReleaseResources\stripped.dir
-rikka.shizuku-release-4 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-api\build\intermediates\merged_res\release\mergeReleaseResources
-rikka.shizuku-main-5 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-api\src\main\res
-rikka.shizuku-release-6 D:\AndroidApp\MaterialFile\materialfile_deps\android\shizuku-api\src\release\res

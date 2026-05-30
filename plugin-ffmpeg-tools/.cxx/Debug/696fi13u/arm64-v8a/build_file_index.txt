@@ -1,0 +1,1 @@
+/home/npznnz/github/AdvanceFileManager/plugin-ffmpeg-tools/src/main/cpp/CMakeLists.txt

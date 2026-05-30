@@ -11,6 +11,9 @@ import com.advancefilemanager.BuildConfig
 import com.advancefilemanager.coil.initializeCoil
 import com.advancefilemanager.filejob.fileJobNotificationTemplate
 import com.advancefilemanager.hiddenapi.HiddenApi
+import com.advancefilemanager.plugin.ffmpegtools.FFmpegFeatureProvider
+import com.advancefilemanager.plugin.filetools.FileToolsFeatureProvider
+import com.advancefilemanager.plugin.protocol.PluginManager
 import com.advancefilemanager.provider.FileSystemProviders
 import com.advancefilemanager.settings.Settings
 import com.advancefilemanager.storage.StorageVolumeListLiveData
@@ -21,6 +24,7 @@ val appInitializers = listOf(
     ::initializeWebViewDebugging,
     ::initializeCoil,
     ::initializeFileSystemProviders,
+    ::initializePlugins,
     ::upgradeApp,
     ::initializeLiveDataObjects,
     ::createNotificationChannels
@@ -43,6 +47,11 @@ private fun initializeWebViewDebugging() {
 private fun initializeFileSystemProviders() {
     FileSystemProviders.install()
     FileSystemProviders.overflowWatchEvents = true
+}
+
+private fun initializePlugins() {
+    PluginManager.registerFeatureProvider(FFmpegFeatureProvider)
+    PluginManager.registerFeatureProvider(FileToolsFeatureProvider)
 }
 
 private fun initializeLiveDataObjects() {

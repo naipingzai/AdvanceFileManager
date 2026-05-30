@@ -1,0 +1,5 @@
+# ninja log v5
+1	120	1780121330307169749	CMakeFiles/ffmpeg-jni.dir/ffmpeg-jni.c.o	8e71d1b29ec37f14
+120	429	1780121330610158750	/home/npznnz/github/AdvanceFileManager/plugin-ffmpeg-tools/build/intermediates/cxx/Debug/696fi13u/obj/arm64-v8a/libffmpeg-jni.so	d9e1368d92a68582
+0	73	1780126113150656508	CMakeFiles/ffmpeg-jni.dir/ffmpeg-jni.c.o	8e71d1b29ec37f14
+73	206	1780126113280652004	/home/npznnz/github/AdvanceFileManager/plugin-ffmpeg-tools/build/intermediates/cxx/Debug/696fi13u/obj/arm64-v8a/libffmpeg-jni.so	d9e1368d92a68582

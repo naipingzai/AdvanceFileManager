@@ -276,15 +276,11 @@
     <string name="file_list_action_copy_path">复制路径</string>
     <string name="file_list_action_add_bookmark">添加书签</string>
     <string name="file_list_action_file_tools">文件工具</string>
-    <string name="file_list_action_media_tools">媒体工具</string>
     <string name="unified_search_tab_file_search">搜索</string>
     <string name="unified_search_tab_duplicates">重复</string>
     <string name="unified_search_tab_empty">空文件</string>
     <string name="unified_search_tab_recent">最近</string>
     <string name="unified_search_tab_compare">对比</string>
-    <string name="file_item_action_media_tools">媒体工具</string>
-    <string name="file_list_select_action_media_tools">媒体工具</string>
-    <string name="media_tool_preselected_files">已选中 %d 个文件</string>
     <string name="file_list_action_file_search">文件搜索</string>
     <string name="file_list_action_duplicate_finder">重复文件检测</string>
     <string name="file_list_action_empty_search">空文件搜索</string>
@@ -554,10 +550,6 @@
     <string name="about_author_title">作者</string>
     <string name="about_author_name_title">奶瓶仔</string>
     <string name="about_author_github_title">在 GitHub 上关注</string>
-    <string name="about_ffmpeg_title">FFmpeg</string>
-    <string name="about_ffmpeg_version_title">FFmpeg 版本</string>
-    <string name="about_ffmpeg_capabilities_title">支持功能</string>
-    <string name="about_ffmpeg_capabilities">格式转换、提取音频、裁剪、视频压缩、视频截图、GIF制作、视频增强、图片压缩、图片增强、文件合并</string>
 
     <!-- 导航工具 -->
     <string name="navigation_tools">工具</string>
@@ -585,7 +577,6 @@
     <string name="tool_desc_trash">查看和恢复已删除的文件</string>
     <string name="tool_desc_recent_files">查看最近访问的文件</string>
     <string name="tool_desc_encryption">加密和解密文件</string>
-    <string name="tool_desc_media_tools">格式转换、压缩、提取音频等媒体工具</string>
 
     <!-- 回收站 -->
     <string name="trash_title">回收站</string>
@@ -842,137 +833,23 @@
     <string name="format_convert_error_title">格式错误</string>
     <string name="format_convert_format_mismatch">以下文件的输出格式不兼容：\n%1$s</string>
 
-    <!-- FFmpeg Tools -->
-    <string name="navigation_media_tools">FFmpeg 工具</string>
-    <string name="media_tools_title">FFmpeg 工具</string>
-    <string name="media_tool_format_convert">格式转换</string>
-    <string name="media_tool_format_convert_desc">通过 FFmpeg 转换媒体文件格式</string>
-    <string name="media_tool_extract_audio">提取音频</string>
-    <string name="media_tool_extract_audio_desc">通过 FFmpeg 从视频中提取音频轨道</string>
-    <string name="media_tool_media_trim">媒体裁剪</string>
-    <string name="media_tool_media_trim_desc">通过 FFmpeg 裁剪指定时间范围的媒体</string>
-    <string name="media_tool_video_compress">视频压缩</string>
-    <string name="media_tool_video_compress_desc">通过 FFmpeg 以较低码率压缩视频</string>
-    <string name="media_tool_video_snapshot">视频截图</string>
-    <string name="media_tool_video_snapshot_desc">通过 FFmpeg 截取指定时间的视频帧</string>
-    <string name="media_tool_gif_maker">GIF 制作</string>
-    <string name="media_tool_gif_maker_desc">通过 FFmpeg 从视频片段创建 GIF</string>
-    <string name="media_tool_media_merge">媒体合并</string>
-    <string name="media_tool_media_merge_desc">通过 FFmpeg 合并多个媒体文件</string>
-    <string name="media_tool_operation_running">有其他操作正在进行中</string>
-    <string name="media_tool_exit_confirm">操作正在进行中，确定要退出吗？</string>
-    <string name="media_tool_image_compress">图片压缩</string>
-    <string name="media_tool_image_compress_desc">通过 FFmpeg 压缩图片文件</string>
-    <string name="media_tool_image_enhance">图片增强</string>
-    <string name="media_tool_image_enhance_desc">通过 FFmpeg 锐化增强图片清晰度</string>
-    <string name="media_tool_video_enhance">视频增强</string>
-    <string name="media_tool_video_enhance_desc">通过 FFmpeg 锐化增强视频清晰度</string>
-    <string name="media_tool_enhance_result">增强完成：%1$d 成功，%2$d 失败</string>
-    <string name="media_tool_media_info">媒体信息</string>
-    <string name="media_tool_media_info_desc">通过 FFmpeg 查看详细媒体信息</string>
-    <string name="media_tool_ffmpeg_unavailable">FFmpeg 不可用</string>
-    <string name="media_tool_ffmpeg_status_desc">FFmpeg 库状态</string>
-    <string name="media_tool_start">开始</string>
-    <string name="media_tool_extract_audio_result">提取完成：%1$d 成功，%2$d 失败</string>
-    <string name="media_tool_trim_start_sec">开始时间（秒）</string>
-    <string name="media_tool_trim_end_sec">结束时间（秒）</string>
-    <string name="media_tool_trim_success">已裁剪至：%s</string>
-    <string name="media_tool_trim_failed">裁剪失败</string>
-    <string name="media_tool_compress_result">压缩完成：%1$d 成功，%2$d 失败</string>
-    <string name="media_tool_snapshot_time_sec">时间戳（秒）</string>
-    <string name="media_tool_snapshot_success">截图已保存至：%s</string>
-    <string name="media_tool_snapshot_failed">截图失败</string>
-    <string name="media_tool_gif_success">GIF 已保存至：%s</string>
-    <string name="media_tool_gif_failed">GIF 创建失败</string>
-    <string name="media_tool_merge_need_multiple">请选择至少 2 个文件</string>
-    <string name="media_tool_merge_success">已合并至：%s</string>
-    <string name="media_tool_merge_failed">合并失败</string>
+    <!-- Plugin / tool errors -->
     <string name="media_tool_info_failed">获取媒体信息失败</string>
-    <string name="media_tool_info_file">文件</string>
-    <string name="media_tool_info_size">大小</string>
-    <string name="media_tool_info_format">格式</string>
-    <string name="media_tool_info_duration">时长</string>
-    <string name="media_tool_info_video">视频</string>
-    <string name="media_tool_info_audio">音频</string>
-    <string name="media_tool_info_codec">编码器</string>
-    <string name="media_tool_info_resolution">分辨率</string>
-    <string name="media_tool_info_bitrate">码率</string>
-    <string name="media_tool_info_sample_rate">采样率</string>
-    <string name="media_tool_info_channels">声道数</string>
-    <string name="media_tool_invalid_time_range">结束时间必须大于开始时间</string>
-    <string name="media_tool_ffmpeg_required_title">需要 FFmpeg</string>
-    <string name="media_tool_ffmpeg_required_message">此功能需要 FFmpeg 支持。当前 FFmpeg 库不可用，请确保应用已正确安装。</string>
-    <string name="media_tool_no_audio_track">所选文件不包含音频轨道，无法执行此操作。</string>
-    <string name="media_tool_no_video_track">所选文件不包含视频轨道，无法执行此操作。</string>
-    <string name="media_tool_prerequisite_title">前提条件不满足</string>
-    <string name="media_tool_extract_audio_requires">提取音频需要所选视频文件包含音频轨道。</string>
-    <string name="media_tool_video_requires">此功能仅支持包含视频轨道的文件。</string>
-    <string name="media_tool_merge_requires">合并要求：\n• 至少选择 2 个文件\n• 所有文件应使用相同的编解码器和分辨率\n• 不同格式的文件可能导致合并失败或播放异常</string>
-    <string name="media_tool_merge_codec_mismatch">所选文件的编解码器或分辨率不一致，直接合并可能产生播放问题。</string>
-    <string name="media_tool_merge_confirm_title">确认合并</string>
-    <string name="media_tool_merge_incompatible_hint">不同编解码器或分辨率的文件无法直接合并，请确保所有文件格式一致后再进行合并。</string>
-    <string name="media_tool_merge_analysis_title">文件分析结果</string>
-    <string name="media_tool_merge_normalize_failed">格式转换失败：%s</string>
-    <string name="media_tool_merge_structure_mismatch">部分文件包含视频而其他文件仅有音频，无法直接合并。</string>
-    <string name="media_tool_merge_no_av_stream">未找到音频或视频流</string>
-    <string name="media_tool_format_incompatible_title">格式不兼容</string>
-    <string name="media_tool_format_incompatible_desc">文件「%1$s」无法直接用于%2$s：\n%3$s\n\n是否自动转换为兼容格式后继续？中间文件会自动清理。</string>
-    <string name="media_tool_auto_convert_and_continue">自动转换并继续</string>
-    <string name="media_tool_format_converting">正在转换格式，请稍候…</string>
-    <string name="media_tool_format_converting_file">正在转换：%1$s（%2$d/%3$d）…</string>
-    <string name="media_tool_format_convert_failed">格式转换失败</string>
-    <string name="media_tool_format_video_issue">视频编码：%1$s（非常用格式）</string>
-    <string name="media_tool_format_audio_mp4_issue">音频编码：%1$s（与MP4容器不兼容）</string>
-    <string name="media_tool_format_audio_issue">音频编码：%1$s（不支持的格式）</string>
-    <string name="media_tool_format_multi_incompatible">%2$d 个文件中有 %1$d 个需要转换格式：</string>
-    <string name="media_tool_format_auto_convert_hint">是否自动转换为 H.264+AAC MP4 格式？中间文件会自动清理。</string>
-    <string name="media_tool_probing_file">正在分析文件…</string>
-    <string name="media_tool_probe_failed">无法读取文件信息，文件可能已损坏或格式不支持。</string>
     <string name="media_tool_error_unknown">未知错误</string>
-    <string name="media_tool_error_cancelled">操作已取消</string>
-    <string name="media_tool_merge_normalize_detail">文件「%1$s」格式转换失败：\n%2$s</string>
-    <string name="media_tool_merge_transcode_title">编解码器不一致</string>
-    <string name="media_tool_merge_transcode_message">所选文件的编解码器或分辨率不一致：\n%1$s\n\n直接流拼接可能导致合并失败或输出无法播放。\n是否先将所有文件转码为统一格式后再合并？</string>
-    <string name="media_tool_merge_transcode_and_merge">转码后合并</string>
-    <string name="media_tool_merge_transcoding">正在转码并合并…</string>
-    <string name="media_tool_copy_error">复制错误信息</string>
-    <string name="media_tool_error_copied">错误详情已复制</string>
-    <string name="file_item_action_format_convert">格式转换</string>
-    <string name="file_item_action_media_info">媒体信息</string>
-    <string name="file_item_action_extract_audio">提取音频</string>
-    <string name="file_item_action_trim">裁剪</string>
-    <string name="file_item_action_video_compress">视频压缩</string>
-    <string name="file_item_action_video_snapshot">视频截图</string>
-    <string name="file_item_action_gif_maker">制作 GIF</string>
-    <string name="file_item_action_image_compress">图片压缩</string>
-    <string name="file_item_action_image_enhance">图片增强</string>
-    <string name="file_item_action_video_enhance">视频增强</string>
-    <string name="file_list_select_action_format_convert">格式转换</string>
+    <string name="plugin_not_installed">插件未安装，请先安装对应插件。</string>
+
+    <!-- Plugin settings -->
+    <string name="settings_plugins_title">插件</string>
+    <string name="settings_plugin_manage_title">插件管理</string>
+    <string name="settings_plugin_manage_summary">查看和启用/禁用插件功能</string>
+    <string name="plugin_settings_title">插件管理</string>
+    <string name="plugin_settings_empty">未发现任何插件</string>
+
     <string name="file_type_image">图片</string>
     <string name="file_type_video">视频</string>
     <string name="file_type_audio">音频</string>
     <string name="file_type_unknown">未知</string>
 
-    <!-- Video compress dialog -->
-    <string name="compress_option_bitrate">码率</string>
-    <string name="compress_bitrate_low">低 (500 kbps)</string>
-    <string name="compress_bitrate_medium">中 (1500 kbps)</string>
-    <string name="compress_bitrate_high">高 (3000 kbps)</string>
-    <string name="compress_option_resolution">分辨率</string>
-    <string name="compress_res_original">原始</string>
-    <string name="compress_res_720p">720p</string>
-    <string name="compress_res_480p">480p</string>
-    <string name="compress_res_360p">360p</string>
-    <string name="compress_option_framerate">帧率</string>
-    <string name="compress_fps_original">原始</string>
-    <string name="compress_fps_30">30 fps</string>
-    <string name="compress_fps_24">24 fps</string>
-    <string name="compress_fps_15">15 fps</string>
-    <!-- Video enhance dialog -->
-    <string name="enhance_option_strength">锐化强度</string>
-    <string name="enhance_strength_light">轻度</string>
-    <string name="enhance_strength_medium">中度</string>
-    <string name="enhance_strength_strong">强力</string>
     <!-- CSV viewer -->
     <string name="csv_viewer_title">CSV 查看器</string>
     <string name="csv_viewer_error">无法加载 CSV 文件</string>

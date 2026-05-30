@@ -1,7 +1,0 @@
-# ninja log v5
-9	118	7947347231989155	CMakeFiles/lz4_static.dir/D_/AndroidApp/MaterialFile/materialfile_deps/native/lz4/src/lib/lz4file.c.o	302dfad4b0ba3099
-17	174	7947347232556128	CMakeFiles/lz4_static.dir/D_/AndroidApp/MaterialFile/materialfile_deps/native/lz4/src/lib/xxhash.c.o	31f5ed097b28e70
-13	299	7947347233784745	CMakeFiles/lz4_static.dir/D_/AndroidApp/MaterialFile/materialfile_deps/native/lz4/src/lib/lz4frame.c.o	a25e2f4f2a74f63a
-0	1290	7947347243638531	CMakeFiles/lz4_static.dir/D_/AndroidApp/MaterialFile/materialfile_deps/native/lz4/src/lib/lz4.c.o	1a4b143b7b027039
-5	1554	7947347246292553	CMakeFiles/lz4_static.dir/D_/AndroidApp/MaterialFile/materialfile_deps/native/lz4/src/lib/lz4hc.c.o	35d0aff4d323c048
-1555	1630	7947347247119055	liblz4.a	f3d7bb7bdbc622d0

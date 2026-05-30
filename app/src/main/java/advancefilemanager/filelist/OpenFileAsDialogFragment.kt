@@ -27,8 +27,6 @@ import com.advancefilemanager.util.finish
 import com.advancefilemanager.util.putArgs
 import com.advancefilemanager.util.startActivitySafe
 import com.advancefilemanager.util.withChooser
-import com.advancefilemanager.viewer.hex.HexViewerActivity
-import com.advancefilemanager.viewer.hex.HexViewerFragment
 
 class OpenFileAsDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -37,14 +35,9 @@ class OpenFileAsDialogFragment : AppCompatDialogFragment() {
         MaterialAlertDialogBuilder(requireContext(), theme)
             .setTitle(getString(R.string.file_open_as_title_format, args.path.name))
             .apply {
-                val allItems = FILE_TYPES.map { getString(it.first) } +
-                    getString(R.string.file_open_as_type_hex)
+                val allItems = FILE_TYPES.map { getString(it.first) }
                 setItems(allItems.toTypedArray<CharSequence>()) { _, which ->
-                    if (which < FILE_TYPES.size) {
-                        openAs(FILE_TYPES[which].second)
-                    } else {
-                        openAsHex()
-                    }
+                    openAs(FILE_TYPES[which].second)
                 }
             }
             .create()
@@ -54,14 +47,6 @@ class OpenFileAsDialogFragment : AppCompatDialogFragment() {
             .addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
             .apply { extraPath = args.path }
             .withChooser()
-        startActivitySafe(intent)
-        finish()
-    }
-
-    private fun openAsHex() {
-        val intent = Intent(requireContext(), HexViewerActivity::class.java).apply {
-            extraPath = args.path
-        }
         startActivitySafe(intent)
         finish()
     }

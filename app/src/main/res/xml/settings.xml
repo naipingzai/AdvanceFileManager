@@ -68,4 +68,11 @@
             android:summary="@string/settings_show_pdf_thumbnail_pre_28_summary"
             app:isPreferenceVisible="@bool/pref_visible_show_pdf_thumbnail_pre_28" />
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/settings_plugins_title">
+        <Preference
+            android:key="pref_key_plugin_manage"
+            android:title="@string/settings_plugin_manage_title"
+            android:summary="@string/settings_plugin_manage_summary" />
+    </PreferenceCategory>
 </PreferenceScreen>

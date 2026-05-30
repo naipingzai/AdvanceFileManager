@@ -23,6 +23,12 @@ all_files.txt
 # App 构建产物
 app/build/
 
+# Plugin 模块构建产物
+plugin-protocol/build/
+plugin-ffmpeg-tools/build/
+plugin-file-tools/build/
+plugin-ebook-viewer/build/
+
 # NpzLib 模块构建产物 (deps/npzself/)
 deps/npzself/*/build/
 deps/npzself/*/.gradle/
