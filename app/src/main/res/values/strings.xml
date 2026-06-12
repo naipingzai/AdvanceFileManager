@@ -12,6 +12,7 @@
     <!-- Common -->
     <string name="open_file_error">Cannot open this file</string>
 
+    <string name="cancel">Cancel</string>
     <string name="close">Close</string>
     <string name="action_add">Add</string>
     <string name="copy">Copy</string>
@@ -594,8 +595,10 @@
     <string name="navigation_edit_bookmark_directory_title">Bookmark folder</string>
     <string name="navigation_edit_bookmark_directory_name">Name</string>
     <string name="navigation_edit_bookmark_directory_path">Path</string>
-    <string name="navigation_settings" translatable="false">@string/settings_title</string>
-    <string name="navigation_about" translatable="false">@string/about_title</string>
+    <string name="navigation_settings">General Settings</string>
+    <string name="navigation_feature_settings">Entry Settings</string>
+    <string name="navigation_ui_settings">Display Settings</string>
+    <string name="navigation_about">About</string>
 
     <string name="archive_viewer_title">Archive viewer</string>
     <string name="image_viewer_title">Image viewer</string>
@@ -648,7 +651,7 @@
 
     <string name="file_open_as_type_hex">Hex</string>
 
-    <string name="settings_title">Settings</string>
+    <string name="settings_title">General Settings</string>
     <string name="settings_interface_title">Interface</string>
     <string name="settings_locale_title">Language</string>
     <string name="settings_theme_color_title">Theme color</string>
@@ -691,8 +694,6 @@
         <item>View contents</item>
         <item>Ask what to do</item>
     </string-array>
-    <string name="settings_show_pdf_thumbnail_pre_28_title">Show thumbnail for PDF documents</string>
-    <string name="settings_show_pdf_thumbnail_pre_28_summary">Might make the app unstable on older versions of Android</string>
     <string name="settings_read_remote_files_for_thumbnail_title">Read remote files for thumbnail</string>
 
     <string name="about_title">About</string>
@@ -884,6 +885,8 @@
     <string name="encryption_add_file">Add file</string>
     <string name="encryption_encrypt">Encrypt</string>
     <string name="encryption_decrypt">Decrypt</string>
+    <string name="encrypt_selected">Encrypt selected</string>
+    <string name="decrypt_selected">Decrypt selected</string>
     <string name="encryption_file_count">%d file(s)</string>
     <string name="encryption_no_files">No files added</string>
     <string name="encryption_no_password">Please enter a password</string>
@@ -1040,48 +1043,112 @@
     <string name="app_typeface_plain_regular" translatable="false">sans-serif</string>
 
     <!-- Feature: FFmpeg media tools -->
-    <string name="media_tool_format_convert">格式转换</string>
-    <string name="media_tool_format_convert_desc">音视频格式互转</string>
-    <string name="media_tool_image_compress">图片压缩</string>
-    <string name="media_tool_image_compress_desc">降低图片文件大小</string>
-    <string name="media_tool_video_compress">视频压缩</string>
-    <string name="media_tool_video_compress_desc">降低比特率重编码</string>
-    <string name="media_tool_extract_audio">音频提取</string>
-    <string name="media_tool_extract_audio_desc">从视频中提取音轨</string>
-    <string name="media_tool_media_trim">媒体剪切</string>
-    <string name="media_tool_media_trim_desc">按时间范围裁剪</string>
-    <string name="media_tool_video_snapshot">视频截帧</string>
-    <string name="media_tool_video_snapshot_desc">提取指定时间点帧</string>
-    <string name="media_tool_gif_maker">GIF 制作</string>
-    <string name="media_tool_gif_maker_desc">视频片段转 GIF</string>
-    <string name="media_tool_video_merge">视频合并</string>
-    <string name="media_tool_video_merge_desc">多视频合并为一</string>
+    <string name="media_tool_format_convert">Format Convert</string>
+    <string name="media_tool_format_convert_desc">Convert between audio and video formats</string>
+    <string name="media_tool_image_compress">Image Compress</string>
+    <string name="media_tool_image_compress_desc">Reduce image file size</string>
+    <string name="media_tool_video_compress">Video Compress</string>
+    <string name="media_tool_video_compress_desc">Re-encode with lower bitrate</string>
+    <string name="media_tool_extract_audio">Extract Audio</string>
+    <string name="media_tool_extract_audio_desc">Extract audio track from video</string>
+    <string name="media_tool_media_trim">Media Trim</string>
+    <string name="media_tool_media_trim_desc">Cut by time range</string>
+    <string name="media_tool_video_snapshot">Video Snapshot</string>
+    <string name="media_tool_video_snapshot_desc">Extract frame at time point</string>
+    <string name="media_tool_gif_maker">GIF Maker</string>
+    <string name="media_tool_gif_maker_desc">Convert video clip to GIF</string>
+    <string name="media_tool_video_merge">Video Merge</string>
+    <string name="media_tool_video_merge_desc">Merge multiple videos into one</string>
+    <string name="media_tool_video_enhance">Video Enhance</string>
+    <string name="media_tool_video_enhance_desc">Improve video clarity</string>
+    <string name="media_tool_image_enhance">Image Enhance</string>
+    <string name="media_tool_image_enhance_desc">Improve image clarity</string>
 
     <!-- Feature: File tools -->
-    <string name="file_tool_file_search">文件搜索</string>
-    <string name="file_tool_file_search_desc">按名称搜索文件</string>
-    <string name="file_tool_duplicate_finder">重复文件查找</string>
-    <string name="file_tool_duplicate_finder_desc">查找重复文件</string>
-    <string name="file_tool_empty_search">空文件夹搜索</string>
-    <string name="file_tool_empty_search_desc">查找空文件和文件夹</string>
-    <string name="file_tool_recent_files">最近文件</string>
-    <string name="file_tool_recent_files_desc">查看最近修改的文件</string>
-    <string name="file_tool_hex_viewer">十六进制查看</string>
-    <string name="file_tool_hex_viewer_desc">以Hex+ASCII并排查看文件</string>
-    <string name="file_tool_encryption">文件加密</string>
-    <string name="file_tool_encryption_desc">加密或解密文件</string>
-    <string name="file_tool_file_compare">文件对比</string>
-    <string name="file_tool_file_compare_desc">对比两个文件的内容</string>
+    <string name="file_tool_file_search">File Search</string>
+    <string name="file_tool_file_search_desc">Search files by name</string>
+    <string name="file_tool_duplicate_finder">Duplicate Finder</string>
+    <string name="file_tool_duplicate_finder_desc">Find duplicate files</string>
+    <string name="file_tool_empty_search">Empty Folder Search</string>
+    <string name="file_tool_empty_search_desc">Find empty files and folders</string>
+    <string name="file_tool_recent_files">Recent Files</string>
+    <string name="file_tool_recent_files_desc">View recently modified files</string>
+    <string name="file_tool_hex_viewer">Hex Viewer</string>
+    <string name="file_tool_hex_viewer_desc">View file in Hex+ASCII side by side</string>
+    <string name="file_tool_encryption">File Encryption</string>
+    <string name="file_tool_encryption_desc">Encrypt or decrypt files</string>
+    <string name="file_tool_file_compare">File Compare</string>
+    <string name="file_tool_file_compare_desc">Compare contents of two files</string>
 
     <!-- Feature: E-book viewer -->
-    <string name="ebook_viewer_desc">查看 EPUB/MOBI 电子书</string>
+    <string name="ebook_viewer_desc">View EPUB/MOBI ebooks</string>
     <!-- Feature settings -->
-    <string name="feature_settings_title">功能设置</string>
-    <string name="feature_settings_subtitle">启用或禁用文件操作栏中的功能</string>
-    <string name="feature_settings_file_tools">文件工具</string>
-    <string name="feature_settings_file_tools_desc">文件搜索、重复查找、空文件夹搜索等</string>
-    <string name="feature_settings_ffmpeg_tools">媒体工具</string>
-    <string name="feature_settings_ffmpeg_tools_desc">格式转换、视频压缩、音频提取等</string>
-    <string name="feature_settings_ebook_viewer">电子书查看</string>
-    <string name="feature_settings_ebook_viewer_desc">EPUB/MOBI 电子书阅读</string>
+    <string name="feature_settings_title">Entry Settings</string>
+    <string name="feature_settings_subtitle">Manage feature entries in file operation bar</string>
+    <string name="feature_settings_file_tools">File Tools</string>
+    <string name="feature_settings_file_tools_desc">File search, duplicate finder, empty folder search, etc.</string>
+    <string name="feature_settings_ffmpeg_tools">Media Tools</string>
+    <string name="feature_settings_ffmpeg_tools_desc">Format convert, video compress, audio extract, etc.</string>
+    <string name="feature_settings_ebook_viewer">Ebook Viewer</string>
+    <string name="feature_settings_ebook_viewer_desc">EPUB/MOBI ebook reading</string>
+    <string name="expand">Expand</string>
+    <string name="collapse">Collapse</string>
+
+    <!-- Entry Settings Sections -->
+    <string name="entry_settings_basic_section">General Tools</string>
+
+    <!-- Basic Settings -->
+    <string name="basic_settings_open_with">Open With</string>
+    <string name="basic_settings_open_with_desc">Choose app to open file</string>
+    <string name="basic_settings_cut_desc">Cut file to clipboard</string>
+    <string name="basic_settings_copy_desc">Copy file to clipboard</string>
+    <string name="basic_settings_delete_desc">Delete selected files</string>
+    <string name="basic_settings_rename_desc">Rename file</string>
+    <string name="basic_settings_archive_desc">Compress file to archive</string>
+    <string name="basic_settings_share_desc">Share file to other apps</string>
+    <string name="basic_settings_copy_path_desc">Copy file path to clipboard</string>
+    <string name="basic_settings_add_bookmark_desc">Add folder to bookmarks</string>
+    <string name="basic_settings_properties_desc">View file properties</string>
+
+    <!-- UI Display Settings -->
+    <string name="ui_settings_title">Display Settings</string>
+    <string name="ui_settings_subtitle">Adjust font size and spacing</string>
+    <string name="ui_settings_font_size_title">Font Size</string>
+    <string name="ui_settings_font_size_subtitle">Adjust global font size</string>
+    <string name="ui_settings_spacing_title">Spacing</string>
+    <string name="ui_settings_spacing_subtitle">Adjust spacing between elements</string>
+    <string name="ui_settings_list_item_height_title">List Item Height</string>
+    <string name="ui_settings_list_item_height_subtitle">Adjust row height of list items</string>
+    <string name="ui_settings_icon_size_title">Icon Size</string>
+    <string name="ui_settings_icon_size_subtitle">Adjust list item icon size</string>
+    <string name="ui_settings_screen_margin_title">Screen Margin</string>
+    <string name="ui_settings_screen_margin_subtitle">Adjust page edge margins</string>
+    <string name="ui_settings_dialog_padding_title">Dialog Padding</string>
+    <string name="ui_settings_dialog_padding_subtitle">Adjust dialog content padding</string>
+    <string name="ui_settings_button_spacing_title">Button Spacing</string>
+    <string name="ui_settings_button_spacing_subtitle">Adjust spacing between buttons</string>
+    <string name="ui_settings_preview_title">Preview</string>
+    <string name="ui_settings_reset_title">Reset to Default</string>
+    <string name="ui_settings_reset_message">Reset all display settings to default?</string>
+    <string name="ui_settings_scale_compact">Compact</string>
+    <string name="ui_settings_scale_default">Default</string>
+    <string name="ui_settings_scale_relaxed">Relaxed</string>
+    <string-array name="ui_settings_scale_entries">
+        <item>Compact</item>
+        <item>Default</item>
+        <item>Relaxed</item>
+        <item>Custom</item>
+    </string-array>
+    <string-array name="ui_settings_scale_values">
+        <item>compact</item>
+        <item>default</item>
+        <item>relaxed</item>
+        <item>custom</item>
+    </string-array>
+
+    <!-- Missing string resources for layouts -->
+    <string name="file_search_query_hint">Search by filename</string>
+    <string name="file_search_empty_hint">Enter keywords to start searching</string>
+    <string name="recent_files_empty">No recently modified files</string>
+    <string name="ffmpeg_source_file">Source file</string>
 </resources>

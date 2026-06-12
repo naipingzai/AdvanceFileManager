@@ -12,6 +12,7 @@
     <!-- 通用 -->
     <string name="open_file_error">无法打开此文件</string>
 
+    <string name="cancel">取消</string>
     <string name="close">关闭</string>
     <string name="action_add">添加</string>
     <string name="copy">复制</string>
@@ -200,6 +201,7 @@
     <string name="file_job_remount_loading_format">正在重新挂载“%1$s”为读写模式…</string>
     <string name="file_job_remount_success_format">“%1$s”已被重新挂载为读写模式</string>
     <string name="file_job_action_all">应用此操作到所有文件</string>
+    <string name="file_job_invalid_file_name">无效文件名：&quot;%1$s&quot;</string>
 
     <string name="file_open_apk_message">这个文件是一个 Android 安装包。您想要安装它，还是查看它的内容？</string>
     <string name="file_open_as_title">打开为…</string>
@@ -242,6 +244,7 @@
     <string name="batch_rename_name_hint">基础名称</string>
     <string name="batch_rename_default_name">文件</string>
     <string name="batch_rename_preview">预览</string>
+    <string name="batch_rename_conflict_message">部分文件会覆盖已有文件，冲突的文件将被跳过。</string>
 
     <string name="file_list_title">文件</string>
     <plurals name="file_list_title_open_file">
@@ -285,6 +288,7 @@
     <string name="file_list_action_duplicate_finder">重复文件检测</string>
     <string name="file_list_action_empty_search">空文件搜索</string>
     <string name="file_list_action_recent_files">最近文件</string>
+    <string name="file_list_select_action_format_convert">格式转换</string>
     <string name="file_list_breadcrumb_action_open_in_new_task">在新窗口中打开</string>
     <string name="file_list_select_title_format">%1$,d</string>
     <string name="file_list_create_file_name_hint">文件名</string>
@@ -305,6 +309,18 @@
     <string name="file_item_action_properties">属性</string>
     <string name="file_item_action_encrypt">加密</string>
     <string name="file_item_action_decrypt">解密</string>
+    <string name="file_item_action_extract_audio">提取音频</string>
+    <string name="file_item_action_format_convert">格式转换</string>
+    <string name="file_item_action_gif_maker">制作 GIF</string>
+    <string name="file_item_action_image_compress">图片压缩</string>
+    <string name="file_item_action_image_enhance">图片增强</string>
+    <string name="file_item_action_media_info">媒体信息</string>
+    <string name="file_item_action_trim">裁剪</string>
+    <string name="file_item_action_video_compress">视频压缩</string>
+    <string name="file_item_action_video_enhance">视频增强</string>
+    <string name="file_item_action_video_snapshot">截图</string>
+    <string name="file_item_action_copy_path">复制路径</string>
+    <string name="file_item_action_add_bookmark">添加书签</string>
 
     <string name="file_properties_title_format">“%1$s”属性</string>
     <string name="file_properties_basic">基本</string>
@@ -458,6 +474,7 @@
     <string name="archive_viewer_title">归档文件查看器</string>
     <string name="image_viewer_title">图片查看器</string>
     <string name="video_viewer_title">视频播放器</string>
+    <string name="video_viewer_seekbar">视频进度</string>
     <string name="image_viewer_subtitle_format">%1$,d/%2$,d</string>
     <string name="save_as_title">另存为</string>
     <string name="save_as_error">保存时发生错误</string>
@@ -485,6 +502,7 @@
     <string name="audio_player_skip_next">快进</string>
     <string name="audio_player_rewind">后退 10 秒</string>
     <string name="audio_player_forward">快进 30 秒</string>
+    <string name="audio_player_seekbar">音频进度</string>
 
     <string name="hex_viewer_title">十六进制查看器</string>
     <string name="hex_viewer_file_size">文件大小：%1$s</string>
@@ -501,7 +519,7 @@
 
     <string name="file_open_as_type_hex">十六进制</string>
 
-    <string name="settings_title">设置</string>
+    <string name="settings_title">常规设置</string>
     <string name="settings_interface_title">界面</string>
     <string name="settings_locale_title">语言</string>
     <string name="settings_theme_color_title">主题色</string>
@@ -538,8 +556,6 @@
         <item>查看内容</item>
         <item>询问操作</item>
     </string-array>
-    <string name="settings_show_pdf_thumbnail_pre_28_title">显示 PDF 文档缩略图</string>
-    <string name="settings_show_pdf_thumbnail_pre_28_summary">可能导致应用在旧版 Android 上不稳定</string>
     <string name="settings_read_remote_files_for_thumbnail_title">读取远程文件以显示缩略图</string>
 
     <string name="about_title">关于</string>
@@ -552,6 +568,10 @@
     <string name="about_author_github_title">在 GitHub 上关注</string>
 
     <!-- 导航工具 -->
+    <string name="navigation_settings">常规设置</string>
+    <string name="navigation_feature_settings">入口设置</string>
+    <string name="navigation_ui_settings">显示设置</string>
+    <string name="navigation_about">关于</string>
     <string name="navigation_tools">工具</string>
     <string name="navigation_file_tools">文件工具</string>
     <string name="navigation_storage_tools">存储管理</string>
@@ -614,6 +634,8 @@
     <string name="empty_search_select_type">请至少选择一种搜索类型</string>
     <string name="empty_search_invalid_path">无效路径</string>
     <string name="empty_search_none_selected">未选择任何项目</string>
+    <string name="empty_search_select_all">全选</string>
+    <string name="empty_search_deselect_all">取消全选</string>
     <string name="empty_search_delete_selected">删除所选项</string>
     <string name="empty_search_delete_title">删除</string>
     <string name="empty_search_delete_message">永久删除 %d 个选中的项目？</string>
@@ -658,6 +680,8 @@
     <string name="file_search_delete_message">删除 %1$d 个选中的文件（%2$s）？</string>
     <string name="file_search_deleted_count">已删除 %d 个文件</string>
     <string name="file_search_none_selected">未选择任何文件</string>
+    <string name="file_search_select_all">全选</string>
+    <string name="file_search_deselect_all">取消全选</string>
     <string name="file_search_result_summary">找到 %1$d 个文件，共 %2$s</string>
     <string name="file_search_scanning_progress">扫描中…已找到 %d 个文件</string>
     <string name="file_search_error">搜索失败：%s</string>
@@ -738,6 +762,8 @@
     <string name="encryption_status_success">成功</string>
     <string name="encryption_status_failed">失败</string>
     <string name="encryption_result">成功：%1$d，失败：%2$d</string>
+    <string name="encrypt_selected">加密所选</string>
+    <string name="decrypt_selected">解密所选</string>
 
     <!-- 操作日志 -->
     <string name="operation_log_title">操作日志</string>
@@ -798,6 +824,9 @@
     <string name="image_compress_failed">失败</string>
     <string name="image_compress_result">已压缩 %1$d 张图片，共节省 %2$s</string>
     <string name="image_compress_error">压缩失败：%s</string>
+    <string name="image_compress_delete_original">删除原始文件</string>
+    <string name="image_compress_remove_title">从列表中移除</string>
+    <string name="image_compress_remove_message">从压缩列表中移除此图片？</string>
 
     <!-- Format Convert -->
     <string name="format_convert_title">格式转换（FFmpeg）</string>
@@ -832,6 +861,8 @@
     <string name="format_convert_audio_output_format">音频输出格式</string>
     <string name="format_convert_error_title">格式错误</string>
     <string name="format_convert_format_mismatch">以下文件的输出格式不兼容：\n%1$s</string>
+    <string name="format_convert_convert_all">全部转换</string>
+    <string name="format_convert_unknown_type_skipped">部分文件因类型未知已被跳过。</string>
 
     <!-- Plugin / tool errors -->
     <string name="media_tool_info_failed">获取媒体信息失败</string>
@@ -863,4 +894,113 @@
     <string name="file_job_started_rename">重命名任务已开始…</string>
     <string name="file_job_started_batch_rename">批量重命名任务已开始…</string>
     <string name="file_job_has_running">有任务正在处理中，请稍候…</string>
+
+    <!-- Missing string resources for layouts -->
+    <string name="file_search_query_hint">输入文件名搜索</string>
+    <string name="file_search_empty_hint">输入关键词开始搜索</string>
+    <string name="recent_files_empty">没有最近修改的文件</string>
+    <string name="ffmpeg_source_file">源文件</string>
+
+    <!-- Feature: FFmpeg media tools -->
+    <string name="media_tool_format_convert">格式转换</string>
+    <string name="media_tool_format_convert_desc">音视频格式互转</string>
+    <string name="media_tool_image_compress">图片压缩</string>
+    <string name="media_tool_image_compress_desc">降低图片文件大小</string>
+    <string name="media_tool_video_compress">视频压缩</string>
+    <string name="media_tool_video_compress_desc">降低比特率重编码</string>
+    <string name="media_tool_extract_audio">音频提取</string>
+    <string name="media_tool_extract_audio_desc">从视频中提取音轨</string>
+    <string name="media_tool_media_trim">媒体剪切</string>
+    <string name="media_tool_media_trim_desc">按时间范围裁剪</string>
+    <string name="media_tool_video_snapshot">视频截帧</string>
+    <string name="media_tool_video_snapshot_desc">提取指定时间点帧</string>
+    <string name="media_tool_gif_maker">GIF 制作</string>
+    <string name="media_tool_gif_maker_desc">视频片段转 GIF</string>
+    <string name="media_tool_video_merge">视频合并</string>
+    <string name="media_tool_video_merge_desc">多视频合并为一</string>
+    <string name="media_tool_video_enhance">视频增强</string>
+    <string name="media_tool_video_enhance_desc">提升画质清晰度</string>
+    <string name="media_tool_image_enhance">图片增强</string>
+    <string name="media_tool_image_enhance_desc">提升图片清晰度</string>
+    <string name="media_tool_merge_transcode_title">检测到不同编码</string>
+    <string name="media_tool_merge_transcode_message">所选文件的视频编码或分辨率不同，需要先转码再合并。</string>
+    <string name="media_tool_merge_transcode_and_merge">转码并合并</string>
+    <string name="media_tool_merge_transcoding">转码合并中…</string>
+
+    <!-- Feature: File tools -->
+    <string name="file_tool_file_search">文件搜索</string>
+    <string name="file_tool_file_search_desc">按名称搜索文件</string>
+    <string name="file_tool_duplicate_finder">重复文件查找</string>
+    <string name="file_tool_duplicate_finder_desc">查找重复文件</string>
+    <string name="file_tool_empty_search">空文件夹搜索</string>
+    <string name="file_tool_empty_search_desc">查找空文件和文件夹</string>
+    <string name="file_tool_recent_files">最近文件</string>
+    <string name="file_tool_recent_files_desc">查看最近修改的文件</string>
+    <string name="file_tool_hex_viewer">十六进制查看</string>
+    <string name="file_tool_hex_viewer_desc">以Hex+ASCII并排查看文件</string>
+    <string name="file_tool_encryption">文件加密</string>
+    <string name="file_tool_encryption_desc">加密或解密文件</string>
+    <string name="file_tool_file_compare">文件对比</string>
+    <string name="file_tool_file_compare_desc">对比两个文件的内容</string>
+
+    <!-- Feature: E-book viewer -->
+    <string name="ebook_viewer_desc">查看 EPUB/MOBI 电子书</string>
+
+    <!-- Feature settings -->
+    <string name="feature_settings_title">入口设置</string>
+    <string name="feature_settings_subtitle">管理文件操作栏中显示的功能入口</string>
+    <string name="feature_settings_file_tools">文件工具</string>
+    <string name="feature_settings_file_tools_desc">文件搜索、重复查找、空文件夹搜索等</string>
+    <string name="feature_settings_ffmpeg_tools">媒体工具</string>
+    <string name="feature_settings_ffmpeg_tools_desc">格式转换、视频压缩、音频提取等</string>
+    <string name="feature_settings_ebook_viewer">电子书查看</string>
+    <string name="feature_settings_ebook_viewer_desc">EPUB/MOBI 电子书阅读</string>
+    <string name="expand">展开</string>
+    <string name="collapse">收起</string>
+
+    <!-- Entry Settings Sections -->
+    <string name="entry_settings_basic_section">常规工具</string>
+
+    <!-- Basic Settings -->
+    <string name="basic_settings_open_with">打开方式</string>
+    <string name="basic_settings_open_with_desc">选择应用打开文件</string>
+    <string name="basic_settings_cut_desc">剪切文件到剪贴板</string>
+    <string name="basic_settings_copy_desc">复制文件到剪贴板</string>
+    <string name="basic_settings_delete_desc">删除选中的文件</string>
+    <string name="basic_settings_rename_desc">重命名文件</string>
+    <string name="basic_settings_archive_desc">压缩文件为归档包</string>
+    <string name="basic_settings_share_desc">分享文件到其他应用</string>
+    <string name="basic_settings_copy_path_desc">复制文件路径到剪贴板</string>
+    <string name="basic_settings_add_bookmark_desc">将文件夹添加到书签</string>
+    <string name="basic_settings_properties_desc">查看文件属性详情</string>
+
+    <!-- UI Display Settings -->
+    <string name="ui_settings_title">显示设置</string>
+    <string name="ui_settings_subtitle">调整字体大小和界面间距</string>
+    <string name="ui_settings_font_size_title">字体大小</string>
+    <string name="ui_settings_font_size_subtitle">调整全局字体大小</string>
+    <string name="ui_settings_spacing_title">界面间距</string>
+    <string name="ui_settings_spacing_subtitle">调整元素之间的间距</string>
+    <string name="ui_settings_list_item_height_title">列表项高度</string>
+    <string name="ui_settings_list_item_height_subtitle">调整列表项的行高</string>
+    <string name="ui_settings_icon_size_title">图标大小</string>
+    <string name="ui_settings_icon_size_subtitle">调整列表项图标的大小</string>
+    <string name="ui_settings_screen_margin_title">页面边距</string>
+    <string name="ui_settings_screen_margin_subtitle">调整页面边缘的留白</string>
+    <string name="ui_settings_dialog_padding_title">对话框内边距</string>
+    <string name="ui_settings_dialog_padding_subtitle">调整对话框内容的内边距</string>
+    <string name="ui_settings_button_spacing_title">按钮间距</string>
+    <string name="ui_settings_button_spacing_subtitle">调整按钮之间的间距</string>
+    <string name="ui_settings_preview_title">预览效果</string>
+    <string name="ui_settings_reset_title">恢复默认</string>
+    <string name="ui_settings_reset_message">确定要恢复所有显示设置为默认值吗？</string>
+    <string name="ui_settings_scale_compact">紧凑</string>
+    <string name="ui_settings_scale_default">默认</string>
+    <string name="ui_settings_scale_relaxed">宽松</string>
+    <string-array name="ui_settings_scale_entries">
+        <item>紧凑</item>
+        <item>默认</item>
+        <item>宽松</item>
+        <item>自定义</item>
+    </string-array>
 </resources>

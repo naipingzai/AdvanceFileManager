@@ -11,6 +11,7 @@
     android:id="@+id/itemLayout"
     android:layout_width="match_parent"
     android:layout_height="@dimen/two_line_list_item_height"
+    android:background="@drawable/file_item_checked_background"
     android:foreground="?selectableItemBackground"
     android:gravity="center_vertical"
     android:orientation="horizontal">
@@ -100,7 +101,7 @@
       ~ pressed state, etc. Necessary states will be duplicated manually in the adapter
       ~ implementation.
       -->
-    <com.advancefilemanager.lib.foregroundcompat.ForegroundImageButton
+    <android.widget.ImageButton
         android:id="@+id/menuButton"
         android:layout_width="@dimen/touch_target_size"
         android:layout_height="@dimen/touch_target_size"
@@ -109,6 +110,5 @@
         android:padding="@dimen/touch_target_icon_padding"
         android:background="@null"
         android:foreground="@drawable/selectable_item_background_oval"
-        android:src="@drawable/more_vertical_icon_white_24dp"
-        app:tint="?colorOnSurfaceVariant" />
+        android:src="@drawable/more_vertical_icon_white_24dp" />
 </com.advancefilemanager.ui.CheckableForegroundLinearLayout>
