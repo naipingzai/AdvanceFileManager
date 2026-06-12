@@ -20,6 +20,8 @@ class FFmpegFeatureFragment : Fragment() {
     private lateinit var binding: FragmentFfmpegFeatureBinding
     private lateinit var feature: MediaToolFeature
     private lateinit var filePath: String
+    private var filePaths: Array<String>? = null
+    private var processingThread: Thread? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,20 +35,37 @@ class FFmpegFeatureFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val actionType = requireArguments().getString(ARG_ACTION_TYPE)!!
-        filePath = requireArguments().getString(ARG_FILE_PATH)!!
-        feature = MediaToolFeature.entries.find { it.actionType == actionType }!!
+        val actionType = requireArguments().getString(ARG_ACTION_TYPE)
+            ?: run { activity?.finish(); return }
+        filePath = requireArguments().getString(ARG_FILE_PATH)
+            ?: run { activity?.finish(); return }
+        filePaths = requireArguments().getStringArray(ARG_FILE_PATHS)
+        feature = MediaToolFeature.entries.find { it.actionType == actionType }
+            ?: run { activity?.finish(); return }
 
         setupFileInfo()
         setupOutputOptions()
         setupActionButton()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        processingThread?.interrupt()
+        processingThread = null
+    }
+
     private fun setupFileInfo() {
         val file = File(filePath)
-        binding.fileName.text = file.name
-        val sizeStr = formatFileSize(file.length())
-        binding.fileInfo.text = "$sizeStr · ${file.extension.uppercase()}"
+        val allPaths = filePaths
+        if (allPaths != null && allPaths.size > 1) {
+            binding.fileName.text = "已选择 ${allPaths.size} 个文件"
+            val totalSize = allPaths.sumOf { File(it).length() }
+            binding.fileInfo.text = formatFileSize(totalSize)
+        } else {
+            binding.fileName.text = file.name
+            val sizeStr = formatFileSize(file.length())
+            binding.fileInfo.text = "$sizeStr · ${file.extension.uppercase()}"
+        }
     }
 
     private fun setupOutputOptions() {
@@ -71,6 +90,8 @@ class FFmpegFeatureFragment : Fragment() {
             MediaToolFeature.VIDEO_SNAPSHOT -> emptyList()
             MediaToolFeature.GIF_MAKER -> listOf("320px", "480px", "原始尺寸")
             MediaToolFeature.VIDEO_MERGE -> emptyList()
+            MediaToolFeature.VIDEO_ENHANCE -> listOf("轻微增强 (1.2x)", "标准增强 (1.5x)", "强力增强 (2.0x)")
+            MediaToolFeature.IMAGE_ENHANCE -> listOf("轻微增强 (1.2x)", "标准增强 (1.5x)", "强力增强 (2.0x)")
         }
     }
 
@@ -91,27 +112,33 @@ class FFmpegFeatureFragment : Fragment() {
         val inputFile = File(filePath)
         val outputFile = generateOutputFile(inputFile, outputFormat)
 
-        Thread {
+        processingThread = Thread {
             try {
                 val result = executeFFmpeg(inputFile, outputFile, outputFormat)
-                requireActivity().runOnUiThread {
+                val act = activity ?: return@Thread
+                act.runOnUiThread {
+                    if (!isAdded) return@runOnUiThread
                     if (result == 0) {
                         binding.progressBar.visibility = View.GONE
                         binding.progressText.text = "完成: ${outputFile.name}"
-                        Toast.makeText(requireContext(), "处理完成: ${outputFile.name}", Toast.LENGTH_LONG).show()
+                        Toast.makeText(act, "处理完成: ${outputFile.name}", Toast.LENGTH_LONG).show()
                     } else {
                         binding.progressText.text = "失败: ${FFmpegJni.getLastError()}"
                     }
                     binding.actionButton.isEnabled = true
                 }
+            } catch (e: InterruptedException) {
+                // Thread interrupted, fragment destroyed
             } catch (e: Exception) {
-                requireActivity().runOnUiThread {
+                val act = activity ?: return@Thread
+                act.runOnUiThread {
+                    if (!isAdded) return@runOnUiThread
                     binding.progressBar.visibility = View.GONE
                     binding.progressText.text = "错误: ${e.message}"
                     binding.actionButton.isEnabled = true
                 }
             }
-        }.start()
+        }.apply { start() }
     }
 
     private fun generateOutputFile(inputFile: File, format: String): File {
@@ -123,9 +150,12 @@ class FFmpegFeatureFragment : Fragment() {
             MediaToolFeature.EXTRACT_AUDIO -> format.split(" ").first()
             MediaToolFeature.GIF_MAKER -> "gif"
             MediaToolFeature.VIDEO_SNAPSHOT -> "jpg"
+            MediaToolFeature.VIDEO_ENHANCE -> inputFile.extension
+            MediaToolFeature.IMAGE_ENHANCE -> inputFile.extension
+            MediaToolFeature.VIDEO_MERGE -> inputFile.extension
             else -> inputFile.extension
         }
-        val dir = inputFile.parentFile ?: inputFile
+        val dir = inputFile.parentFile ?: return File(inputFile.nameWithoutExtension + "_output.$ext")
         var output = File(dir, "${baseName}_output.$ext")
         var counter = 1
         while (output.exists()) {
@@ -136,19 +166,129 @@ class FFmpegFeatureFragment : Fragment() {
     }
 
     private fun executeFFmpeg(inputFile: File, outputFile: File, format: String): Int {
-        return FFmpegJni.convert(
-            inputFile.absolutePath,
-            outputFile.absolutePath,
-            object : FFmpegJni.ProgressCallback {
-                override fun onProgress(percent: Int) {
-                    requireActivity().runOnUiThread {
-                        binding.progressBar.progress = percent
-                        binding.progressText.text = "处理中... $percent%"
-                    }
+        val callback = object : FFmpegJni.ProgressCallback {
+            override fun onProgress(percent: Int) {
+                val act = activity ?: return
+                act.runOnUiThread {
+                    if (!isAdded) return@runOnUiThread
+                    binding.progressBar.progress = percent
+                    binding.progressText.text = "处理中... $percent%"
                 }
             }
-        )
+        }
+
+        return when (feature) {
+            MediaToolFeature.FORMAT_CONVERT -> {
+                FFmpegJni.convert(inputFile.absolutePath, outputFile.absolutePath, callback)
+            }
+            MediaToolFeature.EXTRACT_AUDIO -> {
+                FFmpegJni.extractAudio(inputFile.absolutePath, outputFile.absolutePath, callback)
+            }
+            MediaToolFeature.VIDEO_COMPRESS -> {
+                val (crf, width, height, fps) = parseVideoCompressParams(format, inputFile)
+                FFmpegJni.videoCompress(
+                    inputFile.absolutePath, outputFile.absolutePath,
+                    crf, width, height, fps, callback
+                )
+            }
+            MediaToolFeature.MEDIA_TRIM -> {
+                FFmpegJni.trim(
+                    inputFile.absolutePath, outputFile.absolutePath,
+                    0, 30000, callback
+                )
+            }
+            MediaToolFeature.VIDEO_SNAPSHOT -> {
+                FFmpegJni.videoSnapshot(
+                    inputFile.absolutePath, outputFile.absolutePath, 0
+                )
+            }
+            MediaToolFeature.GIF_MAKER -> {
+                val width = parseGifWidth(format)
+                FFmpegJni.gifMake(
+                    inputFile.absolutePath, outputFile.absolutePath,
+                    0, 5000, width, 10, callback
+                )
+            }
+            MediaToolFeature.VIDEO_MERGE -> {
+                val paths = filePaths
+                if (paths == null || paths.size < 2) {
+                    return -1
+                }
+                FFmpegJni.mergeFiles(
+                    paths, outputFile.absolutePath, callback
+                )
+            }
+            MediaToolFeature.IMAGE_COMPRESS -> {
+                val (quality, maxWidth, maxHeight) = parseImageCompressParams(format)
+                FFmpegJni.imageCompress(
+                    inputFile.absolutePath, outputFile.absolutePath,
+                    quality, maxWidth, maxHeight
+                )
+            }
+            MediaToolFeature.VIDEO_ENHANCE -> {
+                val strength = parseEnhanceStrength(format)
+                FFmpegJni.videoEnhance(
+                    inputFile.absolutePath, outputFile.absolutePath,
+                    strength, 0, callback
+                )
+            }
+            MediaToolFeature.IMAGE_ENHANCE -> {
+                val strength = parseEnhanceStrength(format)
+                FFmpegJni.imageEnhance(
+                    inputFile.absolutePath, outputFile.absolutePath,
+                    strength
+                )
+            }
+        }
     }
+
+    private fun parseVideoCompressParams(format: String, inputFile: File): VideoCompressParams {
+        return when {
+            format.contains("CRF 28") -> VideoCompressParams(28, 0, 0, 0)
+            format.contains("CRF 23") -> VideoCompressParams(23, 0, 0, 0)
+            format.contains("CRF 18") -> VideoCompressParams(18, 0, 0, 0)
+            else -> VideoCompressParams(23, 0, 0, 0)
+        }
+    }
+
+    private fun parseImageCompressParams(format: String): ImageCompressParams {
+        return when {
+            format.contains("质量80") -> ImageCompressParams(80, 0, 0)
+            format.contains("质量60") -> ImageCompressParams(60, 0, 0)
+            format.contains("webp") -> ImageCompressParams(80, 0, 0)
+            else -> ImageCompressParams(80, 0, 0)
+        }
+    }
+
+    private fun parseGifWidth(format: String): Int {
+        return when {
+            format.contains("320") -> 320
+            format.contains("480") -> 480
+            else -> 0
+        }
+    }
+
+    private fun parseEnhanceStrength(format: String): Float {
+        return when {
+            format.contains("1.2") -> 1.2f
+            format.contains("1.5") -> 1.5f
+            format.contains("2.0") -> 2.0f
+            else -> 1.5f
+        }
+    }
+
+    private data class VideoCompressParams(
+        val crf: Int,
+        val width: Int,
+        val height: Int,
+        val fps: Int
+    )
+
+    private data class ImageCompressParams(
+        val quality: Int,
+        val maxWidth: Int,
+        val maxHeight: Int
+    )
 
     private fun formatFileSize(bytes: Long): String {
         return when {
@@ -162,12 +302,16 @@ class FFmpegFeatureFragment : Fragment() {
     companion object {
         private const val ARG_ACTION_TYPE = "action_type"
         private const val ARG_FILE_PATH = "file_path"
+        private const val ARG_FILE_PATHS = "file_paths"
 
-        fun newInstance(feature: MediaToolFeature, filePath: String): FFmpegFeatureFragment {
+        fun newInstance(feature: MediaToolFeature, filePath: String, filePaths: Array<String>? = null): FFmpegFeatureFragment {
             return FFmpegFeatureFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_ACTION_TYPE, feature.actionType)
                     putString(ARG_FILE_PATH, filePath)
+                    if (filePaths != null) {
+                        putStringArray(ARG_FILE_PATHS, filePaths)
+                    }
                 }
             }
         }

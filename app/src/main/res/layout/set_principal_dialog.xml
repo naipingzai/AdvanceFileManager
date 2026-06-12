@@ -33,7 +33,7 @@
         android:minHeight="?listPreferredItemHeight"
         android:layout_weight="1">
 
-        <ProgressBar
+        <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
             android:scrollbars="vertical" />
     </FrameLayout>
 
-    <CheckBox
+    <com.google.android.material.checkbox.MaterialCheckBox
         android:id="@+id/recursiveCheck"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -58,23 +58,27 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_refresh"
-        android:alphabeticShortcut="r"
-        android:orderInCategory="100"
-        android:title="@string/refresh"
+        android:id="@+id/action_entry_basic_tools"
+        android:orderInCategory="200"
+        android:title="@string/entry_settings_basic_section"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_select_all"
-        android:alphabeticShortcut="a"
-        android:orderInCategory="100"
-        android:title="@string/select_all"
+        android:id="@+id/action_entry_file_tools"
+        android:orderInCategory="200"
+        android:title="@string/feature_settings_file_tools"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_entry_media_tools"
+        android:orderInCategory="200"
+        android:title="@string/feature_settings_ffmpeg_tools"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_show_hidden_files"
         android:alphabeticShortcut="h"
-        android:orderInCategory="100"
+        android:orderInCategory="300"
         android:title="@string/file_list_action_show_hidden_files"
         android:checkable="true"
         app:showAsAction="never" />

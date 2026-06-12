@@ -11,7 +11,6 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.annotation.IdRes
 import androidx.core.view.ViewCompat
-import com.advancefilemanager.lib.foregroundcompat.ForegroundCompat
 
 @Suppress("UNCHECKED_CAST")
 fun <T : View> View.requireViewByIdCompat(@IdRes id: Int): T =
@@ -28,25 +27,25 @@ fun View.setScrollIndicatorsCompat(indicators: Int, mask: Int) {
 }
 
 var View.foregroundCompat: Drawable?
-    get() = ForegroundCompat.getForeground(this)
+    get() = foreground
     set(value) {
-        ForegroundCompat.setForeground(this, value)
+        foreground = value
     }
 
 var View.foregroundGravityCompat: Int
-    get() = ForegroundCompat.getForegroundGravity(this)
+    get() = foregroundGravity
     set(value) {
-        ForegroundCompat.setForegroundGravity(this, value)
+        foregroundGravity = value
     }
 
 var View.foregroundTintListCompat: ColorStateList?
-    get() = ForegroundCompat.getForegroundTintList(this)
+    get() = foregroundTintList
     set(value) {
-        ForegroundCompat.setForegroundTintList(this, value)
+        foregroundTintList = value
     }
 
 var View.foregroundTintModeCompat: PorterDuff.Mode?
-    get() = ForegroundCompat.getForegroundTintMode(this)
+    get() = foregroundTintMode
     set(value) {
-        ForegroundCompat.setForegroundTintMode(this, value)
+        foregroundTintMode = value
     }

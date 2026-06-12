@@ -4,9 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progressBar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        style="@style/Widget.Material3.LinearProgressIndicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:indeterminate="true"
@@ -17,8 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:padding="32dp"
-        android:text="没有最近修改的文件"
+        android:padding="@dimen/spacing_xxl"
+        android:text="@string/recent_files_empty"
         android:textColor="?android:attr/textColorSecondary"
         android:visibility="gone" />
 
@@ -27,6 +27,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingBottom="8dp" />
+        android:paddingBottom="@dimen/spacing_sm" />
 
 </LinearLayout>

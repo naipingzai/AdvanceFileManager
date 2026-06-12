@@ -3,7 +3,7 @@
  * All Rights Reserved.
  */
 
-package com.advancefilemanager.fileaction
+package com.advancefilemanager.filejob
 
 import android.app.Dialog
 import android.content.Context

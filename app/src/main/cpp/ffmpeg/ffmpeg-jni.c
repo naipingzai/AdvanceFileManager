@@ -993,7 +993,7 @@ static int smart_convert(const char *in_path, const char *out_path,
  * ==================================================================== */
 
 JNIEXPORT jstring JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_getVersion(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_getVersion(
     JNIEnv *env, jclass clazz) {
     (void)clazz;
     char buf[128];
@@ -1004,7 +1004,7 @@ Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_getVersion(
 }
 
 JNIEXPORT jint JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_convert(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_convert(
     JNIEnv *env, jclass clazz,
     jstring j_input, jstring j_output, jobject callback) {
     (void)clazz;
@@ -1043,21 +1043,21 @@ Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_convert(
 }
 
 JNIEXPORT void JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_cancel(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_cancel(
     JNIEnv *env, jclass clazz) {
     (void)env; (void)clazz;
     g_cancel = 1;
 }
 
 JNIEXPORT jstring JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_getLastError(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_getLastError(
     JNIEnv *env, jclass clazz) {
     (void)clazz;
     return (*env)->NewStringUTF(env, g_last_error);
 }
 
 JNIEXPORT void JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_getMediaInfo(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_getMediaInfo(
     JNIEnv *env, jclass clazz, jstring j_path, jobject info) {
     (void)clazz;
 
@@ -1218,7 +1218,7 @@ ear_end:
  *  Extract Audio JNI: try remux first (fast), fallback to transcode.
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_extractAudio(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_extractAudio(
     JNIEnv *env, jclass clazz,
     jstring j_input, jstring j_output, jobject callback) {
     (void)clazz;
@@ -1395,7 +1395,7 @@ end:
 }
 
 JNIEXPORT jint JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_trim(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_trim(
     JNIEnv *env, jclass clazz,
     jstring j_input, jstring j_output, jlong startMs, jlong endMs, jobject callback) {
     (void)clazz;
@@ -1434,7 +1434,7 @@ Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_trim(
  *  targetFps = 0 means keep original.
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_videoCompress(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_videoCompress(
     JNIEnv *env, jclass clazz,
     jstring j_input, jstring j_output, jint targetBitrateKbps,
     jint targetWidth, jint targetHeight, jint targetFps,
@@ -1749,7 +1749,7 @@ vc_end:
  *  targetWidth/targetHeight of 0 means keep original resolution.
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_normalizeVideo(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_normalizeVideo(
     JNIEnv *env, jclass clazz,
     jstring j_input, jstring j_output,
     jint targetWidth, jint targetHeight, jint targetBitrateKbps,
@@ -2181,7 +2181,7 @@ nv_end:
  *  Video Snapshot: extract single frame at given timestamp.
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_videoSnapshot(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_videoSnapshot(
     JNIEnv *env, jclass clazz,
     jstring j_input, jstring j_output, jlong timeMs) {
     (void)clazz;
@@ -2328,7 +2328,7 @@ vs_end:
  *  GIF Maker: extract video segment and encode as GIF.
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_gifMake(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_gifMake(
     JNIEnv *env, jclass clazz,
     jstring j_input, jstring j_output, jlong startMs, jlong endMs,
     jint width, jint fps, jobject callback) {
@@ -2601,7 +2601,7 @@ gif_end:
  *  can correctly handle file boundary offsets natively.
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_mergeFiles(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_mergeFiles(
     JNIEnv *env, jclass clazz,
     jobjectArray j_inputs, jstring j_output, jobject callback) {
     (void)clazz;
@@ -2729,19 +2729,20 @@ Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_mergeFiles(
 
     /* ---- Step 4: Straight packet copy — concat demuxer handles offsets ---- */
     {
-        int64_t total_duration = ifmt_ctx->duration > 0 ? ifmt_ctx->duration : 1;
-        /* If concat demuxer didn't report duration, estimate from streams */
-        if (total_duration <= 1) {
-            for (unsigned s = 0; s < ifmt_ctx->nb_streams; s++) {
-                AVStream *st = ifmt_ctx->streams[s];
-                if (st->duration > 0) {
-                    int64_t dur_us = av_rescale_q(st->duration, st->time_base,
-                                                  (AVRational){1, AV_TIME_BASE});
-                    if (dur_us > total_duration) total_duration = dur_us;
-                }
+        /* Use packet counting for reliable progress across all files */
+        int64_t total_bytes = 0;
+        for (int i = 0; i < count; i++) {
+            jstring j_path = (jstring)(*env)->GetObjectArrayElement(env, j_inputs, i);
+            const char *fpath = (*env)->GetStringUTFChars(env, j_path, NULL);
+            if (fpath) {
+                FILE *f = fopen(fpath, "rb");
+                if (f) { fseek(f, 0, SEEK_END); total_bytes += ftell(f); fclose(f); }
+                (*env)->ReleaseStringUTFChars(env, j_path, fpath);
             }
-            if (total_duration <= 0) total_duration = 1;
+            (*env)->DeleteLocalRef(env, j_path);
         }
+        if (total_bytes <= 0) total_bytes = 1;
+        int64_t bytes_written = 0;
         int last_percent = -1;
 
         while (!g_cancel) {
@@ -2759,9 +2760,7 @@ Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_mergeFiles(
             AVStream *in_s = ifmt_ctx->streams[in_idx];
             AVStream *out_s = ofmt_ctx->streams[out_idx];
 
-            /* Log first packets + periodic samples */
-            int64_t saved_pts = pkt->pts;
-            AVRational saved_tb = in_s->time_base;
+            int pkt_size = pkt->size;
 
             pkt->stream_index = out_idx;
             av_packet_rescale_ts(pkt, in_s->time_base, out_s->time_base);
@@ -2775,12 +2774,9 @@ Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_mergeFiles(
                 break;
             }
 
-            /* Progress */
-            if (callback && onProgress && saved_pts != AV_NOPTS_VALUE) {
-                int64_t pos_us = av_rescale_q(saved_pts, saved_tb,
-                                              (AVRational){1, AV_TIME_BASE});
-                int pct = (int)(pos_us * 100 / total_duration);
-                if (pct < 0) pct = 0;
+            bytes_written += pkt_size;
+            if (callback && onProgress) {
+                int pct = (int)(bytes_written * 100 / total_bytes);
                 if (pct > 100) pct = 100;
                 if (pct != last_percent) {
                     last_percent = pct;
@@ -2821,7 +2817,7 @@ merge_end:
  *  Output is always H.264+AAC MP4.
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_mergeFilesTranscode(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_mergeFilesTranscode(
     JNIEnv *env, jclass clazz,
     jobjectArray j_inputs, jstring j_output,
     jint targetWidth, jint targetHeight, jint targetBitrateKbps,
@@ -3404,7 +3400,7 @@ mt_end:
  *  imageCompress: compress/resize image via FFmpeg (replaces Bitmap API)
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_imageCompress(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_imageCompress(
         JNIEnv *env, jclass clazz,
         jstring j_input, jstring j_output,
         jint quality, jint maxWidth, jint maxHeight) {
@@ -3547,7 +3543,7 @@ ic_end:
  *  imageEnhance: sharpen image using FFmpeg unsharp filter
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_imageEnhance(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_imageEnhance(
         JNIEnv *env, jclass clazz,
         jstring j_input, jstring j_output, jfloat strength) {
     const char *input  = (*env)->GetStringUTFChars(env, j_input, NULL);
@@ -3672,7 +3668,7 @@ ien_end:
  *  videoEnhance: sharpen video using FFmpeg unsharp filter
  * ==================================================================== */
 JNIEXPORT jint JNICALL
-Java_com_advancefilemanager_plugin_ffmpegtools_FFmpegJni_videoEnhance(
+Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_videoEnhance(
         JNIEnv *env, jclass clazz,
         jstring j_input, jstring j_output,
         jfloat strength, jint targetBitrateKbps,

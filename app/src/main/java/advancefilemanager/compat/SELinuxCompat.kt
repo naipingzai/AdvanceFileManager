@@ -5,8 +5,6 @@
 
 package com.advancefilemanager.compat
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import com.advancefilemanager.hiddenapi.RestrictedHiddenApi
 import com.advancefilemanager.util.lazyReflectedClass
 import com.advancefilemanager.util.lazyReflectedMethod
@@ -39,7 +37,6 @@ object SELinuxCompat {
     private val getPeerContextMethod by lazyReflectedMethod(
         seLinuxClass, "getPeerContext", FileDescriptor::class.java
     )
-    @get:RequiresApi(Build.VERSION_CODES.Q)
     @RestrictedHiddenApi
     private val getFileContextFileDescriptorMethod by lazyReflectedMethod(
         seLinuxClass, "getFileContext", FileDescriptor::class.java
@@ -86,7 +83,6 @@ object SELinuxCompat {
     fun getPeerContext(fd: FileDescriptor): String? =
         getPeerContextMethod.invoke(null, fd) as String?
 
-    @RequiresApi(Build.VERSION_CODES.Q)
     fun getFileContext(fd: FileDescriptor): String? =
         getFileContextFileDescriptorMethod.invoke(null, fd) as String?
 

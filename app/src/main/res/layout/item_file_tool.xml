@@ -4,9 +4,9 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="center_vertical"
-    android:padding="12dp">
+    android:padding="@dimen/spacing_sm">
 
-    <CheckBox
+    <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/itemCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="@dimen/spacing_sm"
         android:orientation="vertical">
 
         <TextView
@@ -25,16 +25,16 @@
             android:layout_height="wrap_content"
             android:ellipsize="middle"
             android:singleLine="true"
-            android:textAppearance="?attr/textAppearanceBodyLarge" />
+            android:textAppearance="?textAppearanceBodyLarge" />
 
         <TextView
             android:id="@+id/itemSubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="@dimen/spacing_xxs"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textAppearance="?textAppearanceBodySmall"
             android:textColor="?android:attr/textColorSecondary" />
 
     </LinearLayout>

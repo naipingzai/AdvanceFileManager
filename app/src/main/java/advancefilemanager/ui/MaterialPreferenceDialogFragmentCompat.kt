@@ -38,8 +38,10 @@ abstract class MaterialPreferenceDialogFragmentCompat : AppCompatDialogFragment(
         check(fragment is DialogPreference.TargetFragment) {
             "Target fragment must implement TargetFragment interface"
         }
-        val key = requireArguments().getString(ARG_KEY)!!
-        fragment.findPreference(key)!!
+        val key = requireArguments().getString(ARG_KEY)
+            ?: throw IllegalStateException("ARG_KEY is required")
+        fragment.findPreference(key)
+            ?: throw IllegalStateException("Preference not found for key: $key")
     }
 
     private var dialogTitle: CharSequence? = null

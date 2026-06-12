@@ -30,6 +30,7 @@ import com.advancefilemanager.compat.isSingleLineCompat
 import com.advancefilemanager.databinding.FileItemGridBinding
 import com.advancefilemanager.databinding.FileItemListBinding
 import com.advancefilemanager.file.FileItem
+import com.advancefilemanager.file.MimeType
 import com.advancefilemanager.file.fileSize
 import com.advancefilemanager.file.formatShort
 import com.advancefilemanager.file.iconRes
@@ -47,6 +48,7 @@ import com.advancefilemanager.feature.protocol.FeatureSubItem
 import com.advancefilemanager.feature.protocol.FeatureInfo
 import com.advancefilemanager.feature.protocol.FeatureCategory
 import com.advancefilemanager.feature.FeatureManager
+import com.advancefilemanager.settings.BasicSettings
 import com.advancefilemanager.ui.AnimatedListAdapter
 import com.advancefilemanager.ui.CheckableForegroundLinearLayout
 import com.advancefilemanager.ui.CheckableItemBackground
@@ -351,6 +353,8 @@ class FileListAdapter(
         val mimeType = file.mimeType
         val isMediaFile = isLinux && (mimeType.isImage || mimeType.isVideo || mimeType.isAudio)
         val menu = holder.popupMenu.menu
+        val context = holder.itemView.context
+        menu.findItem(R.id.action_open_with).isVisible = BasicSettings.isFileOperationEnabled(context, "open_with")
         menu.findItem(R.id.action_cut).isVisible = !hasPickOptions && !isReadOnly
         menu.findItem(R.id.action_copy).apply {
             isVisible = !hasPickOptions
@@ -359,8 +363,11 @@ class FileListAdapter(
         menu.findItem(R.id.action_delete).isVisible = !isReadOnly
         menu.findItem(R.id.action_rename).isVisible = !isReadOnly
         menu.findItem(R.id.action_extract).isVisible = file.isArchiveFile
-        menu.findItem(R.id.action_archive).isVisible = !isArchivePath
-        menu.findItem(R.id.action_add_bookmark).isVisible = isDirectory
+        menu.findItem(R.id.action_archive).isVisible = !isArchivePath && BasicSettings.isFileOperationEnabled(context, "archive")
+        menu.findItem(R.id.action_share).isVisible = BasicSettings.isFileOperationEnabled(context, "share")
+        menu.findItem(R.id.action_copy_path).isVisible = BasicSettings.isFileOperationEnabled(context, "copy_path")
+        menu.findItem(R.id.action_add_bookmark).isVisible = isDirectory && BasicSettings.isFileOperationEnabled(context, "add_bookmark")
+        menu.findItem(R.id.action_properties).isVisible = BasicSettings.isFileOperationEnabled(context, "properties")
         // Dynamic feature menu items
         menu.removeGroup(R.id.group_plugins)
         val enabledSubFeatures: List<Pair<FeatureInfo, com.advancefilemanager.feature.protocol.FeatureSubItem>> = if (isLinux) {
@@ -397,15 +404,12 @@ class FileListAdapter(
                     val featureIndex = it.itemId - Menu.FIRST
                     if (featureIndex in enabledSubFeatures.indices) {
                         val (featInfo, subFeature) = enabledSubFeatures[featureIndex]
-                        val featureIntent = FeatureManager.createFeatureIntent(
-                            featInfo,
-                            filePath = file.path.toString(),
-                            mimeType = mimeType.value,
-                            actionType = subFeature.actionType
-                        )
-                        if (featureIntent != null) {
-                            holder.itemView.context.startActivity(featureIntent)
+                        val filesToPass = if (selectedFiles.isEmpty()) {
+                            fileItemSetOf(file)
+                        } else {
+                            selectedFiles
                         }
+                        listener.launchFeature(featInfo, file, mimeType, subFeature.actionType, filesToPass)
                         true
                     } else {
                         false
@@ -507,5 +511,6 @@ class FileListAdapter(
         fun copyPath(file: FileItem)
         fun addBookmark(file: FileItem)
         fun showPropertiesDialog(file: FileItem)
+        fun launchFeature(featInfo: FeatureInfo, file: FileItem, mimeType: MimeType, actionType: String, selectedFiles: FileItemSet)
     }
 }

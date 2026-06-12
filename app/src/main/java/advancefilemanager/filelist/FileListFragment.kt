@@ -14,8 +14,6 @@ import android.net.Uri
 import android.provider.MediaStore
 import android.os.Bundle
 import android.os.Environment
-import android.os.Handler
-import android.os.Looper
 import android.text.TextUtils
 import android.view.KeyCharacterMap
 import android.view.KeyEvent
@@ -32,7 +30,6 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.core.view.MenuProvider
@@ -43,10 +40,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -94,7 +87,6 @@ import com.advancefilemanager.settings.Settings
 import com.advancefilemanager.ui.AppBarLayoutExpandHackListener
 import com.advancefilemanager.ui.CoordinatorAppBarLayout
 import com.advancefilemanager.ui.DrawerLayoutOnBackPressedCallback
-import com.advancefilemanager.ui.FixQueryChangeSearchView
 import com.advancefilemanager.ui.OverlayToolbarActionMode
 import com.advancefilemanager.ui.PersistentBarLayout
 import com.advancefilemanager.ui.PersistentBarLayoutToolbarActionMode
@@ -143,8 +135,11 @@ import com.advancefilemanager.viewer.audio.AudioPlayerActivity
 import com.advancefilemanager.viewer.csv.CsvViewerActivity
 import com.advancefilemanager.viewer.pdf.PdfViewerActivity
 import com.advancefilemanager.feature.protocol.FeatureContract
+import com.advancefilemanager.feature.protocol.FeatureInfo
 import com.advancefilemanager.feature.FeatureManager
 import com.advancefilemanager.feature.FeatureSettings
+import com.advancefilemanager.settings.BasicSettings
+import com.advancefilemanager.feature.FeatureSettingsFragment
 import kotlin.math.roundToInt
 
 class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.Listener,
@@ -237,8 +232,9 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                         true
                     }
                     R.id.action_new_task -> { newTask(); true }
-                    R.id.action_refresh -> { refresh(); true }
-                    R.id.action_select_all -> { selectAllFiles(); true }
+                    R.id.action_entry_basic_tools -> { showEntrySettings(FeatureSettingsFragment.SECTION_BASIC); true }
+                    R.id.action_entry_file_tools -> { showEntrySettings(FeatureSettingsFragment.SECTION_FILE_TOOLS); true }
+                    R.id.action_entry_media_tools -> { showEntrySettings(FeatureSettingsFragment.SECTION_MEDIA_TOOLS); true }
                     R.id.action_show_hidden_files -> {
                         setShowHiddenFiles(!menuBinding.showHiddenFilesItem.isChecked)
                         true
@@ -432,6 +428,11 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             binding.drawerLayout?.openDrawer(GravityCompat.START)
         }
 
+        // 从入口设置返回时刷新列表，使菜单项可见性立即生效
+        if (::adapter.isInitialized) {
+            adapter.notifyDataSetChanged()
+        }
+
         if (!viewModel.isStorageAccessRequested) {
             ensureStorageAccess()
         }
@@ -595,6 +596,20 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         viewModel.reload()
     }
 
+    private fun showEntrySettings(section: String) {
+        val intent = com.advancefilemanager.app.ToolHostActivity.createIntent<FeatureSettingsFragment>(
+            when (section) {
+                FeatureSettingsFragment.SECTION_BASIC -> R.string.entry_settings_basic_section
+                FeatureSettingsFragment.SECTION_FILE_TOOLS -> R.string.feature_settings_file_tools
+                FeatureSettingsFragment.SECTION_MEDIA_TOOLS -> R.string.feature_settings_ffmpeg_tools
+                else -> R.string.entry_settings_basic_section
+            }
+        ).apply {
+            putExtra(FeatureSettingsFragment.ARG_SECTION, section)
+        }
+        startActivity(intent)
+    }
+
     private fun setShowHiddenFiles(showHiddenFiles: Boolean) {
         Settings.FILE_LIST_SHOW_HIDDEN_FILES.putValue(showHiddenFiles)
     }
@@ -659,8 +674,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         if (!this::menuBinding.isInitialized) {
             return
         }
-        val pickOptions = viewModel.pickOptions
-        menuBinding.selectAllItem.isVisible = pickOptions == null || pickOptions.allowMultiple
     }
 
     private fun pickFiles(files: FileItemSet) {
@@ -748,8 +761,11 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             val areAllFilesArchiveFiles = files.all { it.isArchiveFile }
             menu.findItem(R.id.action_extract).isVisible = areAllFilesArchiveFiles
             val isCurrentPathReadOnly = viewModel.currentPath.fileSystem.isReadOnly
-            menu.findItem(R.id.action_archive).isVisible = !isCurrentPathReadOnly
+            menu.findItem(R.id.action_archive).isVisible = !isCurrentPathReadOnly &&
+                BasicSettings.isFileOperationEnabled(requireContext(), "archive")
             menu.findItem(R.id.action_batch_rename).isVisible = !isAnyFileReadOnly && !areAllFilesArchivePaths
+            menu.findItem(R.id.action_share).isVisible =
+                BasicSettings.isFileOperationEnabled(requireContext(), "share")
         }
         if (!overlayActionMode.isActive) {
             binding.appBarLayout.setExpanded(true)
@@ -1435,6 +1451,20 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         FilePropertiesDialogFragment.show(file, this)
     }
 
+    override fun launchFeature(featInfo: FeatureInfo, file: FileItem, mimeType: MimeType, actionType: String, selectedFiles: FileItemSet) {
+        val filesToPass = if (selectedFiles.size > 1) selectedFiles else null
+        val featureIntent = FeatureManager.createFeatureIntent(
+            featInfo,
+            filePath = file.path.toString(),
+            mimeType = mimeType.value,
+            actionType = actionType,
+            filePaths = filesToPass?.map { it.path.toString() }?.toTypedArray()
+        )
+        if (featureIntent != null) {
+            startActivitySafe(featureIntent)
+        }
+    }
+
     private fun showCreateFileDialog() {
         CreateFileDialogFragment.show(this)
     }
@@ -1763,7 +1793,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         val sortBySizeItem: MenuItem,
         val sortByLastModifiedItem: MenuItem,
         val sortDirectoriesFirstItem: MenuItem,
-        val selectAllItem: MenuItem,
         val showHiddenFilesItem: MenuItem
     ) {
         companion object {
@@ -1777,7 +1806,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                     menu.findItem(R.id.action_sort_by_size),
                     menu.findItem(R.id.action_sort_by_last_modified),
                     menu.findItem(R.id.action_sort_directories_first),
-                    menu.findItem(R.id.action_select_all),
                     menu.findItem(R.id.action_show_hidden_files)
                 )
             }

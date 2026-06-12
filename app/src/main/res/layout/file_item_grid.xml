@@ -127,7 +127,7 @@
           ~ pressed state, etc. Necessary states will be duplicated manually in the adapter
           ~ implementation.
           -->
-        <com.advancefilemanager.lib.foregroundcompat.ForegroundImageButton
+        <android.widget.ImageButton
             android:id="@+id/menuButton"
             android:layout_width="@dimen/touch_target_size"
             android:layout_height="@dimen/touch_target_size"
@@ -135,7 +135,6 @@
             android:padding="@dimen/touch_target_icon_padding"
             android:background="@null"
             android:foreground="@drawable/selectable_item_background_oval"
-            android:src="@drawable/more_vertical_icon_white_24dp"
-            app:tint="?colorOnSurfaceVariant" />
+            android:src="@drawable/more_vertical_icon_white_24dp" />
     </LinearLayout>
 </com.advancefilemanager.ui.CheckableForegroundLinearLayout>

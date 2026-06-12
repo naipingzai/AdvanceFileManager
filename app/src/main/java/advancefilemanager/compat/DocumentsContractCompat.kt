@@ -7,7 +7,6 @@ package com.advancefilemanager.compat
 
 import android.content.ContentResolver
 import android.net.Uri
-import android.os.Build
 import android.provider.DocumentsContract
 import com.advancefilemanager.app.packageManager
 

@@ -103,8 +103,11 @@ class LargeTextViewerFragment : Fragment() {
                 when (menuItem.itemId) {
                     R.id.action_go_to_line -> { showGoToLineDialog(); true }
                     Menu.FIRST -> {
-                        val newEncoding = Charset.forName(menuItem.titleCondensed!!.toString())
-                        reloadWithEncoding(newEncoding)
+                        val charsetName = menuItem.titleCondensed?.toString()
+                        if (charsetName != null) {
+                            val newEncoding = Charset.forName(charsetName)
+                            reloadWithEncoding(newEncoding)
+                        }
                         true
                     }
                     else -> false
@@ -120,7 +123,7 @@ class LargeTextViewerFragment : Fragment() {
 
         val activity = requireActivity() as AppCompatActivity
         activity.setSupportActionBar(binding.toolbar)
-        activity.supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         activity.title = path.fileName.toString()
 
         adapter = TextLineAdapter(lines)

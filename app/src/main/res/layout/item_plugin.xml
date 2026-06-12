@@ -6,31 +6,29 @@
   -->
 
 <com.google.android.material.card.MaterialCardView
+    style="@style/Widget.App.CardView.Outlined"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
-    android:layout_marginTop="12dp"
+    android:layout_marginHorizontal="@dimen/spacing_lg"
+    android:layout_marginTop="@dimen/spacing_sm"
     android:clickable="true"
-    android:focusable="true"
-    app:cardElevation="0dp"
-    app:strokeWidth="1dp"
-    app:strokeColor="?colorOutlineVariant">
+    android:focusable="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:padding="16dp">
+        android:padding="@dimen/spacing_lg">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="@dimen/spacing_sm"
             android:orientation="vertical">
 
             <TextView
@@ -44,7 +42,7 @@
                 android:id="@+id/pluginDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="@dimen/spacing_xxs"
                 android:textAppearance="?textAppearanceBodySmall"
                 android:textColor="?colorOnSurfaceVariant"
                 tools:text="格式转换、视频压缩、音频提取等" />

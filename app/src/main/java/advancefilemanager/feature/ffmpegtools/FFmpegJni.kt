@@ -48,7 +48,7 @@ object FFmpegJni {
     external fun gifMake(inputPath: String, outputPath: String, startMs: Long, durationMs: Long, width: Int, fps: Int, callback: ProgressCallback?): Int
 
     @JvmStatic
-    external fun videoEnhance(inputPath: String, outputPath: String, strength: Float, callback: ProgressCallback?): Int
+    external fun videoEnhance(inputPath: String, outputPath: String, strength: Float, targetBitrateKbps: Int, callback: ProgressCallback?): Int
 
     @JvmStatic
     external fun imageCompress(inputPath: String, outputPath: String, quality: Int, maxWidth: Int, maxHeight: Int): Int
@@ -57,7 +57,7 @@ object FFmpegJni {
     external fun imageEnhance(inputPath: String, outputPath: String, strength: Float): Int
 
     @JvmStatic
-    external fun mergeFiles(inputListPath: String, outputPath: String, callback: ProgressCallback?): Int
+    external fun mergeFiles(inputPaths: Array<String>, outputPath: String, callback: ProgressCallback?): Int
 
     @JvmStatic
     external fun normalizeVideo(inputPath: String, outputPath: String, targetWidth: Int, targetHeight: Int, targetBitrateKbps: Int, callback: ProgressCallback?): Int

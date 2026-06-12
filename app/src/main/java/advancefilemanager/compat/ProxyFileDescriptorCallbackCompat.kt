@@ -5,11 +5,9 @@
 
 package com.advancefilemanager.compat
 
-import android.os.Build
 import android.os.ProxyFileDescriptorCallback
 import android.system.ErrnoException
 import android.system.OsConstants
-import androidx.annotation.RequiresApi
 
 abstract class ProxyFileDescriptorCallbackCompat {
     @Throws(ErrnoException::class)
@@ -34,7 +32,6 @@ abstract class ProxyFileDescriptorCallbackCompat {
 
     abstract fun onRelease()
 
-    @RequiresApi(Build.VERSION_CODES.O)
     fun toProxyFileDescriptorCallback(): ProxyFileDescriptorCallback {
         return object : ProxyFileDescriptorCallback() {
             @Throws(ErrnoException::class)

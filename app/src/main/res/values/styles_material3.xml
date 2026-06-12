@@ -20,30 +20,6 @@
         <item name="android:widgetLayout">@layout/switch_preference_compat_widget_material3</item>
     </style>
 
-    <!--
-      以下旧样式保留为别名，指向 App 中的统一定义。
-      新代码应直接使用 ?attr/appXxx 属性或 @style/TextAppearance.App.Xxx 样式。
-    -->
-
-    <!-- 向后兼容: ShapeAppearance 别名 -->
-    <style name="ShapeAppearance.MaterialFiles.Material3.SmallComponent" parent="ShapeAppearance.App.SmallComponent" />
-    <style name="ShapeAppearance.MaterialFiles.Material3.MediumComponent" parent="ShapeAppearance.App.MediumComponent" />
-    <style name="ShapeAppearance.MaterialFiles.Material3.LargeComponent" parent="ShapeAppearance.App.LargeComponent" />
-
-    <!-- 向后兼容: TextAppearance 别名 -->
-    <style name="TextAppearance.MaterialFiles.Material3.ListItem" parent="TextAppearance.App.ListItemTitle" />
-    <style name="TextAppearance.MaterialFiles.Material3.ListItemSmall" parent="TextAppearance.App.ListItemSubtitle" />
-    <style name="TextAppearance.MaterialFiles.Material3.ListItem.Compact" parent="TextAppearance.App.ListItemTitle.Compact" />
-    <style name="TextAppearance.MaterialFiles.Material3.ListItemSmall.Compact" parent="TextAppearance.App.ListItemSubtitle.Compact" />
-    <style name="TextAppearance.MaterialFiles.Material3.AboutAppName" parent="TextAppearance.App.AboutAppName" />
-    <style name="TextAppearance.MaterialFiles.Material3.AboutListItem" parent="TextAppearance.App.AboutListItem" />
-    <style name="TextAppearance.MaterialFiles.Material3.ToolbarTitle" parent="TextAppearance.App.ToolbarTitle" />
-
-    <!-- 向后兼容: Widget 别名 -->
-    <style name="Widget.MaterialFiles.Material3.Toolbar" parent="Widget.App.Toolbar">
-        <item name="contentInsetStartWithNavigation">@dimen/toolbar_content_inset_with_nav</item>
-    </style>
-
     <style name="Widget.MaterialFiles.Material3.NavigationView" parent="Widget.Material3.NavigationView">
         <item name="itemHorizontalPadding">@dimen/navigation_item_horizontal_padding_material3</item>
         <item name="itemTextAppearance">?textAppearanceListItem</item>

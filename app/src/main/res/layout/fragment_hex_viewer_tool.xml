@@ -8,23 +8,23 @@
         android:id="@+id/fileInfoText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="8dp"
-        android:textAppearance="?attr/textAppearanceBodySmall"
+        android:layout_marginHorizontal="@dimen/spacing_lg"
+        android:layout_marginTop="@dimen/spacing_sm"
+        android:textAppearance="?textAppearanceBodySmall"
         android:visibility="gone" />
 
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="4dp">
+        android:layout_marginTop="@dimen/spacing_xs">
 
         <TextView
             android:id="@+id/hexContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"
-            android:padding="16dp"
+            android:padding="@dimen/spacing_lg"
             android:textSize="12sp"
             android:scrollbars="vertical" />
     </HorizontalScrollView>
@@ -35,6 +35,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="加载更多"
+        android:text="@string/hex_viewer_load_more"
         android:visibility="gone" />
 </LinearLayout>

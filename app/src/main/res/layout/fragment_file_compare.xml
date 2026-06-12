@@ -3,31 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="@dimen/spacing_lg">
 
     <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.App.CardView.Filled"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="@dimen/spacing_sm">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="@dimen/spacing_lg">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="文件 1"
-                android:textAppearance="?attr/textAppearanceTitleMedium" />
+                android:text="@string/file_compare_file1"
+                android:textAppearance="?textAppearanceTitleMedium" />
 
             <TextView
                 android:id="@+id/tvFile1Path"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="未选择"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:text="@string/file_compare_not_selected"
                 android:textColor="?android:attr/textColorSecondary" />
 
             <com.google.android.material.button.MaterialButton
@@ -35,36 +36,37 @@
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="选择文件" />
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:text="@string/file_compare_select" />
 
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.App.CardView.Filled"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="@dimen/spacing_lg">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="@dimen/spacing_lg">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="文件 2"
-                android:textAppearance="?attr/textAppearanceTitleMedium" />
+                android:text="@string/file_compare_file2"
+                android:textAppearance="?textAppearanceTitleMedium" />
 
             <TextView
                 android:id="@+id/tvFile2Path"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="未选择"
+                android:layout_marginTop="@dimen/spacing_xs"
+                android:text="@string/file_compare_not_selected"
                 android:textColor="?android:attr/textColorSecondary" />
 
             <com.google.android.material.button.MaterialButton
@@ -72,8 +74,8 @@
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="选择文件" />
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:text="@string/file_compare_select" />
 
         </LinearLayout>
 
@@ -84,41 +86,42 @@
         style="@style/Widget.Material3.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="开始对比" />
+        android:text="@string/file_compare_action" />
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progressBar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        style="@style/Widget.Material3.LinearProgressIndicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="@dimen/spacing_sm"
         android:indeterminate="true"
         android:visibility="gone" />
 
     <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.App.CardView.Filled"
         android:id="@+id/resultCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/spacing_lg"
         android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="@dimen/spacing_lg">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="对比结果"
-                android:textAppearance="?attr/textAppearanceTitleMedium" />
+                android:text="@string/file_compare_text_diff"
+                android:textAppearance="?textAppearanceTitleMedium" />
 
             <TextView
                 android:id="@+id/tvResult"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/spacing_sm"
                 android:fontFamily="monospace"
                 android:textSize="13sp" />
 

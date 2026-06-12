@@ -17,6 +17,7 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.core.view.isVisible
 import java8.nio.file.Path
 import com.advancefilemanager.R
+import com.advancefilemanager.settings.BasicSettings
 import com.advancefilemanager.databinding.BreadcrumbItemBinding
 import com.advancefilemanager.util.getColorByAttr
 import com.advancefilemanager.util.getDimensionPixelSize
@@ -191,7 +192,9 @@ class BreadcrumbLayout : HorizontalScrollView {
             menu.setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.action_copy_path -> {
-                        listener.copyPath(path)
+                        if (BasicSettings.isFileOperationEnabled(context, "copy_path")) {
+                            listener.copyPath(path)
+                        }
                         true
                     }
                     R.id.action_open_in_new_task -> {

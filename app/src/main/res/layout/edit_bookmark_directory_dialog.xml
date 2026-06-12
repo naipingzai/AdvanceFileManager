@@ -22,8 +22,8 @@
             android:layout_height="wrap_content"
             android:paddingStart="?dialogPreferredPadding"
             android:paddingEnd="?dialogPreferredPadding"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
+            android:paddingTop="@dimen/spacing_sm"
+            android:paddingBottom="@dimen/spacing_sm"
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
@@ -45,7 +45,7 @@
             <com.advancefilemanager.ui.ReadOnlyTextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/spacing_lg"
                 android:hint="@string/navigation_edit_bookmark_directory_path">
 
                 <com.advancefilemanager.ui.ReadOnlyTextInputEditText

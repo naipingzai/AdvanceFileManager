@@ -44,7 +44,7 @@ class FFmpegToolsActivity : AppCompatActivity() {
         supportActionBar?.title = getString(feature.titleRes)
 
         val file = File(filePath)
-        val fragment = FFmpegFeatureFragment.newInstance(feature, file.absolutePath)
+        val fragment = FFmpegFeatureFragment.newInstance(feature, file.absolutePath, filePaths)
         supportFragmentManager.beginTransaction()
             .replace(R.id.content, fragment)
             .commit()

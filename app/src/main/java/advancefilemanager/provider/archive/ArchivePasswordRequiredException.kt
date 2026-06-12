@@ -7,8 +7,8 @@ package com.advancefilemanager.provider.archive
 
 import android.content.Context
 import java8.nio.file.Path
-import com.advancefilemanager.fileaction.ArchivePasswordDialogActivity
-import com.advancefilemanager.fileaction.ArchivePasswordDialogFragment
+import com.advancefilemanager.filejob.ArchivePasswordDialogActivity
+import com.advancefilemanager.filejob.ArchivePasswordDialogFragment
 import com.advancefilemanager.provider.common.UserAction
 import com.advancefilemanager.provider.common.UserActionRequiredException
 import com.advancefilemanager.util.createIntent

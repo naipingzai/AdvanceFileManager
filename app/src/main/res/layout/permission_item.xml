@@ -5,7 +5,7 @@
   ~ All Rights Reserved.
   -->
 
-<com.advancefilemanager.lib.foregroundcompat.ForegroundLinearLayout
+<android.widget.LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/itemLayout"
     android:layout_width="match_parent"
@@ -38,4 +38,4 @@
         android:layout_height="wrap_content"
         android:textAppearance="?textAppearanceListItemSecondary"
         android:textColor="?colorOnSurfaceVariant" />
-</com.advancefilemanager.lib.foregroundcompat.ForegroundLinearLayout>
+</android.widget.LinearLayout>

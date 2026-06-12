@@ -60,19 +60,5 @@
             android:entries="@array/settings_open_apk_default_action_entries"
             android:entryValues="@array/pref_entry_values_open_apk_default_action"
             app:useSimpleSummaryProvider="true" />
-
-        <SwitchPreferenceCompat
-            android:key="@string/pref_key_show_pdf_thumbnail_pre_28"
-            android:title="@string/settings_show_pdf_thumbnail_pre_28_title"
-            android:defaultValue="@bool/pref_default_value_show_pdf_thumbnail_pre_28"
-            android:summary="@string/settings_show_pdf_thumbnail_pre_28_summary"
-            app:isPreferenceVisible="@bool/pref_visible_show_pdf_thumbnail_pre_28" />
-    </PreferenceCategory>
-
-    <PreferenceCategory android:title="@string/feature_settings_title">
-        <Preference
-            android:key="pref_key_feature_settings"
-            android:title="@string/feature_settings_title"
-            android:summary="@string/feature_settings_subtitle" />
     </PreferenceCategory>
 </PreferenceScreen>

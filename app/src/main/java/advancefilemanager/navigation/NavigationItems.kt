@@ -28,6 +28,7 @@ import com.advancefilemanager.settings.SettingsActivity
 import com.advancefilemanager.tools.trash.TrashFragment
 import com.advancefilemanager.navigation.EditBookmarkDirectoryDialogFragment
 import com.advancefilemanager.settings.StandardDirectoryListFragment
+import com.advancefilemanager.settings.UiSettingsFragment
 import com.advancefilemanager.storage.AddStorageDialogFragment
 import com.advancefilemanager.storage.FileSystemRoot
 import com.advancefilemanager.storage.Storage
@@ -348,11 +349,15 @@ private class BookmarkDirectoryItem(
 }
 
 private val menuItems: List<NavigationItem>
-    @Size(2)
+    @Size(3)
     get() = listOf(
         IntentMenuItem(
             R.drawable.settings_icon_white_24dp, R.string.navigation_settings,
             SettingsActivity::class.createIntent()
+        ),
+        IntentMenuItem(
+            R.drawable.display_icon_white_24dp, R.string.navigation_ui_settings,
+            ToolHostActivity.createIntent<UiSettingsFragment>(R.string.ui_settings_title)
         ),
         IntentMenuItem(
             R.drawable.about_icon_white_24dp, R.string.navigation_about,

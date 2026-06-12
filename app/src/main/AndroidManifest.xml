@@ -383,20 +383,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Built-in feature: E-book Viewer -->
-        <activity
-            android:name="com.advancefilemanager.feature.ebookviewer.EbookViewerActivity"
-            android:theme="@style/Theme.MaterialFiles.Material3"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="application/epub+zip" />
-                <data android:mimeType="application/x-mobipocket-ebook" />
-                <data android:mimeType="application/x-fictionbook+xml" />
-            </intent-filter>
-        </activity>
-
         <meta-data
             android:name="firebase_crashlytics_collection_enabled"
             android:value="false" />

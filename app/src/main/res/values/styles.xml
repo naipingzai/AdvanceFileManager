@@ -11,7 +11,7 @@
       ~ See also drawable-v21/mtrl_popupmenu_background.xml and
       ~ drawable-v23/mtrl_popupmenu_background_dark.xml which are overridden.
       -->
-    <style name="Widget.MaterialFiles.ListView.DropDown" parent="Widget.AppCompat.ListView.DropDown">
+    <style name="Widget.MaterialFiles.ListView.DropDown" parent="Widget.Material3.PopupMenu.Overflow">
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="android:clipToPadding">false</item>
@@ -22,18 +22,19 @@
         <item name="cardElevation">0dp</item>
         <item name="strokeColor">@color/mtrl_btn_stroke_color_selector</item>
         <item name="strokeWidth">@dimen/mtrl_btn_stroke_size</item>
+        <item name="cardCornerRadius">12dp</item>
     </style>
 
     <style name="ThemeOverlay.MaterialFiles.ActionBar" parent="ThemeOverlay.Material3.ActionBar">
         <item name="colorControlNormal">?colorOnSurface</item>
-        <item name="searchViewStyle">@style/Widget.AppCompat.SearchView.ActionBar</item>
     </style>
 
     <style name="ThemeOverlay.MaterialFiles.ActionBarPopup" parent="ThemeOverlay.Material3.Dark.ActionBar">
         <item name="colorControlNormal">?colorOnSurfaceVariant</item>
         <item name="android:textColorPrimary">?colorOnSurface</item>
         <item name="android:textColorSecondary">?colorOnSurfaceVariant</item>
-        <item name="searchViewStyle">@style/Widget.AppCompat.SearchView</item>
+        <item name="colorAccent">?colorOnSurface</item>
+        <item name="colorControlActivated">?colorOnSurface</item>
     </style>
 
 
@@ -149,10 +150,10 @@
 
     <style name="Widget.App.CardView.Filled" parent="Widget.Material3.CardView.Filled">
         <item name="android:stateListAnimator">@null</item>
-        <item name="cardElevation">0dp</item>
+        <item name="cardElevation">2dp</item>
         <item name="strokeWidth">0dp</item>
         <item name="cardBackgroundColor">?colorSurfaceContainerLow</item>
-        <item name="cardCornerRadius">16dp</item>
+        <item name="cardCornerRadius">12dp</item>
     </style>
 
 
@@ -161,7 +162,7 @@
         <item name="cardElevation">0dp</item>
         <item name="strokeColor">?colorOutlineVariant</item>
         <item name="strokeWidth">1dp</item>
-        <item name="cardCornerRadius">16dp</item>
+        <item name="cardCornerRadius">12dp</item>
     </style>
 
 

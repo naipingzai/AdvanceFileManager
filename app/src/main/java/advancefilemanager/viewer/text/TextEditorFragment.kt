@@ -103,7 +103,10 @@ class TextEditorFragment : Fragment(), ConfirmReloadDialogFragment.Listener,
                     R.id.action_save -> { save(); true }
                     R.id.action_reload -> { onReload(); true }
                     Menu.FIRST -> {
-                        viewModel.encoding.value = Charset.forName(menuItem.titleCondensed!!.toString())
+                        val charsetName = menuItem.titleCondensed?.toString()
+                        if (charsetName != null) {
+                            viewModel.encoding.value = Charset.forName(charsetName)
+                        }
                         true
                     }
                     else -> false
@@ -174,8 +177,8 @@ class TextEditorFragment : Fragment(), ConfirmReloadDialogFragment.Listener,
         }
         val charsetName = viewModel.encoding.value.name()
         val charsetItem = menuBinding.encodingSubMenu.children
-            .find { it.titleCondensed == charsetName }!!
-        charsetItem.isChecked = true
+            .find { it.titleCondensed == charsetName }
+        charsetItem?.isChecked = true
     }
 
     private fun onTextStateChanged(state: DataState<String>) {

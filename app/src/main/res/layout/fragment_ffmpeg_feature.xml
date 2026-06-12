@@ -9,26 +9,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="@dimen/spacing_lg">
 
         <!-- File info card -->
         <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.App.CardView.Filled"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardElevation="0dp"
-            app:strokeWidth="1dp"
-            app:strokeColor="?colorOutlineVariant">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="@dimen/spacing_lg">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="源文件"
+                    android:text="@string/ffmpeg_source_file"
                     android:textAppearance="?textAppearanceLabelMedium"
                     android:textColor="?colorPrimary" />
 
@@ -36,14 +34,14 @@
                     android:id="@+id/fileName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
+                    android:layout_marginTop="@dimen/spacing_xs"
                     android:textAppearance="?textAppearanceBodyLarge" />
 
                 <TextView
                     android:id="@+id/fileInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="@dimen/spacing_xxs"
                     android:textAppearance="?textAppearanceBodySmall"
                     android:textColor="?colorOnSurfaceVariant" />
             </LinearLayout>
@@ -54,15 +52,15 @@
             android:id="@+id/outputLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="输出格式"
+            android:layout_marginTop="@dimen/spacing_xl"
+            android:text="@string/format_convert_output_format"
             android:textAppearance="?textAppearanceTitleSmall" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/outputFormatLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/spacing_sm"
             style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
             <AutoCompleteTextView
@@ -77,15 +75,15 @@
             android:id="@+id/progressBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="@dimen/spacing_xl"
             android:visibility="gone"
-            app:trackCornerRadius="4dp" />
+            app:trackCornerRadius="@dimen/spacing_xs" />
 
         <TextView
             android:id="@+id/progressText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/spacing_sm"
             android:visibility="gone"
             android:textAppearance="?textAppearanceBodySmall"
             android:textColor="?colorOnSurfaceVariant" />
@@ -95,8 +93,8 @@
             android:id="@+id/actionButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="开始" />
+            android:layout_marginTop="@dimen/spacing_xl"
+            android:text="@string/format_convert_action" />
 
     </LinearLayout>
 </ScrollView>

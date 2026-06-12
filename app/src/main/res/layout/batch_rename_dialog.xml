@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="?dialogPreferredPadding"
                 android:layout_marginEnd="?dialogPreferredPadding"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/spacing_lg"
                 android:text="@string/batch_rename_preview"
                 android:textAppearance="?textAppearanceTitleMedium" />
 
@@ -58,8 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="?dialogPreferredPadding"
                 android:layout_marginEnd="?dialogPreferredPadding"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="@dimen/spacing_sm"
+                android:layout_marginBottom="@dimen/spacing_sm"
                 android:textAppearance="?textAppearanceBodyMedium"
                 android:fontFamily="monospace"
                 android:lineSpacingMultiplier="1.3" />

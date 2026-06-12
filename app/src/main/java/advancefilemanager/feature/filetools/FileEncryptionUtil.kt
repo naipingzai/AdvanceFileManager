@@ -70,8 +70,18 @@ object FileEncryptionUtil {
             FileInputStream(inputFile).use { fis ->
                 val salt = ByteArray(SALT_LENGTH)
                 val iv = ByteArray(IV_LENGTH)
-                fis.read(salt)
-                fis.read(iv)
+
+                // 检查 salt 读取完整性
+                val saltRead = fis.read(salt)
+                if (saltRead != SALT_LENGTH) {
+                    throw java.io.IOException("Invalid encrypted file: failed to read salt (read $saltRead bytes, expected $SALT_LENGTH)")
+                }
+
+                // 检查 iv 读取完整性
+                val ivRead = fis.read(iv)
+                if (ivRead != IV_LENGTH) {
+                    throw java.io.IOException("Invalid encrypted file: failed to read IV (read $ivRead bytes, expected $IV_LENGTH)")
+                }
 
                 val key = deriveKey(password, salt)
                 val cipher = Cipher.getInstance(ALGORITHM)

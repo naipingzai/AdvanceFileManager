@@ -8,11 +8,11 @@ package com.advancefilemanager.ui
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.Checkable
+import android.widget.LinearLayout
 import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
-import com.advancefilemanager.lib.foregroundcompat.ForegroundLinearLayout
 
-class CheckableForegroundLinearLayout : ForegroundLinearLayout, Checkable {
+class CheckableForegroundLinearLayout : LinearLayout, Checkable {
     private var _isChecked = false
         set(value) {
             if (field == value) {

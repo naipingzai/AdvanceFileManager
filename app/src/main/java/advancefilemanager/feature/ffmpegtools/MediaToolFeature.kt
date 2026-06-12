@@ -63,5 +63,17 @@ enum class MediaToolFeature(
         R.string.media_tool_video_merge,
         R.string.media_tool_video_merge_desc,
         "video_merge"
+    ),
+    VIDEO_ENHANCE(
+        R.drawable.ic_video,
+        R.string.media_tool_video_enhance,
+        R.string.media_tool_video_enhance_desc,
+        "video_enhance"
+    ),
+    IMAGE_ENHANCE(
+        R.drawable.ic_image,
+        R.string.media_tool_image_enhance,
+        R.string.media_tool_image_enhance_desc,
+        "image_enhance"
     )
 }

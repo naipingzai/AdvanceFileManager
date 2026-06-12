@@ -127,7 +127,7 @@ object FeatureManager {
         return when (featureId) {
             "file-tools" -> "$pkg.feature.filetools.FileToolsActivity"
             "ffmpeg-tools" -> "$pkg.feature.ffmpegtools.FFmpegToolsActivity"
-            "ebook-viewer" -> "$pkg.feature.ebookviewer.EbookViewerActivity"
+            "ebook-viewer" -> "$pkg.viewer.ebook.EbookViewerActivity"
             else -> "$pkg.feature.filetools.FileToolsActivity"
         }
     }

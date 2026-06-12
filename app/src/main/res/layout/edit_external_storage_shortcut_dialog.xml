@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:paddingStart="?dialogPreferredPadding"
             android:paddingEnd="?dialogPreferredPadding"
-            android:paddingTop="8dp"
+            android:paddingTop="@dimen/spacing_sm"
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout

@@ -8,7 +8,6 @@ package com.advancefilemanager.compat
 import android.annotation.SuppressLint
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
-import android.content.pm.SigningInfo
 import com.advancefilemanager.util.andInv
 import com.advancefilemanager.util.hasBits
 
@@ -31,9 +30,8 @@ fun PackageManager.getPackageArchiveInfoCompat(archiveFilePath: String, flags: I
                     if (flags.hasBits(PackageManager.GET_SIGNATURES)) {
                         signatures = emptyArray()
                     }
-                    if (flags.hasBits(PackageManager.GET_SIGNING_CERTIFICATES)) {
-                        signingInfo = SigningInfo()
-                    }
+                    // Don't create a fake SigningInfo - just leave it as null
+                    // The calling code already handles null signingInfo
                 }
         }
     }
