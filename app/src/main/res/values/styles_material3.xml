@@ -27,6 +27,7 @@
         <item name="itemSubtitleTextColor">@color/navigation_item_subtitle_text_color_material3</item>
         <item name="itemIconPadding">@dimen/navigation_item_icon_padding_material3</item>
         <item name="dividerVerticalPadding">@dimen/navigation_separator_vertical_padding</item>
+        <item name="itemRippleColor">@color/navigation_item_ripple_color</item>
     </style>
 
     <style name="Widget.MaterialFiles.Material3.TabLayout" parent="Widget.Material3.TabLayout">

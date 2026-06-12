@@ -69,15 +69,13 @@ class NavigationListAdapter(
             itemShapeAppearance, itemShapeAppearanceOverlay, itemShapeFillColor,
             itemShapeInsetStart, itemShapeInsetEnd, itemShapeInsetTop, itemShapeInsetBottom, context
         )
-        val controlHighlightColor = context.getColorStateListByAttr(
-            com.google.android.material.R.attr.colorControlHighlight
-        )
         val itemForegroundMaskFillColor = ColorStateList.valueOf(Color.WHITE)
         val itemForegroundMask = createItemShapeDrawable(
             itemShapeAppearance, itemShapeAppearanceOverlay, itemForegroundMaskFillColor,
             itemShapeInsetStart, itemShapeInsetEnd, itemShapeInsetTop, itemShapeInsetBottom, context
         )
-        val itemForeground = RippleDrawable(controlHighlightColor, null, itemForegroundMask)
+        val itemRippleColor = ColorStateList.valueOf(Color.argb(30, 255, 255, 255))
+        val itemForeground = RippleDrawable(itemRippleColor, null, itemForegroundMask)
         context.obtainStyledAttributesCompat(
             null, R.styleable.NavigationViewExtra,
             com.google.android.material.R.attr.navigationViewStyle, 0

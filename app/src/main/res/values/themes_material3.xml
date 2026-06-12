@@ -14,6 +14,7 @@
         <item name="android:windowLayoutInDisplayCutoutMode">always</item>
         <item name="android:windowLightNavigationBar">?isLightTheme</item>
         <item name="android:forceDarkAllowed">false</item>
+        <item name="colorControlHighlight">@color/control_highlight_color</item>
     </style>
     <style name="Base.Theme.MaterialFiles.Material3" parent="Platform.Theme.MaterialFiles.Material3">
 
@@ -24,6 +25,7 @@
         <!-- https://developer.android.com/training/tv/start/start#transition-color -->
         <item name="android:windowAllowEnterTransitionOverlap">true</item>
         <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="colorControlHighlight">@color/control_highlight_color</item>
 
         <!-- 全局 M3 Typography: 统一使用 sans-serif (regular) 字体 -->
         <item name="textAppearanceDisplayLarge">@style/TextAppearance.App.M3.DisplayLarge</item>

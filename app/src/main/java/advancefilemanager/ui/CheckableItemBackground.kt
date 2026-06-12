@@ -39,8 +39,7 @@ object CheckableItemBackground {
             setExitFadeDuration(shortAnimTime)
             val checkedDrawable = GradientDrawable().apply {
                 cornerRadius = context.dpToDimension(cornerSizeDp)
-                val primaryColor = context.getColorByAttr(androidx.appcompat.R.attr.colorPrimary)
-                setColor(primaryColor.asColor().withModulatedAlpha(0.12f).value)
+                setColor(Color.argb(30, 255, 255, 255))
                 setStroke(2 * context.dpToDimensionPixelOffset(insetDp), Color.TRANSPARENT)
             }
             addState(intArrayOf(android.R.attr.state_checked), checkedDrawable)
