@@ -42,10 +42,11 @@ import com.advancefilemanager.provider.common.isEncrypted
 import com.advancefilemanager.provider.linux.isLinuxPath
 import com.advancefilemanager.compat.setGroupDividerEnabledCompat
 import com.advancefilemanager.settings.Settings
-import com.advancefilemanager.plugin.PluginSettings
-import com.advancefilemanager.plugin.protocol.PluginFeature
-import com.advancefilemanager.plugin.protocol.PluginInfo
-import com.advancefilemanager.plugin.protocol.PluginManager
+import com.advancefilemanager.feature.FeatureSettings
+import com.advancefilemanager.feature.protocol.FeatureSubItem
+import com.advancefilemanager.feature.protocol.FeatureInfo
+import com.advancefilemanager.feature.protocol.FeatureCategory
+import com.advancefilemanager.feature.FeatureManager
 import com.advancefilemanager.ui.AnimatedListAdapter
 import com.advancefilemanager.ui.CheckableForegroundLinearLayout
 import com.advancefilemanager.ui.CheckableItemBackground
@@ -360,23 +361,23 @@ class FileListAdapter(
         menu.findItem(R.id.action_extract).isVisible = file.isArchiveFile
         menu.findItem(R.id.action_archive).isVisible = !isArchivePath
         menu.findItem(R.id.action_add_bookmark).isVisible = isDirectory
-        // Dynamic plugin feature menu items
+        // Dynamic feature menu items
         menu.removeGroup(R.id.group_plugins)
-        val enabledFeatures = if (isLinux) {
-            PluginManager.discoverPlugins(holder.itemView.context)
-                .flatMap { plugin ->
-                    if (PluginSettings.isPluginEnabled(plugin.id)) {
-                        plugin.features.filter { PluginSettings.isFeatureEnabled(it.id) }
-                            .map { feature -> plugin to feature }
-                    } else {
-                        emptyList()
-                    }
+        val enabledSubFeatures: List<Pair<FeatureInfo, com.advancefilemanager.feature.protocol.FeatureSubItem>> = if (isLinux) {
+            FeatureManager.getAllFeatures().flatMap { feat ->
+                if (FeatureSettings.isFeatureEnabled(feat.id)) {
+                    feat.subFeatures
+                        .filter { sub -> FeatureSettings.isSubFeatureEnabled(sub.id) }
+                        .map { sub -> feat to sub }
+                } else {
+                    emptyList()
                 }
+            }
         } else {
             emptyList()
         }
-        enabledFeatures.forEachIndexed { index, (_, feature) ->
-            menu.add(R.id.group_plugins, Menu.FIRST + index, Menu.NONE, feature.title)
+        enabledSubFeatures.forEachIndexed { index, pair ->
+            menu.add(R.id.group_plugins, Menu.FIRST + index, Menu.NONE, pair.second.title)
         }
         holder.popupMenu.setOnMenuItemClickListener {
             when (it.itemId) {
@@ -392,17 +393,19 @@ class FileListAdapter(
                 R.id.action_add_bookmark -> { listener.addBookmark(file); true }
                 R.id.action_properties -> { listener.showPropertiesDialog(file); true }
                 else -> {
-                    // Handle plugin feature menu items
+                    // Handle feature menu items
                     val featureIndex = it.itemId - Menu.FIRST
-                    if (featureIndex in enabledFeatures.indices) {
-                        val (plugin, feature) = enabledFeatures[featureIndex]
-                        val intent = PluginManager.createPluginIntent(
-                            plugin,
+                    if (featureIndex in enabledSubFeatures.indices) {
+                        val (featInfo, subFeature) = enabledSubFeatures[featureIndex]
+                        val featureIntent = FeatureManager.createFeatureIntent(
+                            featInfo,
                             filePath = file.path.toString(),
                             mimeType = mimeType.value,
-                            actionType = feature.actionType
+                            actionType = subFeature.actionType
                         )
-                        holder.itemView.context.startActivity(intent)
+                        if (featureIntent != null) {
+                            holder.itemView.context.startActivity(featureIntent)
+                        }
                         true
                     } else {
                         false

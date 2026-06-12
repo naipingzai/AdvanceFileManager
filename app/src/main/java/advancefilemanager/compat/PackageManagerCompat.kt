@@ -9,7 +9,6 @@ import android.annotation.SuppressLint
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.content.pm.SigningInfo
-import android.os.Build
 import com.advancefilemanager.util.andInv
 import com.advancefilemanager.util.hasBits
 
@@ -20,15 +19,10 @@ object PackageManagerCompat {
 
 fun PackageManager.getPackageArchiveInfoCompat(archiveFilePath: String, flags: Int): PackageInfo? {
     var packageInfo = getPackageArchiveInfo(archiveFilePath, flags)
-    // getPackageArchiveInfo() returns null for unsigned APKs if signing info is requested.
     if (packageInfo == null) {
         val flagsWithoutGetSigningInfo = flags.andInv(
             @Suppress("DEPRECATION")
-            PackageManager.GET_SIGNATURES or if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                PackageManager.GET_SIGNING_CERTIFICATES
-            } else {
-                0
-            }
+            PackageManager.GET_SIGNATURES or PackageManager.GET_SIGNING_CERTIFICATES
         )
         if (flags != flagsWithoutGetSigningInfo) {
             packageInfo = getPackageArchiveInfo(archiveFilePath, flagsWithoutGetSigningInfo)
@@ -37,8 +31,7 @@ fun PackageManager.getPackageArchiveInfoCompat(archiveFilePath: String, flags: I
                     if (flags.hasBits(PackageManager.GET_SIGNATURES)) {
                         signatures = emptyArray()
                     }
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
-                        && flags.hasBits(PackageManager.GET_SIGNING_CERTIFICATES)) {
+                    if (flags.hasBits(PackageManager.GET_SIGNING_CERTIFICATES)) {
                         signingInfo = SigningInfo()
                     }
                 }

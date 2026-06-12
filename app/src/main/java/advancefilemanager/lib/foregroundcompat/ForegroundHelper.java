@@ -32,7 +32,6 @@ import android.graphics.Canvas;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -40,7 +39,6 @@ import android.widget.FrameLayout;
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.annotation.StyleRes;
 import androidx.appcompat.widget.TintTypedArray;
 import androidx.core.graphics.drawable.DrawableCompat;
@@ -64,7 +62,7 @@ public class ForegroundHelper {
 
     @SuppressLint(value={"RestrictedApi"})
     public void init(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
-        boolean bl = this.mHasFrameworkImplementation = this.mView instanceof FrameLayout || Build.VERSION.SDK_INT >= 23 && context.getApplicationInfo().targetSdkVersion >= 23;
+        boolean bl = this.mHasFrameworkImplementation = this.mView instanceof FrameLayout || true;
         if (this.mHasFrameworkImplementation) {
             return;
         }
@@ -84,7 +82,6 @@ public class ForegroundHelper {
         a.recycle();
     }
 
-    @RequiresApi(value=24)
     public void onVisibilityAggregated(boolean isVisible) {
         Drawable fg;
         if (this.mHasFrameworkImplementation) {

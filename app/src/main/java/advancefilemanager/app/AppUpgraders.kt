@@ -7,7 +7,6 @@ package com.advancefilemanager.app
 
 import android.content.SharedPreferences
 import android.net.Uri
-import android.os.Build
 import android.os.Parcel
 import android.os.Parcelable
 import androidx.annotation.StringRes
@@ -453,10 +452,8 @@ private fun migrateDocumentManagerShortcutSetting1_7_2() {
                         repeat(size) {
                             val oldPosition = oldParcel.dataPosition()
                             oldParcel.readInt()
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                                // Skip prefix length.
-                                oldParcel.readInt()
-                            }
+                            // Skip prefix length.
+                            oldParcel.readInt()
                             val className = oldParcel.readString()
                             oldParcel.setDataPosition(oldPosition)
                             when (className) {
@@ -500,19 +497,13 @@ private fun migrateDocumentManagerShortcutSetting1_7_2() {
 }
 
 private fun readWriteLengthPrefixedValue(oldParcel: Parcel, newParcel: Parcel, block: () -> Unit) {
-    var lengthPosition = 0
-    var startPosition = 0
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        oldParcel.readInt()
-        lengthPosition = newParcel.dataPosition()
-        newParcel.writeInt(-1)
-        startPosition = newParcel.dataPosition()
-    }
+    oldParcel.readInt()
+    val lengthPosition = newParcel.dataPosition()
+    newParcel.writeInt(-1)
+    val startPosition = newParcel.dataPosition()
     block()
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-        val endPosition = newParcel.dataPosition()
-        newParcel.setDataPosition(lengthPosition)
-        newParcel.writeInt(endPosition - startPosition)
-        newParcel.setDataPosition(endPosition)
-    }
+    val endPosition = newParcel.dataPosition()
+    newParcel.setDataPosition(lengthPosition)
+    newParcel.writeInt(endPosition - startPosition)
+    newParcel.setDataPosition(endPosition)
 }

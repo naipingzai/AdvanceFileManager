@@ -9,10 +9,8 @@ import android.app.NotificationChannel
 import android.content.Context
 import android.media.AudioAttributes
 import android.net.Uri
-import android.os.Build
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
-import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
 import androidx.core.app.NotificationCompat
 import com.advancefilemanager.compat.getColorCompat
@@ -59,7 +57,6 @@ class NotificationChannelTemplate(
     val lockscreenVisibility: Int? = null,
     val allowBubbles: Boolean? = null
 ) {
-    @RequiresApi(Build.VERSION_CODES.O)
     fun create(context: Context): NotificationChannel =
         NotificationChannel(id, context.getString(nameRes), importance).apply {
             descriptionRes?.let { description = context.getString(it) }
@@ -72,8 +69,6 @@ class NotificationChannelTemplate(
             this@NotificationChannelTemplate.vibrationPattern?.let { vibrationPattern = it }
             bypassDnd?.let { setBypassDnd(it) }
             this@NotificationChannelTemplate.lockscreenVisibility?.let { lockscreenVisibility = it }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                allowBubbles?.let { setAllowBubbles(it) }
-            }
+            allowBubbles?.let { setAllowBubbles(it) }
         }
 }

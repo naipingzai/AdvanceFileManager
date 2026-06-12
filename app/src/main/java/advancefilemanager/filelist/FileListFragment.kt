@@ -11,7 +11,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.provider.MediaStore
 import android.os.Bundle
 import android.os.Environment
@@ -32,7 +31,6 @@ import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
@@ -144,8 +142,9 @@ import com.advancefilemanager.viewer.video.VideoViewerActivity
 import com.advancefilemanager.viewer.audio.AudioPlayerActivity
 import com.advancefilemanager.viewer.csv.CsvViewerActivity
 import com.advancefilemanager.viewer.pdf.PdfViewerActivity
-import com.advancefilemanager.plugin.protocol.PluginContract
-import com.advancefilemanager.plugin.protocol.PluginManager
+import com.advancefilemanager.feature.protocol.FeatureContract
+import com.advancefilemanager.feature.FeatureManager
+import com.advancefilemanager.feature.FeatureSettings
 import kotlin.math.roundToInt
 
 class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.Listener,
@@ -169,11 +168,9 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         RequestPermissionInSettingsContract(android.Manifest.permission.WRITE_EXTERNAL_STORAGE),
         this::onRequestStoragePermissionInSettingsResult
     )
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private val requestNotificationPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission(), this::onRequestNotificationPermissionResult
     )
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private val requestNotificationPermissionInSettingsLauncher = registerForActivityResult(
         RequestPermissionInSettingsContract(android.Manifest.permission.POST_NOTIFICATIONS),
         this::onRequestNotificationPermissionInSettingsResult
@@ -1169,23 +1166,27 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
     }
 
     /**
-     * 通过插件协议打开文件。
-     * 查找支持该 MIME 类型的已安装插件，如果有则启动插件，否则使用系统 Intent。
+     * 通过内置功能系统打开文件。
+     * 查找支持该 MIME 类型的已启用功能，如果有则启动对应功能，否则使用系统 Intent。
      */
-    private fun openWithPlugin(file: FileItem, mimeType: String) {
-        val plugins = PluginManager.findPluginsForMimeType(requireContext(), mimeType)
-            .filter { it.category == PluginContract.CATEGORY_VIEWER }
-        if (plugins.isNotEmpty()) {
-            val plugin = plugins.first()
+    private fun openWithFeature(file: FileItem, mimeType: String) {
+        val features = FeatureManager.getEnabledFeaturesForMimeType(requireContext(), mimeType)
+            .filter { it.category == com.advancefilemanager.feature.protocol.FeatureCategory.VIEWER }
+        if (features.isNotEmpty()) {
+            val feature = features.first()
             val filePath = if (file.path.isLinuxPath) file.path.toFile().absolutePath else null
-            val intent = PluginManager.createPluginIntent(
-                plugin = plugin,
+            val intent = FeatureManager.createFeatureIntent(
+                feature = feature,
                 filePath = filePath,
                 mimeType = mimeType
             )
-            startActivitySafe(intent)
+            if (intent != null) {
+                startActivitySafe(intent)
+            } else {
+                openFileWithIntent(file, false)
+            }
         } else {
-            // 没有安装对应插件，使用系统 Intent 打开
+            // 没有启用对应功能，使用系统 Intent 打开
             openFileWithIntent(file, false)
         }
     }
@@ -1237,12 +1238,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
 
     override fun installApk(file: FileItem) {
         val path = file.path
-        val uri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            if (!path.isArchivePath) path.fileProviderUri else null
-        } else {
-            // PackageInstaller only supports file URI before N.
-            if (path.isLinuxPath) Uri.fromFile(path.toFile()) else null
-        }
+        val uri = if (!path.isArchivePath) path.fileProviderUri else null
         if (uri != null) {
             startActivitySafe(uri.createInstallPackageIntent())
         } else {
@@ -1492,7 +1488,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                 ShowRequestAllFilesAccessRationaleDialogFragment.show(this)
                 viewModel.isStorageAccessRequested = true
             }
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        } else {
             if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
                 PackageManager.PERMISSION_GRANTED
             ) {
@@ -1620,22 +1616,19 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         if (viewModel.isNotificationPermissionRequested) {
             return
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) !=
-                PackageManager.PERMISSION_GRANTED) {
-                if (shouldShowRequestPermissionRationale(
-                        android.Manifest.permission.POST_NOTIFICATIONS
-                    )) {
-                    ShowRequestNotificationPermissionRationaleDialogFragment.show(this)
-                } else {
-                    requestNotificationPermission()
-                }
-                viewModel.isNotificationPermissionRequested = true
+        if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) !=
+            PackageManager.PERMISSION_GRANTED) {
+            if (shouldShowRequestPermissionRationale(
+                    android.Manifest.permission.POST_NOTIFICATIONS
+                )) {
+                ShowRequestNotificationPermissionRationaleDialogFragment.show(this)
+            } else {
+                requestNotificationPermission()
             }
+            viewModel.isNotificationPermissionRequested = true
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onShowRequestNotificationPermissionRationaleResult(shouldRequest: Boolean) {
         if (shouldRequest) {
             requestNotificationPermission()
@@ -1644,12 +1637,10 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun requestNotificationPermission() {
         requestNotificationPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS)
     }
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun onRequestNotificationPermissionResult(isGranted: Boolean) {
         if (isGranted) {
             viewModel.isNotificationPermissionRequested = false
@@ -1662,7 +1653,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onShowRequestNotificationPermissionInSettingsRationaleResult(
         shouldRequest: Boolean
     ) {
@@ -1673,12 +1663,10 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun requestNotificationPermissionInSettings() {
         requestNotificationPermissionInSettingsLauncher.launch(Unit)
     }
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun onRequestNotificationPermissionInSettingsResult(isGranted: Boolean) {
         if (isGranted) {
             viewModel.isNotificationPermissionRequested = false
@@ -1695,11 +1683,9 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
     }
 
     private class RequestAllFilesAccessContract : ActivityResultContract<Unit, Boolean>() {
-        @RequiresApi(Build.VERSION_CODES.R)
         override fun createIntent(context: Context, input: Unit): Intent =
             Environment::class.createManageAppAllFilesAccessPermissionIntent(context.packageName)
 
-        @RequiresApi(Build.VERSION_CODES.R)
         override fun parseResult(resultCode: Int, intent: Intent?): Boolean =
             Environment.isExternalStorageManager()
     }

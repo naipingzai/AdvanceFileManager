@@ -6,9 +6,7 @@
 package com.advancefilemanager.util
 
 import android.net.Uri
-import android.os.Build
 import android.os.Parcel
-import androidx.annotation.RequiresApi
 import kotlinx.parcelize.Parceler
 import com.advancefilemanager.hiddenapi.RestrictedHiddenApi
 
@@ -28,7 +26,6 @@ object StableUriParceler : Parceler<Uri?> {
     private const val REPRESENTATION_ENCODED = 1
     private const val REPRESENTATION_DECODED = 2
 
-    @get:RequiresApi(Build.VERSION_CODES.R)
     @RestrictedHiddenApi
     private val parcelReadString8Method by lazyReflectedMethod(Parcel::class.java, "readString8")
 
@@ -145,11 +142,7 @@ object StableUriParceler : Parceler<Uri?> {
         }
 
     private fun Parcel.readUriString(): String? =
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            parcelReadString8Method.invoke(this) as String?
-        } else {
-            readString()
-        }
+        parcelReadString8Method.invoke(this) as String?
 
     override fun Uri?.write(parcel: Parcel, flags: Int) {
         parcel.writeString(this?.toString())

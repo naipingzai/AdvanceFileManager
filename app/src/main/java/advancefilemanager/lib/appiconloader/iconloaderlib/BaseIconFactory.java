@@ -50,7 +50,6 @@ import android.graphics.drawable.InsetDrawable;
 import android.os.Build;
 import android.os.Process;
 import android.os.UserHandle;
-import androidx.annotation.ChecksSdkIntAtLeast;
 import androidx.annotation.NonNull;
 import com.advancefilemanager.lib.appiconloader.iconloaderlib.BitmapInfo;
 import com.advancefilemanager.lib.appiconloader.iconloaderlib.BitmapRenderer;
@@ -64,10 +63,8 @@ public class BaseIconFactory
 implements AutoCloseable {
     private static final String TAG = "BaseIconFactory";
     private static final int DEFAULT_WRAPPER_BACKGROUND = -1;
-    @ChecksSdkIntAtLeast(api=26)
-    static final boolean ATLEAST_OREO = Build.VERSION.SDK_INT >= 26;
-    @ChecksSdkIntAtLeast(api=28)
-    static final boolean ATLEAST_P = Build.VERSION.SDK_INT >= 28;
+    static final boolean ATLEAST_OREO = true;
+    static final boolean ATLEAST_P = true;
     private static final float ICON_BADGE_SCALE = 0.444f;
     private final Rect mOldBounds = new Rect();
     protected final Context mContext;
@@ -142,9 +139,6 @@ implements AutoCloseable {
     }
 
     public BitmapInfo createIconBitmap(String placeholder, int color) {
-        if (!ATLEAST_OREO) {
-            return null;
-        }
         Bitmap placeholderBitmap = Bitmap.createBitmap((int)this.mIconBitmapSize, (int)this.mIconBitmapSize, (Bitmap.Config)Bitmap.Config.ARGB_8888);
         this.mTextPaint.setColor(color);
         Canvas canvas = new Canvas(placeholderBitmap);
@@ -163,11 +157,9 @@ implements AutoCloseable {
 
     public BitmapInfo createShapedIconBitmap(Bitmap icon, UserHandle user) {
         Drawable d = new FixedSizeBitmapDrawable(icon);
-        if (ATLEAST_OREO) {
-            float inset = AdaptiveIconDrawable.getExtraInsetFraction();
-            inset /= 1.0f + 2.0f * inset;
-            d = new AdaptiveIconDrawable(new ColorDrawable(-16777216), new InsetDrawable(d, inset, inset, inset, inset));
-        }
+        float inset = AdaptiveIconDrawable.getExtraInsetFraction();
+        inset /= 1.0f + 2.0f * inset;
+        d = new AdaptiveIconDrawable(new ColorDrawable(-16777216), new InsetDrawable(d, inset, inset, inset, inset));
         return this.createBadgedIconBitmap(d, user, true);
     }
 
@@ -184,12 +176,12 @@ implements AutoCloseable {
     }
 
     public BitmapInfo createBadgedIconBitmap(Drawable icon, UserHandle user, int iconAppTargetSdk, boolean isInstantApp, float[] scale) {
-        boolean shrinkNonAdaptiveIcons = ATLEAST_P || ATLEAST_OREO && iconAppTargetSdk >= 26;
+        boolean shrinkNonAdaptiveIcons = true;
         return this.createBadgedIconBitmap(icon, user, shrinkNonAdaptiveIcons, isInstantApp, scale);
     }
 
     public Bitmap createScaledBitmapWithoutShadow(Drawable icon, int iconAppTargetSdk) {
-        boolean shrinkNonAdaptiveIcons = ATLEAST_P || ATLEAST_OREO && iconAppTargetSdk >= 26;
+        boolean shrinkNonAdaptiveIcons = true;
         return this.createScaledBitmapWithoutShadow(icon, shrinkNonAdaptiveIcons);
     }
 
@@ -199,7 +191,7 @@ implements AutoCloseable {
         }
         icon = this.normalizeAndWrapToAdaptiveIcon(icon, shrinkNonAdaptiveIcons, null, scale);
         Bitmap bitmap = this.createIconBitmap(icon, scale[0]);
-        if (ATLEAST_OREO && icon instanceof AdaptiveIconDrawable) {
+        if (icon instanceof AdaptiveIconDrawable) {
             this.mCanvas.setBitmap(bitmap);
             this.getShadowGenerator().recreateIcon(Bitmap.createBitmap((Bitmap)bitmap), this.mCanvas);
             this.mCanvas.setBitmap(null);
@@ -254,7 +246,7 @@ implements AutoCloseable {
             return null;
         }
         float scale = 1.0f;
-        if (shrinkNonAdaptiveIcons && ATLEAST_OREO) {
+        if (shrinkNonAdaptiveIcons) {
             if (this.mWrapperIcon == null) {
                 this.mWrapperIcon = this.mContext.getDrawable(R.drawable.adaptive_icon_drawable_wrapper).mutate();
             }
@@ -304,7 +296,7 @@ implements AutoCloseable {
         }
         this.mCanvas.setBitmap(bitmap);
         this.mOldBounds.set(icon.getBounds());
-        if (ATLEAST_OREO && icon instanceof AdaptiveIconDrawable) {
+        if (icon instanceof AdaptiveIconDrawable) {
             int offset = Math.max((int)Math.ceil(0.010416667f * (float)size), Math.round((float)size * (1.0f - scale) / 2.0f));
             icon.setBounds(0, 0, size - 2 * offset, size - 2 * offset);
             this.mCanvas.translate((float)offset, (float)offset);
@@ -357,7 +349,7 @@ implements AutoCloseable {
     }
 
     public static Drawable getFullResDefaultActivityIcon(int iconDpi) {
-        return Resources.getSystem().getDrawableForDensity(Build.VERSION.SDK_INT >= 26 ? 17301651 : 0x10D0000, iconDpi);
+        return Resources.getSystem().getDrawableForDensity(17301651, iconDpi);
     }
 
     public BitmapInfo badgeBitmap(Bitmap source, BitmapInfo badgeInfo) {

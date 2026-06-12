@@ -8,7 +8,6 @@ package com.advancefilemanager.fileproperties.audio
 import android.media.MediaMetadataRetriever
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asExecutor
-import android.os.Build
 import java.time.Duration
 import java8.nio.file.Path
 import com.advancefilemanager.compat.METADATA_KEY_SAMPLERATE
@@ -67,13 +66,9 @@ class AudioInfoLiveData(path: Path) : PathObserverLiveData<Stateful<AudioInfo>>(
                     val bitRate = retriever.extractMetadataNotBlank(
                         MediaMetadataRetriever.METADATA_KEY_BITRATE
                     )?.toIntOrNull()
-                    val sampleRate = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                        retriever.extractMetadataNotBlank(
-                            MediaMetadataRetriever::class.METADATA_KEY_SAMPLERATE
-                        )?.toIntOrNull()
-                    } else {
-                        null
-                    }
+                    val sampleRate = retriever.extractMetadataNotBlank(
+                        MediaMetadataRetriever::class.METADATA_KEY_SAMPLERATE
+                    )?.toIntOrNull()
                     AudioInfo(
                         title, artist, album, albumArtist, composer, discNumber, trackNumber, year,
                         genre, duration, bitRate, sampleRate

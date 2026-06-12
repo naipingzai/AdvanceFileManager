@@ -8,7 +8,6 @@ package com.advancefilemanager.filejob
 import android.app.PendingIntent
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Environment
 import android.widget.Toast
 import androidx.annotation.AnyRes
@@ -136,10 +135,8 @@ private fun FileJob.postNotification(
         setProgress(max, progress, indeterminate)
         if (showCancel) {
             val intent = FileJobReceiver.createIntent(id)
-            var pendingIntentFlags = PendingIntent.FLAG_UPDATE_CURRENT
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                pendingIntentFlags = pendingIntentFlags or PendingIntent.FLAG_IMMUTABLE
-            }
+            var pendingIntentFlags = PendingIntent.FLAG_UPDATE_CURRENT or
+                PendingIntent.FLAG_IMMUTABLE
             val pendingIntent = PendingIntent.getBroadcast(
                 service, id + 10000, intent, pendingIntentFlags
             )
@@ -1467,12 +1464,7 @@ class InstallApkJob(private val file: Path) : FileJob() {
             file, R.string.file_install_apk_from_background_title_format,
             R.string.file_install_apk_from_background_text
         ) { file ->
-            val uri = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                file.fileProviderUri
-            } else {
-                // PackageInstaller only supports file URI before N.
-                Uri.fromFile(file.toFile())
-            }
+            val uri = file.fileProviderUri
             uri.createInstallPackageIntent()
         }
     }

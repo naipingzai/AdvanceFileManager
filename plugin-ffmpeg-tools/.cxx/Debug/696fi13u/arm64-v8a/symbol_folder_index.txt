@@ -1,1 +1,0 @@
-/home/npznnz/github/AdvanceFileManager/plugin-ffmpeg-tools/build/intermediates/cxx/Debug/696fi13u/obj/arm64-v8a

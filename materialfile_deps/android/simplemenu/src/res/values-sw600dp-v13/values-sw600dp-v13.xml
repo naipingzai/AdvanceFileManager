@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="simple_menu_margin">23dp</dimen>
-    <integer name="simple_menu_max_units">7</integer>
-</resources>

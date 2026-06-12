@@ -16,7 +16,7 @@ android {
     ndkVersion = '28.1.13356709'
     defaultConfig {
         applicationId 'com.advancefilemanager'
-        minSdk = 21
+        minSdk = 35
         targetSdk = 35
         versionCode = 1
         versionName = '1.0.0'
@@ -90,11 +90,6 @@ repositories {
 }
 
 dependencies {
-    // --- Plugin modules (compiled as libraries into single APK) ---
-    implementation project(':plugin-protocol')
-    implementation project(':plugin-ffmpeg-tools')
-    implementation project(':plugin-file-tools')
-
     // --- Official dependencies (Google / JetBrains / AndroidX) ---
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 
@@ -141,7 +136,6 @@ dependencies {
     implementation 'com.caverock:androidsvg-aar:1.4'
     implementation 'dev.rikka.shizuku:api:12.1.0'
     implementation 'dev.rikka.shizuku:provider:12.1.0'
-    implementation project(':simplemenu')
     implementation 'com.h6ah4i.android.widget.advrecyclerview:advrecyclerview:1.0.0'
     implementation 'com.h6ah4i.android.materialshadowninepatch:materialshadowninepatch:1.0.0'
     implementation 'com.drakeet.drawer:drawer:1.0.3'

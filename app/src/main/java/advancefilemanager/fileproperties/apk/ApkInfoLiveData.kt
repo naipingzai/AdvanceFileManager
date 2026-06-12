@@ -8,7 +8,6 @@ package com.advancefilemanager.fileproperties.apk
 import android.content.pm.PackageManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asExecutor
-import android.os.Build
 import java8.nio.file.Path
 import com.advancefilemanager.app.packageManager
 import com.advancefilemanager.fileproperties.PathObserverLiveData
@@ -36,43 +35,28 @@ class ApkInfoLiveData(path: Path) : PathObserverLiveData<Stateful<ApkInfo>>(path
                 // PackageManager.getPackageArchiveInfo() to call
                 // PackageParser.collectCertificates().
                 @Suppress("DEPRECATION")
-                var packageInfoFlags = (PackageManager.GET_PERMISSIONS
-                    or PackageManager.GET_SIGNATURES)
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                    packageInfoFlags = packageInfoFlags or PackageManager.GET_SIGNING_CERTIFICATES
-                }
+                val packageInfoFlags = (PackageManager.GET_PERMISSIONS
+                    or PackageManager.GET_SIGNATURES
+                    or PackageManager.GET_SIGNING_CERTIFICATES)
                 val (packageInfo, closeable) =
                     packageManager.getPackageArchiveInfoCompat(path, packageInfoFlags)
                 val apkInfo = closeable.use {
                     val applicationInfo = packageInfo?.applicationInfo
                         ?: throw IOException("ApplicationInfo is null")
                     val label = applicationInfo.loadLabel(packageManager).toString()
-                    val signingCertificates = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                        // PackageInfo.signatures returns only the oldest certificate if there are
-                        // past certificates on P and above for compatibility.
-                        packageInfo.signingInfo?.apkContentsSigners
-                    } else {
-                        @Suppress("DEPRECATION")
-                        packageInfo.signatures
-                    } ?: emptyArray()
+                    val signingCertificates = packageInfo.signingInfo?.apkContentsSigners
+                        ?: emptyArray()
                     val signingCertificateDigests = signingCertificates
                         .map { it.toByteArray().sha1Digest().toHexString() }
-                    val pastSigningCertificates =
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                            val signingInfo = packageInfo.signingInfo
-                            // SigningInfo.getSigningCertificateHistory() may return the current
-                            // certificate if there are no past certificates.
-                            if (signingInfo?.hasPastSigningCertificates() == true) {
-                                // SigningInfo.getSigningCertificateHistory() also returns the
-                                // current certificate.
-                                signingInfo.signingCertificateHistory?.toMutableList()
-                                    ?.apply { removeAll(signingCertificates) }
-                            } else {
-                                null
-                            }
+                    val pastSigningCertificates = run {
+                        val signingInfo = packageInfo.signingInfo
+                        if (signingInfo?.hasPastSigningCertificates() == true) {
+                            signingInfo.signingCertificateHistory?.toMutableList()
+                                ?.apply { removeAll(signingCertificates) }
                         } else {
                             null
-                        } ?: emptyList()
+                        }
+                    } ?: emptyList()
                     val pastSigningCertificateDigests = pastSigningCertificates
                         .map { it.toByteArray().sha1Digest().toHexString() }
                     ApkInfo(

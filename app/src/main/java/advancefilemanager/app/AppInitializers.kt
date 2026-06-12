@@ -5,15 +5,12 @@
 
 package com.advancefilemanager.app
 
-import android.os.Build
 import android.webkit.WebView
 import com.advancefilemanager.BuildConfig
 import com.advancefilemanager.coil.initializeCoil
 import com.advancefilemanager.filejob.fileJobNotificationTemplate
 import com.advancefilemanager.hiddenapi.HiddenApi
-import com.advancefilemanager.plugin.ffmpegtools.FFmpegFeatureProvider
-import com.advancefilemanager.plugin.filetools.FileToolsFeatureProvider
-import com.advancefilemanager.plugin.protocol.PluginManager
+import com.advancefilemanager.feature.FeatureInitializer
 import com.advancefilemanager.provider.FileSystemProviders
 import com.advancefilemanager.settings.Settings
 import com.advancefilemanager.storage.StorageVolumeListLiveData
@@ -24,7 +21,7 @@ val appInitializers = listOf(
     ::initializeWebViewDebugging,
     ::initializeCoil,
     ::initializeFileSystemProviders,
-    ::initializePlugins,
+    ::initializeFeatures,
     ::upgradeApp,
     ::initializeLiveDataObjects,
     ::createNotificationChannels
@@ -49,9 +46,8 @@ private fun initializeFileSystemProviders() {
     FileSystemProviders.overflowWatchEvents = true
 }
 
-private fun initializePlugins() {
-    PluginManager.registerFeatureProvider(FFmpegFeatureProvider)
-    PluginManager.registerFeatureProvider(FileToolsFeatureProvider)
+private fun initializeFeatures() {
+    FeatureInitializer.initialize()
 }
 
 private fun initializeLiveDataObjects() {
@@ -61,12 +57,10 @@ private fun initializeLiveDataObjects() {
 }
 
 private fun createNotificationChannels() {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        notificationManager.createNotificationChannels(
-            listOf(
-                backgroundActivityStartNotificationTemplate.channelTemplate,
-                fileJobNotificationTemplate.channelTemplate
-            ).map { it.create(application) }
-        )
-    }
+    notificationManager.createNotificationChannels(
+        listOf(
+            backgroundActivityStartNotificationTemplate.channelTemplate,
+            fileJobNotificationTemplate.channelTemplate
+        ).map { it.create(application) }
+    )
 }

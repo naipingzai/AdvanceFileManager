@@ -16,12 +16,10 @@ package com.advancefilemanager.lib.foregroundcompat;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.advancefilemanager.lib.foregroundcompat.ForegroundCompatView;
 
 public class ForegroundCompat {
     private ForegroundCompat() {
@@ -32,22 +30,14 @@ public class ForegroundCompat {
         if (view instanceof FrameLayout) {
             return ((FrameLayout)view).getForeground();
         }
-        if (Build.VERSION.SDK_INT >= 23 && ForegroundCompat.isTargetingMOrAbove(view)) {
-            return view.getForeground();
-        }
-        if (view instanceof ForegroundCompatView) {
-            return ((ForegroundCompatView)view).getSupportForeground();
-        }
-        return null;
+        return view.getForeground();
     }
 
     public static void setForeground(@NonNull View view, @Nullable Drawable foreground) {
         if (view instanceof FrameLayout) {
             ((FrameLayout)view).setForeground(foreground);
-        } else if (Build.VERSION.SDK_INT >= 23 && ForegroundCompat.isTargetingMOrAbove(view)) {
+        } else {
             view.setForeground(foreground);
-        } else if (view instanceof ForegroundCompatView) {
-            ((ForegroundCompatView)view).setSupportForeground(foreground);
         }
     }
 
@@ -55,32 +45,22 @@ public class ForegroundCompat {
         if (view instanceof FrameLayout) {
             return ((FrameLayout)view).getForegroundGravity();
         }
-        if (Build.VERSION.SDK_INT >= 23 && ForegroundCompat.isTargetingMOrAbove(view)) {
-            return view.getForegroundGravity();
-        }
-        if (view instanceof ForegroundCompatView) {
-            return ((ForegroundCompatView)view).getSupportForegroundGravity();
-        }
-        return 0x800033;
+        return view.getForegroundGravity();
     }
 
     public static void setForegroundGravity(@NonNull View view, int gravity) {
         if (view instanceof FrameLayout) {
             ((FrameLayout)view).setForegroundGravity(gravity);
-        } else if (Build.VERSION.SDK_INT >= 23 && ForegroundCompat.isTargetingMOrAbove(view)) {
+        } else {
             view.setForegroundGravity(gravity);
-        } else if (view instanceof ForegroundCompatView) {
-            ((ForegroundCompatView)view).setSupportForegroundGravity(gravity);
         }
     }
 
     public static void setForegroundTintList(@NonNull View view, @Nullable ColorStateList tint) {
         if (view instanceof FrameLayout) {
             ((FrameLayout)view).setForegroundTintList(tint);
-        } else if (Build.VERSION.SDK_INT >= 23 && ForegroundCompat.isTargetingMOrAbove(view)) {
+        } else {
             view.setForegroundTintList(tint);
-        } else if (view instanceof ForegroundCompatView) {
-            ((ForegroundCompatView)view).setSupportForegroundTintList(tint);
         }
     }
 
@@ -89,22 +69,14 @@ public class ForegroundCompat {
         if (view instanceof FrameLayout) {
             return ((FrameLayout)view).getForegroundTintList();
         }
-        if (Build.VERSION.SDK_INT >= 23 && ForegroundCompat.isTargetingMOrAbove(view)) {
-            return view.getForegroundTintList();
-        }
-        if (view instanceof ForegroundCompatView) {
-            return ((ForegroundCompatView)view).getSupportForegroundTintList();
-        }
-        return null;
+        return view.getForegroundTintList();
     }
 
     public static void setForegroundTintMode(@NonNull View view, @Nullable PorterDuff.Mode tintMode) {
         if (view instanceof FrameLayout) {
             ((FrameLayout)view).setForegroundTintMode(tintMode);
-        } else if (Build.VERSION.SDK_INT >= 23 && ForegroundCompat.isTargetingMOrAbove(view)) {
+        } else {
             view.setForegroundTintMode(tintMode);
-        } else if (view instanceof ForegroundCompatView) {
-            ((ForegroundCompatView)view).setSupportForegroundTintMode(tintMode);
         }
     }
 
@@ -113,17 +85,6 @@ public class ForegroundCompat {
         if (view instanceof FrameLayout) {
             return ((FrameLayout)view).getForegroundTintMode();
         }
-        if (Build.VERSION.SDK_INT >= 23 && ForegroundCompat.isTargetingMOrAbove(view)) {
-            return view.getForegroundTintMode();
-        }
-        if (view instanceof ForegroundCompatView) {
-            return ((ForegroundCompatView)view).getSupportForegroundTintMode();
-        }
-        return null;
-    }
-
-    private static boolean isTargetingMOrAbove(@NonNull View view) {
-        return view.getContext().getApplicationInfo().targetSdkVersion >= 23;
+        return view.getForegroundTintMode();
     }
 }
-

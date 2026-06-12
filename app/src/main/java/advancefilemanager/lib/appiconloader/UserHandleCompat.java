@@ -16,63 +16,16 @@
 
 package com.advancefilemanager.lib.appiconloader;
 
-import android.os.Build;
 import android.os.UserHandle;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 class UserHandleCompat {
-    private static final int PER_USER_RANGE = 100000;
-    private static final int USER_SYSTEM = 0;
-    private static final boolean MU_ENABLED = true;
-
-    @Nullable
-    private static Constructor<UserHandle> sConstructor;
-    @NonNull
-    private static final Object sConstructorLock = new Object();
-
     private UserHandleCompat() {}
 
     @NonNull
     public static UserHandle getUserHandleForUid(int uid) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return UserHandle.getUserHandleForUid(uid);
-        } else {
-            int userId = getUserId(uid);
-            Constructor<UserHandle> constructor = getConstructor();
-            try {
-                return constructor.newInstance(userId);
-            } catch (IllegalAccessException | InstantiationException
-                    | InvocationTargetException e) {
-                throw new RuntimeException(e);
-            }
-        }
-    }
-
-    private static int getUserId(int uid) {
-        if (MU_ENABLED) {
-            return uid / PER_USER_RANGE;
-        } else {
-            return USER_SYSTEM;
-        }
-    }
-
-    @NonNull
-    private static Constructor<UserHandle> getConstructor() {
-        synchronized (sConstructorLock) {
-            if (sConstructor == null) {
-                try {
-                    sConstructor = UserHandle.class.getDeclaredConstructor(int.class);
-                } catch (NoSuchMethodException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-            return sConstructor;
-        }
+        return UserHandle.getUserHandleForUid(uid);
     }
 }
 

@@ -20,13 +20,10 @@ import android.graphics.Canvas;
 import android.graphics.Picture;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.os.Build;
-import androidx.annotation.ChecksSdkIntAtLeast;
 import com.advancefilemanager.lib.appiconloader.iconloaderlib.GraphicsUtils;
 
 public interface BitmapRenderer {
-    @ChecksSdkIntAtLeast(api=28)
-    public static final boolean USE_HARDWARE_BITMAP = Build.VERSION.SDK_INT >= 28;
+    public static final boolean USE_HARDWARE_BITMAP = true;
 
     public static Bitmap createSoftwareBitmap(int width, int height, BitmapRenderer renderer) {
         GraphicsUtils.noteNewBitmapCreated();
@@ -37,9 +34,6 @@ public interface BitmapRenderer {
 
     @TargetApi(value=28)
     public static Bitmap createHardwareBitmap(int width, int height, BitmapRenderer renderer) {
-        if (!USE_HARDWARE_BITMAP) {
-            return BitmapRenderer.createSoftwareBitmap(width, height, renderer);
-        }
         GraphicsUtils.noteNewBitmapCreated();
         Picture picture = new Picture();
         renderer.draw(picture.beginRecording(width, height));
@@ -48,7 +42,7 @@ public interface BitmapRenderer {
     }
 
     public static Bitmap createBitmap(Bitmap source, int x, int y, int width, int height) {
-        if (Build.VERSION.SDK_INT >= 26 && source.getConfig() == Bitmap.Config.HARDWARE) {
+        if (source.getConfig() == Bitmap.Config.HARDWARE) {
             return BitmapRenderer.createHardwareBitmap(width, height, c -> c.drawBitmap(source, new Rect(x, y, x + width, y + height), new RectF(0.0f, 0.0f, (float)width, (float)height), null));
         }
         GraphicsUtils.noteNewBitmapCreated();

@@ -100,4 +100,9 @@ add_library(selinux-jni SHARED
         src/main/jni/libselinux-jni.c)
 target_link_libraries(selinux-jni selinux pcre2 ${LOG_LIBRARY})
 
+# ===========================================================================
+# FFmpeg JNI (media tools)
+# ===========================================================================
+
+add_subdirectory(src/main/cpp/ffmpeg)
 

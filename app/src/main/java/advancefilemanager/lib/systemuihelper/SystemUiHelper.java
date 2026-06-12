@@ -6,10 +6,8 @@
 package com.advancefilemanager.lib.systemuihelper;
 
 import android.app.Activity;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.WindowManager;
 
 /*
  * Copyright (C) 2014 The Android Open Source Project
@@ -65,17 +63,9 @@ public final class SystemUiHelper {
     public static final int LEVEL_IMMERSIVE = 3;
 
     /**
-     * When this flag is set, the
-     * {@link android.view.WindowManager.LayoutParams#FLAG_LAYOUT_IN_SCREEN}
-     * flag will be set on older devices, making the status bar "float" on top
-     * of the activity layout. This is most useful when there are no controls at
-     * the top of the activity layout.
-     * <p>
-     * This flag isn't used on newer devices because the <a
-     * href="http://developer.android.com/design/patterns/actionbar.html">action
-     * bar</a>, the most important structural element of an Android app, should
-     * be visible and not obscured by the system UI.
+     * @deprecated This flag is no longer used as the minimum API level is now 35.
      */
+    @Deprecated
     public static final int FLAG_LAYOUT_IN_SCREEN_OLDER_DEVICES = 0x1;
 
     /**
@@ -125,18 +115,7 @@ public final class SystemUiHelper {
         mHandler = new Handler(Looper.getMainLooper());
         mHideRunnable = new HideRunnable();
 
-        // Create impl
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            mImpl = new SystemUiHelperImplKK(activity, level, flags, listener);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            mImpl = new SystemUiHelperImplJB(activity, level, flags, listener);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-            mImpl = new SystemUiHelperImplICS(activity, level, flags, listener);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            mImpl = new SystemUiHelperImplHC(activity, level, flags, listener);
-        } else {
-            mImpl = new SystemUiHelperImplBase(activity, level, flags, listener);
-        }
+        mImpl = new SystemUiHelperImplKK(activity, level, flags, listener);
     }
 
     /**
@@ -246,39 +225,6 @@ public final class SystemUiHelper {
 
             if (mOnVisibilityChangeListener != null) {
                 mOnVisibilityChangeListener.onVisibilityChange(mIsShowing);
-            }
-        }
-    }
-
-    /**
-     * Base implementation. Used on API level 10 and below.
-     */
-    static class SystemUiHelperImplBase extends SystemUiHelperImpl {
-
-        SystemUiHelperImplBase(Activity activity, int level, int flags,
-                               OnVisibilityChangeListener onVisibilityChangeListener) {
-            super(activity, level, flags, onVisibilityChangeListener);
-
-            if ((mFlags & SystemUiHelper.FLAG_LAYOUT_IN_SCREEN_OLDER_DEVICES) != 0) {
-                mActivity.getWindow().addFlags(
-                        WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
-                                | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            }
-        }
-
-        @Override
-        void show() {
-            if (mLevel > SystemUiHelper.LEVEL_LOW_PROFILE) {
-                mActivity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                setIsShowing(true);
-            }
-        }
-
-        @Override
-        void hide() {
-            if (mLevel > SystemUiHelper.LEVEL_LOW_PROFILE) {
-                mActivity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-                setIsShowing(false);
             }
         }
     }

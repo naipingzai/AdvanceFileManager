@@ -9,14 +9,11 @@ import android.app.StatusBarManager
 import android.content.ComponentName
 import android.content.pm.PackageManager
 import android.graphics.drawable.Icon
-import android.os.Build
 import android.service.quicksettings.TileService
-import androidx.annotation.RequiresApi
 import com.advancefilemanager.app.application
 import com.advancefilemanager.app.packageManager
 import java.util.concurrent.Executor
 
-@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 fun StatusBarManager.requestAddTileService(
     serviceClass: Class<out TileService>,
     resultExecutor: Executor,

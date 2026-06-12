@@ -31,7 +31,6 @@ import android.widget.LinearLayout;
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
 import com.advancefilemanager.lib.foregroundcompat.ForegroundCompatView;
@@ -62,7 +61,6 @@ implements ForegroundCompatView {
         this.mForegroundHelper.init(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    @RequiresApi(value=24)
     public void onVisibilityAggregated(boolean isVisible) {
         super.onVisibilityAggregated(isVisible);
         this.mForegroundHelper.onVisibilityAggregated(isVisible);

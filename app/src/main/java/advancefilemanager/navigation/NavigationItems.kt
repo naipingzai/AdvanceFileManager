@@ -7,7 +7,6 @@ package com.advancefilemanager.navigation
 
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Environment
 import android.os.storage.StorageVolume
 import androidx.annotation.DrawableRes
@@ -252,18 +251,8 @@ private val defaultStandardDirectories: List<StandardDirectory>
             when (it.iconRes) {
                 R.drawable.qq_icon_white_24dp, R.drawable.tim_icon_white_24dp,
                 R.drawable.wechat_icon_white_24dp -> {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                        // Direct access to Android/data is blocked since Android 11.
-                        null
-                    } else {
-                        for (relativePath in it.relativePath.split(relativePathSeparator)) {
-                            val path = getExternalStorageDirectory(relativePath)
-                            if (JavaFile.isDirectory(path)) {
-                                return@mapNotNull it.copy(relativePath = relativePath)
-                            }
-                        }
-                        null
-                    }
+                    // Direct access to Android/data is blocked since Android 11.
+                    null
                 }
                 else -> it
             }
