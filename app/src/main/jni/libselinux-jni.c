@@ -173,13 +173,13 @@ static void doSetfilecon(JNIEnv *env, jbyteArray javaPath, jbyteArray javaContex
 }
 
 JNIEXPORT void JNICALL
-Java_advancefilemanager_lib_libselinux_SeLinux_lsetfilecon(
+Java_com_advancefilemanager_lib_libselinux_SeLinux_lsetfilecon(
         JNIEnv *env, jclass clazz, jbyteArray javaPath, jbyteArray javaContext) {
     doSetfilecon(env, javaPath, javaContext, true);
 }
 
 JNIEXPORT jboolean JNICALL
-Java_advancefilemanager_lib_libselinux_SeLinux_security_1getenforce(
+Java_com_advancefilemanager_lib_libselinux_SeLinux_security_1getenforce(
         JNIEnv *env, jclass clazz) {
     int enforce = TEMP_FAILURE_RETRY(security_getenforce());
     if (enforce == -1 && !errno) {
@@ -195,7 +195,7 @@ Java_advancefilemanager_lib_libselinux_SeLinux_security_1getenforce(
 }
 
 JNIEXPORT void JNICALL
-Java_advancefilemanager_lib_libselinux_SeLinux_setfilecon(
+Java_com_advancefilemanager_lib_libselinux_SeLinux_setfilecon(
         JNIEnv *env, jclass clazz, jbyteArray javaPath, jbyteArray javaContext) {
     doSetfilecon(env, javaPath, javaContext, false);
 }

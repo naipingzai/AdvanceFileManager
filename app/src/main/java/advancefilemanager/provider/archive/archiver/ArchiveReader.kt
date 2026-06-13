@@ -130,35 +130,18 @@ object ArchiveReader {
     private fun openArchive(
         file: Path,
         passwords: List<String>
-    ): Pair<ReadArchive, ArchiveCloseable> {
-        val channel = try {
-            CacheSizeSeekableByteChannel(file.newByteChannel())
-        } catch (e: Exception) {
-            e.printStackTrace()
-            null
-        }
-        if (channel != null) {
-            var successful = false
-            try {
-                val archive = ReadArchive(channel, passwords)
-                successful = true
-                return archive to ArchiveCloseable(archive, channel)
-            } finally {
-                if (!successful) {
-                    channel.close()
-                }
-            }
-        }
-        val inputStream = file.newInputStream()
+    ): Pair<ReadArchive, Closeable> {
+        // Use the path-based constructor to directly open the file via
+        // readOpenFileName, bypassing JNI callbacks that can trigger
+        // a libarchive bug where archive_read_open1() calls abort().
         var successful = false
         try {
-            val archive = ReadArchive(inputStream, passwords)
+            val archive = ReadArchive(file, passwords)
             successful = true
-            return archive to ArchiveCloseable(archive, inputStream)
+            // Return a closeable that only closes the archive (no external resource).
+            return archive to archive
         } finally {
-            if (!successful) {
-                inputStream.close()
-            }
+            // No external resource to close for path-based constructor.
         }
     }
 

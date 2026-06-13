@@ -15,6 +15,7 @@ import java.nio.charset.Charset
 import java.time.Instant
 import java8.nio.channels.SeekableByteChannel
 import java8.nio.charset.StandardCharsets
+import java8.nio.file.Path
 import java8.nio.file.attribute.FileTime
 import com.advancefilemanager.provider.common.PosixFileMode
 import com.advancefilemanager.provider.common.PosixFileModeBit
@@ -28,6 +29,33 @@ import com.advancefilemanager.lib.libarchive.ArchiveException
 
 class ReadArchive : Closeable {
     private val archive = Archive.readNew()
+
+    /**
+     * Open an archive file directly by path, bypassing JNI callbacks entirely.
+     * This avoids a bug in libarchive where archive_read_open1() calls abort()
+     * when processing certain corrupted archive files via callback-based reading.
+     */
+    @Throws(ArchiveException::class)
+    constructor(path: Path, passwords: List<String>) {
+        var successful = false
+        try {
+            Archive.setCharset(archive, StandardCharsets.UTF_8.name().toByteArray())
+            Archive.readSupportFilterAll(archive)
+            Archive.readSupportFormatAll(archive)
+            // Convert path to string for the native call
+            val pathString = path.toString()
+            val pathBytes = pathString.toByteArray(StandardCharsets.UTF_8)
+            for (password in passwords) {
+                Archive.readAddPassphrase(archive, password.toByteArray())
+            }
+            Archive.readOpenFileName(archive, pathBytes, 10240)
+            successful = true
+        } finally {
+            if (!successful) {
+                close()
+            }
+        }
+    }
 
     @Throws(ArchiveException::class)
     constructor(inputStream: InputStream, passwords: List<String>) {
@@ -248,5 +276,9 @@ class ReadArchive : Closeable {
             Archive.readData(archive, buffer)
             buffer.flip()
         }
+    }
+
+    companion object {
+        private const val DEFAULT_BUFFER_SIZE = 8192
     }
 }

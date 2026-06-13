@@ -56,8 +56,14 @@ object UiSettingsManager {
         return try {
             prefs.getInt(KEY_BLUR_INTENSITY, 50) / 100f
         } catch (_: ClassCastException) {
-            val oldFloat = prefs.getFloat(KEY_BLUR_INTENSITY, 0.5f)
-            val newInt = (oldFloat * 100).toInt()
+            // The stored value may be a Float, Boolean, or other non-Int type from an older version.
+            // Safely migrate to Int.
+            val newInt = try {
+                val oldFloat = prefs.getFloat(KEY_BLUR_INTENSITY, 0.5f)
+                (oldFloat * 100).toInt()
+            } catch (_: ClassCastException) {
+                50 // Default 50%
+            }
             prefs.edit().remove(KEY_BLUR_INTENSITY).putInt(KEY_BLUR_INTENSITY, newInt).apply()
             newInt / 100f
         }

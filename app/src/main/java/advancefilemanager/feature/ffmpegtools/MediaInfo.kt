@@ -14,5 +14,10 @@ data class MediaInfo(
     var audioCodec: String? = null,
     var frameRate: Float = 0f,
     var sampleRate: Int = 0,
-    var channels: Int = 0
+    var channels: Int = 0,
+    // Fields referenced by native FFmpeg JNI code
+    var durationMs: Long = 0L,
+    var formatName: String? = null,
+    var audioBitrate: Int = 0,
+    var videoBitrate: Int = 0
 )
