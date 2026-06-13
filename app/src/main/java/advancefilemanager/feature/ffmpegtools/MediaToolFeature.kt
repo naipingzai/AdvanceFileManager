@@ -75,5 +75,41 @@ enum class MediaToolFeature(
         R.string.media_tool_image_enhance,
         R.string.media_tool_image_enhance_desc,
         "image_enhance"
+    ),
+    IMAGE_STITCH(
+        R.drawable.ic_image,
+        R.string.media_tool_image_stitch,
+        R.string.media_tool_image_stitch_desc,
+        "image_stitch"
+    ),
+    VIDEO_TO_AUDIO(
+        R.drawable.ic_extract,
+        R.string.media_tool_video_to_audio,
+        R.string.media_tool_video_to_audio_desc,
+        "video_to_audio"
+    ),
+    SUBTITLE_EXTRACT(
+        R.drawable.ic_convert,
+        R.string.media_tool_subtitle_extract,
+        R.string.media_tool_subtitle_extract_desc,
+        "subtitle_extract"
+    ),
+    AUDIO_NORMALIZE(
+        R.drawable.ic_extract,
+        R.string.media_tool_audio_normalize,
+        R.string.media_tool_audio_normalize_desc,
+        "audio_normalize"
+    ),
+    VIDEO_WATERMARK(
+        R.drawable.ic_video,
+        R.string.media_tool_video_watermark,
+        R.string.media_tool_video_watermark_desc,
+        "video_watermark"
+    ),
+    VIDEO_ROTATE(
+        R.drawable.ic_video,
+        R.string.media_tool_video_rotate,
+        R.string.media_tool_video_rotate_desc,
+        "video_rotate"
     )
 }

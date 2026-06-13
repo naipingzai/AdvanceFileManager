@@ -1017,4 +1017,30 @@
         <item>模式 B</item>
         <item>模式 C</item>
     </string-array>
+
+    <!-- GIF制作 -->
+    <string name="gif_maker_select_time">选择时间范围</string>
+    <string name="gif_maker_start_time">开始时间</string>
+    <string name="gif_maker_end_time">结束时间</string>
+    <string name="gif_maker_duration">时长: %s</string>
+    <string name="gif_maker_width">GIF宽度</string>
+    <string name="gif_maker_fps">帧率</string>
+
+    <!-- 媒体裁剪 -->
+    <string name="media_trim_start_time">开始时间</string>
+    <string name="media_trim_end_time">结束时间</string>
+
+    <!-- 新媒体工具 -->
+    <string name="media_tool_image_stitch">图片拼接</string>
+    <string name="media_tool_image_stitch_desc">将多张图片拼接在一起</string>
+    <string name="media_tool_video_to_audio">视频转音频</string>
+    <string name="media_tool_video_to_audio_desc">从视频中提取音频轨道</string>
+    <string name="media_tool_subtitle_extract">字幕提取</string>
+    <string name="media_tool_subtitle_extract_desc">从视频中提取字幕轨道</string>
+    <string name="media_tool_audio_normalize">音频标准化</string>
+    <string name="media_tool_audio_normalize_desc">标准化音频音量水平</string>
+    <string name="media_tool_video_watermark">视频水印</string>
+    <string name="media_tool_video_watermark_desc">给视频添加水印</string>
+    <string name="media_tool_video_rotate">视频旋转</string>
+    <string name="media_tool_video_rotate_desc">旋转或翻转视频方向</string>
 </resources>

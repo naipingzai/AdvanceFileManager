@@ -305,6 +305,9 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             }
         }
 
+        // 监听 DecorView 中的弹出窗口，自动显示/隐藏背景遮罩（拓展A/B菜单）
+        setupPopupOverlay()
+
         val viewLifecycleOwner = viewLifecycleOwner
         addOnBackPressedCallback(
             object : OnBackPressedCallback(false) {
@@ -610,6 +613,43 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             putExtra(FeatureSettingsFragment.ARG_SECTION, section)
         }
         startActivity(intent)
+    }
+
+    /**
+     * 设置弹出菜单的背景遮罩层。
+     * 监听 DecorView 中的 PopupWindow，当弹出菜单出现时自动显示背景遮罩（拓展A/B菜单）。
+     */
+    private fun setupPopupOverlay() {
+        val decorView = requireActivity().window.decorView as? ViewGroup ?: return
+        val intensity = com.advancefilemanager.settings.UiSettingsManager.getBlurIntensity(requireContext())
+        if (intensity <= 0f) return
+
+        decorView.viewTreeObserver.addOnGlobalLayoutListener {
+            if (!isAdded || view == null) return@OnGlobalLayoutListener
+            val hasPopup = findPopupWindow(decorView)
+            if (hasPopup) {
+                BackgroundOverlayManager.showDimOverlay(requireContext())
+            }
+        }
+        decorView.viewTreeObserver.addOnWindowFocusChangeListener { hasFocus ->
+            if (hasFocus && isAdded) {
+                BackgroundOverlayManager.forceHide()
+            }
+        }
+    }
+
+    private fun findPopupWindow(view: ViewGroup): Boolean {
+        for (i in 0 until view.childCount) {
+            val child = view.getChildAt(i)
+            if (child.javaClass.simpleName.contains("Popup") ||
+                child.javaClass.simpleName.contains("ListPopup")) {
+                return child.isAttachedToWindow && child.visibility == View.VISIBLE
+            }
+            if (child is ViewGroup) {
+                if (findPopupWindow(child)) return true
+            }
+        }
+        return false
     }
 
     private fun setShowHiddenFiles(showHiddenFiles: Boolean) {

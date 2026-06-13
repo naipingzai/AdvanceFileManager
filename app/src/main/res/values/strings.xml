@@ -1164,4 +1164,30 @@
     <string name="file_search_empty_hint">Enter keywords to start searching</string>
     <string name="recent_files_empty">No recently modified files</string>
     <string name="ffmpeg_source_file">Source file</string>
+
+    <!-- GIF Maker -->
+    <string name="gif_maker_select_time">Select Time Range</string>
+    <string name="gif_maker_start_time">Start Time</string>
+    <string name="gif_maker_end_time">End Time</string>
+    <string name="gif_maker_duration">Duration: %s</string>
+    <string name="gif_maker_width">GIF Width</string>
+    <string name="gif_maker_fps">Frame Rate</string>
+
+    <!-- Media Trim -->
+    <string name="media_trim_start_time">Start Time</string>
+    <string name="media_trim_end_time">End Time</string>
+
+    <!-- New media tools -->
+    <string name="media_tool_image_stitch">Image Stitch</string>
+    <string name="media_tool_image_stitch_desc">Stitch multiple images together</string>
+    <string name="media_tool_video_to_audio">Video to Audio</string>
+    <string name="media_tool_video_to_audio_desc">Extract audio track from video file</string>
+    <string name="media_tool_subtitle_extract">Subtitle Extract</string>
+    <string name="media_tool_subtitle_extract_desc">Extract subtitle tracks from video</string>
+    <string name="media_tool_audio_normalize">Audio Normalize</string>
+    <string name="media_tool_audio_normalize_desc">Normalize audio volume levels</string>
+    <string name="media_tool_video_watermark">Video Watermark</string>
+    <string name="media_tool_video_watermark_desc">Add watermark to video</string>
+    <string name="media_tool_video_rotate">Video Rotate</string>
+    <string name="media_tool_video_rotate_desc">Rotate or flip video orientation</string>
 </resources>

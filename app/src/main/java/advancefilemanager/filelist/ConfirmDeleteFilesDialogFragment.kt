@@ -12,12 +12,14 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.parcelize.Parcelize
 import com.advancefilemanager.R
+import com.advancefilemanager.settings.UiSettingsManager
 import com.advancefilemanager.util.ParcelableArgs
 import com.advancefilemanager.util.args
 import com.advancefilemanager.util.getQuantityString
 import com.advancefilemanager.util.putArgs
 import com.advancefilemanager.util.show
 import com.advancefilemanager.ui.BackgroundOverlayManager
+import com.advancefilemanager.ui.applyOverlay
 
 class ConfirmDeleteFilesDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -27,6 +29,7 @@ class ConfirmDeleteFilesDialogFragment : AppCompatDialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val files = args.files
+        val context = requireContext()
         val message = if (files.size == 1) {
             val file = files.single()
             val messageRes = if (file.attributesNoFollowLinks.isDirectory) {
@@ -45,16 +48,27 @@ class ConfirmDeleteFilesDialogFragment : AppCompatDialogFragment() {
             }
             getQuantityString(messageRes, files.size, files.size)
         }
-        return MaterialAlertDialogBuilder(requireContext(), theme)
+        val dialog = MaterialAlertDialogBuilder(context, theme)
             .setMessage(message)
             .setPositiveButton(android.R.string.ok) { _, _ -> listener.deleteFiles(files) }
             .setNegativeButton(android.R.string.cancel, null)
             .create()
-            .apply {
-                setOnShowListener {
-                    BackgroundOverlayManager.applyDialogOverlay(requireContext(), this@apply)
+            .applyOverlay(context)
+
+        // Apply UI settings for consistent font size and spacing
+        dialog.setOnShowListener {
+            val paddingScale = UiSettingsManager.getDialogPaddingScale(context)
+            dialog.window?.let { window ->
+                // Apply dim amount based on blur settings
+                val dimAmount = UiSettingsManager.getBlurIntensity(context)
+                if (dimAmount > 0f) {
+                    val params = window.attributes
+                    params.dimAmount = 0.2f + dimAmount * 0.6f
+                    window.attributes = params
                 }
             }
+        }
+        return dialog
     }
 
     companion object {

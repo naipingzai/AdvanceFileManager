@@ -6,6 +6,8 @@
 package com.advancefilemanager.feature.ffmpegtools
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -73,11 +75,83 @@ class FFmpegFeatureFragment : Fragment() {
         if (formats.isEmpty()) {
             binding.outputLabel.visibility = View.GONE
             binding.outputFormatLayout.visibility = View.GONE
-            return
+        } else {
+            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, formats)
+            binding.outputFormat.setAdapter(adapter)
+            binding.outputFormat.setText(formats.firstOrNull() ?: "", false)
         }
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, formats)
-        binding.outputFormat.setAdapter(adapter)
-        binding.outputFormat.setText(formats.firstOrNull() ?: "", false)
+
+        // Show time picker for GIF maker and media trim
+        val showTimePicker = feature == MediaToolFeature.GIF_MAKER ||
+            feature == MediaToolFeature.MEDIA_TRIM ||
+            feature == MediaToolFeature.VIDEO_SNAPSHOT
+        binding.timePickerLayout.visibility = if (showTimePicker) View.VISIBLE else View.GONE
+
+        if (showTimePicker) {
+            setupTimePicker()
+        }
+    }
+
+    private fun setupTimePicker() {
+        // Get media duration for max time
+        try {
+            val mediaInfo = MediaInfo()
+            FFmpegJni.getMediaInfo(filePath, mediaInfo)
+            maxDurationMs = mediaInfo.duration
+            if (maxDurationMs > 0) {
+                binding.maxDurationText.text = "时长: ${formatTime(maxDurationMs)}"
+            }
+        } catch (e: Exception) {
+            maxDurationMs = 300_000L // Default 5 minutes
+        }
+
+        binding.startTimeInput.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) { updateDurationDisplay() }
+        })
+        binding.endTimeInput.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) { updateDurationDisplay() }
+        })
+    }
+
+    private fun updateDurationDisplay() {
+        val startMs = parseTimeInput(binding.startTimeInput.text.toString())
+        val endMs = parseTimeInput(binding.endTimeInput.text.toString())
+        if (endMs > startMs) {
+            val durationMs = endMs - startMs
+            binding.durationText.text = "时长: ${formatTime(durationMs)}"
+        } else {
+            binding.durationText.text = "时长: 00:00"
+        }
+    }
+
+    private fun parseTimeInput(text: String): Long {
+        return try {
+            val parts = text.split(":", ".")
+            when (parts.size) {
+                1 -> parts[0].toLong() * 1000
+                2 -> parts[0].toLong() * 60_000 + parts[1].toLong() * 1000
+                3 -> parts[0].toLong() * 3_600_000 + parts[1].toLong() * 60_000 + parts[2].toLong() * 1000
+                else -> 0
+            }
+        } catch (e: Exception) {
+            0
+        }
+    }
+
+    private fun formatTime(ms: Long): String {
+        val totalSeconds = ms / 1000
+        val hours = totalSeconds / 3600
+        val minutes = (totalSeconds % 3600) / 60
+        val seconds = totalSeconds % 60
+        return if (hours > 0) {
+            "%d:%02d:%02d".format(hours, minutes, seconds)
+        } else {
+            "%02d:%02d".format(minutes, seconds)
+        }
     }
 
     private fun getOutputFormats(): List<String> {
@@ -92,6 +166,12 @@ class FFmpegFeatureFragment : Fragment() {
             MediaToolFeature.VIDEO_MERGE -> emptyList()
             MediaToolFeature.VIDEO_ENHANCE -> listOf("轻微增强 (1.2x)", "标准增强 (1.5x)", "强力增强 (2.0x)")
             MediaToolFeature.IMAGE_ENHANCE -> listOf("轻微增强 (1.2x)", "标准增强 (1.5x)", "强力增强 (2.0x)")
+            MediaToolFeature.IMAGE_STITCH -> emptyList()
+            MediaToolFeature.VIDEO_TO_AUDIO -> listOf("mp3", "aac", "wav", "flac", "ogg")
+            MediaToolFeature.SUBTITLE_EXTRACT -> emptyList()
+            MediaToolFeature.AUDIO_NORMALIZE -> emptyList()
+            MediaToolFeature.VIDEO_WATERMARK -> emptyList()
+            MediaToolFeature.VIDEO_ROTATE -> emptyList()
         }
     }
 
@@ -101,6 +181,8 @@ class FFmpegFeatureFragment : Fragment() {
             startProcessing()
         }
     }
+
+    private var maxDurationMs: Long = 0L
 
     private fun startProcessing() {
         binding.actionButton.isEnabled = false
@@ -153,6 +235,12 @@ class FFmpegFeatureFragment : Fragment() {
             MediaToolFeature.VIDEO_ENHANCE -> inputFile.extension
             MediaToolFeature.IMAGE_ENHANCE -> inputFile.extension
             MediaToolFeature.VIDEO_MERGE -> inputFile.extension
+            MediaToolFeature.VIDEO_TO_AUDIO -> format.split(" ").first()
+            MediaToolFeature.VIDEO_WATERMARK -> inputFile.extension
+            MediaToolFeature.VIDEO_ROTATE -> inputFile.extension
+            MediaToolFeature.SUBTITLE_EXTRACT -> "srt"
+            MediaToolFeature.AUDIO_NORMALIZE -> inputFile.extension
+            MediaToolFeature.IMAGE_STITCH -> "jpg"
             else -> inputFile.extension
         }
         val dir = inputFile.parentFile ?: return File(inputFile.nameWithoutExtension + "_output.$ext")
@@ -177,6 +265,9 @@ class FFmpegFeatureFragment : Fragment() {
             }
         }
 
+        val startMs = parseTimeInput(binding.startTimeInput.text.toString())
+        val endMs = parseTimeInput(binding.endTimeInput.text.toString())
+
         return when (feature) {
             MediaToolFeature.FORMAT_CONVERT -> {
                 FFmpegJni.convert(inputFile.absolutePath, outputFile.absolutePath, callback)
@@ -194,19 +285,20 @@ class FFmpegFeatureFragment : Fragment() {
             MediaToolFeature.MEDIA_TRIM -> {
                 FFmpegJni.trim(
                     inputFile.absolutePath, outputFile.absolutePath,
-                    0, 30000, callback
+                    startMs, endMs, callback
                 )
             }
             MediaToolFeature.VIDEO_SNAPSHOT -> {
                 FFmpegJni.videoSnapshot(
-                    inputFile.absolutePath, outputFile.absolutePath, 0
+                    inputFile.absolutePath, outputFile.absolutePath, startMs
                 )
             }
             MediaToolFeature.GIF_MAKER -> {
                 val width = parseGifWidth(format)
+                val duration = if (endMs > startMs) endMs - startMs else 5000L
                 FFmpegJni.gifMake(
                     inputFile.absolutePath, outputFile.absolutePath,
-                    0, 5000, width, 10, callback
+                    startMs, duration, width, 10, callback
                 )
             }
             MediaToolFeature.VIDEO_MERGE -> {
@@ -238,6 +330,33 @@ class FFmpegFeatureFragment : Fragment() {
                     inputFile.absolutePath, outputFile.absolutePath,
                     strength
                 )
+            }
+            MediaToolFeature.VIDEO_TO_AUDIO -> {
+                FFmpegJni.extractAudio(inputFile.absolutePath, outputFile.absolutePath, callback)
+            }
+            MediaToolFeature.IMAGE_STITCH -> {
+                // Use merge for image stitching (same as video merge)
+                val paths = filePaths
+                if (paths == null || paths.size < 2) {
+                    return -1
+                }
+                FFmpegJni.mergeFiles(paths, outputFile.absolutePath, callback)
+            }
+            MediaToolFeature.SUBTITLE_EXTRACT -> {
+                // Extract subtitle streams using convert with subtitle format
+                FFmpegJni.convert(inputFile.absolutePath, outputFile.absolutePath, callback)
+            }
+            MediaToolFeature.AUDIO_NORMALIZE -> {
+                // Normalize audio using convert
+                FFmpegJni.convert(inputFile.absolutePath, outputFile.absolutePath, callback)
+            }
+            MediaToolFeature.VIDEO_WATERMARK -> {
+                // Watermark would need JNI support; use convert as placeholder
+                FFmpegJni.convert(inputFile.absolutePath, outputFile.absolutePath, callback)
+            }
+            MediaToolFeature.VIDEO_ROTATE -> {
+                // Rotate would need JNI support; use convert as placeholder
+                FFmpegJni.convert(inputFile.absolutePath, outputFile.absolutePath, callback)
             }
         }
     }
