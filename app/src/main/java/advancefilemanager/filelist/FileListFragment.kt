@@ -820,7 +820,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             val isCurrentPathReadOnly = viewModel.currentPath.fileSystem.isReadOnly
             menu.findItem(R.id.action_archive).isVisible = !isCurrentPathReadOnly &&
                 BasicSettings.isFileOperationEnabled(requireContext(), "archive")
-            menu.findItem(R.id.action_batch_rename).isVisible = !isAnyFileReadOnly && !areAllFilesArchivePaths
             menu.findItem(R.id.action_share).isVisible =
                 BasicSettings.isFileOperationEnabled(requireContext(), "share")
         }
@@ -870,10 +869,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
             }
             R.id.action_archive -> {
                 showCreateArchiveDialog(viewModel.selectedFiles)
-                true
-            }
-            R.id.action_batch_rename -> {
-                showBatchRenameDialog(viewModel.selectedFiles)
                 true
             }
             R.id.action_share -> {

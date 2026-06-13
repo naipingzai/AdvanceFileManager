@@ -23,7 +23,7 @@ class FFmpegProcessingService : Service() {
     private var lastPercent = 0
 
     companion object {
-        private const val CHANNEL_ID = "ffmpeg_processing_v2"
+        private const val CHANNEL_ID = "ffmpeg_processing_v3"
         private const val NOTIFICATION_ID = 9001
 
         const val EXTRA_INPUT_PATH = "input_path"
@@ -170,7 +170,9 @@ class FFmpegProcessingService : Service() {
             val title = if (success) {
                 getString(R.string.ffmpeg_processing_notification_done)
             } else {
-                FFmpegJni.getLastError().ifEmpty { getString(R.string.failed) }
+                val rawError = FFmpegJni.getLastError()
+                val localizedError = if (rawError == "Operation cancelled") getString(R.string.ffmpeg_processing_cancelled) else rawError
+                localizedError.ifEmpty { getString(R.string.failed) }
             }
 
             updateNotificationComplete(title)

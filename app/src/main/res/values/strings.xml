@@ -1273,6 +1273,14 @@
     <string name="ffmpeg_enhance_standard">Standard enhance (1.5x)</string>
     <string name="ffmpeg_enhance_strong">Strong enhance (2.0x)</string>
     <string name="ffmpeg_parameters_error">Invalid parameters</string>
+    <string name="ffmpeg_processing_cancelled">Processing cancelled</string>
+
+    <!-- GIF Maker presets -->
+    <string name="ffmpeg_preset_5s">First 5s</string>
+    <string name="ffmpeg_preset_10s">First 10s</string>
+    <string name="ffmpeg_preset_30s">First 30s</string>
+    <string name="ffmpeg_preset_all">All</string>
+    <string name="ffmpeg_preset_custom">Custom</string>
 
     <!-- CSV Viewer (additional) -->
     <string name="csv_viewer_empty_file">Empty file</string>

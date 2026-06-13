@@ -93,7 +93,9 @@ class FFmpegFeatureFragment : Fragment() {
                 binding.progressText.text = getString(R.string.completed_format, name)
                 Toast.makeText(requireContext(), getString(R.string.processing_completed_format, name), Toast.LENGTH_LONG).show()
             } else {
-                binding.progressText.text = getString(R.string.error_format, error.ifEmpty { FFmpegJni.getLastError() })
+                val rawError = error.ifEmpty { FFmpegJni.getLastError() }
+                val localizedError = if (rawError == "Operation cancelled") getString(R.string.ffmpeg_processing_cancelled) else rawError
+                binding.progressText.text = getString(R.string.error_format, localizedError)
             }
         }
     }
@@ -133,6 +135,7 @@ class FFmpegFeatureFragment : Fragment() {
         binding.preset5s.setOnCheckedChangeListener { _, c -> if (c) selectPreset(5) }
         binding.preset10s.setOnCheckedChangeListener { _, c -> if (c) selectPreset(10) }
         binding.preset30s.setOnCheckedChangeListener { _, c -> if (c) selectPreset(30) }
+        binding.presetAll.setOnCheckedChangeListener { _, c -> if (c) selectPresetAll() }
         binding.presetCustom.setOnCheckedChangeListener { _, c -> if (c) showCustomTimeDialog() }
 
         // Set default to 5s
@@ -140,6 +143,7 @@ class FFmpegFeatureFragment : Fragment() {
     }
 
     private fun selectPreset(seconds: Int) { startTimeMs = 0L; endTimeMs = minOf(seconds * 1000L, maxDurationMs); updateRangeDisplay() }
+    private fun selectPresetAll() { startTimeMs = 0L; endTimeMs = maxDurationMs; updateRangeDisplay() }
     private fun updateRangeDisplay() {
         binding.timeRangeLabel.text = "${formatTimeFull(startTimeMs)} — ${formatTimeFull(endTimeMs)}"
         val d = ((endTimeMs - startTimeMs) / 1000).toInt()

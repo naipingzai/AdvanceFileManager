@@ -7,7 +7,7 @@
 
 <resources>
 
-    <string name="app_name">质感文件</string>
+    <string name="app_name">文件管理</string>
 
     <!-- 通用 -->
     <string name="open_file_error">无法打开此文件</string>
@@ -1126,6 +1126,14 @@
     <string name="ffmpeg_enhance_standard">标准增强（1.5x）</string>
     <string name="ffmpeg_enhance_strong">强力增强（2.0x）</string>
     <string name="ffmpeg_parameters_error">参数错误</string>
+    <string name="ffmpeg_processing_cancelled">处理已取消</string>
+
+    <!-- GIF制作预设 -->
+    <string name="ffmpeg_preset_5s">前5秒</string>
+    <string name="ffmpeg_preset_10s">前10秒</string>
+    <string name="ffmpeg_preset_30s">前30秒</string>
+    <string name="ffmpeg_preset_all">全部</string>
+    <string name="ffmpeg_preset_custom">自定义</string>
 
     <!-- CSV 查看器（附加） -->
     <string name="csv_viewer_empty_file">空文件</string>

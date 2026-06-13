@@ -25,7 +25,9 @@ import androidx.fragment.app.Fragment
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
+import androidx.media3.exoplayer.SeekParameters
 import androidx.media3.exoplayer.ExoPlayer
+import androidx.media3.exoplayer.DefaultLoadControl
 import com.google.android.material.slider.Slider
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -47,7 +49,6 @@ import com.advancefilemanager.util.extraPath
 import com.advancefilemanager.util.extraPathList
 import com.advancefilemanager.util.finish
 import com.advancefilemanager.util.getState
-import com.advancefilemanager.util.mediumAnimTime
 import com.advancefilemanager.util.putState
 import com.advancefilemanager.util.showToast
 import com.advancefilemanager.util.startActivitySafe
@@ -59,8 +60,11 @@ import kotlin.math.abs
 
 class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listener {
     companion object {
-        private const val SEEK_BAR_MAX = 1000f
+        private const val SEEK_BAR_MAX = 10000f
+        private const val UPDATE_INTERVAL_MS = 250L
+        private const val FAST_FORWARD_VIDEO_MS = 10_000L
     }
+
     private val args by args<Args>()
     private val argsPaths by lazy { args.intent.extraPathList }
 
@@ -68,43 +72,51 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
     private var currentPosition: Int = 0
 
     private lateinit var binding: VideoViewerFragmentBinding
-
     private lateinit var systemUiHelper: SystemUiHelper
 
     private var player: ExoPlayer? = null
     private var playWhenReady: Boolean = true
-    
+
+    // Seekbar drag state
+    private var isDragging = false
+    private var wasPlayingBeforeDrag = false
+    private var mIsPlaying = false
+    private var showMilliseconds = false
+
+    // Gesture state
     private var isLongPressing = false
     private var originalSpeed = 1.0f
     private var longPressStartX = 0f
     private val SPEED_STEP_PX = 80f
-    
-    // For swipe gesture
+
+    // Swipe seek state
     private var swipeStartX = 0f
     private var swipeStartPosition = 0L
     private var isSwiping = false
     private val SWIPE_THRESHOLD = 50f
-    
+
     private lateinit var gestureDetector: GestureDetectorCompat
     private var controlsVisible = false
-    private var showMilliseconds = false
-    private var isSeeking = false
-    private val updateHandler = Handler(Looper.getMainLooper())
+
+    // Progress update timer
+    private val timerHandler = Handler(Looper.getMainLooper())
     private val updateRunnable = object : Runnable {
         override fun run() {
-            if (controlsVisible && !isSeeking) {
-                updateSeekBar()
+            if (player != null && !isDragging) {
+                val pos = player!!.currentPosition
+                val dur = player!!.duration
+                if (dur > 0) {
+                    binding.seekBar.value = (pos.toFloat() / dur.toFloat() * SEEK_BAR_MAX).coerceIn(0f, SEEK_BAR_MAX)
+                    binding.seekCurrentTimeText.text = formatTime(pos)
+                    binding.seekTotalTimeText.text = formatTime(dur)
+                }
             }
-            // Always update at 50ms for smooth seek tracking
-            if (player?.isPlaying == true || isSeeking) {
-                updateHandler.postDelayed(this, 50L)
-            }
+            timerHandler.postDelayed(this, UPDATE_INTERVAL_MS)
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         paths = (savedInstanceState?.getState<State>()?.paths ?: argsPaths).toMutableList()
         currentPosition = savedInstanceState?.getState<State>()?.position ?: args.position
     }
@@ -121,120 +133,132 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (paths.isEmpty()) {
-            finish()
-            return
-        }
+        if (paths.isEmpty()) { finish(); return }
 
         val activity = requireActivity() as AppCompatActivity
         activity.setSupportActionBar(binding.toolbar)
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        // Register menu provider for home button
         activity.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {}
-
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 return when (menuItem.itemId) {
-                    android.R.id.home -> {
-                        activity.onBackPressed()
-                        true
-                    }
+                    android.R.id.home -> { activity.onBackPressed(); true }
                     else -> false
                 }
             }
         }, viewLifecycleOwner)
+
         activity.window.statusBarColor = Color.TRANSPARENT
         ViewCompat.setOnApplyWindowInsetsListener(binding.appBarLayout) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             insets
         }
-        
+
         systemUiHelper = SystemUiHelper(
             activity, SystemUiHelper.LEVEL_IMMERSIVE, SystemUiHelper.FLAG_IMMERSIVE_STICKY
-        ) { visible: Boolean -> }
-        // Initially hide toolbar and seek bar
+        ) { }
+
         binding.appBarLayout.alpha = 0f
         binding.appBarLayout.translationY = -binding.appBarLayout.bottom.toFloat()
         systemUiHelper.hide()
-        
+
         setupSlider()
         setupGestureDetector()
         updateTitle()
     }
 
+    // ─────────────────────────────────────────────────
+    // Slider: seek in real-time while dragging
+    // ─────────────────────────────────────────────────
+
     private fun setupSlider() {
         binding.seekBar.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
             override fun onStartTrackingTouch(slider: Slider) {
-                isSeeking = true
-                startProgressUpdates()
+                if (player == null) return
+                isDragging = true
+                wasPlayingBeforeDrag = mIsPlaying
+                // Freeze video frame
+                player?.playWhenReady = false
             }
+
             override fun onStopTrackingTouch(slider: Slider) {
-                isSeeking = false
-                val duration = player?.duration ?: 0L
-                if (duration > 0) {
-                    val newPosition = (slider.value / SEEK_BAR_MAX * duration.toFloat()).toLong()
-                    player?.seekTo(newPosition)
+                if (player == null) { isDragging = false; return }
+                val dur = player?.duration ?: 0L
+                if (dur > 0) {
+                    val targetMs = (slider.value / SEEK_BAR_MAX * dur.toFloat()).toLong()
+                    player?.seekTo(targetMs)
                 }
-                startProgressUpdates()
+                isDragging = false
+                if (wasPlayingBeforeDrag) {
+                    player?.playWhenReady = true
+                }
             }
         })
+
         binding.seekBar.addOnChangeListener { _, value, fromUser ->
-            if (fromUser) {
-                val duration = player?.duration ?: 0L
-                if (duration > 0) {
-                    val newPosition = (value / SEEK_BAR_MAX * duration.toFloat()).toLong()
-                    binding.seekCurrentTimeText.text = formatTime(newPosition)
-                    // Seek in real-time while dragging so video frame follows the seek bar
-                    player?.seekTo(newPosition)
+            if (fromUser && isDragging) {
+                val dur = player?.duration ?: 0L
+                if (dur > 0) {
+                    val targetMs = (value / SEEK_BAR_MAX * dur.toFloat()).toLong()
+                    binding.seekCurrentTimeText.text = formatTime(targetMs)
+                    // Seek video to match seekbar in real-time
+                    player?.seekTo(targetMs)
                 }
             }
         }
+
         binding.timeLayout.setOnClickListener {
             showMilliseconds = !showMilliseconds
-            updateSeekBar()
+            syncSeekBarFromPlayer()
         }
     }
+
+    private fun syncSeekBarFromPlayer() {
+        val pos = player?.currentPosition ?: 0L
+        val dur = player?.duration ?: 0L
+        if (dur > 0) {
+            binding.seekBar.value = (pos.toFloat() / dur.toFloat() * SEEK_BAR_MAX).coerceIn(0f, SEEK_BAR_MAX)
+            binding.seekCurrentTimeText.text = formatTime(pos)
+            binding.seekTotalTimeText.text = formatTime(dur)
+        }
+    }
+
+    // ─────────────────
+    // Gesture handling
+    // ─────────────────
 
     private fun setupGestureDetector() {
         gestureDetector = GestureDetectorCompat(requireContext(), object : GestureDetector.SimpleOnGestureListener() {
             override fun onSingleTapConfirmed(e: MotionEvent): Boolean {
-                // Single tap to toggle controls (toolbar + seek bar)
                 toggleControls()
                 return true
             }
-            
+
             override fun onDoubleTap(e: MotionEvent): Boolean {
-                // Double tap to play/pause
-                player?.let {
-                    if (it.isPlaying) {
-                        it.pause()
-                    } else {
-                        it.play()
-                    }
-                    if (!controlsVisible) toggleControls()
-                    else updateSeekBar()
+                val viewWidth = binding.playerView.width
+                val instantWidth = viewWidth / 7
+                when {
+                    e.x <= instantWidth -> doSkip(false)
+                    e.x >= viewWidth - instantWidth -> doSkip(true)
+                    else -> togglePlayPause()
                 }
                 return true
             }
-            
+
             override fun onLongPress(e: MotionEvent) {
                 startFastForward(e.x)
             }
-            
+
             override fun onScroll(
-                e1: MotionEvent?,
-                e2: MotionEvent,
-                distanceX: Float,
-                distanceY: Float
+                e1: MotionEvent?, e2: MotionEvent,
+                distanceX: Float, distanceY: Float
             ): Boolean {
-                // Long-press + horizontal slide to adjust playback speed
                 if (isLongPressing) {
                     updateFastForwardSpeed(e2.x)
                     return true
                 }
-                // Horizontal swipe for seek
                 if (e1 != null && abs(e2.x - e1.x) > abs(e2.y - e1.y)) {
                     if (!isSwiping && abs(e2.x - e1.x) > SWIPE_THRESHOLD) {
                         isSwiping = true
@@ -243,39 +267,30 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
                     }
                     if (isSwiping) {
                         val deltaX = e2.x - swipeStartX
-                        val screenWidth = binding.playerView.width.toFloat()
-                            .coerceAtLeast(1f)
-                        // Full swipe across screen = ±15 seconds max
-                        val maxSeekMs = 15_000L
-                        val seekDelta = (deltaX / screenWidth * maxSeekMs).toLong()
-                            .coerceIn(-maxSeekMs, maxSeekMs)
+                        val screenWidth = binding.playerView.width.toFloat().coerceAtLeast(1f)
+                        val seekDelta = (deltaX / screenWidth * FAST_FORWARD_VIDEO_MS * 1.5f).toLong()
                         val duration = player?.duration ?: 0L
                         val newPosition = (swipeStartPosition + seekDelta).coerceIn(0L, duration)
                         player?.seekTo(newPosition)
-                        
-                        // Show seek indicator
+
                         val seekSeconds = (newPosition - swipeStartPosition) / 1000
                         val sign = if (seekSeconds >= 0) "+" else ""
                         binding.speedIndicator.text = "${sign}${seekSeconds}s"
                         binding.speedIndicator.visibility = View.VISIBLE
-                        
-                        // Update seek bar
-                        showSeekBar(newPosition, duration)
+
+                        showControlsTemporarily()
                     }
                     return true
                 }
                 return false
             }
         })
-        
+
         binding.playerView.setOnTouchListener { _, event ->
             gestureDetector.onTouchEvent(event)
-            
             when (event.action) {
                 MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                    if (isLongPressing) {
-                        stopFastForward()
-                    }
+                    if (isLongPressing) stopFastForward()
                     if (isSwiping) {
                         isSwiping = false
                         binding.speedIndicator.visibility = View.GONE
@@ -285,7 +300,14 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
             true
         }
     }
-    
+
+    private fun doSkip(forward: Boolean) {
+        val exoPlayer = player ?: return
+        val curr = exoPlayer.currentPosition
+        val newPosition = if (forward) curr + FAST_FORWARD_VIDEO_MS else curr - FAST_FORWARD_VIDEO_MS
+        exoPlayer.seekTo(newPosition.coerceIn(0, maxOf(exoPlayer.duration, 0)))
+    }
+
     private fun startFastForward(startX: Float) {
         isLongPressing = true
         longPressStartX = startX
@@ -311,91 +333,52 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
         player?.setPlaybackSpeed(speed)
         binding.speedIndicator.text = "${speed}x"
     }
-    
+
     private fun stopFastForward() {
         isLongPressing = false
         player?.setPlaybackSpeed(originalSpeed)
         binding.speedIndicator.visibility = View.GONE
     }
 
+    // ─────────────────
+    // Controls visibility
+    // ─────────────────
+
     private fun toggleControls() {
-        if (controlsVisible) {
-            hideControls()
-        } else {
-            showControls()
-        }
+        if (controlsVisible) hideControls() else showControls()
     }
 
     private fun showControls() {
         controlsVisible = true
-        // Show toolbar
         binding.appBarLayout.animate()
-            .alpha(1f)
-            .translationY(0f)
-            .setDuration(200)
-            .setInterpolator(FastOutSlowInInterpolator())
-            .start()
-        // Show seek bar
+            .alpha(1f).translationY(0f)
+            .setDuration(200).setInterpolator(FastOutSlowInInterpolator()).start()
         binding.seekBarLayout.let { layout ->
             layout.alpha = 0f
             layout.visibility = View.VISIBLE
             layout.animate().alpha(1f).setDuration(200).start()
         }
-        updateSeekBar()
-        if (player?.isPlaying == true) {
-            startProgressUpdates()
-        }
+        syncSeekBarFromPlayer()
+        startProgressUpdates()
         systemUiHelper.show()
     }
 
     private fun hideControls() {
         controlsVisible = false
         stopProgressUpdates()
-        // Hide toolbar
         binding.appBarLayout.animate()
-            .alpha(0f)
-            .translationY(-binding.appBarLayout.bottom.toFloat())
-            .setDuration(300)
-            .setInterpolator(FastOutSlowInInterpolator())
-            .start()
-        // Hide seek bar
+            .alpha(0f).translationY(-binding.appBarLayout.bottom.toFloat())
+            .setDuration(300).setInterpolator(FastOutSlowInInterpolator()).start()
         binding.seekBarLayout.animate()
-            .alpha(0f)
-            .setDuration(300)
-            .withEndAction { binding.seekBarLayout.visibility = View.GONE }
-            .start()
+            .alpha(0f).setDuration(300)
+            .withEndAction { binding.seekBarLayout.visibility = View.GONE }.start()
         systemUiHelper.hide()
     }
 
-    private fun startProgressUpdates() {
-        updateHandler.removeCallbacks(updateRunnable)
-        updateHandler.post(updateRunnable)
-    }
-
-    private fun stopProgressUpdates() {
-        updateHandler.removeCallbacks(updateRunnable)
-    }
-
-    private fun updateSeekBar() {
-        val currentPos = player?.currentPosition ?: 0L
-        val duration = player?.duration ?: 0L
-        if (duration > 0 && !isSeeking) {
-            binding.seekBar.value = (currentPos.toFloat() / duration.toFloat() * SEEK_BAR_MAX)
-                .coerceIn(0f, SEEK_BAR_MAX)
-            binding.seekCurrentTimeText.text = formatTime(currentPos)
-        }
-        binding.seekTotalTimeText.text = formatTime(duration)
-    }
-
-    private fun showSeekBar(currentPositionMs: Long, durationMs: Long) {
+    private fun showControlsTemporarily() {
         if (!controlsVisible) {
             controlsVisible = true
-            binding.appBarLayout.animate()
-                .alpha(1f)
-                .translationY(0f)
-                .setDuration(200)
-                .setInterpolator(FastOutSlowInInterpolator())
-                .start()
+            binding.appBarLayout.animate().alpha(1f).translationY(0f).setDuration(200).setInterpolator(FastOutSlowInInterpolator()).start()
             systemUiHelper.show()
         }
         binding.seekBarLayout.let { layout ->
@@ -405,13 +388,50 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
                 layout.animate().alpha(1f).setDuration(200).start()
             }
         }
-        if (durationMs > 0) {
-            binding.seekBar.value = (currentPositionMs.toFloat() / durationMs.toFloat() * SEEK_BAR_MAX)
-                .coerceIn(0f, SEEK_BAR_MAX)
-        }
-        binding.seekCurrentTimeText.text = formatTime(currentPositionMs)
-        binding.seekTotalTimeText.text = formatTime(durationMs)
+        syncSeekBarFromPlayer()
     }
+
+    // ─────────────────
+    // Progress updates
+    // ─────────────────
+
+    private fun startProgressUpdates() {
+        timerHandler.removeCallbacks(updateRunnable)
+        timerHandler.post(updateRunnable)
+    }
+
+    private fun stopProgressUpdates() {
+        timerHandler.removeCallbacks(updateRunnable)
+    }
+
+    // ─────────────────
+    // Play / Pause
+    // ─────────────────
+
+    private fun togglePlayPause() {
+        if (mIsPlaying) pauseVideo() else playVideo()
+    }
+
+    fun playVideo() {
+        if (player == null) { initPlayer(); return }
+        mIsPlaying = true
+        player?.playWhenReady = true
+        activity?.window?.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        startProgressUpdates()
+    }
+
+    private fun pauseVideo() {
+        if (player == null) return
+        mIsPlaying = false
+        player?.playWhenReady = false
+        activity?.window?.clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        stopProgressUpdates()
+        syncSeekBarFromPlayer()
+    }
+
+    // ─────────────────
+    // Time formatting
+    // ─────────────────
 
     private fun formatTime(ms: Long): String {
         val totalSeconds = ms / 1000
@@ -420,46 +440,48 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
         val seconds = totalSeconds % 60
         return if (showMilliseconds) {
             val millis = ms % 1000
-            if (hours > 0) {
-                String.format("%d:%02d:%02d.%03d", hours, minutes, seconds, millis)
-            } else {
-                String.format("%02d:%02d.%03d", minutes, seconds, millis)
-            }
+            if (hours > 0) String.format("%d:%02d:%02d.%03d", hours, minutes, seconds, millis)
+            else String.format("%02d:%02d.%03d", minutes, seconds, millis)
         } else {
-            if (hours > 0) {
-                String.format("%d:%02d:%02d", hours, minutes, seconds)
-            } else {
-                String.format("%02d:%02d", minutes, seconds)
-            }
+            if (hours > 0) String.format("%d:%02d:%02d", hours, minutes, seconds)
+            else String.format("%02d:%02d", minutes, seconds)
         }
     }
 
+    // ─────────────────
+    // Player lifecycle
+    // ─────────────────
+
     override fun onStart() {
         super.onStart()
-        initializePlayer()
+        initPlayer()
     }
 
     override fun onStop() {
         super.onStop()
-        savePlaybackPosition()
+        savePlaybackState()
         releasePlayer()
     }
 
-    private fun savePlaybackPosition() {
-        player?.let { exoPlayer ->
-            // Save playback position for restoration
-            savedPlaybackPosition = exoPlayer.currentPosition
-            savedPlayWhenReady = exoPlayer.playWhenReady
-        }
+    private fun savePlaybackState() {
+        player?.let { playWhenReady = it.playWhenReady }
     }
 
-    private var savedPlaybackPosition: Long = 0L
-    private var savedPlayWhenReady: Boolean = true
-
-    private fun initializePlayer() {
+    private fun initPlayer() {
         if (paths.isEmpty()) return
 
+        val path = paths[currentPosition]
+        val uri = path.fileProviderUri
+        val mediaItem = MediaItem.fromUri(uri)
+
+        val loadControl = DefaultLoadControl.Builder()
+            .setBufferDurationsMs(5000, 10000, 1000, 2000)
+            .setPrioritizeTimeOverSizeThresholds(true)
+            .build()
+
         player = ExoPlayer.Builder(requireContext())
+            .setLoadControl(loadControl)
+            .setSeekParameters(SeekParameters.EXACT)
             .build()
             .also { exoPlayer ->
                 binding.playerView.player = exoPlayer
@@ -469,54 +491,32 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
                         when (playbackState) {
                             Player.STATE_READY -> {
                                 binding.progressBar.visibility = View.GONE
-                                // Restore playback position if available
-                                if (savedPlaybackPosition > 0) {
-                                    exoPlayer.seekTo(savedPlaybackPosition)
-                                    savedPlaybackPosition = 0L
-                                }
+                                if (controlsVisible) syncSeekBarFromPlayer()
                             }
                             Player.STATE_BUFFERING -> {
                                 binding.progressBar.visibility = View.VISIBLE
                             }
+                            Player.STATE_ENDED -> {
+                                pauseVideo()
+                            }
                             else -> {}
                         }
                     }
+
                     override fun onIsPlayingChanged(isPlaying: Boolean) {
-                        if (isPlaying) {
-                            startProgressUpdates()
-                        } else {
-                            stopProgressUpdates()
-                            if (controlsVisible) updateSeekBar()
-                        }
+                        if (isPlaying && controlsVisible) startProgressUpdates()
                     }
                 })
 
-                // Play current video
-                val path = paths[currentPosition]
-                val uri = path.fileProviderUri
-                val mediaItem = MediaItem.fromUri(uri)
                 exoPlayer.setMediaItem(mediaItem)
-                exoPlayer.playWhenReady = savedPlayWhenReady
+                exoPlayer.playWhenReady = playWhenReady
                 exoPlayer.prepare()
             }
-    }
-    
-    private fun playVideo(path: Path) {
-        player?.let { exoPlayer ->
-            val uri = path.fileProviderUri
-            val mediaItem = MediaItem.fromUri(uri)
-            exoPlayer.setMediaItem(mediaItem)
-            exoPlayer.playWhenReady = true
-            exoPlayer.prepare()
-        }
     }
 
     private fun releasePlayer() {
         stopProgressUpdates()
-        player?.let { exoPlayer ->
-            playWhenReady = exoPlayer.playWhenReady
-            exoPlayer.release()
-        }
+        player?.let { it.stop(); it.release() }
         player = null
     }
 
@@ -525,7 +525,9 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
         outState.putState(State(paths, currentPosition))
     }
 
-
+    // ─────────────────
+    // File operations
+    // ─────────────────
 
     private fun confirmDelete() {
         ConfirmDeleteVideoDialogFragment.show(currentPath, this)
@@ -536,29 +538,20 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
         try {
             if (path.isLinuxPath) {
                 val file = path.toFile()
-                if (TrashHelper.moveToTrash(file)) {
-                    // Successfully moved to trash
-                } else {
-                    path.delete()
-                }
+                if (!TrashHelper.moveToTrash(file)) path.delete()
             } else {
                 path.delete()
             }
         } catch (e: IOException) {
             e.printStackTrace()
             showToast(e.toString())
-            initializePlayer()
+            initPlayer()
             return
         }
         paths.removeAll(listOf(path))
-        if (paths.isEmpty()) {
-            finish()
-            return
-        }
-        if (currentPosition >= paths.size) {
-            currentPosition = paths.size - 1
-        }
-        initializePlayer()
+        if (paths.isEmpty()) { finish(); return }
+        if (currentPosition >= paths.size) currentPosition = paths.size - 1
+        initPlayer()
         updateTitle()
     }
 
@@ -568,9 +561,7 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
         val size = paths.size
         binding.toolbar.subtitle = if (size > 1) {
             getString(R.string.video_viewer_subtitle_format, currentPosition + 1, size)
-        } else {
-            null
-        }
+        } else null
     }
 
     private fun share() {

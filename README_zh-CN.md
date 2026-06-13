@@ -1,6 +1,6 @@
-# Material Files
+# AdvanceFileManager
 
-一个开源的 Material Design 3 文件管理器，适用于 Android 5.0+，内置媒体查看器和实用工具。
+一个开源的 Material Design 3 文件管理器，适用于 Android 13.0+，内置媒体查看器和实用工具。
 
 ## 功能特性
 

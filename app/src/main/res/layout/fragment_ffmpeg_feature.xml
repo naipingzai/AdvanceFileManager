@@ -129,7 +129,7 @@
                         style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="前5秒"
+                        android:text="@string/ffmpeg_preset_5s"
                         android:checked="true" />
 
                     <com.google.android.material.chip.Chip
@@ -137,21 +137,28 @@
                         style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="前10秒" />
+                        android:text="@string/ffmpeg_preset_10s" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/preset30s"
                         style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="前30秒" />
+                        android:text="@string/ffmpeg_preset_30s" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/presetAll"
+                        style="@style/Widget.Material3.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ffmpeg_preset_all" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/presetCustom"
                         style="@style/Widget.Material3.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="自定义" />
+                        android:text="@string/ffmpeg_preset_custom" />
 
                 </com.google.android.material.chip.ChipGroup>
             </LinearLayout>
