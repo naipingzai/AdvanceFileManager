@@ -33,14 +33,14 @@ class FileToolsActivity : AppActivity() {
         val filePaths = intent.getStringArrayExtra(FeatureContract.EXTRA_FILE_PATHS)
 
         val title = when (actionType) {
-            "file_search" -> "文件搜索"
-            "duplicate_finder" -> "重复文件查找"
-            "empty_search" -> "空文件夹搜索"
-            "recent_files" -> "最近文件"
-            "hex_viewer" -> "十六进制查看"
-            "encryption" -> "文件加密"
-            "file_compare" -> "文件对比"
-            else -> "文件工具"
+            "file_search" -> getString(R.string.file_search_title)
+            "duplicate_finder" -> getString(R.string.duplicate_finder_title)
+            "empty_search" -> getString(R.string.empty_search_title)
+            "recent_files" -> getString(R.string.recent_files_title)
+            "hex_viewer" -> getString(R.string.hex_viewer_title)
+            "encryption" -> getString(R.string.encryption_title)
+            "file_compare" -> getString(R.string.file_compare_title)
+            else -> getString(R.string.file_tools_title)
         }
         supportActionBar?.title = title
 
@@ -60,7 +60,7 @@ class FileToolsActivity : AppActivity() {
             val files = paths.map { File(it) }.filter { it.exists() }
             if (files.size > 1) {
                 binding.selectedFilesPreview.root.visibility = View.VISIBLE
-                binding.selectedFilesPreview.selectedFilesTitle.text = "已选择 ${files.size} 个文件"
+                binding.selectedFilesPreview.selectedFilesTitle.text = getString(R.string.selected_files_count, files.size)
                 binding.selectedFilesPreview.selectedFilesRecyclerView.apply {
                     layoutManager = LinearLayoutManager(
                         this@FileToolsActivity,

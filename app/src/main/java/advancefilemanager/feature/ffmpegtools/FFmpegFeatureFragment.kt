@@ -65,7 +65,7 @@ class FFmpegFeatureFragment : Fragment() {
                 when (intent?.action) {
                     ACTION_PROGRESS_UPDATE -> {
                         binding.progressBar.progress = intent.getIntExtra(EXTRA_PERCENT, 0)
-                        binding.progressText.text = "处理中... ${intent.getIntExtra(EXTRA_PERCENT, 0)}%"
+                        binding.progressText.text = getString(R.string.processing_percent, intent.getIntExtra(EXTRA_PERCENT, 0))
                     }
                     ACTION_PROCESSING_COMPLETE -> {
                         onProcessingComplete(intent.getBooleanExtra(EXTRA_SUCCESS, false), intent.getStringExtra(EXTRA_ERROR) ?: "")
@@ -89,11 +89,11 @@ class FFmpegFeatureFragment : Fragment() {
             binding.actionButton.isEnabled = true
             if (success) {
                 binding.progressBar.visibility = View.GONE
-                val name = if (outputFilePath.isNotEmpty()) File(outputFilePath).name else "完成"
-                binding.progressText.text = "完成: $name"
-                Toast.makeText(requireContext(), "处理完成: $name", Toast.LENGTH_LONG).show()
+                val name = if (outputFilePath.isNotEmpty()) File(outputFilePath).name else getString(R.string.completed)
+                binding.progressText.text = getString(R.string.completed_format, name)
+                Toast.makeText(requireContext(), getString(R.string.processing_completed_format, name), Toast.LENGTH_LONG).show()
             } else {
-                binding.progressText.text = "失败: ${error.ifEmpty { FFmpegJni.getLastError() }}"
+                binding.progressText.text = getString(R.string.error_format, error.ifEmpty { FFmpegJni.getLastError() })
             }
         }
     }
@@ -103,7 +103,7 @@ class FFmpegFeatureFragment : Fragment() {
         isImageFile = isImageFileType(file)
         val allPaths = filePaths
         if (allPaths != null && allPaths.size > 1) {
-            binding.fileName.text = "已选择 ${allPaths.size} 个文件"
+            binding.fileName.text = getString(R.string.selected_files_count, allPaths.size)
             binding.fileInfo.text = formatFileSize(allPaths.sumOf { File(it).length() })
         } else {
             binding.fileName.text = file.name
@@ -143,7 +143,7 @@ class FFmpegFeatureFragment : Fragment() {
     private fun updateRangeDisplay() {
         binding.timeRangeLabel.text = "${formatTimeFull(startTimeMs)} — ${formatTimeFull(endTimeMs)}"
         val d = ((endTimeMs - startTimeMs) / 1000).toInt()
-        binding.durationLabel.text = if (d < 60) "${d}秒" else "${d / 60}分${d % 60}秒"
+        binding.durationLabel.text = if (d < 60) getString(R.string.duration_seconds, d) else getString(R.string.duration_minutes_seconds, d / 60, d % 60)
     }
 
     private fun showCustomTimeDialog() {
@@ -154,47 +154,47 @@ class FFmpegFeatureFragment : Fragment() {
         val shp = dv.findViewById<NumberPicker>(R.id.startHourPicker); val smp = dv.findViewById<NumberPicker>(R.id.startMinPicker); val ssp = dv.findViewById<NumberPicker>(R.id.startSecPicker)
         val ehp = dv.findViewById<NumberPicker>(R.id.endHourPicker); val emp = dv.findViewById<NumberPicker>(R.id.endMinPicker); val esp = dv.findViewById<NumberPicker>(R.id.endSecPicker)
         val dl = dv.findViewById<android.widget.TextView>(R.id.dialogDurationLabel)
-        dv.findViewById<android.widget.TextView>(R.id.dialogMaxDuration).text = "视频总时长: ${formatTimeFull(maxDurationMs)}"
+        dv.findViewById<android.widget.TextView>(R.id.dialogMaxDuration).text = getString(R.string.total_duration, formatTimeFull(maxDurationMs))
 
         setupPicker(shp, 0, maxH, startSec / 3600); setupPicker(smp, 0, 59, (startSec % 3600) / 60); setupPicker(ssp, 0, 59, startSec % 60)
         setupPicker(ehp, 0, maxH, endSec / 3600); setupPicker(emp, 0, 59, (endSec % 3600) / 60); setupPicker(esp, 0, 59, endSec % 60)
 
         val upd = {
             val s = shp.value * 3600 + smp.value * 60 + ssp.value; val e = ehp.value * 3600 + emp.value * 60 + esp.value; val d2 = (e - s).coerceAtLeast(0)
-            dl.text = "选择时长: ${if (d2 < 60) "${d2}秒" else "${d2 / 60}分${d2 % 60}秒"}"
+            dl.text = getString(R.string.selected_duration, if (d2 < 60) getString(R.string.duration_seconds, d2) else getString(R.string.duration_minutes_seconds, d2 / 60, d2 % 60))
         }
         shp.setOnValueChangedListener { _, _, _ -> upd() }; smp.setOnValueChangedListener { _, _, _ -> upd() }; ssp.setOnValueChangedListener { _, _, _ -> upd() }
         ehp.setOnValueChangedListener { _, _, _ -> upd() }; emp.setOnValueChangedListener { _, _, _ -> upd() }; esp.setOnValueChangedListener { _, _, _ -> upd() }
         upd()
 
-        MaterialAlertDialogBuilder(requireContext()).setTitle("自定义时间范围").setView(dv)
-            .setPositiveButton("确定") { _, _ ->
+        MaterialAlertDialogBuilder(requireContext()).setTitle(R.string.custom_time_range).setView(dv)
+            .setPositiveButton(R.string.ok) { _, _ ->
                 startTimeMs = (shp.value * 3600L + smp.value * 60L + ssp.value) * 1000
                 endTimeMs = (ehp.value * 3600L + emp.value * 60L + esp.value) * 1000
                 if (endTimeMs <= startTimeMs) endTimeMs = minOf(startTimeMs + 1000, maxDurationMs)
                 skipChipListeners = true; binding.presetCustom.isChecked = true; skipChipListeners = false
                 updateRangeDisplay()
-            }.setNegativeButton("取消", null).show()
+            }.setNegativeButton(R.string.cancel, null).show()
     }
 
     private fun setupPicker(p: NumberPicker, min: Int, max: Int, v: Int) { p.minValue = min; p.maxValue = max; p.value = v; p.wrapSelectorWheel = false }
 
     private fun getOutputFormats(): List<String> = when (feature) {
         MediaToolFeature.FORMAT_CONVERT -> listOf("mp4", "mkv", "avi", "mov", "webm", "flv", "mp3", "aac", "wav", "flac", "ogg")
-        MediaToolFeature.IMAGE_COMPRESS -> listOf("jpg (质量80%)", "jpg (质量60%)", "png", "webp")
-        MediaToolFeature.VIDEO_COMPRESS -> listOf("低质量 (CRF 28)", "中等质量 (CRF 23)", "高质量 (CRF 18)")
+        MediaToolFeature.IMAGE_COMPRESS -> listOf(getString(R.string.ffmpeg_output_format_jpg_quality_80), getString(R.string.ffmpeg_output_format_jpg_quality_60), "png", "webp")
+        MediaToolFeature.VIDEO_COMPRESS -> listOf(getString(R.string.ffmpeg_output_format_low_quality), getString(R.string.ffmpeg_output_format_medium_quality), getString(R.string.ffmpeg_output_format_high_quality))
         MediaToolFeature.EXTRACT_AUDIO -> listOf("mp3", "aac", "wav", "flac", "ogg")
-        MediaToolFeature.GIF_MAKER -> listOf("320px", "480px", "原始尺寸")
+        MediaToolFeature.GIF_MAKER -> listOf("320px", "480px", getString(R.string.ffmpeg_output_format_original_size))
         MediaToolFeature.VIDEO_TO_AUDIO -> listOf("mp3", "aac", "wav", "flac", "ogg")
-        MediaToolFeature.VIDEO_ENHANCE -> listOf("轻微增强 (1.2x)", "标准增强 (1.5x)", "强力增强 (2.0x)")
-        MediaToolFeature.IMAGE_ENHANCE -> listOf("轻微增强 (1.2x)", "标准增强 (1.5x)", "强力增强 (2.0x)")
+        MediaToolFeature.VIDEO_ENHANCE -> listOf(getString(R.string.ffmpeg_enhance_light), getString(R.string.ffmpeg_enhance_standard), getString(R.string.ffmpeg_enhance_strong))
+        MediaToolFeature.IMAGE_ENHANCE -> listOf(getString(R.string.ffmpeg_enhance_light), getString(R.string.ffmpeg_enhance_standard), getString(R.string.ffmpeg_enhance_strong))
         else -> emptyList()
     }
 
     private fun setupActionButton() { binding.actionButton.text = getString(feature.titleRes); binding.actionButton.setOnClickListener { startProcessing() } }
 
     private fun startProcessing() {
-        binding.actionButton.isEnabled = false; binding.progressBar.visibility = View.VISIBLE; binding.progressText.visibility = View.VISIBLE; binding.progressBar.progress = 0; binding.progressText.text = "处理中..."
+        binding.actionButton.isEnabled = false; binding.progressBar.visibility = View.VISIBLE; binding.progressText.visibility = View.VISIBLE; binding.progressBar.progress = 0; binding.progressText.text = getString(R.string.processing)
         val of = binding.outputFormat.text.toString(); val ip = File(filePath); val op = generateOutputFile(ip, of); outputFilePath = op.absolutePath
         FFmpegProcessingService.startProcessing(requireContext(), ip.absolutePath, op.absolutePath, feature.actionType, if (isImageFile) 0L else startTimeMs, if (isImageFile) 0L else endTimeMs, parseGifWidth(of), 10)
     }

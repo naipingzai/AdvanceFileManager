@@ -71,28 +71,28 @@ class EncryptionToolFragment : Fragment() {
     private fun showPasswordDialog(encrypt: Boolean) {
         val selected = adapter.getSelectedFiles()
         if (selected.isEmpty()) {
-            Toast.makeText(requireContext(), "请选择文件", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), R.string.encryption_select_files, Toast.LENGTH_SHORT).show()
             return
         }
 
         val input = EditText(requireContext()).apply {
-            hint = "输入密码"
+            hint = getString(R.string.encryption_input_password_hint)
             inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
         }
 
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle(if (encrypt) "加密文件" else "解密文件")
-            .setMessage("请输入${if (encrypt) "加密" else "解密"}密码")
+            .setTitle(if (encrypt) getString(R.string.encryption_encrypt_title) else getString(R.string.encryption_decrypt_title))
+            .setMessage(getString(R.string.encryption_enter_password_message, if (encrypt) getString(R.string.encryption_encrypt) else getString(R.string.encryption_decrypt)))
             .setView(input)
-            .setPositiveButton("确定") { _, _ ->
+            .setPositiveButton(R.string.ok) { _, _ ->
                 val password = input.text.toString()
                 if (password.isEmpty()) {
-                    Toast.makeText(requireContext(), "密码不能为空", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), R.string.encryption_password_cannot_be_empty, Toast.LENGTH_SHORT).show()
                     return@setPositiveButton
                 }
                 processFiles(selected, password, encrypt)
             }
-            .setNegativeButton("取消", null)
+            .setNegativeButton(R.string.cancel, null)
             .create()
             .applyOverlay(requireContext())
             .show()
@@ -114,10 +114,10 @@ class EncryptionToolFragment : Fragment() {
                 }
             }
             binding.progressBar.visibility = View.GONE
-            val action = if (encrypt) "加密" else "解密"
+            val action = if (encrypt) getString(R.string.encryption_encrypt) else getString(R.string.encryption_decrypt)
             Toast.makeText(
                 requireContext(),
-                "${action}完成: 成功 $successCount, 失败 $failCount",
+                getString(R.string.encryption_process_result_format, action, successCount, failCount),
                 Toast.LENGTH_SHORT
             ).show()
             loadFiles()
@@ -153,7 +153,7 @@ class EncryptionToolFragment : Fragment() {
             holder.title.text = file.name
             holder.subtitle.text = buildString {
                 append(TrashUtil.formatFileSize(file.length()))
-                if (isEncrypted) append(" · 已加密")
+                if (isEncrypted) append(" · ").append(holder.itemView.context.getString(R.string.encryption_label_encrypted))
             }
             holder.checkbox.visibility = View.VISIBLE
             holder.checkbox.isChecked = selectedFiles.contains(file.absolutePath)

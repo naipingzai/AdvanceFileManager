@@ -63,7 +63,7 @@ class FFmpegProcessingService : Service() {
         fun stopProcessing(context: android.content.Context) {
             FFmpegJni.cancel()
             isRunning = false
-            sendCompleteBroadcast(context, false, "已取消")
+            sendCompleteBroadcast(context, false, context.getString(R.string.cancel))
             try {
                 context.stopService(Intent(context, FFmpegProcessingService::class.java))
             } catch (_: Exception) {}
@@ -170,7 +170,7 @@ class FFmpegProcessingService : Service() {
             val title = if (success) {
                 getString(R.string.ffmpeg_processing_notification_done)
             } else {
-                FFmpegJni.getLastError().ifEmpty { "Failed" }
+                FFmpegJni.getLastError().ifEmpty { getString(R.string.failed) }
             }
 
             updateNotificationComplete(title)

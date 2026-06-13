@@ -6,6 +6,7 @@
 package com.advancefilemanager.feature
 
 import com.advancefilemanager.R
+import com.advancefilemanager.app.application
 import com.advancefilemanager.feature.protocol.FeatureCategory
 import com.advancefilemanager.feature.protocol.FeatureInfo
 import com.advancefilemanager.feature.protocol.FeatureSubItem
@@ -26,63 +27,63 @@ object FeatureInitializer {
         FeatureManager.registerFeature(
             FeatureInfo(
                 id = "file-tools",
-                title = "文件工具",
-                description = "文件搜索、重复查找、空文件夹搜索等",
+                title = application.getString(R.string.feature_file_tools_title),
+                description = application.getString(R.string.feature_file_tools_desc),
                 mimeTypes = listOf("*/*"),
                 category = FeatureCategory.TOOL,
                 subFeatures = listOf(
                     FeatureSubItem(
                         id = "file-tools.file_search",
-                        title = "文件搜索",
-                        description = "按名称搜索文件",
+                        title = application.getString(R.string.file_tool_file_search),
+                        description = application.getString(R.string.file_tool_file_search_desc),
                         mimeTypes = listOf("*/*"),
                         featureId = "file-tools",
                         actionType = "file_search"
                     ),
                     FeatureSubItem(
                         id = "file-tools.duplicate_finder",
-                        title = "重复文件查找",
-                        description = "查找重复文件",
+                        title = application.getString(R.string.file_tool_duplicate_finder),
+                        description = application.getString(R.string.file_tool_duplicate_finder_desc),
                         mimeTypes = listOf("*/*"),
                         featureId = "file-tools",
                         actionType = "duplicate_finder"
                     ),
                     FeatureSubItem(
                         id = "file-tools.empty_search",
-                        title = "空文件夹搜索",
-                        description = "查找空文件和文件夹",
+                        title = application.getString(R.string.file_tool_empty_search),
+                        description = application.getString(R.string.file_tool_empty_search_desc),
                         mimeTypes = listOf("*/*"),
                         featureId = "file-tools",
                         actionType = "empty_search"
                     ),
                     FeatureSubItem(
                         id = "file-tools.recent_files",
-                        title = "最近文件",
-                        description = "查看最近修改的文件",
+                        title = application.getString(R.string.file_tool_recent_files),
+                        description = application.getString(R.string.file_tool_recent_files_desc),
                         mimeTypes = listOf("*/*"),
                         featureId = "file-tools",
                         actionType = "recent_files"
                     ),
                     FeatureSubItem(
                         id = "file-tools.hex_viewer",
-                        title = "十六进制查看",
-                        description = "以Hex+ASCII并排查看文件",
+                        title = application.getString(R.string.file_tool_hex_viewer),
+                        description = application.getString(R.string.file_tool_hex_viewer_desc),
                         mimeTypes = listOf("*/*"),
                         featureId = "file-tools",
                         actionType = "hex_viewer"
                     ),
                     FeatureSubItem(
                         id = "file-tools.encryption",
-                        title = "文件加密",
-                        description = "加密或解密文件",
+                        title = application.getString(R.string.file_tool_encryption),
+                        description = application.getString(R.string.file_tool_encryption_desc),
                         mimeTypes = listOf("*/*"),
                         featureId = "file-tools",
                         actionType = "encryption"
                     ),
                     FeatureSubItem(
                         id = "file-tools.file_compare",
-                        title = "文件对比",
-                        description = "对比两个文件的内容",
+                        title = application.getString(R.string.file_tool_file_compare),
+                        description = application.getString(R.string.file_tool_file_compare_desc),
                         mimeTypes = listOf("*/*"),
                         featureId = "file-tools",
                         actionType = "file_compare"
@@ -96,71 +97,71 @@ object FeatureInitializer {
         FeatureManager.registerFeature(
             FeatureInfo(
                 id = "ffmpeg-tools",
-                title = "媒体工具",
-                description = "格式转换、视频压缩、音频提取等",
+                title = application.getString(R.string.feature_media_tools_title),
+                description = application.getString(R.string.feature_media_tools_desc),
                 mimeTypes = listOf("video/*", "audio/*", "image/*"),
                 category = FeatureCategory.TOOL,
                 subFeatures = listOf(
                     FeatureSubItem(
                         id = "ffmpeg-tools.format_convert",
-                        title = "格式转换",
-                        description = "音视频格式互转",
+                        title = application.getString(R.string.media_tool_format_convert),
+                        description = application.getString(R.string.media_tool_format_convert_desc),
                         mimeTypes = listOf("video/*", "audio/*"),
                         featureId = "ffmpeg-tools",
                         actionType = "format_convert"
                     ),
                     FeatureSubItem(
                         id = "ffmpeg-tools.image_compress",
-                        title = "图片压缩",
-                        description = "降低图片文件大小",
+                        title = application.getString(R.string.media_tool_image_compress),
+                        description = application.getString(R.string.media_tool_image_compress_desc),
                         mimeTypes = listOf("image/*"),
                         featureId = "ffmpeg-tools",
                         actionType = "image_compress"
                     ),
                     FeatureSubItem(
                         id = "ffmpeg-tools.video_compress",
-                        title = "视频压缩",
-                        description = "降低比特率重编码",
+                        title = application.getString(R.string.media_tool_video_compress),
+                        description = application.getString(R.string.media_tool_video_compress_desc),
                         mimeTypes = listOf("video/*"),
                         featureId = "ffmpeg-tools",
                         actionType = "video_compress"
                     ),
                     FeatureSubItem(
                         id = "ffmpeg-tools.extract_audio",
-                        title = "音频提取",
-                        description = "从视频中提取音轨",
+                        title = application.getString(R.string.media_tool_extract_audio),
+                        description = application.getString(R.string.media_tool_extract_audio_desc),
                         mimeTypes = listOf("video/*"),
                         featureId = "ffmpeg-tools",
                         actionType = "extract_audio"
                     ),
                     FeatureSubItem(
                         id = "ffmpeg-tools.media_trim",
-                        title = "媒体剪切",
-                        description = "按时间范围裁剪",
+                        title = application.getString(R.string.media_tool_media_trim),
+                        description = application.getString(R.string.media_tool_media_trim_desc),
                         mimeTypes = listOf("video/*", "audio/*"),
                         featureId = "ffmpeg-tools",
                         actionType = "media_trim"
                     ),
                     FeatureSubItem(
                         id = "ffmpeg-tools.video_snapshot",
-                        title = "视频截帧",
-                        description = "提取指定时间点帧",
+                        title = application.getString(R.string.media_tool_video_snapshot),
+                        description = application.getString(R.string.media_tool_video_snapshot_desc),
                         mimeTypes = listOf("video/*"),
                         featureId = "ffmpeg-tools",
                         actionType = "video_snapshot"
                     ),
                     FeatureSubItem(
                         id = "ffmpeg-tools.gif_maker",
-                        title = "GIF 制作",
-                        description = "视频片段转 GIF",
+                        title = application.getString(R.string.media_tool_gif_maker),
+                        description = application.getString(R.string.media_tool_gif_maker_desc),
                         mimeTypes = listOf("video/*"),
                         featureId = "ffmpeg-tools",
                         actionType = "gif_maker"
                     ),
                     FeatureSubItem(
                         id = "ffmpeg-tools.video_merge",
-                        title = "视频合并",
-                        description = "多视频合并为一",
+                        title = application.getString(R.string.media_tool_video_merge),
+                        description = application.getString(R.string.media_tool_video_merge_desc),
                         mimeTypes = listOf("video/*"),
                         featureId = "ffmpeg-tools",
                         actionType = "video_merge"
@@ -174,8 +175,8 @@ object FeatureInitializer {
         FeatureManager.registerFeature(
             FeatureInfo(
                 id = "ebook-viewer",
-                title = "电子书查看",
-                description = "EPUB/MOBI 电子书阅读",
+                title = application.getString(R.string.feature_ebook_viewer_title),
+                description = application.getString(R.string.feature_ebook_viewer_desc),
                 mimeTypes = listOf(
                     "application/epub+zip",
                     "application/x-mobipocket-ebook"

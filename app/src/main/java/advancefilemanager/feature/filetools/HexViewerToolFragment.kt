@@ -57,15 +57,15 @@ class HexViewerToolFragment : Fragment() {
             if (file.exists() && file.isFile) {
                 currentFile = file
                 fileInfoText.isVisible = true
-                fileInfoText.text = "${file.name} · ${TrashUtil.formatFileSize(file.length())}"
+                fileInfoText.text = getString(R.string.hex_viewer_file_info_format, file.name, TrashUtil.formatFileSize(file.length()))
                 loadMore()
             } else {
                 fileInfoText.isVisible = true
-                fileInfoText.text = "文件不存在: $path"
+                fileInfoText.text = getString(R.string.file_does_not_exist_format, path)
             }
         } else {
             fileInfoText.isVisible = true
-            fileInfoText.text = "未指定文件"
+            fileInfoText.text = getString(R.string.no_file_specified)
         }
     }
 

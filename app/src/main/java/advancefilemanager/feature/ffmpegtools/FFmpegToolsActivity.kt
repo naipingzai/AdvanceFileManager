@@ -40,7 +40,7 @@ class FFmpegToolsActivity : AppActivity() {
         }
 
         if (feature == null || filePath == null) {
-            Toast.makeText(this, "参数错误", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, R.string.ffmpeg_parameters_error, Toast.LENGTH_SHORT).show()
             finish()
             return
         }
@@ -81,7 +81,7 @@ class FFmpegToolsActivity : AppActivity() {
             val files = paths.map { File(it) }.filter { it.exists() }
             if (files.size > 1) {
                 binding.selectedFilesPreview.root.visibility = View.VISIBLE
-                binding.selectedFilesPreview.selectedFilesTitle.text = "已选择 ${files.size} 个文件"
+                binding.selectedFilesPreview.selectedFilesTitle.text = getString(R.string.selected_files_count, files.size)
                 binding.selectedFilesPreview.selectedFilesRecyclerView.apply {
                     layoutManager = LinearLayoutManager(
                         this@FFmpegToolsActivity,

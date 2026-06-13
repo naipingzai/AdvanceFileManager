@@ -67,7 +67,7 @@ class DuplicateFinderToolFragment : Fragment() {
             binding.progressBar.visibility = View.GONE
             binding.btnScan.isEnabled = true
             if (duplicateGroups.isEmpty()) {
-                Toast.makeText(requireContext(), "未找到重复文件", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), R.string.duplicate_no_results, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -118,7 +118,7 @@ class DuplicateFinderToolFragment : Fragment() {
     private fun deleteSelected() {
         val toDelete = adapter.getSelectedFiles()
         if (toDelete.isEmpty()) {
-            Toast.makeText(requireContext(), "请选择要删除的文件", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), R.string.duplicate_select_to_delete, Toast.LENGTH_SHORT).show()
             return
         }
         scope.launch {
@@ -128,7 +128,7 @@ class DuplicateFinderToolFragment : Fragment() {
                     if (TrashUtil.moveToTrash(file)) count++
                 }
             }
-            Toast.makeText(requireContext(), "已移到回收站: $count 个文件", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.duplicate_moved_to_trash, count), Toast.LENGTH_SHORT).show()
             startScan()
         }
     }
@@ -162,8 +162,8 @@ class DuplicateFinderToolFragment : Fragment() {
             val group = groups[groupIndex]
 
             if (fileIndex == 0) {
-                holder.title.text = "重复组 (${group.files.size} 个文件, 每个 ${TrashUtil.formatFileSize(group.size)})"
-                holder.subtitle.text = "MD5: ${group.hash.take(16)}..."
+                holder.title.text = holder.itemView.context.getString(R.string.duplicate_group_header_format, group.files.size, TrashUtil.formatFileSize(group.size))
+                holder.subtitle.text = "MD5: ${group.hash.take(16)}…"
                 holder.checkbox.visibility = View.GONE
             } else {
                 val file = group.files[fileIndex - 1]

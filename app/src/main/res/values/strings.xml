@@ -1200,4 +1200,89 @@
     <string name="ffmpeg_processing_notification_cancel">Cancel</string>
     <string name="ffmpeg_processing_back_warning">Task is still processing. Go back anyway?</string>
     <string name="ffmpeg_processing_back_warning_title">Processing in progress</string>
+
+    <!-- Common (additional) -->
+    <string name="ok">OK</string>
+    <string name="selected_files_count">Selected %d files</string>
+    <string name="file_not_exists">File does not exist</string>
+    <string name="failed">Failed</string>
+    <string name="processing">Processing…</string>
+    <string name="processing_percent">Processing… %d%%</string>
+    <string name="completed">Completed</string>
+    <string name="completed_format">Completed: %s</string>
+    <string name="processing_completed_format">Processing completed: %s</string>
+    <string name="error_format">Error: %s</string>
+    <string name="duration_seconds">%d seconds</string>
+    <string name="duration_minutes_seconds">%1$d min %2$d sec</string>
+    <string name="total_duration">Total duration: %s</string>
+    <string name="selected_duration">Selected duration: %s</string>
+    <string name="custom_time_range">Custom time range</string>
+    <string name="not_selected">Not selected</string>
+    <string name="no_file_specified">No file specified</string>
+    <string name="file_does_not_exist_format">File does not exist: %s</string>
+
+    <!-- File Compare (additional) -->
+    <string name="file_compare_result_file_header">File %1$d: %2$s</string>
+    <string name="file_compare_result_path">  Path: %s</string>
+    <string name="file_compare_result_size">  Size: %s</string>
+    <string name="file_compare_result_modified">  Modified: %s</string>
+    <string name="file_compare_result_files_different">Result: Files are different</string>
+    <string name="file_compare_result_size_difference">Size difference: %s</string>
+    <string name="file_compare_result_sha256">SHA-256:</string>
+    <string name="file_compare_result_identical">Result: Files are identical ✓</string>
+    <string name="file_compare_result_same_size_different">Result: Files are different (same size, different content)</string>
+    <string name="file_compare_result_hash_failed">Calculation failed: %s</string>
+
+    <!-- Empty Search (additional) -->
+    <string name="empty_search_no_results">No empty files or folders found</string>
+    <string name="empty_search_select_to_delete">Please select items to delete</string>
+    <string name="empty_search_deleted_count_format">Deleted %d item(s)</string>
+    <string name="empty_search_subtitle_directory">Empty folder · %s</string>
+    <string name="empty_search_subtitle_file">Empty file · %s</string>
+
+    <!-- Duplicate Finder (additional) -->
+    <string name="duplicate_no_results">No duplicate files found</string>
+    <string name="duplicate_select_to_delete">Please select files to delete</string>
+    <string name="duplicate_moved_to_trash">Moved to trash: %d file(s)</string>
+    <string name="duplicate_group_header_format">Duplicate group (%1$d files, %2$s each)</string>
+
+    <!-- Encryption (additional) -->
+    <string name="encryption_select_files">Please select files</string>
+    <string name="encryption_input_password_hint">Enter password</string>
+    <string name="encryption_encrypt_title">Encrypt files</string>
+    <string name="encryption_decrypt_title">Decrypt files</string>
+    <string name="encryption_enter_password_message">Please enter the %s password</string>
+    <string name="encryption_password_cannot_be_empty">Password cannot be empty</string>
+    <string name="encryption_process_result_format">%1$s completed: Success %2$d, Failed %3$d</string>
+    <string name="encryption_label_encrypted">Encrypted</string>
+
+    <!-- Hex Viewer (additional) -->
+    <string name="hex_viewer_file_info_format">%1$s · %2$s</string>
+
+    <!-- File Search (additional) -->
+    <string name="file_search_no_results">No matching files found</string>
+
+    <!-- FFmpeg Feature (additional) -->
+    <string name="ffmpeg_output_format_jpg_quality_80">jpg (quality 80%)</string>
+    <string name="ffmpeg_output_format_jpg_quality_60">jpg (quality 60%)</string>
+    <string name="ffmpeg_output_format_low_quality">Low quality (CRF 28)</string>
+    <string name="ffmpeg_output_format_medium_quality">Medium quality (CRF 23)</string>
+    <string name="ffmpeg_output_format_high_quality">High quality (CRF 18)</string>
+    <string name="ffmpeg_output_format_original_size">Original size</string>
+    <string name="ffmpeg_enhance_light">Light enhance (1.2x)</string>
+    <string name="ffmpeg_enhance_standard">Standard enhance (1.5x)</string>
+    <string name="ffmpeg_enhance_strong">Strong enhance (2.0x)</string>
+    <string name="ffmpeg_parameters_error">Invalid parameters</string>
+
+    <!-- CSV Viewer (additional) -->
+    <string name="csv_viewer_empty_file">Empty file</string>
+    <string name="csv_viewer_showing_rows">⚠ Showing first %d rows</string>
+
+    <!-- FeatureInitializer -->
+    <string name="feature_file_tools_title">File Tools</string>
+    <string name="feature_file_tools_desc">File search, duplicate finder, empty folder search, etc.</string>
+    <string name="feature_media_tools_title">Media Tools</string>
+    <string name="feature_media_tools_desc">Format convert, video compress, audio extract, etc.</string>
+    <string name="feature_ebook_viewer_title">Ebook Viewer</string>
+    <string name="feature_ebook_viewer_desc">EPUB/MOBI ebook reading</string>
 </resources>

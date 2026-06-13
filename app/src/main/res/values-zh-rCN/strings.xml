@@ -1053,4 +1053,89 @@
     <string name="ffmpeg_processing_notification_cancel">取消</string>
     <string name="ffmpeg_processing_back_warning">任务正在处理中，确定返回吗？</string>
     <string name="ffmpeg_processing_back_warning_title">处理进行中</string>
+
+    <!-- 通用（附加） -->
+    <string name="ok">确定</string>
+    <string name="selected_files_count">已选择 %d 个文件</string>
+    <string name="file_not_exists">文件不存在</string>
+    <string name="failed">失败</string>
+    <string name="processing">处理中…</string>
+    <string name="processing_percent">处理中… %d%%</string>
+    <string name="completed">完成</string>
+    <string name="completed_format">完成：%s</string>
+    <string name="processing_completed_format">处理完成：%s</string>
+    <string name="error_format">错误：%s</string>
+    <string name="duration_seconds">%d 秒</string>
+    <string name="duration_minutes_seconds">%1$d 分 %2$d 秒</string>
+    <string name="total_duration">视频总时长：%s</string>
+    <string name="selected_duration">选择时长：%s</string>
+    <string name="custom_time_range">自定义时间范围</string>
+    <string name="not_selected">未选择</string>
+    <string name="no_file_specified">未指定文件</string>
+    <string name="file_does_not_exist_format">文件不存在：%s</string>
+
+    <!-- 文件对比（附加） -->
+    <string name="file_compare_result_file_header">文件 %1$d：%2$s</string>
+    <string name="file_compare_result_path">  路径：%s</string>
+    <string name="file_compare_result_size">  大小：%s</string>
+    <string name="file_compare_result_modified">  修改时间：%s</string>
+    <string name="file_compare_result_files_different">结果：文件不同</string>
+    <string name="file_compare_result_size_difference">大小差异：%s</string>
+    <string name="file_compare_result_sha256">SHA-256：</string>
+    <string name="file_compare_result_identical">结果：文件完全相同 ✓</string>
+    <string name="file_compare_result_same_size_different">结果：文件不同（大小相同但内容不同）</string>
+    <string name="file_compare_result_hash_failed">计算失败：%s</string>
+
+    <!-- 空文件搜索（附加） -->
+    <string name="empty_search_no_results">未找到空文件或空文件夹</string>
+    <string name="empty_search_select_to_delete">请选择要删除的项目</string>
+    <string name="empty_search_deleted_count_format">已删除 %d 项</string>
+    <string name="empty_search_subtitle_directory">空文件夹 · %s</string>
+    <string name="empty_search_subtitle_file">空文件 · %s</string>
+
+    <!-- 重复文件查找（附加） -->
+    <string name="duplicate_no_results">未找到重复文件</string>
+    <string name="duplicate_select_to_delete">请选择要删除的文件</string>
+    <string name="duplicate_moved_to_trash">已移到回收站：%d 个文件</string>
+    <string name="duplicate_group_header_format">重复组（%1$d 个文件，每个 %2$s）</string>
+
+    <!-- 文件加密（附加） -->
+    <string name="encryption_select_files">请选择文件</string>
+    <string name="encryption_input_password_hint">输入密码</string>
+    <string name="encryption_encrypt_title">加密文件</string>
+    <string name="encryption_decrypt_title">解密文件</string>
+    <string name="encryption_enter_password_message">请输入%s密码</string>
+    <string name="encryption_password_cannot_be_empty">密码不能为空</string>
+    <string name="encryption_process_result_format">%1$s完成：成功 %2$d，失败 %3$d</string>
+    <string name="encryption_label_encrypted">已加密</string>
+
+    <!-- 十六进制查看器（附加） -->
+    <string name="hex_viewer_file_info_format">%1$s · %2$s</string>
+
+    <!-- 文件搜索（附加） -->
+    <string name="file_search_no_results">未找到匹配的文件</string>
+
+    <!-- FFmpeg 功能（附加） -->
+    <string name="ffmpeg_output_format_jpg_quality_80">jpg（质量 80%）</string>
+    <string name="ffmpeg_output_format_jpg_quality_60">jpg（质量 60%）</string>
+    <string name="ffmpeg_output_format_low_quality">低质量（CRF 28）</string>
+    <string name="ffmpeg_output_format_medium_quality">中等质量（CRF 23）</string>
+    <string name="ffmpeg_output_format_high_quality">高质量（CRF 18）</string>
+    <string name="ffmpeg_output_format_original_size">原始尺寸</string>
+    <string name="ffmpeg_enhance_light">轻微增强（1.2x）</string>
+    <string name="ffmpeg_enhance_standard">标准增强（1.5x）</string>
+    <string name="ffmpeg_enhance_strong">强力增强（2.0x）</string>
+    <string name="ffmpeg_parameters_error">参数错误</string>
+
+    <!-- CSV 查看器（附加） -->
+    <string name="csv_viewer_empty_file">空文件</string>
+    <string name="csv_viewer_showing_rows">⚠ 仅显示前 %d 行</string>
+
+    <!-- FeatureInitializer -->
+    <string name="feature_file_tools_title">文件工具</string>
+    <string name="feature_file_tools_desc">文件搜索、重复查找、空文件夹搜索等</string>
+    <string name="feature_media_tools_title">媒体工具</string>
+    <string name="feature_media_tools_desc">格式转换、视频压缩、音频提取等</string>
+    <string name="feature_ebook_viewer_title">电子书查看</string>
+    <string name="feature_ebook_viewer_desc">EPUB/MOBI 电子书阅读</string>
 </resources>

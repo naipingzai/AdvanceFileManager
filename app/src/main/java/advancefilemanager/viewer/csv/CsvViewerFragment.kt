@@ -230,12 +230,12 @@ th { position: sticky; top: 0; z-index: 1; font-weight: 600; }
         }
 
         if (isFirstLine) {
-            sb.append("<tr><td>Empty file</td></tr>")
+            sb.append("<tr><td>").append(escapeHtml(requireContext().getString(R.string.csv_viewer_empty_file))).append("</td></tr>")
         }
         sb.append("</tbody></table>")
         if (lineNum >= maxRows) {
             sb.append("<p style='color:#999;text-align:center;padding:16px;'>")
-            sb.append("⚠ Showing first $maxRows rows</p>")
+            sb.append(requireContext().getString(R.string.csv_viewer_showing_rows, maxRows)).append("</p>")
         }
         sb.append("</body></html>")
         return sb.toString()

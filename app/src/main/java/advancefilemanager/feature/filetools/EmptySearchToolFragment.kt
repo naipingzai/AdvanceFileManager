@@ -64,7 +64,7 @@ class EmptySearchToolFragment : Fragment() {
             binding.progressBar.visibility = View.GONE
             binding.btnScan.isEnabled = true
             if (results.isEmpty()) {
-                Toast.makeText(requireContext(), "未找到空文件或空文件夹", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), R.string.empty_search_no_results, Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -91,7 +91,7 @@ class EmptySearchToolFragment : Fragment() {
     private fun deleteSelected() {
         val toDelete = adapter.getSelectedFiles()
         if (toDelete.isEmpty()) {
-            Toast.makeText(requireContext(), "请选择要删除的项目", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), R.string.empty_search_select_to_delete, Toast.LENGTH_SHORT).show()
             return
         }
         scope.launch {
@@ -101,7 +101,7 @@ class EmptySearchToolFragment : Fragment() {
                     if (file.deleteRecursively()) count++
                 }
             }
-            Toast.makeText(requireContext(), "已删除 $count 项", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.empty_search_deleted_count_format, count), Toast.LENGTH_SHORT).show()
             startScan()
         }
     }
@@ -133,7 +133,7 @@ class EmptySearchToolFragment : Fragment() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val file = files[position]
             holder.title.text = file.name
-            holder.subtitle.text = if (file.isDirectory) "空文件夹 · ${file.absolutePath}" else "空文件 · ${file.absolutePath}"
+            holder.subtitle.text = if (file.isDirectory) holder.itemView.context.getString(R.string.empty_search_subtitle_directory, file.absolutePath) else holder.itemView.context.getString(R.string.empty_search_subtitle_file, file.absolutePath)
             holder.checkbox.visibility = View.VISIBLE
             holder.checkbox.isChecked = selectedFiles.contains(file.absolutePath)
             holder.checkbox.setOnCheckedChangeListener { _, isChecked ->

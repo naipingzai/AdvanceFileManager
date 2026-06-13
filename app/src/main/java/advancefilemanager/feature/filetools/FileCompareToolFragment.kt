@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
+import com.advancefilemanager.R
 import com.advancefilemanager.databinding.FragmentFileCompareBinding
 import kotlinx.coroutines.*
 import java.io.File
@@ -32,7 +33,7 @@ class FileCompareToolFragment : Fragment() {
         if (result.resultCode == Activity.RESULT_OK) {
             result.data?.data?.let { uri ->
                 file1Path = uri.path
-                binding.tvFile1Path.text = file1Path ?: "未选择"
+                binding.tvFile1Path.text = file1Path ?: getString(R.string.not_selected)
             }
         }
     }
@@ -41,7 +42,7 @@ class FileCompareToolFragment : Fragment() {
         if (result.resultCode == Activity.RESULT_OK) {
             result.data?.data?.let { uri ->
                 file2Path = uri.path
-                binding.tvFile2Path.text = file2Path ?: "未选择"
+                binding.tvFile2Path.text = file2Path ?: getString(R.string.not_selected)
             }
         }
     }
@@ -92,7 +93,7 @@ class FileCompareToolFragment : Fragment() {
         val path2 = file2Path
 
         if (path1.isNullOrEmpty() || path2.isNullOrEmpty()) {
-            Toast.makeText(requireContext(), "请选择两个文件", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), R.string.file_compare_select_both, Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -100,7 +101,7 @@ class FileCompareToolFragment : Fragment() {
         val f2 = File(path2)
 
         if (!f1.exists() || !f2.exists()) {
-            Toast.makeText(requireContext(), "文件不存在", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), R.string.file_not_exists, Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -119,35 +120,35 @@ class FileCompareToolFragment : Fragment() {
 
     private fun compareFileContents(f1: File, f2: File): String {
         val sb = StringBuilder()
-        sb.appendLine("文件1: ${f1.name}")
-        sb.appendLine("  路径: ${f1.absolutePath}")
-        sb.appendLine("  大小: ${TrashUtil.formatFileSize(f1.length())}")
-        sb.appendLine("  修改时间: ${TrashUtil.formatDate(f1.lastModified())}")
+        sb.appendLine(getString(R.string.file_compare_result_file_header, 1, f1.name))
+        sb.appendLine(getString(R.string.file_compare_result_path, f1.absolutePath))
+        sb.appendLine(getString(R.string.file_compare_result_size, TrashUtil.formatFileSize(f1.length())))
+        sb.appendLine(getString(R.string.file_compare_result_modified, TrashUtil.formatDate(f1.lastModified())))
         sb.appendLine()
-        sb.appendLine("文件2: ${f2.name}")
-        sb.appendLine("  路径: ${f2.absolutePath}")
-        sb.appendLine("  大小: ${TrashUtil.formatFileSize(f2.length())}")
-        sb.appendLine("  修改时间: ${TrashUtil.formatDate(f2.lastModified())}")
+        sb.appendLine(getString(R.string.file_compare_result_file_header, 2, f2.name))
+        sb.appendLine(getString(R.string.file_compare_result_path, f2.absolutePath))
+        sb.appendLine(getString(R.string.file_compare_result_size, TrashUtil.formatFileSize(f2.length())))
+        sb.appendLine(getString(R.string.file_compare_result_modified, TrashUtil.formatDate(f2.lastModified())))
         sb.appendLine()
 
         if (f1.length() != f2.length()) {
-            sb.appendLine("结果: 文件不同")
-            sb.appendLine("大小差异: ${TrashUtil.formatFileSize(kotlin.math.abs(f1.length() - f2.length()))}")
+            sb.appendLine(getString(R.string.file_compare_result_files_different))
+            sb.appendLine(getString(R.string.file_compare_result_size_difference, TrashUtil.formatFileSize(kotlin.math.abs(f1.length() - f2.length()))))
             return sb.toString()
         }
 
         val hash1 = computeSHA256(f1)
         val hash2 = computeSHA256(f2)
 
-        sb.appendLine("SHA-256:")
-        sb.appendLine("  文件1: $hash1")
-        sb.appendLine("  文件2: $hash2")
+        sb.appendLine(getString(R.string.file_compare_result_sha256))
+        sb.appendLine("  " + getString(R.string.file_compare_result_file_header, 1, hash1))
+        sb.appendLine("  " + getString(R.string.file_compare_result_file_header, 2, hash2))
         sb.appendLine()
 
         if (hash1 == hash2) {
-            sb.appendLine("结果: 文件完全相同 ✓")
+            sb.appendLine(getString(R.string.file_compare_result_identical))
         } else {
-            sb.appendLine("结果: 文件不同 (大小相同但内容不同)")
+            sb.appendLine(getString(R.string.file_compare_result_same_size_different))
         }
         return sb.toString()
     }
@@ -164,7 +165,7 @@ class FileCompareToolFragment : Fragment() {
             }
             md.digest().joinToString("") { "%02x".format(it) }
         } catch (e: Exception) {
-            "计算失败: ${e.message}"
+            getString(R.string.file_compare_result_hash_failed, e.message ?: "")
         }
     }
 

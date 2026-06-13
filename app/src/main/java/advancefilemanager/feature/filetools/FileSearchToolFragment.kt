@@ -78,7 +78,7 @@ class FileSearchToolFragment : Fragment() {
             binding.progressBar.visibility = View.GONE
             binding.emptyText.visibility = if (results.isEmpty()) View.VISIBLE else View.GONE
             if (results.isEmpty()) {
-                binding.emptyText.text = "未找到匹配的文件"
+                binding.emptyText.text = getString(R.string.file_search_no_results)
             }
         }
     }
