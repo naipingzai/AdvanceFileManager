@@ -624,13 +624,17 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         val intensity = com.advancefilemanager.settings.UiSettingsManager.getBlurIntensity(requireContext())
         if (intensity <= 0f) return
 
-        decorView.viewTreeObserver.addOnGlobalLayoutListener {
-            if (!isAdded || view == null) return@OnGlobalLayoutListener
-            val hasPopup = findPopupWindow(decorView)
-            if (hasPopup) {
-                BackgroundOverlayManager.showDimOverlay(requireContext())
+        decorView.viewTreeObserver.addOnGlobalLayoutListener(
+            object : android.view.ViewTreeObserver.OnGlobalLayoutListener {
+                override fun onGlobalLayout() {
+                    if (!isAdded || view == null) return
+                    val hasPopup = findPopupWindow(decorView)
+                    if (hasPopup) {
+                        BackgroundOverlayManager.showDimOverlay(requireContext())
+                    }
+                }
             }
-        }
+        )
         decorView.viewTreeObserver.addOnWindowFocusChangeListener { hasFocus ->
             if (hasFocus && isAdded) {
                 BackgroundOverlayManager.forceHide()
