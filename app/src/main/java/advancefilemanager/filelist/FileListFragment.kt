@@ -15,9 +15,9 @@ import android.provider.MediaStore
 import android.os.Bundle
 import android.os.Environment
 import android.text.TextUtils
-import android.view.KeyCharacterMap
 import android.view.KeyEvent
 import android.view.LayoutInflater
+import android.view.KeyCharacterMap
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -220,8 +220,16 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                         }
                         true
                     }
-                    R.id.action_view_list -> { viewModel.viewType = FileViewType.LIST; true }
-                    R.id.action_view_grid -> { viewModel.viewType = FileViewType.GRID; true }
+                    R.id.action_view_list -> {
+                        viewModel.viewType = FileViewType.LIST
+                        activity?.invalidateMenu()
+                        true
+                    }
+                    R.id.action_view_grid -> {
+                        viewModel.viewType = FileViewType.GRID
+                        activity?.invalidateMenu()
+                        true
+                    }
                     R.id.action_create_file -> { showCreateFileDialog(); true }
                     R.id.action_create_directory -> { showCreateDirectoryDialog(); true }
                     R.id.action_sort_by_name -> { viewModel.setSortBy(By.NAME); true }
