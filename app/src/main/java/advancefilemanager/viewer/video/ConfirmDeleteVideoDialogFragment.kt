@@ -28,7 +28,7 @@ class ConfirmDeleteVideoDialogFragment : AppCompatDialogFragment() {
         get() = requireParentFragment() as Listener
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return MaterialAlertDialogBuilder(requireContext(), theme)
+        return MaterialAlertDialogBuilder(requireContext())
             .setMessage(getString(R.string.video_viewer_delete_message_format, args.path.fileName))
             .setPositiveButton(android.R.string.ok) { _, _ -> listener.delete(args.path) }
             .setNegativeButton(android.R.string.cancel, null)

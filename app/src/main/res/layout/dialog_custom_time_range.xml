@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/dialogMaxDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?textAppearanceBodyMedium"
+        android:textColor="?colorOnSurfaceVariant"
+        android:layout_marginBottom="12dp" />
+
+    <!-- 开始时间 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始时间"
+        android:textAppearance="?textAppearanceLabelMedium"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <NumberPicker
+            android:id="@+id/startHourPicker"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="时" android:textAppearance="?textAppearanceBodySmall" />
+
+        <NumberPicker
+            android:id="@+id/startMinPicker"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="分" android:textAppearance="?textAppearanceBodySmall" />
+
+        <NumberPicker
+            android:id="@+id/startSecPicker"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="秒" android:textAppearance="?textAppearanceBodySmall" />
+    </LinearLayout>
+
+    <!-- 结束时间 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="结束时间"
+        android:textAppearance="?textAppearanceLabelMedium"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <NumberPicker
+            android:id="@+id/endHourPicker"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="时" android:textAppearance="?textAppearanceBodySmall" />
+
+        <NumberPicker
+            android:id="@+id/endMinPicker"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="分" android:textAppearance="?textAppearanceBodySmall" />
+
+        <NumberPicker
+            android:id="@+id/endSecPicker"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1" />
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="秒" android:textAppearance="?textAppearanceBodySmall" />
+    </LinearLayout>
+
+    <!-- 时长显示 -->
+    <TextView
+        android:id="@+id/dialogDurationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textAppearance="?textAppearanceBodyMedium"
+        android:textColor="?colorPrimary"
+        android:gravity="center"
+        android:layout_gravity="center" />
+
+</LinearLayout>

@@ -28,7 +28,7 @@ class ConfirmDeleteAudioDialogFragment : AppCompatDialogFragment() {
         get() = requireParentFragment() as Listener
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return MaterialAlertDialogBuilder(requireContext(), theme)
+        return MaterialAlertDialogBuilder(requireContext())
             .setMessage(getString(R.string.audio_player_delete_message_format, args.path.fileName))
             .setPositiveButton(android.R.string.ok) { _, _ -> listener.delete(args.path) }
             .setNegativeButton(android.R.string.cancel, null)

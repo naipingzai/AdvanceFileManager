@@ -5,7 +5,7 @@
 
 package com.advancefilemanager.feature.filetools
 
-import androidx.appcompat.app.AlertDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -80,7 +80,7 @@ class EncryptionToolFragment : Fragment() {
             inputType = android.text.InputType.TYPE_CLASS_TEXT or android.text.InputType.TYPE_TEXT_VARIATION_PASSWORD
         }
 
-        AlertDialog.Builder(requireContext())
+        MaterialAlertDialogBuilder(requireContext())
             .setTitle(if (encrypt) "加密文件" else "解密文件")
             .setMessage("请输入${if (encrypt) "加密" else "解密"}密码")
             .setView(input)

@@ -31,7 +31,7 @@ class SetSeLinuxContextDialogFragment : AppCompatDialogFragment() {
     private lateinit var binding: SetSelinuxContextDialogBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        MaterialAlertDialogBuilder(requireContext(), theme)
+        MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.file_properties_permission_set_selinux_context_title)
             .apply {
                 binding = SetSelinuxContextDialogBinding.inflate(context.layoutInflater)

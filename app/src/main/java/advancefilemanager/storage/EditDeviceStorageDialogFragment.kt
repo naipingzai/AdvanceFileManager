@@ -28,7 +28,7 @@ class EditDeviceStorageDialogFragment : AppCompatDialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val deviceStorage = args.deviceStorage
-        return MaterialAlertDialogBuilder(requireContext(), theme)
+        return MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.storage_edit_device_storage_title)
             .apply {
                 binding = EditDeviceStorageDialogBinding.inflate(context.layoutInflater)

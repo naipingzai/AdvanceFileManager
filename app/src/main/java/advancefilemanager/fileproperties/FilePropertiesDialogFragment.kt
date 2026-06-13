@@ -43,7 +43,7 @@ class FilePropertiesDialogFragment : AppCompatDialogFragment() {
     private lateinit var binding: FilePropertiesDialogBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        MaterialAlertDialogBuilder(requireContext(), theme)
+        MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.file_properties_title_format, args.file.name))
             .apply {
                 binding = FilePropertiesDialogBinding.inflate(context.layoutInflater)

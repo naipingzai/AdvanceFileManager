@@ -27,7 +27,7 @@ class ConfirmReplaceFileDialogFragment : AppCompatDialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val file = args.file
-        return MaterialAlertDialogBuilder(requireContext(), theme)
+        return MaterialAlertDialogBuilder(requireContext())
             .setMessage(getString(R.string.file_replace_message_format, file.name))
             .setPositiveButton(android.R.string.ok) { _, _ -> listener.replaceFile(file) }
             .setNegativeButton(android.R.string.cancel, null)

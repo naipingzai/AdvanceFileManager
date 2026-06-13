@@ -19,7 +19,7 @@ class ConfirmReloadDialogFragment : AppCompatDialogFragment() {
         get() = requireParentFragment() as Listener
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return MaterialAlertDialogBuilder(requireContext(), theme)
+        return MaterialAlertDialogBuilder(requireContext())
             .setMessage(R.string.text_editor_reload_message)
             .setPositiveButton(R.string.keep_editing, null)
             .setNegativeButton(R.string.reload) { _, _ -> listener.reload() }

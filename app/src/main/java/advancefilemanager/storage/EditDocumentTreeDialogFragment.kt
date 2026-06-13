@@ -28,7 +28,7 @@ class EditDocumentTreeDialogFragment : AppCompatDialogFragment() {
     private lateinit var binding: EditDocumentTreeDialogBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        MaterialAlertDialogBuilder(requireContext(), theme)
+        MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.storage_edit_document_tree_title)
             .apply {
                 binding = EditDocumentTreeDialogBinding.inflate(context.layoutInflater)

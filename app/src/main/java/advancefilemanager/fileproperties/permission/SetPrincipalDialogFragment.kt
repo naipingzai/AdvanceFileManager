@@ -46,7 +46,7 @@ abstract class SetPrincipalDialogFragment : AppCompatDialogFragment() {
     private var pendingScrollToId: Int? = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        MaterialAlertDialogBuilder(requireContext(), theme)
+        MaterialAlertDialogBuilder(requireContext())
             .setTitle(titleRes)
             .apply {
                 val selectionLiveData = viewModel.selectionLiveData

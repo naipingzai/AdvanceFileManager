@@ -95,8 +95,9 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
             if (controlsVisible && !isSeeking) {
                 updateSeekBar()
             }
-            if (player?.isPlaying == true) {
-                updateHandler.postDelayed(this, if (showMilliseconds) 50L else 500L)
+            // Always update at 50ms for smooth seek tracking
+            if (player?.isPlaying == true || isSeeking) {
+                updateHandler.postDelayed(this, 50L)
             }
         }
     }
@@ -167,6 +168,7 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
         binding.seekBar.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
             override fun onStartTrackingTouch(slider: Slider) {
                 isSeeking = true
+                startProgressUpdates()
             }
             override fun onStopTrackingTouch(slider: Slider) {
                 isSeeking = false
@@ -184,6 +186,8 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
                 if (duration > 0) {
                     val newPosition = (value / SEEK_BAR_MAX * duration.toFloat()).toLong()
                     binding.seekCurrentTimeText.text = formatTime(newPosition)
+                    // Seek in real-time while dragging so video frame follows the seek bar
+                    player?.seekTo(newPosition)
                 }
             }
         }
@@ -378,8 +382,8 @@ class VideoViewerFragment : Fragment(), ConfirmDeleteVideoDialogFragment.Listene
         if (duration > 0 && !isSeeking) {
             binding.seekBar.value = (currentPos.toFloat() / duration.toFloat() * SEEK_BAR_MAX)
                 .coerceIn(0f, SEEK_BAR_MAX)
+            binding.seekCurrentTimeText.text = formatTime(currentPos)
         }
-        binding.seekCurrentTimeText.text = formatTime(currentPos)
         binding.seekTotalTimeText.text = formatTime(duration)
     }
 

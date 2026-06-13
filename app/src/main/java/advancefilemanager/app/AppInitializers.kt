@@ -8,6 +8,7 @@ package com.advancefilemanager.app
 import android.webkit.WebView
 import com.advancefilemanager.BuildConfig
 import com.advancefilemanager.coil.initializeCoil
+import com.advancefilemanager.feature.ffmpegtools.ffmpegProcessingNotificationTemplate
 import com.advancefilemanager.filejob.fileJobNotificationTemplate
 import com.advancefilemanager.hiddenapi.HiddenApi
 import com.advancefilemanager.feature.FeatureInitializer
@@ -60,7 +61,8 @@ private fun createNotificationChannels() {
     notificationManager.createNotificationChannels(
         listOf(
             backgroundActivityStartNotificationTemplate.channelTemplate,
-            fileJobNotificationTemplate.channelTemplate
+            fileJobNotificationTemplate.channelTemplate,
+            ffmpegProcessingNotificationTemplate.channelTemplate
         ).map { it.create(application) }
     )
 }

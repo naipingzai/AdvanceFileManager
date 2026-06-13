@@ -47,7 +47,7 @@ class EditBookmarkDirectoryDialogFragment : AppCompatDialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        MaterialAlertDialogBuilder(requireContext(), theme)
+        MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.navigation_edit_bookmark_directory_title)
             .apply {
                 binding = EditBookmarkDirectoryDialogBinding.inflate(context.layoutInflater)

@@ -26,7 +26,7 @@ class OpenApkDialogFragment : AppCompatDialogFragment() {
         get() = requireParentFragment() as Listener
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return MaterialAlertDialogBuilder(requireContext(), theme)
+        return MaterialAlertDialogBuilder(requireContext())
             .setMessage(R.string.file_open_apk_message)
             .setPositiveButton(R.string.install) { _, _ -> listener.installApk(args.file) }
             // While semantically incorrect, this places the two most expected actions side by side.

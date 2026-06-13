@@ -1190,4 +1190,14 @@
     <string name="media_tool_video_watermark_desc">Add watermark to video</string>
     <string name="media_tool_video_rotate">Video Rotate</string>
     <string name="media_tool_video_rotate_desc">Rotate or flip video orientation</string>
+
+    <!-- FFmpeg Processing -->
+    <string name="notification_channel_ffmpeg_processing_name">Media processing</string>
+    <string name="notification_channel_ffmpeg_processing_description">Display progress of media conversion tasks</string>
+    <string name="ffmpeg_processing_notification_title">Processing…</string>
+    <string name="ffmpeg_processing_notification_progress">Processing… %d%%</string>
+    <string name="ffmpeg_processing_notification_done">Processing complete</string>
+    <string name="ffmpeg_processing_notification_cancel">Cancel</string>
+    <string name="ffmpeg_processing_back_warning">Task is still processing. Go back anyway?</string>
+    <string name="ffmpeg_processing_back_warning_title">Processing in progress</string>
 </resources>

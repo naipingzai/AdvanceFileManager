@@ -18,7 +18,7 @@ import com.advancefilemanager.ui.applyOverlay
 
 class AddStorageDialogFragment : AppCompatDialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        MaterialAlertDialogBuilder(requireContext(), theme)
+        MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.storage_add_storage_title)
             .apply {
                 val items = STORAGE_TYPES.map { getString(it.first) }.toTypedArray<CharSequence>()

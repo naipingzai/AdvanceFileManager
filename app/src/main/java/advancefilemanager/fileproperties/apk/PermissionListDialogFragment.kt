@@ -40,7 +40,7 @@ class PermissionListDialogFragment : AppCompatDialogFragment() {
     private lateinit var adapter: PermissionListAdapter
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        MaterialAlertDialogBuilder(requireContext(), theme)
+        MaterialAlertDialogBuilder(requireContext())
             .apply {
                 val permissionsSize = args.permissionNames.size
                 setTitle(

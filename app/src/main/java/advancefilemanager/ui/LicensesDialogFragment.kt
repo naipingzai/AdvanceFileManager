@@ -42,7 +42,7 @@ class LicensesDialogFragment : AppCompatDialogFragment() {
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        MaterialAlertDialogBuilder(requireContext(), theme)
+        MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.about_licenses_title)
             .apply { setLicensesView(notices) }
             .setNegativeButton(R.string.close, null)

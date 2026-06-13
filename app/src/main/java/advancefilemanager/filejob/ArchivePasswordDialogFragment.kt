@@ -61,7 +61,7 @@ class ArchivePasswordDialogFragment : AppCompatDialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val context = requireContext()
-        return MaterialAlertDialogBuilder(requireContext(), theme)
+        return MaterialAlertDialogBuilder(requireContext())
             .setTitle(getTitle(context))
             .setMessage(getMessage(args.path.archiveFile.fileName, context))
             .apply {

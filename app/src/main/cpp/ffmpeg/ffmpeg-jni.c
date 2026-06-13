@@ -2429,7 +2429,10 @@ Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_gifMake(
     /* Seek to start */
     int64_t start_ts = startMs * 1000;
     int64_t end_ts = endMs * 1000;
-    if (end_ts <= 0) end_ts = INT64_MAX;  /* endMs <= 0 means no end limit */
+    if (end_ts <= start_ts) {
+        /* No valid end time: default to 5 seconds from start */
+        end_ts = start_ts + 5000000;  /* 5 seconds in microseconds */
+    }
     if (start_ts > 0) {
         av_seek_frame(ifmt_ctx, -1, start_ts, AVSEEK_FLAG_BACKWARD);
         avcodec_flush_buffers(dec_ctx);
@@ -2447,6 +2450,8 @@ Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_gifMake(
 
     int64_t duration = end_ts - start_ts;
     if (duration <= 0) duration = 1;
+    ALOGI("GIF: start_ts=%lld end_ts=%lld duration=%lld us",
+          (long long)start_ts, (long long)end_ts, (long long)duration);
     int last_percent = -1;
     int64_t frame_count = 0;
 

@@ -33,7 +33,7 @@ class OpenFileAsDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        MaterialAlertDialogBuilder(requireContext(), theme)
+        MaterialAlertDialogBuilder(requireContext())
             .setTitle(getString(R.string.file_open_as_title_format, args.path.name))
             .apply {
                 val allItems = FILE_TYPES.map { getString(it.first) }

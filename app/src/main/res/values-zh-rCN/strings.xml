@@ -1043,4 +1043,14 @@
     <string name="media_tool_video_watermark_desc">给视频添加水印</string>
     <string name="media_tool_video_rotate">视频旋转</string>
     <string name="media_tool_video_rotate_desc">旋转或翻转视频方向</string>
+
+    <!-- FFmpeg Processing -->
+    <string name="notification_channel_ffmpeg_processing_name">媒体处理</string>
+    <string name="notification_channel_ffmpeg_processing_description">显示媒体转换任务的进度</string>
+    <string name="ffmpeg_processing_notification_title">媒体处理中</string>
+    <string name="ffmpeg_processing_notification_progress">处理中… %d%%</string>
+    <string name="ffmpeg_processing_notification_done">处理完成</string>
+    <string name="ffmpeg_processing_notification_cancel">取消</string>
+    <string name="ffmpeg_processing_back_warning">任务正在处理中，确定返回吗？</string>
+    <string name="ffmpeg_processing_back_warning_title">处理进行中</string>
 </resources>

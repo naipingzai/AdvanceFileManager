@@ -43,7 +43,7 @@ class SetModeDialogFragment : AppCompatDialogFragment() {
     private lateinit var specialAdapter: ModeBitListAdapter
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        MaterialAlertDialogBuilder(requireContext(), theme)
+        MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.file_properties_permission_set_mode_title)
             .apply {
                 binding = SetModeDialogBinding.inflate(context.layoutInflater)

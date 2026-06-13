@@ -58,7 +58,7 @@ class BatchRenameDialogFragment : AppCompatDialogFragment() {
         
         updatePreview()
         
-        return MaterialAlertDialogBuilder(requireContext(), theme)
+        return MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.batch_rename_title)
             .setView(binding.root)
             .setPositiveButton(android.R.string.ok, null)

@@ -10,6 +10,7 @@ import com.advancefilemanager.R
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.advancefilemanager.app.AppActivity
 import com.advancefilemanager.feature.protocol.FeatureContract
@@ -47,6 +48,25 @@ class FFmpegToolsActivity : AppActivity() {
         supportActionBar?.title = getString(feature.titleRes)
 
         setupSelectedFilesPreview(filePaths, filePath)
+
+        // Warn if leaving while processing
+        onBackPressedDispatcher.addCallback(this, object : androidx.activity.OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (FFmpegProcessingService.isRunning) {
+                    MaterialAlertDialogBuilder(this@FFmpegToolsActivity)
+                        .setTitle(R.string.ffmpeg_processing_back_warning_title)
+                        .setMessage(R.string.ffmpeg_processing_back_warning)
+                        .setPositiveButton(R.string.close) { _, _ ->
+                            FFmpegProcessingService.stopProcessing(this@FFmpegToolsActivity)
+                            finish()
+                        }
+                        .setNegativeButton(R.string.cancel, null)
+                        .show()
+                } else {
+                    finish()
+                }
+            }
+        })
 
         val file = File(filePath)
         val fragment = FFmpegFeatureFragment.newInstance(feature, file.absolutePath, filePaths)

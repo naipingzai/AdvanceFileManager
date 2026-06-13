@@ -35,7 +35,7 @@ class EditExternalStorageShortcutDialogFragment : AppCompatDialogFragment() {
     private lateinit var binding: EditExternalStorageShortcutDialogBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        MaterialAlertDialogBuilder(requireContext(), theme)
+        MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.storage_edit_external_storage_shortcut_title)
             .apply {
                 binding = EditExternalStorageShortcutDialogBinding.inflate(context.layoutInflater)

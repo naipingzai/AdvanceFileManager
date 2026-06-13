@@ -90,7 +90,7 @@ abstract class MaterialPreferenceDialogFragmentCompat : AppCompatDialogFragment(
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         whichButtonClicked = DialogInterface.BUTTON_NEGATIVE
-        val dialog = MaterialAlertDialogBuilder(requireContext(), theme)
+        val dialog = MaterialAlertDialogBuilder(requireContext())
             .setTitle(dialogTitle)
             .setIcon(dialogIcon)
             .setPositiveButton(positiveButtonText, this)

@@ -32,7 +32,7 @@ abstract class NameDialogFragment : AppCompatDialogFragment() {
         get() = requireParentFragment() as Listener
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        MaterialAlertDialogBuilder(requireContext(), theme)
+        MaterialAlertDialogBuilder(requireContext())
             .setTitle(titleRes)
             .apply {
                 _binding = onInflateBinding(context.layoutInflater)
