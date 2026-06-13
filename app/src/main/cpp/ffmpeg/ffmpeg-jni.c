@@ -2377,13 +2377,13 @@ Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_gifMake(
     }
 
     /* Calculate output dimensions maintaining aspect ratio */
-    int out_w = width > 0 ? width : 320;
+    int out_w = width > 0 ? width : dec_ctx->width;
     if (out_w % 2 != 0) out_w++;
     if (dec_ctx->width <= 0 || dec_ctx->height <= 0) {
         ret = AVERROR_INVALIDDATA; set_last_error("Invalid input dimensions"); goto gif_end;
     }
     int out_h = (int)((double)dec_ctx->height / dec_ctx->width * out_w);
-    if (out_h <= 0) out_h = 2;
+    if (out_h <= 0) out_h = dec_ctx->height > 0 ? dec_ctx->height : 2;
     if (out_h % 2 != 0) out_h++;
 
     /* GIF output */
@@ -2429,6 +2429,7 @@ Java_com_advancefilemanager_feature_ffmpegtools_FFmpegJni_gifMake(
     /* Seek to start */
     int64_t start_ts = startMs * 1000;
     int64_t end_ts = endMs * 1000;
+    if (end_ts <= 0) end_ts = INT64_MAX;  /* endMs <= 0 means no end limit */
     if (start_ts > 0) {
         av_seek_frame(ifmt_ctx, -1, start_ts, AVSEEK_FLAG_BACKWARD);
         avcodec_flush_buffers(dec_ctx);

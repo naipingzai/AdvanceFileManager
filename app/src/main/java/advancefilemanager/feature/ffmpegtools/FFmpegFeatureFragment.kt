@@ -295,10 +295,9 @@ class FFmpegFeatureFragment : Fragment() {
             }
             MediaToolFeature.GIF_MAKER -> {
                 val width = parseGifWidth(format)
-                val duration = if (endMs > startMs) endMs - startMs else 5000L
                 FFmpegJni.gifMake(
                     inputFile.absolutePath, outputFile.absolutePath,
-                    startMs, duration, width, 10, callback
+                    startMs, endMs, width, 10, callback
                 )
             }
             MediaToolFeature.VIDEO_MERGE -> {
