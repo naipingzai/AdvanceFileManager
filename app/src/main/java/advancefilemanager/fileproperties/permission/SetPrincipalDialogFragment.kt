@@ -32,6 +32,7 @@ import com.advancefilemanager.util.fadeOutUnsafe
 import com.advancefilemanager.util.fadeToVisibilityUnsafe
 import com.advancefilemanager.util.layoutInflater
 import com.advancefilemanager.util.valueCompat
+import com.advancefilemanager.ui.applyOverlay
 
 abstract class SetPrincipalDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -71,6 +72,7 @@ abstract class SetPrincipalDialogFragment : AppCompatDialogFragment() {
             .setPositiveButton(android.R.string.ok) { _, _ -> setPrincipal() }
             .setNegativeButton(android.R.string.cancel, null)
             .create()
+            .applyOverlay(requireContext())
 
     @get:StringRes
     protected abstract val titleRes: Int
@@ -138,4 +140,5 @@ abstract class SetPrincipalDialogFragment : AppCompatDialogFragment() {
 
     @Parcelize
     class Args(val file: FileItem) : ParcelableArgs
+
 }

@@ -26,6 +26,7 @@ import com.advancefilemanager.util.getState
 import com.advancefilemanager.util.layoutInflater
 import com.advancefilemanager.util.putState
 import com.advancefilemanager.util.toBitmapDrawable
+import com.advancefilemanager.ui.applyOverlay
 
 /**
  * @see androidx.preference.PreferenceDialogFragmentCompat
@@ -105,6 +106,7 @@ abstract class MaterialPreferenceDialogFragmentCompat : AppCompatDialogFragment(
                 onPrepareDialogBuilder(this)
             }
             .create()
+            .applyOverlay(requireContext())
         if (needInputMethod()) {
             requestInputMethod(dialog)
         }
@@ -200,4 +202,5 @@ abstract class MaterialPreferenceDialogFragmentCompat : AppCompatDialogFragment(
         @LayoutRes val dialogLayoutRes: Int,
         val dialogIcon: Bitmap?
     ) : ParcelableState
+
 }

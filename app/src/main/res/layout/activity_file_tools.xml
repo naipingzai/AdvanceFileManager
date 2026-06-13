@@ -12,6 +12,13 @@
         android:layout_height="?attr/actionBarSize"
         app:navigationIcon="?attr/homeAsUpIndicator" />
 
+    <include
+        android:id="@+id/selectedFilesPreview"
+        layout="@layout/selected_files_preview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
     <FrameLayout
         android:id="@+id/content"
         android:layout_width="match_parent"

@@ -33,6 +33,7 @@ import com.advancefilemanager.util.layoutInflater
 import com.advancefilemanager.util.putArgs
 import com.advancefilemanager.util.show
 import com.advancefilemanager.util.viewModels
+import com.advancefilemanager.ui.applyOverlay
 
 class FilePropertiesDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -50,6 +51,7 @@ class FilePropertiesDialogFragment : AppCompatDialogFragment() {
             }
             .setPositiveButton(android.R.string.ok, null)
             .create()
+            .applyOverlay(requireContext())
 
     // HACK: Work around child FragmentManager requiring a view.
     override fun onCreateView(
@@ -144,4 +146,5 @@ class FilePropertiesDialogFragment : AppCompatDialogFragment() {
 
     @Parcelize
     class Args(val file: FileItem): ParcelableArgs
+
 }

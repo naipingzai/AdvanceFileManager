@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.advancefilemanager.R
 import com.advancefilemanager.util.show
+import com.advancefilemanager.ui.applyOverlay
 
 class ShowRequestNotificationPermissionInSettingsRationaleDialogFragment : AppCompatDialogFragment() {
     private val listener: Listener
@@ -28,6 +29,7 @@ class ShowRequestNotificationPermissionInSettingsRationaleDialogFragment : AppCo
                 listener.onShowRequestNotificationPermissionInSettingsRationaleResult(false)
             }
             .create()
+            .applyOverlay(requireContext())
     }
 
     override fun onCancel(dialog: DialogInterface) {
@@ -45,4 +47,5 @@ class ShowRequestNotificationPermissionInSettingsRationaleDialogFragment : AppCo
     interface Listener {
         fun onShowRequestNotificationPermissionInSettingsRationaleResult(shouldRequest: Boolean)
     }
+
 }

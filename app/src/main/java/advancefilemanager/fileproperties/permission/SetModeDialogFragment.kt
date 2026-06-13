@@ -26,6 +26,7 @@ import com.advancefilemanager.util.layoutInflater
 import com.advancefilemanager.util.putArgs
 import com.advancefilemanager.util.show
 import com.advancefilemanager.util.viewModels
+import com.advancefilemanager.ui.applyOverlay
 
 class SetModeDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -97,6 +98,7 @@ class SetModeDialogFragment : AppCompatDialogFragment() {
             .setPositiveButton(android.R.string.ok) { _, _ -> setMode() }
             .setNegativeButton(android.R.string.cancel, null)
             .create()
+            .applyOverlay(requireContext())
 
     private fun onModeChanged(mode: Set<PosixFileModeBit>) {
         binding.ownerText.setText(getModeString(OWNER_MODE_BITS, normalModeBitNames))
@@ -174,4 +176,5 @@ class SetModeDialogFragment : AppCompatDialogFragment() {
 
     @Parcelize
     class Args(val file: FileItem) : ParcelableArgs
+
 }

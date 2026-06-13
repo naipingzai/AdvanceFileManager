@@ -54,10 +54,18 @@ class FileCompareToolFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val rootPath = arguments?.getString("filePath")
-        if (rootPath != null) {
-            file1Path = rootPath
-            binding.tvFile1Path.text = rootPath
+        val passedPaths = arguments?.getStringArray("filePaths")
+        if (!passedPaths.isNullOrEmpty() && passedPaths.size >= 2) {
+            file1Path = passedPaths[0]
+            file2Path = passedPaths[1]
+            binding.tvFile1Path.text = file1Path
+            binding.tvFile2Path.text = file2Path
+        } else {
+            val rootPath = arguments?.getString("filePath")
+            if (rootPath != null) {
+                file1Path = rootPath
+                binding.tvFile1Path.text = rootPath
+            }
         }
 
         binding.btnSelectFile1.setOnClickListener {

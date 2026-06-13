@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.advancefilemanager.R
 import com.advancefilemanager.util.show
+import com.advancefilemanager.ui.applyOverlay
 
 class ConfirmReloadDialogFragment : AppCompatDialogFragment() {
     private val listener: Listener
@@ -23,6 +24,7 @@ class ConfirmReloadDialogFragment : AppCompatDialogFragment() {
             .setPositiveButton(R.string.keep_editing, null)
             .setNegativeButton(R.string.reload) { _, _ -> listener.reload() }
             .create()
+            .applyOverlay(requireContext())
     }
 
     companion object {
@@ -34,4 +36,5 @@ class ConfirmReloadDialogFragment : AppCompatDialogFragment() {
     interface Listener {
         fun reload()
     }
+
 }

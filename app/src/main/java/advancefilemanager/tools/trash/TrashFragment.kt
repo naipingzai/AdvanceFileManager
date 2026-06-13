@@ -23,6 +23,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import com.advancefilemanager.ui.applyOverlay
 import java8.nio.file.Path
 import java8.nio.file.Paths
 import java8.nio.file.attribute.BasicFileAttributes
@@ -151,6 +152,8 @@ class TrashFragment : Fragment() {
                 .setMessage(R.string.trash_empty_confirm)
                 .setPositiveButton(android.R.string.ok) { _, _ -> emptyTrash() }
                 .setNegativeButton(android.R.string.cancel, null)
+                .create()
+                .applyOverlay(requireContext())
                 .show()
         }
 
@@ -370,6 +373,8 @@ class TrashFragment : Fragment() {
                 }
             }
             .setNegativeButton(android.R.string.cancel, null)
+            .create()
+            .applyOverlay(requireContext())
             .show()
     }
 }

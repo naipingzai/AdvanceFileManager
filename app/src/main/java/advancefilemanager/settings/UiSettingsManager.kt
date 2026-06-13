@@ -21,6 +21,7 @@ object UiSettingsManager {
     private const val KEY_SCREEN_MARGIN_SCALE = "screen_margin_scale"
     private const val KEY_DIALOG_PADDING_SCALE = "dialog_padding_scale"
     private const val KEY_BUTTON_SPACING_SCALE = "button_spacing_scale"
+    private const val KEY_BLUR_INTENSITY = "blur_intensity"
 
     fun getFontScale(context: Context): Float =
         context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
@@ -49,6 +50,18 @@ object UiSettingsManager {
     fun getButtonSpacingScale(context: Context): Float =
         context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
             .getFloat(KEY_BUTTON_SPACING_SCALE, 1.0f)
+
+    fun getBlurIntensity(context: Context): Float {
+        val prefs = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+        return try {
+            prefs.getInt(KEY_BLUR_INTENSITY, 50) / 100f
+        } catch (_: ClassCastException) {
+            val oldFloat = prefs.getFloat(KEY_BLUR_INTENSITY, 0.5f)
+            val newInt = (oldFloat * 100).toInt()
+            prefs.edit().remove(KEY_BLUR_INTENSITY).putInt(KEY_BLUR_INTENSITY, newInt).apply()
+            newInt / 100f
+        }
+    }
 
     /**
      * 创建应用了字体缩放和间距缩放的Configuration

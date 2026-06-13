@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -26,6 +27,7 @@ class HexViewerToolFragment : Fragment() {
     private lateinit var fileInfoText: TextView
     private lateinit var hexContent: TextView
     private lateinit var loadMoreButton: Button
+    private lateinit var scrollView: ScrollView
 
     private var currentFile: File? = null
     private var currentOffset = 0L
@@ -45,6 +47,7 @@ class HexViewerToolFragment : Fragment() {
         fileInfoText = view.findViewById(R.id.fileInfoText)
         hexContent = view.findViewById(R.id.hexContent)
         loadMoreButton = view.findViewById(R.id.loadMoreButton)
+        scrollView = view.findViewById(R.id.hexScrollView)
 
         loadMoreButton.setOnClickListener { loadMore() }
 
@@ -76,6 +79,7 @@ class HexViewerToolFragment : Fragment() {
             hexBuilder.append(text)
             hexContent.text = hexBuilder.toString()
             loadMoreButton.isVisible = hasMore
+            scrollView.post { scrollView.fullScroll(ScrollView.FOCUS_DOWN) }
         }
     }
 

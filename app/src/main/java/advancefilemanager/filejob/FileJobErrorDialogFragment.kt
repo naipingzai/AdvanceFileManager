@@ -43,6 +43,7 @@ import com.advancefilemanager.util.putState
 import com.advancefilemanager.util.readParcelable
 import com.advancefilemanager.util.showToast
 import com.advancefilemanager.util.viewModels
+import com.advancefilemanager.ui.applyOverlay
 
 class FileJobErrorDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -89,6 +90,7 @@ class FileJobErrorDialogFragment : AppCompatDialogFragment() {
             .setNegativeButton(args.negativeButtonText, ::onDialogButtonClick)
             .setNeutralButton(args.neutralButtonText, ::onDialogButtonClick)
             .create()
+            .applyOverlay(requireContext())
             .apply { setCanceledOnTouchOutside(false) }
 
     private fun remount() {
@@ -199,4 +201,5 @@ class FileJobErrorDialogFragment : AppCompatDialogFragment() {
     private class State(
         val isAllChecked: Boolean
     ) : ParcelableState
+
 }

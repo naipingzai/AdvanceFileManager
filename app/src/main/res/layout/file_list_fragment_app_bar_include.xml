@@ -21,7 +21,7 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="?actionBarSize"
             app:layout_scrollFlags="@integer/file_list_toolbar_scroll_flags">
 
             <com.advancefilemanager.ui.CrossfadeSubtitleToolbar

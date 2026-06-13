@@ -17,6 +17,7 @@ import com.advancefilemanager.util.ParcelableArgs
 import com.advancefilemanager.util.args
 import com.advancefilemanager.util.putArgs
 import com.advancefilemanager.util.show
+import com.advancefilemanager.ui.applyOverlay
 
 class OpenApkDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -32,6 +33,7 @@ class OpenApkDialogFragment : AppCompatDialogFragment() {
             .setNegativeButton(R.string.view) { _, _ -> listener.viewApk(args.file) }
             .setNeutralButton(android.R.string.cancel, null)
             .create()
+            .applyOverlay(requireContext())
     }
 
     companion object {

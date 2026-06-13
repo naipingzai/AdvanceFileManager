@@ -638,7 +638,7 @@
 
     <string name="hex_viewer_title">Hex viewer</string>
     <string name="hex_viewer_file_size">File size: %1$s</string>
-    <string name="hex_viewer_load_more">Load remaining (%1$s)</string>
+    <string name="hex_viewer_load_more">Load remaining</string>
     <string name="hex_viewer_load_more_retry">Retry loading</string>
     <string name="hex_viewer_loading">Loading…</string>
     <string name="hex_viewer_go_to_offset">Go to offset</string>
@@ -1109,6 +1109,18 @@
     <string name="basic_settings_copy_path_desc">Copy file path to clipboard</string>
     <string name="basic_settings_add_bookmark_desc">Add folder to bookmarks</string>
     <string name="basic_settings_properties_desc">View file properties</string>
+    <string name="basic_settings_create_file">Create File</string>
+    <string name="basic_settings_create_file_desc">Create new file in current directory</string>
+    <string name="basic_settings_create_directory">Create Folder</string>
+    <string name="basic_settings_create_directory_desc">Create new folder in current directory</string>
+
+    <!-- Background Blur Settings -->
+    <string name="settings_background_blur_title">Background Blur</string>
+    <string name="settings_blur_dialog_title">Dialog Blur</string>
+    <string name="settings_blur_dialog_desc">Blur background when dialog appears</string>
+    <string name="settings_blur_expandable_title">Expandable Content Blur</string>
+    <string name="settings_blur_expandable_desc">Blur background when expandable content appears</string>
+    <string name="off">Off</string>
 
     <!-- UI Display Settings -->
     <string name="ui_settings_title">Display Settings</string>
@@ -1127,6 +1139,9 @@
     <string name="ui_settings_dialog_padding_subtitle">Adjust dialog content padding</string>
     <string name="ui_settings_button_spacing_title">Button Spacing</string>
     <string name="ui_settings_button_spacing_subtitle">Adjust spacing between buttons</string>
+    <string name="ui_settings_preset_title">Display Preset</string>
+    <string name="ui_settings_blur_intensity_title">Background Blur</string>
+    <string name="ui_settings_blur_intensity_subtitle">Adjust dim intensity for dialogs and menus (0-100)</string>
     <string name="ui_settings_preview_title">Preview</string>
     <string name="ui_settings_reset_title">Reset to Default</string>
     <string name="ui_settings_reset_message">Reset all display settings to default?</string>
@@ -1134,16 +1149,14 @@
     <string name="ui_settings_scale_default">Default</string>
     <string name="ui_settings_scale_relaxed">Relaxed</string>
     <string-array name="ui_settings_scale_entries">
-        <item>Compact</item>
-        <item>Default</item>
-        <item>Relaxed</item>
-        <item>Custom</item>
+        <item>Mode A</item>
+        <item>Mode B</item>
+        <item>Mode C</item>
     </string-array>
     <string-array name="ui_settings_scale_values">
-        <item>compact</item>
-        <item>default</item>
-        <item>relaxed</item>
-        <item>custom</item>
+        <item>mode_a</item>
+        <item>mode_b</item>
+        <item>mode_c</item>
     </string-array>
 
     <!-- Missing string resources for layouts -->

@@ -90,24 +90,14 @@ class ImageViewerFragment : Fragment(), ConfirmDeleteDialogFragment.Listener {
         activity.setSupportActionBar(binding.toolbar)
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        // Register menu provider for delete and share actions
+        // Register menu provider for home button
         activity.addMenuProvider(object : MenuProvider {
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                menuInflater.inflate(R.menu.image_viewer, menu)
-            }
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {}
 
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 return when (menuItem.itemId) {
                     android.R.id.home -> {
                         activity.onBackPressed()
-                        true
-                    }
-                    R.id.action_delete -> {
-                        confirmDelete()
-                        true
-                    }
-                    R.id.action_share -> {
-                        share()
                         true
                     }
                     else -> false

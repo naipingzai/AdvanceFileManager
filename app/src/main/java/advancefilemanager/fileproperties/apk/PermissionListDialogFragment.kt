@@ -28,6 +28,7 @@ import com.advancefilemanager.util.layoutInflater
 import com.advancefilemanager.util.putArgs
 import com.advancefilemanager.util.show
 import com.advancefilemanager.util.viewModels
+import com.advancefilemanager.ui.applyOverlay
 
 class PermissionListDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -61,6 +62,7 @@ class PermissionListDialogFragment : AppCompatDialogFragment() {
             }
             .setPositiveButton(android.R.string.ok, null)
             .create()
+            .applyOverlay(requireContext())
 
     private fun onPermissionListChanged(stateful: Stateful<List<PermissionItem>>) {
         when (stateful) {
@@ -94,4 +96,5 @@ class PermissionListDialogFragment : AppCompatDialogFragment() {
 
     @Parcelize
     class Args(val permissionNames: Array<String>) : ParcelableArgs
+
 }

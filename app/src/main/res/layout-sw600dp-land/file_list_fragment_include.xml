@@ -40,6 +40,17 @@
 
         <include layout="@layout/file_list_fragment_bottom_bar_include" />
 
-        <include layout="@layout/file_list_fragment_speed_dial_include" />
+        <!-- 背景遮罩层 -->
+        <ImageView
+            android:id="@+id/backgroundOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="fill"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone"
+            android:fitsSystemWindows="true"
+            android:scaleType="fitXY" />
+
     </com.advancefilemanager.ui.PersistentBarLayout>
 </merge>

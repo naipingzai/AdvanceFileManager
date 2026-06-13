@@ -16,6 +16,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.parcelize.Parcelize
 import com.advancefilemanager.R
+import com.advancefilemanager.ui.BackgroundOverlayManager
 import com.advancefilemanager.compat.DocumentsContractCompat
 import com.advancefilemanager.databinding.EditExternalStorageShortcutDialogBinding
 import com.advancefilemanager.file.ExternalStorageUri
@@ -61,6 +62,7 @@ class EditExternalStorageShortcutDialogFragment : AppCompatDialogFragment() {
                 // Override the listener here so that we have control over when to close the dialog.
                 setOnShowListener {
                     getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener { save() }
+                    BackgroundOverlayManager.applyDialogOverlay(requireContext(), this@apply)
                 }
             }
 

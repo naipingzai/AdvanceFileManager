@@ -84,6 +84,10 @@
         <item name="appCardIconContainerSize">@dimen/app_card_icon_container_size</item>
         <item name="appCardIconSize">@dimen/app_card_icon_size</item>
         <item name="appScreenEdgeMargin">@dimen/app_screen_edge_margin</item>
+
+        <!-- Dialog text appearance override -->
+        <item name="materialAlertDialogBodyTextStyle">@style/TextAppearance.App.DialogBody</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/TextAppearance.App.DialogTitle</item>
     </style>
     <style name="Theme.MaterialFiles.Material3" parent="Base.Theme.MaterialFiles.Material3" />
 

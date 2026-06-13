@@ -8,13 +8,16 @@ package com.advancefilemanager.feature.ffmpegtools
 import com.advancefilemanager.R
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.advancefilemanager.app.AppActivity
 import com.advancefilemanager.feature.protocol.FeatureContract
 import com.advancefilemanager.databinding.ActivityFfmpegToolsBinding
+import com.advancefilemanager.feature.filetools.SelectedFilesAdapter
 import java.io.File
 
-class FFmpegToolsActivity : AppCompatActivity() {
+class FFmpegToolsActivity : AppActivity() {
 
     private lateinit var binding: ActivityFfmpegToolsBinding
 
@@ -43,10 +46,31 @@ class FFmpegToolsActivity : AppCompatActivity() {
 
         supportActionBar?.title = getString(feature.titleRes)
 
+        setupSelectedFilesPreview(filePaths, filePath)
+
         val file = File(filePath)
         val fragment = FFmpegFeatureFragment.newInstance(feature, file.absolutePath, filePaths)
         supportFragmentManager.beginTransaction()
             .replace(R.id.content, fragment)
             .commit()
+    }
+
+    private fun setupSelectedFilesPreview(filePaths: Array<String>?, filePath: String?) {
+        val paths = filePaths?.toList() ?: filePath?.let { listOf(it) }
+        if (!paths.isNullOrEmpty() && paths.size > 1) {
+            val files = paths.map { File(it) }.filter { it.exists() }
+            if (files.size > 1) {
+                binding.selectedFilesPreview.root.visibility = View.VISIBLE
+                binding.selectedFilesPreview.selectedFilesTitle.text = "已选择 ${files.size} 个文件"
+                binding.selectedFilesPreview.selectedFilesRecyclerView.apply {
+                    layoutManager = LinearLayoutManager(
+                        this@FFmpegToolsActivity,
+                        LinearLayoutManager.HORIZONTAL,
+                        false
+                    )
+                    adapter = SelectedFilesAdapter(files)
+                }
+            }
+        }
     }
 }

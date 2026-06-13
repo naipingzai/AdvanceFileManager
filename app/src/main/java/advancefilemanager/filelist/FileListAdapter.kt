@@ -52,6 +52,7 @@ import com.advancefilemanager.settings.BasicSettings
 import com.advancefilemanager.ui.AnimatedListAdapter
 import com.advancefilemanager.ui.CheckableForegroundLinearLayout
 import com.advancefilemanager.ui.CheckableItemBackground
+import com.advancefilemanager.ui.BackgroundOverlayManager
 import com.advancefilemanager.util.isMaterial3Theme
 import com.advancefilemanager.util.layoutInflater
 import com.advancefilemanager.util.valueCompat
@@ -226,7 +227,10 @@ class FileListAdapter(
                     inflate(R.menu.file_item)
                     menu.setGroupDividerEnabledCompat(true)
                 }
-            menuButton.setOnClickListener { popupMenu.show() }
+            menuButton.setOnClickListener {
+                BackgroundOverlayManager.onPopupMenuShow(popupMenu, menuButton)
+                popupMenu.show()
+            }
         }
     }
 

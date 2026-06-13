@@ -28,6 +28,7 @@ import com.advancefilemanager.util.launchSafe
 import com.advancefilemanager.util.layoutInflater
 import com.advancefilemanager.util.putState
 import com.advancefilemanager.util.setTextWithSelection
+import com.advancefilemanager.ui.applyOverlay
 
 class EditBookmarkDirectoryDialogFragment : AppCompatDialogFragment() {
     private val openPathLauncher =
@@ -63,6 +64,7 @@ class EditBookmarkDirectoryDialogFragment : AppCompatDialogFragment() {
             .setNegativeButton(android.R.string.cancel) { dialog, _ -> dialog.cancel() }
             .setNeutralButton(R.string.remove) { _, _ -> remove() }
             .create()
+            .applyOverlay(requireContext())
             .apply {
                 window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
             }
@@ -111,4 +113,5 @@ class EditBookmarkDirectoryDialogFragment : AppCompatDialogFragment() {
 
     @Parcelize
     private class State(var path: @WriteWith<ParcelableParceler> Path) : ParcelableState
+
 }

@@ -37,6 +37,7 @@ import com.advancefilemanager.util.extraPath
 import com.advancefilemanager.util.finish
 import java8.nio.file.Path
 import java.io.ByteArrayOutputStream
+import com.advancefilemanager.ui.applyOverlay
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets
 
@@ -316,6 +317,8 @@ class LargeTextViewerFragment : Fragment() {
                     ?.scrollToPositionWithOffset(position, 0)
             }
             .setNegativeButton(android.R.string.cancel, null)
+            .create()
+            .applyOverlay(requireContext())
             .show()
         input.requestFocus()
     }

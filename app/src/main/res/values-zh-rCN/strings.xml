@@ -506,7 +506,7 @@
 
     <string name="hex_viewer_title">十六进制查看器</string>
     <string name="hex_viewer_file_size">文件大小：%1$s</string>
-    <string name="hex_viewer_load_more">加载剩余部分（%1$s）</string>
+    <string name="hex_viewer_load_more">加载剩余部分</string>
     <string name="hex_viewer_load_more_retry">重试加载</string>
     <string name="hex_viewer_loading">加载中…</string>
     <string name="hex_viewer_go_to_offset">跳转到偏移</string>
@@ -973,6 +973,18 @@
     <string name="basic_settings_copy_path_desc">复制文件路径到剪贴板</string>
     <string name="basic_settings_add_bookmark_desc">将文件夹添加到书签</string>
     <string name="basic_settings_properties_desc">查看文件属性详情</string>
+    <string name="basic_settings_create_file">新建文件</string>
+    <string name="basic_settings_create_file_desc">在当前目录创建新文件</string>
+    <string name="basic_settings_create_directory">新建文件夹</string>
+    <string name="basic_settings_create_directory_desc">在当前目录创建新文件夹</string>
+
+    <!-- Background Blur Settings -->
+    <string name="settings_background_blur_title">背景模糊</string>
+    <string name="settings_blur_dialog_title">弹窗背景模糊</string>
+    <string name="settings_blur_dialog_desc">弹窗出现时模糊背景</string>
+    <string name="settings_blur_expandable_title">展开内容背景模糊</string>
+    <string name="settings_blur_expandable_desc">展开内容出现时模糊背景</string>
+    <string name="off">关闭</string>
 
     <!-- UI Display Settings -->
     <string name="ui_settings_title">显示设置</string>
@@ -991,6 +1003,9 @@
     <string name="ui_settings_dialog_padding_subtitle">调整对话框内容的内边距</string>
     <string name="ui_settings_button_spacing_title">按钮间距</string>
     <string name="ui_settings_button_spacing_subtitle">调整按钮之间的间距</string>
+    <string name="ui_settings_preset_title">显示预设</string>
+    <string name="ui_settings_blur_intensity_title">背景模糊</string>
+    <string name="ui_settings_blur_intensity_subtitle">调整弹窗和菜单的背景模糊程度（0-100）</string>
     <string name="ui_settings_preview_title">预览效果</string>
     <string name="ui_settings_reset_title">恢复默认</string>
     <string name="ui_settings_reset_message">确定要恢复所有显示设置为默认值吗？</string>
@@ -998,9 +1013,8 @@
     <string name="ui_settings_scale_default">默认</string>
     <string name="ui_settings_scale_relaxed">宽松</string>
     <string-array name="ui_settings_scale_entries">
-        <item>紧凑</item>
-        <item>默认</item>
-        <item>宽松</item>
-        <item>自定义</item>
+        <item>模式 A</item>
+        <item>模式 B</item>
+        <item>模式 C</item>
     </string-array>
 </resources>

@@ -23,6 +23,8 @@ import com.advancefilemanager.settings.BookmarkDirectoryListFragment
 import com.advancefilemanager.util.createIntent
 import com.advancefilemanager.util.startActivitySafe
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.materialswitch.MaterialSwitch
+import com.advancefilemanager.ui.applyOverlay
 
 class SettingsFragment : Fragment() {
 
@@ -151,6 +153,8 @@ class SettingsFragment : Fragment() {
                     AppCompatDelegate.setApplicationLocales(localeList)
                     dialog.dismiss()
                 }
+                .create()
+                .applyOverlay(context)
                 .show()
         }
 
@@ -199,6 +203,8 @@ class SettingsFragment : Fragment() {
                     notifyDataSetChanged()
                     dialog.dismiss()
                 }
+                .create()
+                .applyOverlay(context)
                 .show()
         }
 
@@ -215,6 +221,8 @@ class SettingsFragment : Fragment() {
                     notifyDataSetChanged()
                     dialog.dismiss()
                 }
+                .create()
+                .applyOverlay(context)
                 .show()
         }
 
@@ -230,6 +238,8 @@ class SettingsFragment : Fragment() {
                     notifyDataSetChanged()
                     dialog.dismiss()
                 }
+                .create()
+                .applyOverlay(context)
                 .show()
         }
 
@@ -246,6 +256,8 @@ class SettingsFragment : Fragment() {
                     notifyDataSetChanged()
                     dialog.dismiss()
                 }
+                .create()
+                .applyOverlay(context)
                 .show()
         }
 

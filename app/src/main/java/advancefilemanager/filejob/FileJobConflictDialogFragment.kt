@@ -53,6 +53,7 @@ import com.advancefilemanager.util.readParcelable
 import com.advancefilemanager.util.setTextWithSelection
 import com.advancefilemanager.util.shortAnimTime
 import com.advancefilemanager.util.showSoftInput
+import com.advancefilemanager.ui.applyOverlay
 
 class FileJobConflictDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -139,6 +140,7 @@ class FileJobConflictDialogFragment : AppCompatDialogFragment() {
             .setNegativeButton(R.string.skip, ::onDialogButtonClick)
             .setNeutralButton(android.R.string.cancel, ::onDialogButtonClick)
             .create()
+            .applyOverlay(requireContext())
             .apply {
                 setCanceledOnTouchOutside(false)
                 window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
@@ -355,4 +357,5 @@ class FileJobConflictDialogFragment : AppCompatDialogFragment() {
     private class State(
         val isAllChecked: Boolean
     ) : ParcelableState
+
 }

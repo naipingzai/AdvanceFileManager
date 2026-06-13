@@ -5,7 +5,7 @@
 
 package com.advancefilemanager.feature.filetools
 
-import android.app.AlertDialog
+import androidx.appcompat.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +21,7 @@ import com.advancefilemanager.R
 import com.advancefilemanager.databinding.FragmentEncryptionBinding
 import kotlinx.coroutines.*
 import java.io.File
+import com.advancefilemanager.ui.applyOverlay
 
 class EncryptionToolFragment : Fragment() {
 
@@ -48,6 +49,13 @@ class EncryptionToolFragment : Fragment() {
     }
 
     private fun loadFiles() {
+        val passedPaths = arguments?.getStringArray("filePaths")
+        if (!passedPaths.isNullOrEmpty()) {
+            files.clear()
+            files.addAll(passedPaths.map { File(it) }.filter { it.isFile }.sortedBy { it.name })
+            adapter.notifyDataSetChanged()
+            return
+        }
         val rootPath = arguments?.getString("filePath") ?: "/sdcard"
         val rootDir = File(rootPath)
         scope.launch {
@@ -85,6 +93,8 @@ class EncryptionToolFragment : Fragment() {
                 processFiles(selected, password, encrypt)
             }
             .setNegativeButton("取消", null)
+            .create()
+            .applyOverlay(requireContext())
             .show()
     }
 

@@ -28,6 +28,7 @@ import com.advancefilemanager.util.args
 import com.advancefilemanager.util.layoutInflater
 import com.advancefilemanager.util.putArgs
 import com.advancefilemanager.util.show
+import com.advancefilemanager.ui.BackgroundOverlayManager
 
 class BatchRenameDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -67,6 +68,7 @@ class BatchRenameDialogFragment : AppCompatDialogFragment() {
                 window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
                 setOnShowListener {
                     getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener { onOk() }
+                    BackgroundOverlayManager.applyDialogOverlay(requireContext(), this@apply)
                 }
             }
     }

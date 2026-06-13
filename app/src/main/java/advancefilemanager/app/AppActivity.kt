@@ -10,8 +10,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import com.advancefilemanager.settings.UiSettingsManager
+import com.advancefilemanager.ui.BackgroundOverlayManager
 
 abstract class AppActivity : AppCompatActivity() {
 
@@ -45,5 +47,14 @@ abstract class AppActivity : AppCompatActivity() {
         }
         return true
     }
-}
 
+    override fun onMenuOpened(featureId: Int, menu: Menu): Boolean {
+        BackgroundOverlayManager.showDimOverlay(this)
+        return super.onMenuOpened(featureId, menu)
+    }
+
+    override fun onPanelClosed(featureId: Int, menu: Menu) {
+        BackgroundOverlayManager.hideOverlay(this)
+        super.onPanelClosed(featureId, menu)
+    }
+}

@@ -23,6 +23,7 @@ import com.advancefilemanager.util.args
 import com.advancefilemanager.util.layoutInflater
 import com.advancefilemanager.util.putArgs
 import com.advancefilemanager.util.show
+import com.advancefilemanager.ui.applyOverlay
 
 class SetSeLinuxContextDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -46,6 +47,7 @@ class SetSeLinuxContextDialogFragment : AppCompatDialogFragment() {
                 R.string.file_properties_permission_set_selinux_context_restore
             ) { _, _ -> restoreSeLinuxContext() }
             .create()
+            .applyOverlay(requireContext())
             .apply {
                 window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
             }
@@ -82,4 +84,5 @@ class SetSeLinuxContextDialogFragment : AppCompatDialogFragment() {
 
     @Parcelize
     class Args(val file: FileItem) : ParcelableArgs
+
 }

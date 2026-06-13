@@ -23,6 +23,7 @@ import kotlinx.parcelize.Parceler
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.WriteWith
 import com.advancefilemanager.R
+import com.advancefilemanager.ui.BackgroundOverlayManager
 import com.advancefilemanager.compat.requireViewByIdCompat
 import com.advancefilemanager.databinding.ArchivePasswordDialogBinding
 import com.advancefilemanager.provider.archive.archiveAddPassword
@@ -81,6 +82,7 @@ class ArchivePasswordDialogFragment : AppCompatDialogFragment() {
                 // Override the listener here so that we have control over when to close the dialog.
                 setOnShowListener {
                     getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener { onOk() }
+                    BackgroundOverlayManager.applyDialogOverlay(requireContext(), this@apply)
                 }
                 window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
             }

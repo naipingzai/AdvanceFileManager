@@ -18,6 +18,7 @@ import androidx.core.view.isVisible
 import java8.nio.file.Path
 import com.advancefilemanager.R
 import com.advancefilemanager.settings.BasicSettings
+import com.advancefilemanager.ui.BackgroundOverlayManager
 import com.advancefilemanager.databinding.BreadcrumbItemBinding
 import com.advancefilemanager.util.getColorByAttr
 import com.advancefilemanager.util.getDimensionPixelSize
@@ -163,6 +164,7 @@ class BreadcrumbLayout : HorizontalScrollView {
             val menu = PopupMenu(popupContext, binding.root)
                 .apply { inflate(R.menu.file_list_breadcrumb) }
             binding.root.setOnLongClickListener {
+                BackgroundOverlayManager.onPopupMenuShow(menu, binding.root)
                 menu.show()
                 true
             }

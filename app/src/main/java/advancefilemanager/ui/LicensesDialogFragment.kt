@@ -19,6 +19,7 @@ import com.advancefilemanager.util.ParcelableState
 import com.advancefilemanager.util.getState
 import com.advancefilemanager.util.putState
 import com.advancefilemanager.util.show
+import com.advancefilemanager.ui.applyOverlay
 
 class LicensesDialogFragment : AppCompatDialogFragment() {
     private lateinit var notices: Notices
@@ -46,6 +47,7 @@ class LicensesDialogFragment : AppCompatDialogFragment() {
             .apply { setLicensesView(notices) }
             .setNegativeButton(R.string.close, null)
             .create()
+            .applyOverlay(requireContext())
 
     companion object {
         fun show(fragment: Fragment) {
@@ -55,4 +57,5 @@ class LicensesDialogFragment : AppCompatDialogFragment() {
 
     @Parcelize
     private class State(val notices: Notices) : ParcelableState
+
 }

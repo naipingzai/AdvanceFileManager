@@ -19,6 +19,7 @@ import com.advancefilemanager.util.ParcelableParceler
 import com.advancefilemanager.util.args
 import com.advancefilemanager.util.putArgs
 import com.advancefilemanager.util.show
+import com.advancefilemanager.ui.applyOverlay
 
 class ConfirmDeleteDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -32,6 +33,7 @@ class ConfirmDeleteDialogFragment : AppCompatDialogFragment() {
             .setPositiveButton(android.R.string.ok) { _, _ -> listener.delete(args.path) }
             .setNegativeButton(android.R.string.cancel, null)
             .create()
+            .applyOverlay(requireContext())
     }
 
     companion object {
@@ -46,4 +48,5 @@ class ConfirmDeleteDialogFragment : AppCompatDialogFragment() {
     interface Listener {
         fun delete(path: Path)
     }
+
 }

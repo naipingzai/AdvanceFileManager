@@ -20,6 +20,7 @@ import com.advancefilemanager.util.args
 import com.advancefilemanager.util.finish
 import com.advancefilemanager.util.layoutInflater
 import com.advancefilemanager.util.setTextWithSelection
+import com.advancefilemanager.ui.applyOverlay
 
 class EditDocumentTreeDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -50,6 +51,7 @@ class EditDocumentTreeDialogFragment : AppCompatDialogFragment() {
             .setNegativeButton(android.R.string.cancel) { dialog, _ -> dialog.cancel() }
             .setNeutralButton(R.string.remove) { _, _ -> remove() }
             .create()
+            .applyOverlay(requireContext())
             .apply {
                 window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
             }
@@ -75,4 +77,5 @@ class EditDocumentTreeDialogFragment : AppCompatDialogFragment() {
 
     @Parcelize
     class Args(val documentTree: DocumentTree) : ParcelableArgs
+
 }

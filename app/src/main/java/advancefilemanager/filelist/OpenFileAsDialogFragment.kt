@@ -27,6 +27,7 @@ import com.advancefilemanager.util.finish
 import com.advancefilemanager.util.putArgs
 import com.advancefilemanager.util.startActivitySafe
 import com.advancefilemanager.util.withChooser
+import com.advancefilemanager.ui.applyOverlay
 
 class OpenFileAsDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -41,6 +42,7 @@ class OpenFileAsDialogFragment : AppCompatDialogFragment() {
                 }
             }
             .create()
+            .applyOverlay(requireContext())
 
     private fun openAs(mimeType: MimeType) {
         val intent = args.path.fileProviderUri.createViewIntent(mimeType)

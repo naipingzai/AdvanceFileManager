@@ -107,6 +107,8 @@ class FeatureSettingsFragment : Fragment() {
 
         private fun buildBasicItems(): List<ListItem> {
             return listOf(
+                ListItem.BasicItem("create_file", R.string.basic_settings_create_file, R.string.basic_settings_create_file_desc),
+                ListItem.BasicItem("create_directory", R.string.basic_settings_create_directory, R.string.basic_settings_create_directory_desc),
                 ListItem.BasicItem("open_with", R.string.basic_settings_open_with, R.string.basic_settings_open_with_desc),
                 ListItem.BasicItem("archive", R.string.file_item_action_archive, R.string.basic_settings_archive_desc),
                 ListItem.BasicItem("share", R.string.share, R.string.basic_settings_share_desc),

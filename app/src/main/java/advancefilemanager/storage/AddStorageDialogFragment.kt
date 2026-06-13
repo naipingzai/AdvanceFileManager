@@ -14,6 +14,7 @@ import com.advancefilemanager.R
 import com.advancefilemanager.util.createIntent
 import com.advancefilemanager.util.finish
 import com.advancefilemanager.util.startActivitySafe
+import com.advancefilemanager.ui.applyOverlay
 
 class AddStorageDialogFragment : AppCompatDialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
@@ -27,6 +28,7 @@ class AddStorageDialogFragment : AppCompatDialogFragment() {
                 }
             }
             .create()
+            .applyOverlay(requireContext())
 
     override fun onCancel(dialog: DialogInterface) {
         super.onCancel(dialog)
@@ -40,4 +42,5 @@ class AddStorageDialogFragment : AppCompatDialogFragment() {
                 AddDocumentTreeActivity::class.createIntent(),
         )
     }
+
 }

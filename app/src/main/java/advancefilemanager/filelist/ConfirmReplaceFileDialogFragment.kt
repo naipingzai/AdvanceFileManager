@@ -17,6 +17,7 @@ import com.advancefilemanager.util.ParcelableArgs
 import com.advancefilemanager.util.args
 import com.advancefilemanager.util.putArgs
 import com.advancefilemanager.util.show
+import com.advancefilemanager.ui.BackgroundOverlayManager
 
 class ConfirmReplaceFileDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -31,6 +32,11 @@ class ConfirmReplaceFileDialogFragment : AppCompatDialogFragment() {
             .setPositiveButton(android.R.string.ok) { _, _ -> listener.replaceFile(file) }
             .setNegativeButton(android.R.string.cancel, null)
             .create()
+            .apply {
+                setOnShowListener {
+                    BackgroundOverlayManager.applyDialogOverlay(requireContext(), this@apply)
+                }
+            }
     }
 
     companion object {

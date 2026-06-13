@@ -43,7 +43,6 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.leinardi.android.speeddial.SpeedDialView
 import java8.nio.file.Path
 import java8.nio.file.Paths
 import kotlinx.parcelize.Parcelize
@@ -57,7 +56,6 @@ import com.advancefilemanager.databinding.FileListFragmentBinding
 import com.advancefilemanager.databinding.FileListFragmentBottomBarIncludeBinding
 import com.advancefilemanager.databinding.FileListFragmentContentIncludeBinding
 import com.advancefilemanager.databinding.FileListFragmentIncludeBinding
-import com.advancefilemanager.databinding.FileListFragmentSpeedDialIncludeBinding
 import com.advancefilemanager.file.FileItem
 import com.advancefilemanager.file.MimeType
 import com.advancefilemanager.file.asMimeTypeOrNull
@@ -85,6 +83,7 @@ import com.advancefilemanager.provider.archive.isArchivePath
 import com.advancefilemanager.provider.linux.isLinuxPath
 import com.advancefilemanager.settings.Settings
 import com.advancefilemanager.ui.AppBarLayoutExpandHackListener
+import com.advancefilemanager.ui.BackgroundOverlayManager
 import com.advancefilemanager.ui.CoordinatorAppBarLayout
 import com.advancefilemanager.ui.DrawerLayoutOnBackPressedCallback
 import com.advancefilemanager.ui.OverlayToolbarActionMode
@@ -92,7 +91,6 @@ import com.advancefilemanager.ui.PersistentBarLayout
 import com.advancefilemanager.ui.PersistentBarLayoutToolbarActionMode
 import com.advancefilemanager.ui.PersistentDrawerLayout
 import com.advancefilemanager.ui.ScrollingViewOnApplyWindowInsetsListener
-import com.advancefilemanager.ui.SpeedDialViewOnBackPressedCallback
 import com.advancefilemanager.ui.ThemedFastScroller
 import com.advancefilemanager.ui.ToolbarActionMode
 import com.advancefilemanager.util.DebouncedRunnable
@@ -212,7 +210,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                 updateShowHiddenFilesMenuItem()
             }
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                return when (menuItem.itemId) {
+                val handled = when (menuItem.itemId) {
                     android.R.id.home -> {
                         binding.drawerLayout?.openDrawer(GravityCompat.START)
                         if (binding.persistentDrawerLayout != null) {
@@ -224,6 +222,8 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                     }
                     R.id.action_view_list -> { viewModel.viewType = FileViewType.LIST; true }
                     R.id.action_view_grid -> { viewModel.viewType = FileViewType.GRID; true }
+                    R.id.action_create_file -> { showCreateFileDialog(); true }
+                    R.id.action_create_directory -> { showCreateDirectoryDialog(); true }
                     R.id.action_sort_by_name -> { viewModel.setSortBy(By.NAME); true }
                     R.id.action_sort_by_type -> { viewModel.setSortBy(By.TYPE); true }
                     R.id.action_sort_by_last_modified -> { viewModel.setSortBy(By.LAST_MODIFIED); true }
@@ -241,6 +241,10 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                     }
                     else -> false
                 }
+                if (handled) {
+                    BackgroundOverlayManager.hideOverlay(requireContext())
+                }
+                return handled
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
@@ -290,14 +294,15 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         binding.recyclerView.setOnApplyWindowInsetsListener(
             ScrollingViewOnApplyWindowInsetsListener(binding.recyclerView, fastScroller)
         )
-        binding.speedDialView.inflate(R.menu.file_list_speed_dial)
-        binding.speedDialView.setOnActionSelectedListener {
-            when (it.id) {
-                R.id.action_create_file -> showCreateFileDialog()
-                R.id.action_create_directory -> showCreateDirectoryDialog()
+
+        // 初始化背景遮罩层
+        BackgroundOverlayManager.init(binding.backgroundOverlay)
+
+        // 监听窗口焦点变化，检测菜单弹出
+        binding.root.viewTreeObserver.addOnWindowFocusChangeListener { hasFocus ->
+            if (hasFocus) {
+                BackgroundOverlayManager.forceHide()
             }
-            binding.speedDialView.close()
-            true
         }
 
         val viewLifecycleOwner = viewLifecycleOwner
@@ -314,7 +319,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                 }
         )
         addOnBackPressedCallback(overlayActionMode.onBackPressedCallback)
-        addOnBackPressedCallback(SpeedDialViewOnBackPressedCallback(binding.speedDialView))
         binding.drawerLayout?.let {
             addOnBackPressedCallback(DrawerLayoutOnBackPressedCallback(it))
         }
@@ -544,7 +548,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
     private fun onViewTypeChanged(viewType: FileViewType) {
         updateSpanCount()
         adapter.viewType = viewType
-        updateViewSortMenuItems()
     }
 
     private fun updateSpanCount() {
@@ -564,7 +567,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
 
     private fun onSortOptionsChanged(sortOptions: FileSortOptions) {
         adapter.sortOptions = sortOptions
-        updateViewSortMenuItems()
     }
 
     private fun updateViewSortMenuItems() {
@@ -1754,7 +1756,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
         val bottomBarLayout: ViewGroup,
         val bottomToolbar: Toolbar,
         val bottomCreateFileNameEdit: EditText,
-        val speedDialView: SpeedDialView
+        val backgroundOverlay: View
     ) {
         companion object {
             fun inflate(
@@ -1768,7 +1770,6 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                 val appBarBinding = FileListFragmentAppBarIncludeBinding.bind(bindingRoot)
                 val contentBinding = FileListFragmentContentIncludeBinding.bind(bindingRoot)
                 val bottomBarBinding = FileListFragmentBottomBarIncludeBinding.bind(bindingRoot)
-                val speedDialBinding = FileListFragmentSpeedDialIncludeBinding.bind(bindingRoot)
                 return Binding(
                     bindingRoot, includeBinding.drawerLayout, includeBinding.persistentDrawerLayout,
                     includeBinding.persistentBarLayout, appBarBinding.appBarLayout,
@@ -1777,7 +1778,8 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                     contentBinding.progress, contentBinding.errorText, contentBinding.emptyView,
                     contentBinding.swipeRefreshLayout, contentBinding.recyclerView,
                     bottomBarBinding.bottomBarLayout, bottomBarBinding.bottomToolbar,
-                    bottomBarBinding.bottomCreateFileNameEdit, speedDialBinding.speedDialView
+                    bottomBarBinding.bottomCreateFileNameEdit,
+                    includeBinding.backgroundOverlay
                 )
             }
         }

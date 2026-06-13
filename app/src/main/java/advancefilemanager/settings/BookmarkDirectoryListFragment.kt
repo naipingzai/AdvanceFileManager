@@ -32,6 +32,7 @@ import com.advancefilemanager.R
 import com.advancefilemanager.util.launchSafe
 import com.advancefilemanager.util.putArgs
 import com.advancefilemanager.util.startActivitySafe
+import com.advancefilemanager.ui.applyOverlay
 
 class BookmarkDirectoryListFragment : Fragment(), BookmarkDirectoryListAdapter.Listener {
     private val openPathLauncher =
@@ -134,6 +135,8 @@ class BookmarkDirectoryListFragment : Fragment(), BookmarkDirectoryListAdapter.L
                 BookmarkDirectories.remove(bookmarkDirectory)
             }
             .setNegativeButton(android.R.string.cancel, null)
+            .create()
+            .applyOverlay(requireContext())
             .show()
     }
 }

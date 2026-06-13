@@ -19,6 +19,7 @@ import com.advancefilemanager.util.args
 import com.advancefilemanager.util.finish
 import com.advancefilemanager.util.layoutInflater
 import com.advancefilemanager.util.setTextWithSelection
+import com.advancefilemanager.ui.applyOverlay
 
 class EditDeviceStorageDialogFragment : AppCompatDialogFragment() {
     private val args by args<Args>()
@@ -48,6 +49,7 @@ class EditDeviceStorageDialogFragment : AppCompatDialogFragment() {
                 if (deviceStorage.isVisible) R.string.hide else R.string.show
             ) { _, _ -> toggleVisibility() }
             .create()
+            .applyOverlay(requireContext())
             .apply {
                 window!!.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
             }
@@ -75,4 +77,5 @@ class EditDeviceStorageDialogFragment : AppCompatDialogFragment() {
 
     @Parcelize
     class Args(val deviceStorage: DeviceStorage) : ParcelableArgs
+
 }

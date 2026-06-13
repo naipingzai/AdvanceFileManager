@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.advancefilemanager.R
 import com.advancefilemanager.util.show
+import com.advancefilemanager.ui.applyOverlay
 
 class ShowRequestAllFilesAccessRationaleDialogFragment : AppCompatDialogFragment() {
     private val listener: Listener
@@ -28,6 +29,7 @@ class ShowRequestAllFilesAccessRationaleDialogFragment : AppCompatDialogFragment
                 listener.onShowRequestAllFilesAccessRationaleResult(false)
             }
             .create()
+            .applyOverlay(requireContext())
     }
 
     override fun onCancel(dialog: DialogInterface) {
@@ -45,4 +47,5 @@ class ShowRequestAllFilesAccessRationaleDialogFragment : AppCompatDialogFragment
     interface Listener {
         fun onShowRequestAllFilesAccessRationaleResult(shouldRequest: Boolean)
     }
+
 }

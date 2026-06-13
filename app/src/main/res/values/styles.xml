@@ -15,6 +15,7 @@
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="android:clipToPadding">false</item>
+        <item name="android:listSelector">@drawable/popup_list_selector</item>
     </style>
 
     <style name="Widget.MaterialFiles.CardView" parent="Widget.Material3.CardView.Elevated">
@@ -35,6 +36,8 @@
         <item name="android:textColorSecondary">?colorOnSurfaceVariant</item>
         <item name="colorAccent">?colorOnSurface</item>
         <item name="colorControlActivated">?colorOnSurface</item>
+        <item name="colorControlHighlight">@color/control_highlight_color</item>
+        <item name="listChoiceBackgroundIndicator">@drawable/popup_list_selector</item>
     </style>
 
 
@@ -179,7 +182,7 @@
     </style>
 
 
-    <style name="TextAppearance.App.DialogBody" parent="TextAppearance.Material3.BodyMedium">
+    <style name="TextAppearance.App.DialogBody" parent="TextAppearance.Material3.BodyLarge">
         <item name="fontFamily">@string/app_typeface_plain_regular</item>
         <item name="android:fontFamily">@string/app_typeface_plain_regular</item>
     </style>

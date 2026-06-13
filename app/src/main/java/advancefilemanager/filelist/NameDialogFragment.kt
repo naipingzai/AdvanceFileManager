@@ -21,6 +21,7 @@ import com.advancefilemanager.databinding.NameDialogNameIncludeBinding
 import com.advancefilemanager.util.hideTextInputLayoutErrorOnTextChange
 import com.advancefilemanager.util.layoutInflater
 import com.advancefilemanager.util.setOnEditorConfirmActionListener
+import com.advancefilemanager.ui.BackgroundOverlayManager
 
 abstract class NameDialogFragment : AppCompatDialogFragment() {
     private lateinit var _binding: Binding
@@ -54,6 +55,8 @@ abstract class NameDialogFragment : AppCompatDialogFragment() {
                 // Override the listener here so that we have control over when to close the dialog.
                 setOnShowListener {
                     getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener { onOk() }
+                    // 应用背景遮罩效果
+                    BackgroundOverlayManager.applyDialogOverlay(requireContext(), this@apply)
                 }
             }
 

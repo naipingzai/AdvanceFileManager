@@ -58,6 +58,18 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/action_create_file"
+        android:orderInCategory="110"
+        android:title="@string/file_create_file_title"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_create_directory"
+        android:orderInCategory="110"
+        android:title="@string/file_create_directory_title"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_entry_basic_tools"
         android:orderInCategory="200"
         android:title="@string/entry_settings_basic_section"
