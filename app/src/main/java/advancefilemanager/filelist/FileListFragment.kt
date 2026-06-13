@@ -232,11 +232,13 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                     }
                     R.id.action_create_file -> { showCreateFileDialog(); true }
                     R.id.action_create_directory -> { showCreateDirectoryDialog(); true }
-                    R.id.action_sort_by_name -> { viewModel.setSortBy(By.NAME); true }
-                    R.id.action_sort_by_type -> { viewModel.setSortBy(By.TYPE); true }
-                    R.id.action_sort_by_last_modified -> { viewModel.setSortBy(By.LAST_MODIFIED); true }
+                    R.id.action_sort_by_name -> { viewModel.setSortBy(By.NAME); activity?.invalidateMenu(); true }
+                    R.id.action_sort_by_type -> { viewModel.setSortBy(By.TYPE); activity?.invalidateMenu(); true }
+                    R.id.action_sort_by_size -> { viewModel.setSortBy(By.SIZE); activity?.invalidateMenu(); true }
+                    R.id.action_sort_by_last_modified -> { viewModel.setSortBy(By.LAST_MODIFIED); activity?.invalidateMenu(); true }
                     R.id.action_sort_directories_first -> {
                         viewModel.setSortDirectoriesFirst(!menuBinding.sortDirectoriesFirstItem.isChecked)
+                        activity?.invalidateMenu()
                         true
                     }
                     R.id.action_new_task -> { newTask(); true }
@@ -245,6 +247,7 @@ class FileListFragment : Fragment(), BreadcrumbLayout.Listener, FileListAdapter.
                     R.id.action_entry_media_tools -> { showEntrySettings(FeatureSettingsFragment.SECTION_MEDIA_TOOLS); true }
                     R.id.action_show_hidden_files -> {
                         setShowHiddenFiles(!menuBinding.showHiddenFilesItem.isChecked)
+                        activity?.invalidateMenu()
                         true
                     }
                     else -> false
